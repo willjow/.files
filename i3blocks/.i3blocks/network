@@ -1,0 +1,54 @@
+#!/bin/bash
+# From acleverpun on github
+
+# Shows ip address of a given interface
+#
+# @param {String} interface: The network interface to check
+
+full=""
+short=""
+color=""
+
+interface="${BLOCK_INSTANCE:-"eth0"}"
+netPath=/sys/class/net
+interfacePath=`echo $netPath/$interface`
+# Expand wildcard interfaces
+interface=${interfacePath#$netPath/}
+
+state="$(cat $interfacePath/operstate)"
+
+if [[ $state == "up" ]]; then
+	ipaddr="$(ip addr show $interface | perl -n -e'/inet (.+)\// && print $1')"
+    if [[ $ipaddr == "" ]]; then
+        ipaddr="no IP"
+    fi
+else
+    # if the interface is downright down (haha), it shouldn't be displayed
+    exit
+fi
+
+full="$ipaddr"
+
+quality=$(grep $interface /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+
+if [[ $state == "up" ]]; then
+    full="$full ($quality% at $(iw $interface link | grep SSID | cut -d " " -f 2-), $(iw $interface link | grep bitrate | cut -d " " -f 3) Mb/s)"
+fi
+short=$full
+
+# color
+if [[ $state != "up" ]]; then
+    color="#FF0000"
+elif [[ $quality -ge 80 ]]; then
+    color="#00FF00"
+elif [[ $quality -lt 80 ]]; then
+    color="#FFF600"
+elif [[ $quality -lt 60 ]]; then
+    color="#FFAE00"
+elif [[ $quality -lt 40 ]]; then
+    color="#FF0000"
+fi
+
+echo $full
+echo $short
+echo $color

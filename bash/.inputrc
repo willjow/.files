@@ -1,0 +1,8 @@
+# vi mode indicators
+set vi-cmd-mode-string :
+set vi-ins-mode-string +
+set show-mode-in-prompt on
+set editing-mode vi
+
+# set macro for sl train
+"\e[7~":"\C-k \C-usl -ac\n"
