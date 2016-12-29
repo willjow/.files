@@ -38,10 +38,20 @@ adbaddmusic() {
 }
 
 cl() {
-    local dir="$1"
+    if [[ "$1" == "-a" ]]; then
+        local dir="$2"
+    else 
+        local dir="$1"
+    fi
+
     local dir="${dir:=$HOME}"
+
     if [[ -d "$dir"  ]]; then
-        cd "$dir" >/dev/null; ls
+        if [[ "$1" == "-a" ]]; then
+            cd "$dir" >/dev/null; ls -a
+        else
+            cd "$dir" >/dev/null; ls
+        fi
     else
         echo "bash: cl: $dir: Directory not found"
     fi
