@@ -110,6 +110,9 @@ nnoremap gk :tabm 0<CR>
 " au BufReadPre ?* silent loadview
 
 " Auto Complete Closing Characters
+
+" reduce the timeout cause I don't like waiting a second each time
+set timeoutlen=250 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
