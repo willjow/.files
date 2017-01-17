@@ -29,10 +29,17 @@ fi
 
 full="$ipaddr"
 
-quality=$(grep $interface /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+if [[ $BLOCK_INSTANCE == wlp* ]]; then
+    quality=$(grep $interface /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+    qualityfull="$quality% at $(iw $interface link | grep SSID | cut -d " " -f 2-), "
+    speed=$(iw $interface link | grep bitrate | cut -d " " -f 3)
+elif [[ $BLOCK_INSTANCE == enp* ]]; then
+    quality="100"
+    speed=$(cat $interfacePath/speed)
+fi
 
 if [[ $state == "up" ]]; then
-    full="$full ($quality% at $(iw $interface link | grep SSID | cut -d " " -f 2-), $(iw $interface link | grep bitrate | cut -d " " -f 3) Mb/s)"
+    full="$full (${qualityfull}${speed} Mb/s)"
 fi
 short=$full
 
