@@ -26,12 +26,17 @@ let maplocalleader="\<Tab>"
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
+Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 " vimtex
 autocmd FileType tex setlocal spell spelllang=en_us
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
+
+" Nvim-R
+let R_in_buffer = 0
+let R_term = "urxvt"
 
 " NERDTree is not for me 
 let g:netrw_liststyle=0
