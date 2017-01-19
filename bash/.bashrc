@@ -26,7 +26,7 @@ export PATH="${PATH}"
 
 #Functions
 javacr() {
-    javac $1.java && java $1
+    javac $1 && java $(echo $1 | cut -d. -f1) 
 }
 
 prevpac() {
