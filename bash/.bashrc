@@ -20,13 +20,15 @@ alias updatemirrorlist="sudo reflector -c 'United States' -l 200 -p http -f 20 -
 alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --right-of LVDS1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
+alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
 
-#Path
+#Environment Variables
 export PATH="${PATH}"
+export R_ENVIRON_USER="~/.config/r/.Renviron"
 
 #Functions
 javacr() {
-    javac $1 && java $(echo $1 | cut -d. -f1) 
+    javac $1 && java $(echo $1 | cut -d. -f1)
 }
 
 prevpac() {
