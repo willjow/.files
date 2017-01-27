@@ -35,8 +35,10 @@ let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
 
 " Nvim-R
-let R_in_buffer = 0
-let R_term = "urxvt"
+let R_in_buffer=0
+let R_term='urxvt'
+let R_openhtml=1
+let R_openpdf=1
 
 " NERDTree is not for me 
 let g:netrw_liststyle=0

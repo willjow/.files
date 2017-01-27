@@ -15,7 +15,6 @@ alias cower='cower -t ~/aur'
 alias please='sudo bash -c "$(history -p !!)"'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
-alias junittest='java org.junit.runner.JUnitCore'
 alias updatemirrorlist="sudo reflector -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --right-of LVDS1 --auto && . ~/.fehbg'
@@ -25,10 +24,15 @@ alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
 #Environment Variables
 export PATH="${PATH}"
 export R_ENVIRON_USER="~/.config/r/.Renviron"
+export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
 
 #Functions
 javacr() {
     javac $1 && java $(echo $1 | cut -d. -f1)
+}
+
+junittest() {
+    java org.junit.runner.JUnitCore $(echo $1 | cut -d. -f1)
 }
 
 prevpac() {
