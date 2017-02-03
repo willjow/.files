@@ -20,11 +20,14 @@ alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --right-of LVDS1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
+alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
 
 #Environment Variables
 export PATH="${PATH}"
 export R_ENVIRON_USER="~/.config/r/.Renviron"
-export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar"
+export CS61B_LIB="/home/wjow/school/compsci/cs61b/aqr/javalib/algs4.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/jh61b.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib-package.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/checkstyle-6.15-all.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/61b_checks.xml"
+export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:${CS61B_LIB}:./"
+
 
 #Functions
 javacr() {
