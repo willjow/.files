@@ -31,11 +31,11 @@ export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcres
 
 #Functions
 javacr() {
-    javac $1 && java $(echo $1 | cut -d. -f1)
+    javac $1 && java $(echo $1 | awk -F '.java' '{print $1}')
 }
 
 junittest() {
-    java org.junit.runner.JUnitCore $(echo $1 | cut -d. -f1)
+    java org.junit.runner.JUnitCore $(echo $1 | awk -F '.java' '{print $1}')
 }
 
 prevpac() {
