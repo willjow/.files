@@ -1,0 +1,7 @@
+set recolor false
+set recolor-keephue true
+set recolor-reverse-video false
+set recolor-darkcolor "#dedede"
+set recolor-lightcolor "#000000"
+set window-title-basename "true"
+set selection-clipboard "clipboard"
