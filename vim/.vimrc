@@ -108,6 +108,8 @@ nnoremap gl :tabm +<CR>
 nnoremap gh :tabm -<CR>
 nnoremap gj :tabm  <CR>
 nnoremap gk :tabm 0<CR>
+nnoremap J  :tabn<CR>
+nnoremap K  :tabp<CR>
 
 " Auto save/load folds
 " This had a bunch of weird buffer side effects, so I commented it out
