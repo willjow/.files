@@ -80,4 +80,5 @@ wipedisk() {
     fi 
 }
 
+shopt -s extglob
 set -o vi
