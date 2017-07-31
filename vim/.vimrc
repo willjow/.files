@@ -25,8 +25,8 @@ let maplocalleader="\<Tab>"
 
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
-Plug 'lervag/vimtex'
 Plug 'jalvesaq/Nvim-R'
+Plug 'lervag/vimtex'
 call plug#end()
 
 " vimtex

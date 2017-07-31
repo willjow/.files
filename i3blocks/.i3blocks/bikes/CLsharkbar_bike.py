@@ -45,7 +45,7 @@ def newer_listings(listinfo, lastseen):
 # set url cause we only want this to do one thing
 # make sure to use a 'sort by newest' query
 # url = 'https://AREA.craigslist.com/search/QUERY'
-url = 'https://sfbay.craigslist.org/search/bia?query=-hybrid*+-%22comfort+bi*%22+-BMX*+-cruiser*+-scooter*+-kid*+-boy*+-girl*+-child*&sort=date&hasPic=1&max_price=600'
+url = 'https://sfbay.craigslist.org/search/bia?query=-hybrid*+-%22comfort+bi*%22+-BMX*+-cruiser*+-scooter*+-kid*+-boy*+-girl*+-child*&sort=da6e&hasPic=1&max_price=300'
 
 # Open url on middle click
 if os.environ.get('BLOCK_BUTTON') == '2':
