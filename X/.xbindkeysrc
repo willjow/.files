@@ -1,0 +1,26 @@
+# Volume stuff handled in i3 config now
+#
+# Mute
+# "amixer set Master toggle"
+#     m:0x0 + c:121
+#     XF86AudioMute
+
+# Decrease volume
+# "amixer set Master 1dB- && pkill -RTMIN+10 i3blocks"
+#     m:0x0 + c:122
+#     XF86AudioLowerVolume
+
+# Increase volume
+# "amixer set Master 1dB+ && pkill -RTMIN+10 i3blocks"
+#     m:0x0 + c:123
+#     XF86AudioRaiseVolume
+
+# Toggle touchpad
+". /usr/local/bin/touchpad.sh"
+    m:0x0 + c:199
+    XF86TouchpadToggle
+
+# Turn off backlight
+"sleep 1 && xset dpms force off && /usr/bin/slock"
+    m:0xc + c:22
+    Control+Alt + BackSpace
