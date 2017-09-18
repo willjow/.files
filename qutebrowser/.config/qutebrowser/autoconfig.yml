@@ -12,7 +12,9 @@ global:
       co: null
       d: null
       dd: tab-close -o
+      gh: tab-move -
       gj: tab-detach
+      gl: tab-move +
       gr: null
   colors.completion.category.bg: '#333333'
   colors.completion.category.fg: '#dedede'
