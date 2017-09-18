@@ -9,9 +9,14 @@ global:
       <alt+9>: tab-focus 9
       M: null
       '`': null
+      ad: null
       co: null
       d: null
+      dc: download-cancel
       dd: tab-close -o
+      do: download-open
+      dr: download-remove
+      dx: download-delete
       gh: tab-move -
       gj: tab-detach
       gl: tab-move +
