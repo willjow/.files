@@ -45,6 +45,7 @@ global:
   content.plugins: true
   content.webgl: false
   downloads.location.directory: ~/downloads/
+  downloads.open_dispatcher: null
   editor.command:
   - urxvt
   - -e vim
@@ -56,7 +57,7 @@ global:
   tabs.close_mouse_button: none
   tabs.last_close: close
   tabs.mousewheel_switching: false
-  tabs.select_on_remove: prev
+  tabs.select_on_remove: next
   tabs.show: multiple
   tabs.show_switching_delay: 1000
   url.searchengines:
