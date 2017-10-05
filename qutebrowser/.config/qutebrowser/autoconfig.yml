@@ -61,6 +61,7 @@ global:
   tabs.select_on_remove: next
   tabs.show: multiple
   tabs.show_switching_delay: 1000
+  url.default_page: https://www.google.com
   url.searchengines:
     DEFAULT: https://www.google.com/search?q={}
   url.start_pages:
