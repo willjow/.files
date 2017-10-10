@@ -21,6 +21,8 @@ alias plugdp='xrandr --output HDMI1 --right-of LVDS1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
 alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
+alias proxyon='export http_proxy="proxy.lib.berkeley.edu:7777" && export https_proxy=$http_proxy'
+alias proxyoff='unset http_proxy https_proxy'
 
 #Environment Variables
 export PATH="${PATH}"
