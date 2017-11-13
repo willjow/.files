@@ -50,7 +50,8 @@ global:
   downloads.open_dispatcher: null
   editor.command:
   - urxvt
-  - -e vim
+  - -e
+  - vim
   - '{}'
   fonts.completion.category: bold 8pt monospace
   fonts.completion.entry: 8pt monospace
