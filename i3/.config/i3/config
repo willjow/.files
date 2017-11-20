@@ -96,10 +96,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left 28 px
@@ -108,10 +108,15 @@ bindsym $mod+Shift+k move up 28 px
 bindsym $mod+Shift+l move right 28 px
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left 5 px
-bindsym $mod+Shift+Down move down 5 px
-bindsym $mod+Shift+Up move up 5 px
-bindsym $mod+Shift+Right move right 5 px
+bindsym $mod+Left move left 5 px
+bindsym $mod+Down move down 5 px
+bindsym $mod+Up move up 5 px
+bindsym $mod+Right move right 5 px
+
+bindsym $mod+Shift+Left move left 1 px
+bindsym $mod+Shift+Down move down 1 px
+bindsym $mod+Shift+Up move up 1 px
+bindsym $mod+Shift+Right move right 1 px
 
 # split in horizontal orientation
 bindsym $mod+v split h
@@ -220,12 +225,11 @@ mode "resize" {
         bindsym Shift+k resize shrink height 11 px or 2 ppt
         bindsym Shift+l resize grow width 11 px or 2 ppt
 
-
         # same bindings, but for the arrow keys
-        # bindsym Left resize shrink width 15 px or 15 ppt
-        # bindsym Down resize grow height 15 px or 15 ppt
-        # bindsym Up resize shrink height 15 px or 15 ppt
-        # bindsym Right resize grow width 15 px or 15 ppt
+        # bindsym Left resize shrink width 1 px or 1 ppt
+        # bindsym Down resize grow height 1 px or 1 ppt
+        # bindsym Up resize shrink height 1 px or 1 ppt
+        # bindsym Right resize grow width 1 px or 1 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
