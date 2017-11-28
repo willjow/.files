@@ -8,6 +8,9 @@ global:
       ;o: hint links fill :open -t {hint-url}
       <alt+9>: tab-focus 9
       <ctrl+q>: stop
+      <ctrl+shift+t>: null
+      <ctrl+shift+w>: null
+      <ctrl+w>: null
       D: null
       M: null
       '`': null
