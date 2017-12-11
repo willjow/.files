@@ -73,6 +73,9 @@ bindsym $mod+b exec thunar
 bindsym $mod+n exec fceux
 bindsym $mod+z exec zathura
 
+# start unclutter
+exec --no-startup-id unclutter --timeout 1 --jitter 15 -b
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
