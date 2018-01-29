@@ -23,6 +23,17 @@ set smartcase
 set wrap lbr
 let maplocalleader="\<Tab>"
 
+" Style Stuff
+filetype plugin indent on
+set tabstop=4     " tabs are at proper location
+set softtabstop=4 " deleting tabs in insert treats them as tabs, not spaces
+set expandtab     " don't use actual tab character (ctrl-v)
+set shiftwidth=4  " indenting is 4 spaces
+set autoindent    " turns it on
+
+" set tabs to 2 for C files
+autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
 Plug 'jalvesaq/Nvim-R'
@@ -59,14 +70,6 @@ set noea
 " the following bind is the 'old,' manual approach,
 " which resolves the issue mentioned above
 nnoremap <C-n> :vs. <bar> vertical res 25 <bar> call feedkeys('iii')<CR>
-
-" Style Stuff
-filetype plugin indent on
-set tabstop=4     " tabs are at proper location
-set softtabstop=4 " deleting tabs in insert treats them as tabs, not spaces
-set expandtab     " don't use actual tab character (ctrl-v)
-set shiftwidth=4  " indenting is 4 spaces
-set autoindent    " turns it on
 
 " Vim Directories
 set backupdir=~/.vim/backup//
