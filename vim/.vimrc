@@ -22,7 +22,6 @@ set ignorecase
 set smartcase
 set wrap lbr
 set hlsearch
-nnoremap <silent> <esc> :noh<return><esc>
 let maplocalleader="\<Tab>"
 
 " Style Stuff
@@ -87,7 +86,7 @@ set ttymouse=xterm2
 "         "
 """""""""""
 cabbrev w!! w !sudo tee > /dev/null %:p
-map <Enter> o<ESC>
+nnoremap <silent> <Enter> :noh<return><esc>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " Move By Displayed Line
