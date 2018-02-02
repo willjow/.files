@@ -21,6 +21,8 @@ set number
 set ignorecase
 set smartcase
 set wrap lbr
+set hlsearch
+nnoremap <esc> :noh<return><esc>
 let maplocalleader="\<Tab>"
 
 " Style Stuff
