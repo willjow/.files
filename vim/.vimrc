@@ -21,7 +21,7 @@ set number
 set ignorecase
 set smartcase
 set wrap lbr
-set hlsearch
+set nohlsearch " Turns out search highlighting is really annoying and distracting
 let maplocalleader="\<Tab>"
 
 " Style Stuff
@@ -86,7 +86,7 @@ set ttymouse=xterm2
 "         "
 """""""""""
 cabbrev w!! w !sudo tee > /dev/null %:p
-nnoremap <silent> <Enter> :noh<return><esc>
+map <Enter> o<esc>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " Move By Displayed Line
