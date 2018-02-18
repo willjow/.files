@@ -23,6 +23,7 @@ alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
 alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
 alias proxyon='export http_proxy="proxy.lib.berkeley.edu:7777" && export https_proxy=$http_proxy'
 alias proxyoff='unset http_proxy https_proxy'
+alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
 
 #Environment Variables
 export PATH="${PATH}"
