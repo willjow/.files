@@ -46,6 +46,8 @@ def main(argv):
     Raises:
         InvalidURLException -- if the passed-in url isn't a validly formatted craisglist url
         urllib.request.URLError -- if we can't get the webpage data after retrying 
+        urllib.request.HTTPError -- if there's some unforseen problem (lol) with the request
+        socket.timeout -- if we time out before retrieving the request
     """
 
     # First check that the url is valid
