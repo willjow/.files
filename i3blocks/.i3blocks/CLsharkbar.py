@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys, os, re, os.path
-import urllib.request, urllib.error, urllib.parse
+import urllib.request, urllib.error, urllib.parse, socket
 import pickle
 import webbrowser
 import time
@@ -66,9 +66,9 @@ def main(argv):
     retries = 3 # retry at most 3 times
     for _ in range(retries):
         try:
-            url_response = urllib.request.urlopen(url)
+            url_response = urllib.request.urlopen(url, timeout=15)
             break
-        except urllib.request.URLError:
+        except (socket.timeout, urllib.request.URLError, urllib.request.HTTPError):
             time.sleep(3)
     else:
         raise
