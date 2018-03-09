@@ -21,6 +21,7 @@ set number
 set ignorecase
 set smartcase
 set wrap lbr
+set display+=truncate
 set nohlsearch " Turns out search highlighting is really annoying and distracting
 let maplocalleader="\<Tab>"
 
