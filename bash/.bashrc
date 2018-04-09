@@ -9,8 +9,8 @@
 PS1="\[\033[38;5;41m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;41m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 #Aliases
+alias ls='ls -v --color=auto'
 alias vim='vim --servername vim'
-alias ls='ls --color=auto'
 alias cower='cower -t ~/aur'
 alias please='sudo bash -c "$(history -p !!)"'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
