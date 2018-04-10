@@ -9,7 +9,7 @@
 PS1="\[\033[38;5;41m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;41m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 #Aliases
-alias ls='ls -v --color=auto'
+alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias cower='cower -t ~/aur'
 alias please='sudo bash -c "$(history -p !!)"'
