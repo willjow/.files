@@ -31,6 +31,7 @@ export R_ENVIRON_USER="~/.config/r/.Renviron"
 export CS61B_LIB="/home/wjow/school/compsci/cs61b/aqr/javalib/algs4.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/jh61b.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib-package.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/checkstyle-6.15-all.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/61b_checks.xml"
 export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:${CS61B_LIB}:./"
 export PYTHONSTARTUP="/home/wjow/.python_startup.py"
+export GOPATH="/home/wjow/.go/"
 
 
 #Functions
