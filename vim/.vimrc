@@ -63,6 +63,8 @@ let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 set noea
 
 " Keybind to open the directory listing
+" (set selected directory to be root of tree with "gn")
+" (open selected file in previous split with "P")
 
 " nnoremap <C-n> :15Lexplore<CR>
 " this makes things less versatile because for some reason
@@ -71,7 +73,11 @@ set noea
 
 " the following bind is the 'old,' manual approach,
 " which resolves the issue mentioned above
-nnoremap <C-n> :vs. <bar> vertical res 25 <bar> call feedkeys('iii')<CR>
+
+" (older bind that automatically switches to tree view)
+" nnoremap <C-n> :vs. <bar> vertical res 25 <bar> call feedkeys('iii')<CR>
+
+nnoremap <C-n> :vs. <bar> vertical res 25 <CR>
 
 " Vim Directories
 set backupdir=~/.vim/backup//
