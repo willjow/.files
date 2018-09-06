@@ -7,15 +7,17 @@ settings:
     global:
       normal:
         ;o: hint links fill :open -t {hint-url}
-        <alt+9>: tab-focus 9
-        <ctrl+q>: stop
-        <ctrl+shift+t>: null
-        <ctrl+shift+w>: null
-        <ctrl+w>: null
+        <Alt+9>: tab-focus 9
+        <Ctrl+Shift+t>: null
+        <Ctrl+Shift+w>: null
+        <Ctrl+q>: stop
+        <Ctrl+w>: null
+        B: set-cmd-text -s :quickmark-load
         D: null
         M: null
         '`': null
         ad: null
+        b: set-cmd-text -s :buffer
         co: null
         d: null
         dc: download-cancel
@@ -24,7 +26,7 @@ settings:
         dr: download-remove
         dx: download-delete
         gh: tab-move -
-        gj: tab-detach
+        gj: tab-give
         gl: tab-move +
         gr: null
   colors.completion.category.bg:
@@ -68,6 +70,8 @@ settings:
     global: 0
   completion.web_history_max_items:
     global: 1000
+  content.cookies.accept:
+    global: no-3rdparty
   content.plugins:
     global: true
   content.webgl:
@@ -112,6 +116,8 @@ settings:
     global: '1px solid #9cdeb5'
   input.insert_mode.auto_leave:
     global: false
+  input.insert_mode.auto_load:
+    global: true
   prompt.radius:
     global: 0
   tabs.background:

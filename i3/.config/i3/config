@@ -77,7 +77,7 @@ bindsym $mod+z exec zathura
 exec --no-startup-id unclutter --timeout 1 --jitter 15 -b
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+d kill
 
 # volume controls
 bindsym XF86AudioLowerVolume exec "amixer set Master 1dB- && pkill -RTMIN+10 i3blocks"
