@@ -15,15 +15,17 @@ alias cower='cower -t ~/aur'
 alias please='sudo bash -c "$(history -p !!)"'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
-alias updatemirrorlist="sudo reflector -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
+alias updmirrorlist="sudo reflector -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
-alias plugdp='xrandr --output HDMI1 --right-of LVDS1 --auto && . ~/.fehbg'
+alias plugdp='xrandr --output HDMI1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
 alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
 alias proxyon='export http_proxy="proxy.lib.berkeley.edu:7777" && export https_proxy=$http_proxy'
 alias proxyoff='unset http_proxy https_proxy'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
+alias bike='feh --zoom 33 ~/misc/s_works_e5.jpg & disown'
+alias bannedcamp='python /home/wjow/school/compsci/misc_projects/bandcamp_not_safe/dl_album.py'
 
 #Environment Variables
 export PATH="${PATH}"
