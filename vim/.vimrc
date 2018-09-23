@@ -1,4 +1,5 @@
 " All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+"
 " /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
 " do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
@@ -21,6 +22,7 @@ set number
 set ignorecase
 set smartcase
 set wrap lbr
+set report=0
 set display+=truncate
 set nohlsearch " Turns out search highlighting is really annoying and distracting
 let maplocalleader="\<Tab>"
@@ -53,7 +55,7 @@ let R_term='urxvt'
 let R_openhtml=1
 let R_openpdf=1
 
-" NERDTree is not for me 
+" NERDTree is not for me
 let g:netrw_liststyle=0
 let g:netrw_browse_split=0
 let g:netrw_altv=1

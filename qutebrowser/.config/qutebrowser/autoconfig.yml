@@ -72,6 +72,8 @@ settings:
     global: 1000
   content.cookies.accept:
     global: no-3rdparty
+  content.host_blocking.enabled:
+    global: true
   content.plugins:
     global: true
   content.webgl:
