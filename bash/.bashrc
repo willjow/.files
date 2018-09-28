@@ -73,6 +73,12 @@ cl() {
     fi
 }
 
+mergepdf() {
+    outputfile=$1
+    shift
+    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
+}
+
 wipedisk() {
     if [[ -e "$1" && -b "$1" ]];then 
         NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
