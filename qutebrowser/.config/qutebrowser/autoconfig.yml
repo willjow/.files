@@ -74,6 +74,8 @@ settings:
     global: no-3rdparty
   content.host_blocking.enabled:
     global: true
+  content.pdfjs:
+    global: false
   content.plugins:
     global: true
   content.webgl:
@@ -128,6 +130,8 @@ settings:
     global: none
   tabs.last_close:
     global: close
+  tabs.max_width:
+    global: -1
   tabs.mousewheel_switching:
     global: false
   tabs.select_on_remove:
