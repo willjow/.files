@@ -95,3 +95,4 @@ wipedisk() {
 
 shopt -s extglob
 set -o vi
+set -o ignoreeof
