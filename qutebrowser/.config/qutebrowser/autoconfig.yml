@@ -14,6 +14,7 @@ settings:
         <Ctrl+w>: null
         B: set-cmd-text -s :quickmark-load
         D: null
+        I: set-cmd-text -s :open -p
         M: null
         '`': null
         ad: null
