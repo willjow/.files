@@ -3,6 +3,8 @@
 
 config_version: 2
 settings:
+  backend:
+    global: webengine
   bindings.commands:
     global:
       normal:
@@ -30,6 +32,7 @@ settings:
         gj: tab-give
         gl: tab-move +
         gr: null
+        m: enter-mode set_mark
   colors.completion.category.bg:
     global: '#333333'
   colors.completion.category.fg:
