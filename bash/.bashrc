@@ -8,6 +8,9 @@
 #Outputs
 PS1="\[\033[38;5;41m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;41m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
+# efibootmgr command:
+#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPV6 psmouse" --loader /vmlinuz-linux --unicode "root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1 psmouse.resync_time=2 psmouse.synaptics_intertouch=1"
+
 #Aliases
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
@@ -30,6 +33,7 @@ alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 
 #Environment Variables
 export PATH="${PATH}"
+export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/r/.Renviron"
 export CS61B_LIB="/home/wjow/school/compsci/cs61b/aqr/javalib/algs4.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/jh61b.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib-package.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/checkstyle-6.15-all.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/61b_checks.xml"
 export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:${CS61B_LIB}:./"
