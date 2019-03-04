@@ -9,7 +9,7 @@
 PS1="\[\033[38;5;41m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;41m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 # efibootmgr command:
-#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPV6 psmouse" --loader /vmlinuz-linux --unicode "root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1 psmouse.resync_time=2 psmouse.synaptics_intertouch=1"
+#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPV6 psmouse" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
 
 #Aliases
 alias ls='ls --color=auto'
