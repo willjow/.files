@@ -47,14 +47,18 @@ settings:
     global: '#bbcde7'
   colors.completion.item.selected.border.top:
     global: '#bbcde7'
+  colors.completion.item.selected.fg:
+    global: black
   colors.completion.match.fg:
     global: '#404fbf'
   colors.completion.odd.bg:
     global: '#090909'
   colors.hints.bg:
     global: '#618ac8'
+  colors.hints.fg:
+    global: black
   colors.hints.match.fg:
-    global: '#CCCCCC'
+    global: '#cccccc'
   colors.keyhint.suffix.fg:
     global: '#618ac8'
   colors.prompts.bg:
