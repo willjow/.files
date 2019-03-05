@@ -6,7 +6,9 @@
 [[ $- != *i* ]] && return
 
 #Outputs
-PS1="\[\033[38;5;41m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;41m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+# pikles color: [38;5;41m]
+# empoleon color: [38;5;68m]
+PS1="\[\033[38;5;68m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;68m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 # efibootmgr command:
 #efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPV6 psmouse" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'

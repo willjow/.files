@@ -42,11 +42,11 @@ settings:
   colors.completion.fg:
     global: '#dedede'
   colors.completion.item.selected.bg:
-    global: '#40be70'
+    global: '#618ac8'
   colors.completion.item.selected.border.bottom:
-    global: '#9cdeb5'
+    global: '#bbcde7'
   colors.completion.item.selected.border.top:
-    global: '#9cdeb5'
+    global: '#bbcde7'
   colors.completion.match.fg:
     global: '#404fbf'
   colors.completion.odd.bg:
@@ -57,13 +57,13 @@ settings:
   colors.hints.match.fg:
     global: '#2d864f'
   colors.keyhint.suffix.fg:
-    global: '#40be70'
+    global: '#618ac8'
   colors.prompts.bg:
     global: '#000000'
   colors.prompts.fg:
     global: '#dedede'
   colors.prompts.selected.bg:
-    global: '#40be70'
+    global: '#618ac8'
   colors.tabs.bar.bg:
     global: '#000000'
   completion.height:
@@ -121,7 +121,7 @@ settings:
   fonts.tabs:
     global: 8pt monospace
   hints.border:
-    global: '1px solid #9cdeb5'
+    global: '1px solid #bbcde7'
   input.insert_mode.auto_leave:
     global: false
   input.insert_mode.auto_load:
