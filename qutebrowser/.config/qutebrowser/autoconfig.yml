@@ -52,10 +52,9 @@ settings:
   colors.completion.odd.bg:
     global: '#090909'
   colors.hints.bg:
-    global: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(110, 207, 147 0.8),
-      stop:1 rgba(64, 190, 112, 0.8))
+    global: '#618ac8'
   colors.hints.match.fg:
-    global: '#2d864f'
+    global: '#CCCCCC'
   colors.keyhint.suffix.fg:
     global: '#618ac8'
   colors.prompts.bg:
