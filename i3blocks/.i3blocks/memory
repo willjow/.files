@@ -14,9 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-TYPE="${BLOCK_INSTANCE:=mem}"
+TYPE="${BLOCK_INSTANCE:-mem}"
+LOW_THRESH="${1:-15}" # color will turn yellow under this threshold (default: 15%)
 
-awk -v type=$TYPE '
+awk -v type=$TYPE -v low_thresh=$LOW_THRESH '
 /^MemTotal:/ {
 	mem_total=$2
 }
@@ -37,14 +38,17 @@ awk -v type=$TYPE '
 }
 END {
 	# full text / short text
-	if (type == "swap")
+	if (type == "swap") {
 		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
 		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
-	else
+    } else {
 		printf("%.1fG\n", mem_free/1024/1024)
 		printf("%.1fG\n", mem_free/1024/1024)
+    }
 
-	# TODO: color (if less than X%)
-        printf("#FFFFFF")
+	# color (if less than LOW_THRESH %)
+    if (mem_free/mem_total * 100 < low_thresh) {
+        print("#FFFF00")
+    }
 }
 ' /proc/meminfo
