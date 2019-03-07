@@ -36,11 +36,11 @@ font -*-terminus-medium-*-*-*-*-120-*-*-*-*-iso10646-1
 # empoleon main: 618ac8
 # empoleon light: bbcde7 
 # class                 border  backgr. text    indicator
-client.focused          #618ac8 #618ac8 #000000 #408ebf
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.focused          #618ac8 #618ac8 #000000 #000000
+client.focused_inactive #bbcde7 #bbcde7 #000000 #000000
+client.unfocused        #444444 #444444 #dedede #000000
+client.urgent           #900000 #900000 #dedede #000000
+client.placeholder      #000000 #000000 #dedede #000000
 
 client.background       #ffffff
 
@@ -255,14 +255,14 @@ bar {
         height 16
         colors {
             background #000000
-            statusline #ffffff
+            statusline #dedede
             separator #666666
 
             # <colorclass> <border> <background> <text>
-            focused_workspace  #bbcde7 #618ac8 #000000
-            active_workspace   #333333 #5f676a #ffffff
-            inactive_workspace #333333 #1b1b1b #888888
-            urgent_workspace   #2f343a #900000 #ffffff
-            binding_mode       #2f343a #900000 #ffffff
+            focused_workspace  #618ac8 #618ac8 #000000
+            active_workspace   #bbcde7 #bbcde7 #000000
+            inactive_workspace #444444 #444444 #dedede
+            urgent_workspace   #900000 #900000 #dedede
+            binding_mode       #900000 #900000 #dedede
         }
 }

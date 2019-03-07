@@ -53,7 +53,7 @@ volume() {
 format() {
   perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
   perl_filter+='{CORE::say $4 eq "off" ? "'$(echo 'MUTE $1' && echo 'MUTE $1' && echo '#FFFF00')'" : "'
-  perl_filter+=$(echo 'VOL $1' && echo 'VOL $1' && echo '#FFFFFF')
+  perl_filter+=$(echo 'VOL $1' && echo 'VOL $1')
   perl_filter+='"; exit 0}'
   perl -ne "$perl_filter"
 }

@@ -34,7 +34,7 @@ settings:
         gr: null
         m: enter-mode set_mark
   colors.completion.category.bg:
-    global: '#333333'
+    global: '#444444'
   colors.completion.category.fg:
     global: '#dedede'
   colors.completion.even.bg:
@@ -44,15 +44,17 @@ settings:
   colors.completion.item.selected.bg:
     global: '#618ac8'
   colors.completion.item.selected.border.bottom:
-    global: '#bbcde7'
+    global: '#618ac8'
   colors.completion.item.selected.border.top:
-    global: '#bbcde7'
+    global: '#618ac8'
   colors.completion.item.selected.fg:
     global: black
   colors.completion.match.fg:
     global: '#404fbf'
   colors.completion.odd.bg:
     global: '#090909'
+  colors.completion.scrollbar.bg:
+    global: '#444444'
   colors.hints.bg:
     global: '#618ac8'
   colors.hints.fg:
@@ -61,6 +63,8 @@ settings:
     global: '#cccccc'
   colors.keyhint.suffix.fg:
     global: '#618ac8'
+  colors.messages.info.border:
+    global: '#444444'
   colors.prompts.bg:
     global: '#000000'
   colors.prompts.fg:
@@ -69,6 +73,10 @@ settings:
     global: '#618ac8'
   colors.tabs.bar.bg:
     global: '#000000'
+  colors.tabs.even.bg:
+    global: '#888888'
+  colors.tabs.odd.bg:
+    global: '#666666'
   completion.height:
     global: 36%
   completion.scrollbar.padding:
