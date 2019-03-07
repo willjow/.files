@@ -55,6 +55,14 @@ settings:
     global: '#090909'
   colors.completion.scrollbar.bg:
     global: '#444444'
+  colors.completion.scrollbar.fg:
+    global: '#dedede'
+  colors.downloads.error.fg:
+    global: '#dedede'
+  colors.downloads.start.fg:
+    global: '#dedede'
+  colors.downloads.stop.fg:
+    global: '#dedede'
   colors.hints.bg:
     global: '#618ac8'
   colors.hints.fg:
@@ -63,20 +71,58 @@ settings:
     global: '#cccccc'
   colors.keyhint.suffix.fg:
     global: '#618ac8'
+  colors.messages.error.fg:
+    global: '#dedede'
   colors.messages.info.border:
     global: '#444444'
+  colors.messages.info.fg:
+    global: '#dedede'
+  colors.messages.warning.fg:
+    global: '#dedede'
   colors.prompts.bg:
     global: '#000000'
   colors.prompts.fg:
     global: '#dedede'
   colors.prompts.selected.bg:
     global: '#618ac8'
+  colors.statusbar.caret.fg:
+    global: '#dedede'
+  colors.statusbar.caret.selection.fg:
+    global: '#dedede'
+  colors.statusbar.command.fg:
+    global: '#dedede'
+  colors.statusbar.command.private.fg:
+    global: '#dedede'
+  colors.statusbar.insert.fg:
+    global: '#dedede'
+  colors.statusbar.normal.fg:
+    global: '#dedede'
+  colors.statusbar.passthrough.fg:
+    global: '#dedede'
+  colors.statusbar.private.fg:
+    global: '#dedede'
+  colors.statusbar.progress.bg:
+    global: '#dedede'
+  colors.statusbar.url.fg:
+    global: '#dedede'
+  colors.statusbar.url.success.http.fg:
+    global: '#dedede'
   colors.tabs.bar.bg:
     global: '#000000'
   colors.tabs.even.bg:
     global: '#888888'
+  colors.tabs.even.fg:
+    global: '#dedede'
   colors.tabs.odd.bg:
     global: '#666666'
+  colors.tabs.odd.fg:
+    global: '#dedede'
+  colors.tabs.selected.even.fg:
+    global: '#dedede'
+  colors.tabs.selected.odd.fg:
+    global: '#dedede'
+  colors.webpage.bg:
+    global: white
   completion.height:
     global: 36%
   completion.scrollbar.padding:
