@@ -112,19 +112,23 @@ settings:
   colors.tabs.bar.bg:
     global: '#000000'
   colors.tabs.even.bg:
-    global: '#696969'
+    global: '#444444'
   colors.tabs.even.fg:
     global: '#dedede'
   colors.tabs.indicator.error:
     global: '#ff0000'
   colors.tabs.odd.bg:
-    global: '#444444'
+    global: '#222222'
   colors.tabs.odd.fg:
     global: '#dedede'
+  colors.tabs.selected.even.bg:
+    global: '#618ac8'
   colors.tabs.selected.even.fg:
-    global: '#dedede'
+    global: black
+  colors.tabs.selected.odd.bg:
+    global: '#618ac8'
   colors.tabs.selected.odd.fg:
-    global: '#dedede'
+    global: black
   colors.webpage.bg:
     global: white
   completion.height:
