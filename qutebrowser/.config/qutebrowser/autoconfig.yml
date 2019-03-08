@@ -69,6 +69,8 @@ settings:
     global: black
   colors.hints.match.fg:
     global: '#cccccc'
+  colors.keyhint.fg:
+    global: '#dedede'
   colors.keyhint.suffix.fg:
     global: '#618ac8'
   colors.messages.error.fg:
@@ -110,13 +112,15 @@ settings:
   colors.tabs.bar.bg:
     global: '#000000'
   colors.tabs.even.bg:
-    global: '#888888'
+    global: '#696969'
   colors.tabs.even.fg:
     global: '#dedede'
+  colors.tabs.indicator.error:
+    global: '#ff0000'
   colors.tabs.odd.bg:
-    global: '#666666'
+    global: '#444444'
   colors.tabs.odd.fg:
-    global: '#dedede'
+    global: '#eeeeee'
   colors.tabs.selected.even.fg:
     global: '#dedede'
   colors.tabs.selected.odd.fg:
