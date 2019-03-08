@@ -1,9 +1,9 @@
 # Numix GTK Theme (modified by Rakksor)
 # pikles: #40be70
-# empoleon: #618ac8
+# empoleon: #5f87d7
 
 gtk-color-scheme = 
-"bg_color:#ebf1f5\nfg_color:#555555\nbase_color:#ffffff\ntext_color:#333333\nselected_bg_color:#618ac8\nselected_fg_color:#000000\ntooltip_bg_color:#333333\ntooltip_fg_color:#ebf1f5\ntitlebar_bg_color:#333333\ntitlebar_fg_color:#dcdcdc\nmenubar_bg_color:#333333\nmenubar_fg_color:#dcdcdc\ntoolbar_bg_color:#ebf1f5\ntoolbar_fg_color:#555555\nmenu_bg_color:#333333\nmenu_fg_color:#dcdcdc\npanel_bg_color:#333333\npanel_fg_color:#dcdcdc\nlink_color:#618ac8"
+"bg_color:#ebf1f5\nfg_color:#555555\nbase_color:#ffffff\ntext_color:#333333\nselected_bg_color:#5f87d7\nselected_fg_color:#000000\ntooltip_bg_color:#333333\ntooltip_fg_color:#ebf1f5\ntitlebar_bg_color:#333333\ntitlebar_fg_color:#dcdcdc\nmenubar_bg_color:#333333\nmenubar_fg_color:#dcdcdc\ntoolbar_bg_color:#ebf1f5\ntoolbar_fg_color:#555555\nmenu_bg_color:#333333\nmenu_fg_color:#dcdcdc\npanel_bg_color:#333333\npanel_fg_color:#dcdcdc\nlink_color:#5f87d7"
 
 # Default Style
 

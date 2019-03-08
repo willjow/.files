@@ -42,11 +42,11 @@ settings:
   colors.completion.fg:
     global: '#dedede'
   colors.completion.item.selected.bg:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.completion.item.selected.border.bottom:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.completion.item.selected.border.top:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.completion.item.selected.fg:
     global: black
   colors.completion.match.fg:
@@ -64,7 +64,7 @@ settings:
   colors.downloads.stop.fg:
     global: '#dedede'
   colors.hints.bg:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.hints.fg:
     global: black
   colors.hints.match.fg:
@@ -72,7 +72,7 @@ settings:
   colors.keyhint.fg:
     global: '#dedede'
   colors.keyhint.suffix.fg:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.messages.error.fg:
     global: '#dedede'
   colors.messages.info.border:
@@ -86,7 +86,7 @@ settings:
   colors.prompts.fg:
     global: '#dedede'
   colors.prompts.selected.bg:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.statusbar.caret.fg:
     global: '#dedede'
   colors.statusbar.caret.selection.fg:
@@ -122,11 +122,11 @@ settings:
   colors.tabs.odd.fg:
     global: '#dedede'
   colors.tabs.selected.even.bg:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.tabs.selected.even.fg:
     global: black
   colors.tabs.selected.odd.bg:
-    global: '#618ac8'
+    global: '#5f87d7'
   colors.tabs.selected.odd.fg:
     global: black
   colors.webpage.bg:

@@ -1,9 +1,9 @@
 /* main color
  * pikles: #40be70
- * empoleon: #618ac8 */
-@define-color main_color #618ac8;
-@define-color main_color_translucent rgba(97, 138, 200, 0.5);
-@define-color main_color_transparent rgba(97, 138, 200, 0);
+ * empoleon: #5f87d7 */
+@define-color main_color #5f87d7;
+@define-color main_color_translucent rgba(95, 135, 215, 0.5);
+@define-color main_color_transparent rgba(95, 135, 215, 0);
 @define-color white #fff;
 @define-color lighterer_gray #f2f2f2;
 @define-color lighter_gray #eee;

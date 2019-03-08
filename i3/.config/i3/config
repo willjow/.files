@@ -33,10 +33,10 @@ font -*-terminus-medium-*-*-*-*-120-*-*-*-*-iso10646-1
 # pikles main: 40be70
 # pikles light: 9cdeb5
 #
-# empoleon main: 618ac8
+# empoleon main: 5f87d7
 # empoleon light: bbcde7 
 # class                 border  backgr. text    indicator
-client.focused          #618ac8 #618ac8 #000000 #000000
+client.focused          #5f87d7 #5f87d7 #000000 #000000
 client.focused_inactive #bbcde7 #bbcde7 #000000 #000000
 client.unfocused        #444444 #444444 #dedede #000000
 client.urgent           #900000 #900000 #dedede #000000
@@ -90,7 +90,7 @@ bindsym XF86AudioRaiseVolume exec "amixer set Master 1dB+ && pkill -RTMIN+10 i3b
 bindsym XF86AudioMute exec "amixer set Master toggle && pkill -RTMIN+10 i3blocks"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'xos4 terminus-10' -nb '#000000' -sb '#618ac8' -sf '#000000'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'xos4 terminus-10' -nb '#000000' -sb '#5f87d7' -sf '#000000'
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -259,7 +259,7 @@ bar {
             separator #666666
 
             # <colorclass> <border> <background> <text>
-            focused_workspace  #618ac8 #618ac8 #000000
+            focused_workspace  #5f87d7 #5f87d7 #000000
             active_workspace   #bbcde7 #bbcde7 #000000
             inactive_workspace #444444 #444444 #dedede
             urgent_workspace   #900000 #900000 #dedede
