@@ -29,7 +29,22 @@ let maplocalleader="\<Tab>"
 
 " Status Line
 " TODO make this cool
-set laststatus=1
+hi User1 ctermbg=68 ctermfg=0
+hi User2 ctermbg=238 ctermfg=188
+set laststatus=2
+set statusline=
+set statusline+=%1*
+set statusline+=\ %F\ 
+set statusline+=%2*
+set statusline+=%=
+set statusline+=%2*
+set statusline+=\ Col\ %4c
+set statusline+=\ \ \ \ 
+set statusline+=\ \ \ \ 
+set statusline+=Line\ %4l
+set statusline+=/
+set statusline+=%L
+set statusline+=\ 
 
 " Style Stuff
 filetype plugin indent on
@@ -114,10 +129,16 @@ onoremap <silent> ^ ^
 onoremap <silent> $ $
 
 " Move In Insert Mode
-inoremap <C-l>  <Esc><Right>a
-inoremap <C-h>  <Esc><Left>a
+inoremap <C-l> <Esc><Right>a
+inoremap <C-h> <Esc><Left>a
 
 " Tabs
+" Colors
+:hi Title ctermfg=16 ctermbg=68
+:hi TabLineFill ctermfg=238 ctermbg=16
+:hi TabLine ctermfg=188 ctermbg=238
+:hi TabLineSel ctermfg=16 ctermbg=68
+
 " Switch to last-active tab
 if !exists('g:Lasttab')
     let g:Lasttab = 1
