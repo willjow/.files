@@ -120,7 +120,7 @@ settings:
   colors.tabs.odd.bg:
     global: '#444444'
   colors.tabs.odd.fg:
-    global: '#eeeeee'
+    global: '#dedede'
   colors.tabs.selected.even.fg:
     global: '#dedede'
   colors.tabs.selected.odd.fg:
