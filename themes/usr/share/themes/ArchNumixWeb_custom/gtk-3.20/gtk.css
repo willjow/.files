@@ -292,7 +292,7 @@ button {
     color: @light_gray;
     box-shadow: none; }
   button:disabled:disabled, button.flat:disabled:disabled {
-    background-color: @lighterer_gray;
+    background-color: @lighter_gray;
     background-image: none;
     color: mix(white,@light_gray,0.5);
     box-shadow: none; }
@@ -550,7 +550,7 @@ toolbar {
       color: @light_gray;
       box-shadow: none; }
     toolbar button:disabled:disabled, toolbar button.flat:disabled:disabled {
-      background-color: @lighterer_gray;
+      background-color: @lighter_gray;
       background-image: none;
       color: mix(@lighter_gray,@light_gray,0.5);
       box-shadow: none; }
