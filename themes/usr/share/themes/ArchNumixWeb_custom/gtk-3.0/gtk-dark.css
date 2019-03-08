@@ -2,19 +2,26 @@
  * pikles: #40be70
  * empoleon: #618ac8 */
 @define-color main_color #618ac8;
+@define-color white #fff;
+@define-color lighter_gray #dedede;
+@define-color light_gray #dcdcdc;
+@define-color gray #444;
+@define-color dark_gray #333;
+@define-color black #000;
+
 /* default color scheme */
-@define-color base_color #333333;
-@define-color bg_color #333333;
-@define-color text_color #dedede;
-@define-color fg_color #dcdcdc;
+@define-color base_color @dark_gray;
+@define-color bg_color @dark_gray;
+@define-color text_color @lighter_gray;
+@define-color fg_color @light_gray;
 @define-color selected_bg_color @main_color;
-@define-color selected_fg_color #000000;
-@define-color tooltip_bg_color #333333;
-@define-color tooltip_fg_color #dcdcdc;
+@define-color selected_fg_color @black;
+@define-color tooltip_bg_color @dark_gray;
+@define-color tooltip_fg_color @light_gray;
 
 /* dark color scheme */
-@define-color dark_bg_color #333333;
-@define-color dark_fg_color #dcdcdc;
+@define-color dark_bg_color @dark_gray;
+@define-color dark_fg_color @light_gray;
 
 /* colormap actually used by the theme, to be overridden in other css files */
 @define-color theme_bg_color @bg_color;
@@ -27,8 +34,8 @@
 @define-color theme_tooltip_fg_color @tooltip_fg_color;
 
 /* shadow effects */
-@define-color light_shadow #fff;
-@define-color dark_shadow #000;
+@define-color light_shadow @white;
+@define-color dark_shadow @black;
 
 /* misc colors used by gtk+ */
 @define-color info_fg_color rgb (58, 135, 173);

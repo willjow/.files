@@ -27,6 +27,10 @@ set display+=truncate
 set nohlsearch " Turns out search highlighting is really annoying and distracting
 let maplocalleader="\<Tab>"
 
+" Status Line
+" TODO make this cool
+set laststatus=1
+
 " Style Stuff
 filetype plugin indent on
 set tabstop=4     " tabs are at proper location
@@ -114,6 +118,15 @@ inoremap <C-l>  <Esc><Right>a
 inoremap <C-h>  <Esc><Left>a
 
 " Tabs
+" Switch to last-active tab
+if !exists('g:Lasttab')
+    let g:Lasttab = 1
+    let g:Lasttab_backup = 1
+endif
+autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
+autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+nnoremap T :exe "tabn " . g:Lasttab<CR>
+
 nnoremap <C-t> :tabnew<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR> 
