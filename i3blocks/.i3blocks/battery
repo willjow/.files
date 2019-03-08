@@ -76,6 +76,7 @@ if ($status eq 'Discharging') {
 } elsif ($status eq 'Charging') {
     if ($percent >= 60) {
         print "#00FF00\n";
+    }
 } elsif ($status eq 'Unknown') {
     print "#00FFFF\n";
 }
