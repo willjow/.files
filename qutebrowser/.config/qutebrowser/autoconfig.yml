@@ -118,7 +118,7 @@ settings:
   colors.tabs.indicator.error:
     global: '#ff0000'
   colors.tabs.odd.bg:
-    global: '#222222'
+    global: '#444444'
   colors.tabs.odd.fg:
     global: '#dedede'
   colors.tabs.selected.even.bg:

@@ -33,14 +33,13 @@ function! tabline#MyTabLine()
         let bufnr = buflist[winnr - 1]
         " set the tab page number for mouse clicks
         let s .= '%' . i . 'T'
+        let s .= tabline#GetTabColor(i, t)
         let s .= tabline#TabModified(buflist, i, t)
         let s .= i . ':'
-        let s .= tabline#GetTabColor(i, t)
         let s .= ' '
         let s .= tabline#TabSplits(winnr, totnr)
         let s .= tabline#FileName(bufnr)
         let s .= ' '
-        let s .= '%#TabLineFill# '
         let i = i + 1
     endwhile
 
@@ -55,28 +54,18 @@ endfunction
 function! tabline#GetTabColor(i, t)
     if a:i == a:t
         return '%1*'
-    elseif a:i % 2
-        return '%2*'
     else
         return '%2*'
-    endif
-endfunction
-
-function! tabline#GetLineColor(i)
-    if a:i % 2
-        return '%2*'
-    else
-        return '%3*'
     endif
 endfunction
 
 function! tabline#TabModified(bl, i, t)
     for b in a:bl
         if getbufvar(b, '&modified')
-            return '%4* '
+            return ' + '
         endif
     endfor
-    return tabline#GetTabColor(a:i, a:t) . ' '
+    return ' '
 endfunction
 
 function! tabline#TabSplits(wn, tn)
