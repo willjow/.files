@@ -9,11 +9,11 @@ function! status#FileSize() abort
     if (exists('mbytes') && l:mbytes >= 1024)
         let l:gbytes = l:mbytes / 1024.0
     endif
- 
+
     if l:bytes <= 0
         let l:bytes = 0
     endif
-  
+
     if (exists('gbytes'))
         return printf(' %.2f GB ', l:gbytes)
     elseif (exists('mbytes'))
@@ -26,19 +26,21 @@ function! status#FileSize() abort
 endfunction
 
 function! status#Words() abort
-    return wordcount()['words'] . " W"
+    return wordcount()['words'] . ' W '
 endfunction
 
 function! status#ReadOnly() abort
-  if &readonly || !&modifiable
-    return '  [RO] '
-  else
-    return ''
-  endif
+    if &readonly || !&modifiable
+        return '  [RO] '
+    else
+        return ''
+    endif
 endfunction
 
 function! status#Modified() abort
-    if &modified
+    if glob(expand('%p')) == ""
+        return '  [New File] '
+    elseif &modified
         return '  + '
     else
         return ''

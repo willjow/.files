@@ -27,9 +27,19 @@ set display+=truncate
 set nohlsearch " Turns out search highlighting is really annoying and distracting
 let maplocalleader="\<Tab>"
 
+" Style Stuff
+filetype plugin indent on
+set tabstop=4     " tabs are at proper location
+set softtabstop=4 " deleting tabs in insert treats them as tabs, not spaces
+set expandtab     " don't use actual tab character (ctrl-v)
+set shiftwidth=4  " indenting is 4 spaces
+set autoindent    " turns it on
+
+" set tabs to 2 for C files
+autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " Status Line
-" TODO make this cool
-hi User1 ctermbg=68 ctermfg=0
+hi User1 ctermbg=68 ctermfg=16
 hi User2 ctermbg=238 ctermfg=188
 hi User3 ctermbg=234 ctermfg=188
 hi User4 ctermbg=88 ctermfg=188
@@ -51,16 +61,13 @@ set statusline+=\ Line\ %4l
 set statusline+=/
 set statusline+=%L\ 
 
-" Style Stuff
-filetype plugin indent on
-set tabstop=4     " tabs are at proper location
-set softtabstop=4 " deleting tabs in insert treats them as tabs, not spaces
-set expandtab     " don't use actual tab character (ctrl-v)
-set shiftwidth=4  " indenting is 4 spaces
-set autoindent    " turns it on
-
-" set tabs to 2 for C files
-autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" Tab Line
+:hi Title ctermfg=16 ctermbg=68
+:hi TabLineFill ctermfg=16 ctermbg=0
+:hi TabLine ctermfg=188 ctermbg=238
+:hi TabLineSel ctermfg=16 ctermbg=68
+set showtabline=1
+set tabline=%!tabline#MyTabLine()
 
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
@@ -109,6 +116,7 @@ nnoremap <C-n> :vs. <bar> vertical res 25 <CR>
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+set viewdir=~/.vim/view//
 
 " Enable scrolling
 set mouse=nvc
@@ -138,12 +146,6 @@ inoremap <C-l> <Esc><Right>a
 inoremap <C-h> <Esc><Left>a
 
 " Tabs
-" Colors
-:hi Title ctermfg=16 ctermbg=68
-:hi TabLineFill ctermfg=238 ctermbg=16
-:hi TabLine ctermfg=188 ctermbg=238
-:hi TabLineSel ctermfg=16 ctermbg=68
-
 " Switch to last-active tab
 if !exists('g:Lasttab')
     let g:Lasttab = 1
@@ -158,7 +160,8 @@ nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR> 
 nnoremap gl :tabm +<CR>
 nnoremap gh :tabm -<CR>
-nnoremap gj :tabm  <CR>
+nnoremap gm :tabm<Space>
+nnoremap gj :tabm<CR>
 nnoremap gk :tabm 0<CR>
 nnoremap J  :tabn<CR>
 nnoremap K  :tabp<CR>
