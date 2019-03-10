@@ -38,21 +38,32 @@ set autoindent    " turns it on
 " set tabs to 2 for C files
 autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-" Status Line
+" Custom Highlights
 hi User1 ctermbg=68 ctermfg=16
 hi User2 ctermbg=238 ctermfg=188
 hi User3 ctermbg=234 ctermfg=188
 hi User4 ctermbg=88 ctermfg=188
+
+hi Title ctermfg=16 ctermbg=68
+hi TabLineFill ctermfg=16 ctermbg=0
+hi TabLine ctermfg=188 ctermbg=238
+hi TabLineSel ctermfg=16 ctermbg=68
+
+hi StatusLine ctermbg=238 ctermfg=188
+hi StatusLineNC ctermbg=234 ctermfg=188
+
+hi VertSplit ctermbg=238 ctermfg=68
+
+" Status Line
 set laststatus=2
 set statusline=%!statusline#MyStatusLine()
 
 " Tab Line
-:hi Title ctermfg=16 ctermbg=68
-:hi TabLineFill ctermfg=16 ctermbg=0
-:hi TabLine ctermfg=188 ctermbg=238
-:hi TabLineSel ctermfg=16 ctermbg=68
 set showtabline=1
 set tabline=%!tabline#MyTabLine()
+
+" Fillchars
+set fillchars=vert:\ 
 
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
