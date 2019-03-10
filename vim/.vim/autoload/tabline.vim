@@ -70,6 +70,7 @@ endfunction
 function! tabline#FileName(bn)
     let l:file = bufname(a:bn)
     let l:filetype = getbufvar(a:bn, '&filetype')
+
     if l:filetype == 'netrw'
         let l:file = fnamemodify(l:file, ':p')
         let l:file = substitute(l:file, $HOME, '~', '')
@@ -79,8 +80,10 @@ function! tabline#FileName(bn)
     else
         let l:file = fnamemodify(l:file, ':p:t')
     endif
+
     if l:file == ''
         let l:file = '[No Name]'
     endif
+
     return l:file
 endfunction
