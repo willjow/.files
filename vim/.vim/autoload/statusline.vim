@@ -9,6 +9,7 @@ function! statusline#MyStatusLine()
     " for each window. Consequently, local variables defined
     " in the string won't be resolved.
     let l:s = ''
+    let l:s .='%<'
     let l:s .= s:main_col
     let l:s .= ' %F ' 
     let l:s .= s:dark_col

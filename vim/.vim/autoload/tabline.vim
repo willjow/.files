@@ -18,14 +18,15 @@
 "
 " ("enhanced" version as follows...)
 
-" Note: ensure that s:s_col != s:t_col
-let s:s_col = '%1*'
-let s:t_col = '%2*'
-let s:d_col = '%3*'
-let s:stab_pat = '%\d\+T' . substitute(s:s_col, '\*', '\\*', '')
-let s:ttab_pat = '%\d\+T' . substitute(s:t_col, '\*', '\\*', '')
+" Note: ensure that s:main_col != s:back_col
+let s:main_col = '%1*'
+let s:back_col = '%2*'
+let s:dark_col = '%3*'
+let s:fill_col = '%#TabLineFill#'
+let s:main_pat = '%\d\+T' . substitute(s:main_col, '\*', '\\*', '')
+let s:back_pat = '%\d\+T' . substitute(s:back_col, '\*', '\\*', '')
 let s:tab_pat = '%\d\+T%\d\*'
-let s:end_pat = '%T%#TabLineFill#.*'
+let s:end_pat = '%T' . s:fill_col . '.*'
 
 function! tabline#MyTabLine()
     let l:s = ''
@@ -37,8 +38,8 @@ function! tabline#MyTabLine()
         let l:winnr = tabpagewinnr(i)
         let l:totnr = tabpagewinnr(i, '$')
         let l:bufnr = buflist[winnr - 1]
-        let l:s .= '%' . l:i . 'T' " tab number for mouse clicks
-        let l:s .= tabline#GetTabColor(l:i, l:t)
+        let l:s .= '%' . l:i . 'T'
+        let l:s .= tabline#TabColor(l:i, l:t)
         let l:s .= tabline#TabModified(l:buflist, l:i, l:t)
         let l:s .= l:i . ':'
         let l:s .= ' '
@@ -49,9 +50,9 @@ function! tabline#MyTabLine()
     endwhile
 
     let l:s .= '%T'
-    let l:s .= '%#TabLineFill#'
+    let l:s .= s:fill_col
     let l:s .= '%='
-    let l:s .= s:d_col
+    let l:s .= s:dark_col
     let l:s .= ' '
     let l:s .= tabline#GetCWD()
     let l:s .= ' '
@@ -64,10 +65,10 @@ function! tabline#Truncate(tabs)
     " writing any more garbage
     let l:t = a:tabs
     if (strlen(tabline#DisplayText(l:t)) > &columns)
-        let l:cutl_pat = '.*\ze\(' . s:ttab_pat . '.\{-}\)\{2}' . s:stab_pat
-        let l:cutr_pat = s:stab_pat
-        let l:cutr_pat .= '.\{-}\(' . s:ttab_pat . '.\{-}\)\{,2}'
-        let l:cutr_pat .= '\zs' . s:ttab_pat . '.*'
+        let l:cutl_pat = '.*\ze\(' . s:back_pat . '.\{-}\)\{2}' . s:main_pat
+        let l:cutr_pat = s:main_pat
+        let l:cutr_pat .= '.\{-}\(' . s:back_pat . '.\{-}\)\{,2}'
+        let l:cutr_pat .= '\zs' . s:back_pat . '.*'
         let l:t = substitute(a:tabs, l:cutr_pat, '', '')
     endif
     return l:t
@@ -91,8 +92,8 @@ function! tabline#DisplayText(tabs)
     return l:dtext
 endfunction
 
-function! tabline#GetTabColor(i, t)
-    return (a:i == a:t ? s:s_col : s:t_col)
+function! tabline#TabColor(i, t)
+    return (a:i == a:t ? s:main_col : s:back_col)
 endfunction
 
 function! tabline#TabModified(bl, i, t)
