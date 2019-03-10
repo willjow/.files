@@ -1,24 +1,26 @@
 " Colors
-let s:file_col = '%1*'
+let s:main_col = '%1*'
 let s:fill_col = '%2*'
-let s:type_col = '%3*'
+let s:dark_col = '%3*'
 let s:warn_col = '%4*'
 
 function! statusline#MyStatusLine()
-    " Note: The returned string is fixed and evaluated later, for each window.
-    " Consequently, local variables in the string won't be resolved properly.
+    " Note: The returned string is fixed and evaluated later,
+    " for each window. Consequently, local variables defined
+    " in the string won't be resolved.
     let l:s = ''
-    let l:s .= s:file_col
+    let l:s .= s:main_col
     let l:s .= ' %F ' 
-    let l:s .= s:type_col
+    let l:s .= s:dark_col
     let l:s .= '%{statusline#BufferType()}'
     let l:s .= s:warn_col
     let l:s .= '%{statusline#Warnings()}'
     let l:s .= s:fill_col
     let l:s .= '%='
-    let l:s .= ' Col %4c '
-    let l:s .= '      '
-    let l:s .= ' Line %4l/%L '
+    let l:s .= ' %{&fileformat}, '
+    let l:s .= '%{strlen(&fenc)? &fenc : &enc} '
+    let l:s .= s:dark_col
+    let l:s .= ' %c, %l/%L '
     return l:s
 endfunction
 
@@ -31,31 +33,35 @@ function! statusline#BufferType()
     let l:s = ''
 
     if l:bt == 'nofile'
-        let l:s .= 'nofile'
+        let l:s = 'nofile'
 
     elseif l:bt == 'nowrite'
-        let l:s .= 'nowrite'
+        let l:s = 'nowrite'
 
     elseif l:bt == 'acwrite'
-        let l:s .= 'acwrite'
+        let l:s = 'acwrite'
 
     elseif l:bt == 'quickfix'
-        let l:s .= 'quickfix'
+        if getwininfo(win_getid())[0]['loclist']
+            let l:s = 'loclist'
+        else
+            let l:s = 'quickfix'
+        endif
 
     elseif l:bt == 'help'
-        let l:s .= 'help'
+        let l:s = 'help'
 
     elseif l:bt == 'terminal'
-        let l:s .= 'terminal'
+        let l:s = 'terminal'
 
     elseif l:bt == 'prompt'
-        let l:s .= 'prompt'
+        let l:s = 'prompt'
 
     elseif getbufvar(l:bn, '$previewwindow')
-        let l:s .= 'preview'
+        let l:s = 'preview'
 
     elseif l:ft != ''
-        let l:s .= l:ft
+        let l:s = l:ft
 
     endif
 

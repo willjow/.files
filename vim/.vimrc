@@ -106,7 +106,10 @@ set noea
 " (older bind that automatically switches to tree view)
 " nnoremap <C-n> :vs. <bar> vertical res 25 <bar> call feedkeys('iii')<CR>
 
-nnoremap <C-n> :vs. <bar> vertical res 25 <CR>
+" 3/10/2019: I never actually use this bind; changing it to open a tab
+"            instead, which happens much more frequently...
+" nnoremap <C-n> :vs. <bar> vertical res 25 <CR>
+nnoremap <C-n> :tabnew.<CR>
 
 " Vim Directories
 set backupdir=~/.vim/backup//
