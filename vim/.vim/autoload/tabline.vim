@@ -17,51 +17,46 @@
 " https://vim.fandom.com/wiki/Show_tab_number_in_your_tab_line
 "
 " ("enhanced" version as follows...)
-let s_col = '%1*'
-let e_col = '%2*'
-let o_col = '%3*'
+let s:s_col = '%1*'
+let s:t_col = '%2*'
 
 function! tabline#MyTabLine()
-    let s = ''
-    let t = tabpagenr()
-    let i = 1
+    let l:s = ''
+    let l:t = tabpagenr()
+    let l:i = 1
 
-    while i <= tabpagenr('$')
-        let buflist = tabpagebuflist(i)
-        let winnr = tabpagewinnr(i)
-        let totnr = tabpagewinnr(i, '$')
-        let bufnr = buflist[winnr - 1]
+    while l:i <= tabpagenr('$')
+        let l:buflist = tabpagebuflist(i)
+        let l:winnr = tabpagewinnr(i)
+        let l:totnr = tabpagewinnr(i, '$')
+        let l:bufnr = buflist[winnr - 1]
         " set the tab page number for mouse clicks
-        let s .= '%' . i . 'T'
-        let s .= tabline#GetTabColor(i, t)
-        let s .= tabline#TabModified(buflist, i, t)
-        let s .= i . ':'
-        let s .= ' '
-        let s .= tabline#TabSplits(winnr, totnr)
-        let s .= tabline#FileName(bufnr)
-        let s .= ' '
-        let i = i + 1
+        let l:s .= '%' . l:i . 'T'
+        let l:s .= tabline#GetTabColor(l:i, l:t)
+        let l:s .= tabline#TabModified(l:buflist, l:i, l:t)
+        let l:s .= l:i . ':'
+        let l:s .= ' '
+        let l:s .= tabline#TabSplits(l:winnr, l:totnr)
+        let l:s .= tabline#FileName(l:bufnr)
+        let l:s .= ' '
+        let l:i = l:i + 1
     endwhile
 
-    let s .= '%T'
-    let s .= '%#TabLineFill#'
-    " let s .= tabline#GetLineColor(i)
-    " let s .= '%='
-    " let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-    return s
+    let l:s .= '%T'
+    let l:s .= '%#TabLineFill#'
+    " let l:s .= tabline#GetLineColor(l:i)
+    " let l:s .= '%='
+    " let l:s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+    return l:s
 endfunction
 
 function! tabline#GetTabColor(i, t)
-    if a:i == a:t
-        return '%1*'
-    else
-        return '%2*'
-    endif
+    return (a:i == a:t ? s:s_col : s:t_col)
 endfunction
 
 function! tabline#TabModified(bl, i, t)
-    for b in a:bl
-        if getbufvar(b, '&modified')
+    for l:b in a:bl
+        if getbufvar(l:b, '&modified')
             return ' + '
         endif
     endfor
@@ -69,25 +64,23 @@ function! tabline#TabModified(bl, i, t)
 endfunction
 
 function! tabline#TabSplits(wn, tn)
-    if a:tn == 1
-        return ''
-    else
-        return a:wn . '/' . a:tn . ' '
-    endif
+    return (a:tn == 1 ? '' : a:wn . '/' . a:tn . ' ')
 endfunction
 
 function! tabline#FileName(bn)
-    let file = bufname(a:bn)
-    let buftype = getbufvar(a:bn, '&buftype')
-    if buftype == 'nofile'
-        if file =~ '\/.'
-            let file = substitute(file, '.*\/\ze.', '', '')
-        endif
+    let l:file = bufname(a:bn)
+    let l:filetype = getbufvar(a:bn, '&filetype')
+    if l:filetype == 'netrw'
+        let l:file = fnamemodify(l:file, ':p')
+        let l:file = substitute(l:file, $HOME, '~', '')
+        let l:file = substitute(l:file, '\/$', '', '')
+        let l:file = substitute(l:file, '[\/\~][^\/\~]\zs[^\/\~]\+\ze\/', '', 'g')
+        let l:file .= '/'
     else
-        let file = fnamemodify(file, ':p:t')
+        let l:file = fnamemodify(l:file, ':p:t')
     endif
-    if file == ''
-        let file = '[No Name]'
+    if l:file == ''
+        let l:file = '[No Name]'
     endif
-    return file
+    return l:file
 endfunction

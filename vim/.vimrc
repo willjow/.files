@@ -44,22 +44,7 @@ hi User2 ctermbg=238 ctermfg=188
 hi User3 ctermbg=234 ctermfg=188
 hi User4 ctermbg=88 ctermfg=188
 set laststatus=2
-set statusline=
-set statusline+=%1*
-set statusline+=\ %F\ 
-set statusline+=%3*
-set statusline+=%{status#FileSize()}
-set statusline+=%4*
-set statusline+=%{status#ReadOnly()} 
-set statusline+=%{status#Modified()}
-set statusline+=%2*
-set statusline+=%=
-set statusline+=%2*
-set statusline+=\ Col\ %4c\ 
-set statusline+=\ \ \ \ \ \ 
-set statusline+=\ Line\ %4l
-set statusline+=/
-set statusline+=%L\ 
+set statusline=%!statusline#MyStatusLine()
 
 " Tab Line
 :hi Title ctermfg=16 ctermbg=68
