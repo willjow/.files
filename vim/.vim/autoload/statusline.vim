@@ -13,6 +13,14 @@ function! statusline#MyStatusLine()
     " TODO make it so that if the window isn't focused, the
     " file path is highlighted with s:dark_col instead of
     " with s:main_col
+    "
+    " 3/10/2019 This effect has been cheesed by abusing the
+    " fact that setting highlights StatusLine[Term] and
+    " StatusLine[Term]NC seem to affect the color values
+    " only if one of them matches the statusline color
+    " (e.g., if we set one of these to be the same as
+    " s:main_col, then they will take effect on the text
+    " highlighted with s:main_col, and nothing else).
     let l:s .= s:main_col
     let l:s .= ' %F ' 
     let l:s .= s:dark_col

@@ -39,20 +39,22 @@ set autoindent    " turns it on
 autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Custom Highlights
-hi User1 ctermbg=68 ctermfg=16
-hi User2 ctermbg=238 ctermfg=188
-hi User3 ctermbg=234 ctermfg=188
-hi User4 ctermbg=88 ctermfg=188
+hi User1 ctermbg=68 ctermfg=16 cterm=None
+hi User2 ctermbg=238 ctermfg=188 cterm=None
+hi User3 ctermbg=234 ctermfg=188 cterm=None
+hi User4 ctermbg=88 ctermfg=188 cterm=None
 
-hi Title ctermfg=16 ctermbg=68
-hi TabLineFill ctermfg=16 ctermbg=0
-hi TabLine ctermfg=188 ctermbg=238
-hi TabLineSel ctermfg=16 ctermbg=68
+hi Title ctermfg=16 ctermbg=68 cterm=None
+hi TabLineFill ctermfg=16 ctermbg=0 cterm=None
+hi TabLine ctermfg=188 ctermbg=238 cterm=None
+hi TabLineSel ctermfg=16 ctermbg=68 cterm=None
 
-hi StatusLine ctermbg=238 ctermfg=188
-hi StatusLineNC ctermbg=234 ctermfg=188
+hi StatusLine ctermbg=68 ctermfg=16 cterm=None
+hi StatusLineTerm ctermbg=68 ctermfg=16 cterm=None
+hi StatusLineNC ctermbg=234 ctermfg=188 cterm=None
+hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
 
-hi VertSplit ctermbg=238 ctermfg=68
+hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
 " Status Line
 set laststatus=2
