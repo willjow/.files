@@ -16,11 +16,10 @@ function! statusline#MyStatusLine()
     "
     " 3/10/2019 This effect has been cheesed by abusing the
     " fact that setting highlights StatusLine[Term] and
-    " StatusLine[Term]NC seem to affect the color values
-    " only if one of them matches the statusline color
-    " (e.g., if we set one of these to be the same as
-    " s:main_col, then they will take effect on the text
-    " highlighted with s:main_col, and nothing else).
+    " StatusLine[Term]NC seem to affect color values set
+    " here only if they're equal (fg and bg) to the values
+    " defined for the highlights.
+    " (e.g., set StatusLine[Term] = s:main_col)
     let l:s .= s:main_col
     let l:s .= ' %F ' 
     let l:s .= s:dark_col
