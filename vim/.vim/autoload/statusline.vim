@@ -10,6 +10,9 @@ function! statusline#MyStatusLine()
     " in the string won't be resolved.
     let l:s = ''
     let l:s .='%<'
+    " TODO make it so that if the window isn't focused, the
+    " file path is highlighted with s:dark_col instead of
+    " with s:main_col
     let l:s .= s:main_col
     let l:s .= ' %F ' 
     let l:s .= s:dark_col

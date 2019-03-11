@@ -21,8 +21,7 @@
 " Note: ensure that s:main_col != s:back_col
 let s:main_col = '%1*'
 let s:back_col = '%2*'
-let s:dark_col = '%3*'
-let s:fill_col = '%#TabLineFill#'
+let s:fill_col = '%3*'
 let s:main_pat = '%\d\+T' . substitute(s:main_col, '\*', '\\*', '')
 let s:back_pat = '%\d\+T' . substitute(s:back_col, '\*', '\\*', '')
 let s:tab_pat = '%\d\+T%\d\*'
@@ -52,7 +51,6 @@ function! tabline#MyTabLine()
     let l:s .= '%T'
     let l:s .= s:fill_col
     let l:s .= '%='
-    let l:s .= s:dark_col
     let l:s .= ' '
     let l:s .= tabline#GetCWD()
     let l:s .= ' '
