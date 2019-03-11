@@ -14,10 +14,31 @@ runtime! archlinux.vim
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
+" Vim Directories
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+set viewdir=~/.vim/view//
+
+" vim-plug stuff
+call plug#begin('~/.vim/plugged')
+Plug 'jalvesaq/Nvim-R'
+Plug 'lervag/vimtex'
+call plug#end()
+
+" vimtex
+autocmd FileType tex setlocal spell spelllang=en_us
+let g:vimtex_view_use_temp_files=1
+let g:vimtex_view_method='zathura'
+
+" Nvim-R
+let R_in_buffer=0
+let R_term='urxvt'
+let R_openhtml=1
+let R_openpdf=1
+
+" 'Basic' Settings
 filetype plugin on
-syntax on
-set t_Co=256
-colorscheme darkblue
 set number
 set ignorecase
 set smartcase
@@ -26,6 +47,10 @@ set report=0
 set display+=truncate
 set nohlsearch " Turns out search highlighting is really annoying and distracting
 let maplocalleader="\<Tab>"
+
+" Enable scrolling
+set mouse=nvc
+set ttymouse=xterm2
 
 " Style Stuff
 filetype plugin indent on
@@ -37,6 +62,11 @@ set autoindent    " turns it on
 
 " set tabs to 2 for C files
 autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" ColorScheme
+syntax enable
+set t_Co=256
+colorscheme darkblue
 
 " Custom Highlights
 hi User1 ctermbg=68 ctermfg=16 cterm=None
@@ -67,23 +97,6 @@ set tabline=%!tabline#MyTabLine()
 " Fillchars
 set fillchars=vert:\ 
 
-" vim-plug stuff
-call plug#begin('~/.vim/plugged')
-Plug 'jalvesaq/Nvim-R'
-Plug 'lervag/vimtex'
-call plug#end()
-
-" vimtex
-autocmd FileType tex setlocal spell spelllang=en_us
-let g:vimtex_view_use_temp_files=1
-let g:vimtex_view_method='zathura'
-
-" Nvim-R
-let R_in_buffer=0
-let R_term='urxvt'
-let R_openhtml=1
-let R_openpdf=1
-
 " NERDTree is not for me
 let g:netrw_liststyle=0
 let g:netrw_browse_split=0
@@ -112,16 +125,6 @@ set noea
 "            instead, which happens much more frequently...
 " nnoremap <C-n> :vs. <bar> vertical res 25 <CR>
 nnoremap <C-n> :tabnew.<CR>
-
-" Vim Directories
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
-set viewdir=~/.vim/view//
-
-" Enable scrolling
-set mouse=nvc
-set ttymouse=xterm2
 
 """""""""""
 " Keymaps "

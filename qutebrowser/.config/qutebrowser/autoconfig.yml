@@ -68,7 +68,7 @@ settings:
   colors.hints.fg:
     global: black
   colors.hints.match.fg:
-    global: '#cccccc'
+    global: '#dedede'
   colors.keyhint.fg:
     global: '#dedede'
   colors.keyhint.suffix.fg:
