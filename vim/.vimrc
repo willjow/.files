@@ -72,7 +72,7 @@ colorscheme darkblue
 hi User1 ctermbg=68 ctermfg=16 cterm=None
 hi User2 ctermbg=238 ctermfg=188 cterm=None
 hi User3 ctermbg=234 ctermfg=188 cterm=None
-hi User4 ctermbg=88 ctermfg=188 cterm=None
+hi User4 ctermbg=124 ctermfg=188 cterm=None
 
 hi Title ctermfg=16 ctermbg=68 cterm=None
 hi TabLineFill ctermfg=16 ctermbg=0 cterm=None
