@@ -46,6 +46,8 @@ set wrap lbr
 set report=0
 set display+=truncate
 set nohlsearch " Turns out search highlighting is really annoying and distracting
+set nocursorline
+set nocursorcolumn
 let maplocalleader="\<Tab>"
 
 " Enable scrolling
@@ -74,7 +76,11 @@ hi User2 ctermbg=238 ctermfg=188 cterm=None
 hi User3 ctermbg=234 ctermfg=188 cterm=None
 hi User4 ctermbg=124 ctermfg=188 cterm=None
 
-hi Title ctermfg=16 ctermbg=68 cterm=None
+" Messes with html titles and I can't be bothered to manually reassign those
+" Also, Title was originally set only for the default tabline which is no
+" longer in use anyway
+"
+" hi Title ctermfg=16 ctermbg=68 cterm=None
 hi TabLineFill ctermfg=16 ctermbg=0 cterm=None
 hi TabLine ctermfg=188 ctermbg=238 cterm=None
 hi TabLineSel ctermfg=16 ctermbg=68 cterm=None
@@ -151,13 +157,13 @@ inoremap <C-h> <Esc><Left>a
 
 " Tabs
 " Switch to last-active tab
-if !exists('g:Lasttab')
-    let g:Lasttab = 1
-    let g:Lasttab_backup = 1
+if !exists('g:ptab')
+    let g:ptab = 1
+    let g:ptab_backup = 1
 endif
-autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
-autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
-nnoremap T :exe "tabn " . g:Lasttab<CR>
+autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
+autocmd! TabClosed * let g:ptab = g:ptab_backup
+nnoremap T :exe "tabn " . g:ptab<CR>
 
 nnoremap <C-t> :tabnew<CR>
 nnoremap gf :tablast<CR>
@@ -184,17 +190,17 @@ set timeoutlen=250
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
-inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 
 inoremap (      ()<Left>
 inoremap (<CR>  (<CR>)<Esc>O
 inoremap ((     (
-inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 
 inoremap [      []<Left>
 inoremap [<CR>  [<CR>]<Esc>O
 inoremap [[     [
-inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 
 inoremap "<CR>  "<CR>"<Esc>O
 inoremap ""     "
