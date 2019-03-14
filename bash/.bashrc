@@ -32,6 +32,7 @@ alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layo
 alias bike='feh --zoom 33 ~/misc/s_works_e5.jpg & disown'
 alias bannedcamp='python /home/wjow/school/compsci/misc_projects/bandcamp_not_safe/dl_album.py'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
+alias resettp='tpset "libinput Accel Speed" 0.7 && tpset "libinput Accel Profile Enabled" 0, 1'
 
 #Environment Variables
 export PATH="${PATH}"
@@ -41,7 +42,6 @@ export CS61B_LIB="/home/wjow/school/compsci/cs61b/aqr/javalib/algs4.jar:/home/wj
 export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:${CS61B_LIB}:./"
 export PYTHONSTARTUP="/home/wjow/.python_startup.py"
 export GOPATH="/home/wjow/.go/"
-
 
 #Functions
 javacr() {
@@ -84,6 +84,10 @@ mergepdf() {
     outputfile=$1
     shift
     gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
+}
+
+tpset() {
+    xinput set-prop "TPPS/2 IBM TrackPoint" "$@"
 }
 
 wipedisk() {
