@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 TYPE="${BLOCK_INSTANCE:-mem}"
-LOW_THRESH="${1:-15}" # color will turn yellow under this threshold (default: 15%)
+LOW_THRESH="${1:-25}" # color will turn yellow under this threshold (default: 25%)
 
 awk -v type=$TYPE -v low_thresh=$LOW_THRESH '
 /^MemTotal:/ {

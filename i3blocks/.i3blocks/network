@@ -47,13 +47,13 @@ short=$full
 # color
 if [[ $ipaddr == "" ]]; then
     color="#FF0000"
-elif [[ $quality -ge 80 ]]; then
+elif [[ $quality -ge 85 ]]; then
     color="#00FF00"
-elif [[ $quality -lt 80 ]]; then
+elif [[ $quality -lt 85 ]]; then
+    color=""
+elif [[ $quality -lt 50 ]]; then
     color="#FFFF00"
-elif [[ $quality -lt 60 ]]; then
-    color="#FFAE00"
-elif [[ $quality -lt 40 ]]; then
+elif [[ $quality -lt 30 ]]; then
     color="#FF5F00"
 fi
 
