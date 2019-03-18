@@ -17,43 +17,44 @@ interface=${interfacePath#$netPath/}
 
 state="$(cat $interfacePath/operstate)"
 
-if [[ $state == "up" ]]; then
-	ipaddr="$(ip addr show $interface | perl -n -e'/inet (.+)\// && print $1')"
-    if [[ $ipaddr == "" ]]; then
-        ipaddr="no IP"
-    fi
-else
+if [[ $state != "up" ]]; then
     # if the interface is downright down (haha), it shouldn't be displayed
     exit 0
 fi
 
-full="$ipaddr"
+ipaddr="$(ip addr show $interface | perl -n -e'/inet (.+)\// && print $1')"
 
 if [[ $BLOCK_INSTANCE == wlp* ]]; then
     quality=$(grep $interface /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
-    qualityfull="$quality% at $(iw $interface link | grep SSID | cut -d " " -f 2-), "
-    speed=$(iw $interface link | grep bitrate | cut -d " " -f 3)
+    qualityfull="$quality% at $(iw $interface link | grep SSID | cut -d " " -f 2-)"
+    speed=$(iw wlp3s0 link \
+            | grep bitrate \
+            | sed -E -e '1s/(.+) MBit/\1↓ /1' -e '2s/(.+) MBit/\1↑ /1' \
+            | cut -d " " -f 3)
 elif [[ $BLOCK_INSTANCE == enp* ]]; then
     quality="100"
     speed=$(cat $interfacePath/speed)
 fi
 
-if [[ $state == "up" ]]; then
-    full="$full (${qualityfull}${speed} Mb/s)"
+if [[ $ipaddr == "" ]]; then
+    full="no IP (${qualityfull})"
+else
+    full="${qualityfull}, ${speed} Mb/s"
 fi
+
 short=$full
 
 # color
-if [[ $state != "up" ]]; then
+if [[ $ipaddr == "" ]]; then
     color="#FF0000"
 elif [[ $quality -ge 80 ]]; then
     color="#00FF00"
 elif [[ $quality -lt 80 ]]; then
-    color="#FFF600"
+    color="#FFFF00"
 elif [[ $quality -lt 60 ]]; then
     color="#FFAE00"
 elif [[ $quality -lt 40 ]]; then
-    color="#FF0000"
+    color="#FF5F00"
 fi
 
 echo $full

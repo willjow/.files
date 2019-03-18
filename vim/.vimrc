@@ -39,15 +39,16 @@ let R_openpdf=1
 
 " 'Basic' Settings
 filetype plugin on
-set number
+set number relativenumber
 set ignorecase
 set smartcase
 set wrap lbr
 set report=0
 set display+=truncate
 set nohlsearch " Turns out search highlighting is really annoying and distracting
-set nocursorline
+set cursorline
 set nocursorcolumn
+set noshowcmd
 let maplocalleader="\<Tab>"
 
 " Enable scrolling
@@ -92,6 +93,9 @@ hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
 
 hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
+hi CursorLine cterm=None
+hi CursorLineNr ctermfg=11 cterm=None
+
 " Status Line
 set laststatus=2
 set statusline=%!statusline#MyStatusLine()
@@ -109,7 +113,7 @@ let g:netrw_browse_split=0
 let g:netrw_altv=1
 let g:netrw_banner=0
 let g:netrw_fastbrowse=2
-let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
+let g:netrw_bufsettings="noma nomod nobl nowrap ro nu rnu"
 set noea
 
 " Keybind to open the directory listing
