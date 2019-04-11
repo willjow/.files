@@ -29,10 +29,12 @@ alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
 alias proxyon='export http_proxy="proxy.lib.berkeley.edu:7777" && export https_proxy=$http_proxy'
 alias proxyoff='unset http_proxy https_proxy'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
-alias bike='feh --zoom 33 ~/misc/s_works_e5.jpg & disown'
+alias swe5='feh --zoom 33 ~/misc/swe5.jpg & disown'
+alias tcr='feh --zoom 33 ~/misc/tcr.jpg & disown'
 alias bannedcamp='python /home/wjow/school/compsci/misc_projects/bandcamp_not_safe/dl_album.py'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='tpset "libinput Accel Speed" 0.9 && tpset "libinput Accel Profile Enabled" 0, 1'
+alias resetwifi='sudo systemctl restart netctl-auto@wlp3s0'
 
 #Environment Variables
 export PATH="${PATH}"
