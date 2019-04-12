@@ -145,7 +145,7 @@ map <Enter> o<esc>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " Toggle Relative Line Numbers
-nnoremap <C-l> :set relativenumber!<CR>
+nnoremap <silent> <C-l> :set relativenumber!<CR>
 
 " Move By Displayed Line
 noremap <silent> k gk
