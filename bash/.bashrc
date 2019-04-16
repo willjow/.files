@@ -35,6 +35,7 @@ alias bannedcamp='python /home/wjow/school/compsci/misc_projects/bandcamp_not_sa
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='tpset "libinput Accel Speed" 0.9 && tpset "libinput Accel Profile Enabled" 0, 1'
 alias resetwifi='sudo systemctl restart netctl-auto@wlp3s0'
+alias ncwd='urxvt & disown'
 
 #Environment Variables
 export PATH="${PATH}"

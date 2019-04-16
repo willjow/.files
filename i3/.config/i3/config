@@ -75,8 +75,6 @@ bindsym $mod+w exec qutebrowser --backend webengine
 bindsym $mod+Shift+w exec google-chrome-stable
 bindsym $mod+g exec dolphin-emu
 bindsym $mod+b exec thunar
-bindsym $mod+n exec fceux
-bindsym $mod+z exec zathura
 
 # start unclutter
 exec --no-startup-id unclutter --timeout 1 --jitter 15 -b
