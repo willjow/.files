@@ -20,7 +20,12 @@
     m:0x0 + c:199
     XF86TouchpadToggle
 
-# Turn off backlight
+# Turn off screen
 "sleep 1 && xset dpms force off && /usr/bin/slock"
     m:0xc + c:22
     Control+Alt + BackSpace
+
+# Redshift (F9)
+". $HOME/.toggle_redshift.sh"
+    m:0x0 + c:202
+    NoSymbol
