@@ -45,10 +45,10 @@ client.placeholder      #000000 #000000 #dedede #000000
 client.background       #000000
 
 # borders
-smart_borders on
-hide_edge_borders none
-new_window pixel 1
-new_float pixel 1
+# smart_borders on
+hide_edge_borders smart
+default_border pixel 1
+default_floating_border pixel 1
 
 # monitor workspaces
 workspace 11 output VGA1
