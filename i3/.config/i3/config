@@ -35,9 +35,10 @@ font -*-terminus-medium-*-*-*-*-120-*-*-*-*-iso10646-1
 #
 # empoleon main: 5f87d7
 # empoleon light: 9eb6e6
+# empoleon dark: 20407e
 # class                 border  backgr. text    indicator
 client.focused          #5f87d7 #5f87d7 #000000 #000000
-client.focused_inactive #9eb6e6 #9eb6e6 #000000 #000000
+client.focused_inactive #20407e #20407e #dedede #000000
 client.unfocused        #444444 #444444 #dedede #000000
 client.urgent           #af0000 #af0000 #dedede #000000
 client.placeholder      #000000 #000000 #dedede #000000
@@ -258,7 +259,7 @@ bar {
 
             # <colorclass> <border> <background> <text>
             focused_workspace  #5f87d7 #5f87d7 #000000
-            active_workspace   #9eb6e6 #9eb6e6 #000000
+            active_workspace   #20407e #20407e #dedede
             inactive_workspace #444444 #444444 #dedede
             urgent_workspace   #af0000 #af0000 #dedede
             binding_mode       #af0000 #af0000 #dedede
