@@ -55,16 +55,19 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 # trackpoint stuff
-tpset() { xinput set-prop "TPPS/2 IBM TrackPoint" "$@"; }
+tposet() { xinput set-prop "TPPS/2 IBM TrackPoint" "$@"; }
+tpaset() { xinput set-prop "Synaptics TM3053-004" "$@"; }
 
 # not working as of update on Nov 8 2017
-# tpset "Evdev Wheel Emulation" 1
-# tpset "Evdev Wheel Emulation Button" 2
-# tpset "Evdev Wheel Emulation Timeout" 200
-# tpset "Evdev Wheel Emulation Axes" 6 7 4 5
-# tpset "Device Accel Constant Deceleration" 0.55
-tpset "libinput Accel Speed" 0
-tpset "libinput Accel Profile Enabled" 0, 1
+# tposet "Evdev Wheel Emulation" 1
+# tposet "Evdev Wheel Emulation Button" 2
+# tposet "Evdev Wheel Emulation Timeout" 200
+# tposet "Evdev Wheel Emulation Axes" 6 7 4 5
+# tposet "Device Accel Constant Deceleration" 0.55
+tposet "libinput Accel Speed" 0
+tposet "libinput Accel Profile Enabled" 0, 1
+tpaset "libinput Tapping Enabled" 1
+
 
 # disable touchpad and buttons
 xinput disable "Synaptics TM3053-004"
