@@ -1,0 +1,16 @@
+#!/bin/sh
+
+state=$(xset q | awk '/Caps Lock/ {print $4}')
+
+# full text
+echo "CAPS"
+
+# short text
+echo "CAPS"
+
+# color
+if [ $state = 'on' ]; then
+  echo "#00FF00"
+else
+  echo "#444444"
+fi

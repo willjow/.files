@@ -93,6 +93,9 @@ bindsym XF86AudioLowerVolume exec "amixer set Master 1dB- && pkill -RTMIN+10 i3b
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1dB+ && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioMute exec "amixer set Master toggle && pkill -RTMIN+10 i3blocks"
 
+# caps lock wrapper for bar indicator
+bindsym --release Caps_Lock exec "pkill -SIGRTMIN+11 i3blocks"
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'xos4 terminus-10' -nb '#000000' -sb '#5f87d7' -sf '#000000'
 
