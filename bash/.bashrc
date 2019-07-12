@@ -25,26 +25,20 @@ alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
-alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
-alias proxyon='export http_proxy="proxy.lib.berkeley.edu:7777" && export https_proxy=$http_proxy'
-alias proxyoff='unset http_proxy https_proxy'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
 alias swe5='feh --zoom 33 ~/misc/swe5.jpg & disown'
 alias tcr='feh --zoom 33 ~/misc/tcr.jpg & disown'
 alias bannedcamp='python /home/wjow/school/compsci/misc_projects/bandcamp_not_safe/dl_album.py'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='tpset "libinput Accel Speed" 0.9 && tpset "libinput Accel Profile Enabled" 0, 1'
-alias resetwifi='sudo systemctl restart netctl-auto@wlp3s0'
 alias ncwd='urxvt & disown'
 
 #Environment Variables
 export PATH="${PATH}"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/r/.Renviron"
-export CS61B_LIB="/home/wjow/school/compsci/cs61b/aqr/javalib/algs4.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/jh61b.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/stdlib-package.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/checkstyle-6.15-all.jar:/home/wjow/school/compsci/cs61b/aqr/javalib/61b_checks.xml"
 export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:${CS61B_LIB}:./"
 export PYTHONSTARTUP="/home/wjow/.python_startup.py"
-export GOPATH="/home/wjow/.go/"
 
 #Functions
 javacr() {

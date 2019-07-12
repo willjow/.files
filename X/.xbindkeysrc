@@ -17,15 +17,15 @@
 
 # Toggle touchpad
 ". $HOME/.toggle_touchpad.sh"
-    m:0x0 + c:199
-    XF86TouchpadToggle
+    m:0x0 + c:152
+    XF86Explorer
 
 # Turn off screen
 "sleep 1 && xset dpms force off && /usr/bin/slock"
     m:0xc + c:22
-    Control+Alt + BackSpace
+    Control + Alt + BackSpace
 
 # Redshift (F9)
 ". $HOME/.toggle_redshift.sh"
-    m:0x0 + c:202
-    NoSymbol
+    m:0x0 + c:75
+    F9
