@@ -54,20 +54,35 @@ function! tabline#MyTabLine()
     let l:s .= ' '
     let l:s .= tabline#GetCWD()
     let l:s .= ' '
+    " truncate tab text (l:s) here, before returning
+    
     return l:s
 endfunction
 
 function! tabline#Truncate(tabs)
     " Truncate tabline so that the current tab is always visible
-    " TODO figure out what you actually want to do here before
-    " writing any more garbage
+    " TODO: figure out what you actually want to do here before
+    "       writing any more garbage
+    "
+    "       Potential schemes:
+    "           1) truncate non-active tabs to be just the number and
+    "              first letter (don't worry about cutting any other text
+    "              e.g., to the left or right, because if you have too many
+    "              tabs open with this scheme you're doing something wrong)
+    "
+    "           2) keep full length tab names and put <, > on the
+    "              clipping boundaries
+    "
+    "              Obstacle: figure out how to clip the boundaries such that
+    "                        current tab is intelligently centered
     let l:t = a:tabs
     if (strlen(tabline#DisplayText(l:t)) > &columns)
-        let l:cutl_pat = '.*\ze\(' . s:back_pat . '.\{-}\)\{2}' . s:main_pat
-        let l:cutr_pat = s:main_pat
-        let l:cutr_pat .= '.\{-}\(' . s:back_pat . '.\{-}\)\{,2}'
-        let l:cutr_pat .= '\zs' . s:back_pat . '.*'
-        let l:t = substitute(a:tabs, l:cutr_pat, '', '')
+        " Broken start to scheme (2)
+        " let l:cutl_pat = '.*\ze\(' . s:back_pat . '.\{-}\)\{2}' . s:main_pat
+        " let l:cutr_pat = s:main_pat
+        " let l:cutr_pat .= '.\{-}\(' . s:back_pat . '.\{-}\)\{,2}'
+        " let l:cutr_pat .= '\zs' . s:back_pat . '.*'
+        " let l:t = substitute(a:tabs, l:cutr_pat, '', '')
     endif
     return l:t
 endfunction

@@ -5,15 +5,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#Outputs
+# Outputs
 # pikles color: [38;5;41m]
 # empoleon color: [38;5;68m]
 PS1="\[\033[38;5;68m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;68m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 # efibootmgr command:
-#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPV6 psmouse" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
+#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPv6" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
 
-#Aliases
+# Aliases
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias cower='cower -t ~/aur'
@@ -33,14 +33,25 @@ alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='tpset "libinput Accel Speed" 0.9 && tpset "libinput Accel Profile Enabled" 0, 1'
 alias ncwd='urxvt & disown'
 
-#Environment Variables
+# Temporary aliases
+
+# Environment Variables
 export PATH="${PATH}"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/r/.Renviron"
-export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:${CS61B_LIB}:./"
+export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
 export PYTHONSTARTUP="/home/wjow/.python_startup.py"
 
-#Functions
+# Functions
+find_containing() {
+    # list files matching $1 that contain $2
+    find ./ -name "$1" -exec grep -l "$2" {} +
+}
+
+zpdfd() {
+  zathura "$1" & disown
+}
+
 javacr() {
     javac $1 && java $(echo $1 | awk -F '.java' '{print $1}')
 }
@@ -100,6 +111,8 @@ wipedisk() {
         fi
     fi 
 }
+
+# Temporary Functions
 
 shopt -s extglob
 set -o vi
