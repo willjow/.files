@@ -68,9 +68,11 @@ tposet "libinput Accel Speed" 0
 tposet "libinput Accel Profile Enabled" 0, 1
 tpaset "libinput Tapping Enabled" 1
 
-
 # disable touchpad and buttons
 xinput disable "Synaptics TM3053-004"
+
+# mute the spearker
+amixer set Speaker mute
 
 # second monitor
 xrandr --output LVDS1 --primary --auto --output VGA1 --auto --right-of LVDS1

@@ -16,11 +16,11 @@
 #     XF86AudioRaiseVolume
 
 # Backlight
-"xbacklight -dec 5"
+"xbacklight -dec 2"
     m:0x0 + c:232
     XF86MonBrightnessDown
 
-"xbacklight -inc 5"
+"xbacklight -inc 2"
     m:0x0 + c:233
     XF86MonBrightnessUp
 

@@ -10,7 +10,7 @@ echo "CAPS"
 
 # color
 if [ $state = 'on' ]; then
-  echo "#00FF00"
+  echo "#00FFFF"
 else
-  echo "#444444"
+  echo "#323232"
 fi
