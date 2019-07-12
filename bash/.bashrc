@@ -5,15 +5,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#Outputs
+# Outputs
 # pikles color: [38;5;41m]
 # empoleon color: [38;5;68m]
 PS1="\[\033[38;5;68m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;68m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 # efibootmgr command:
-#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPV6 psmouse" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
+#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPv6" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
 
-#Aliases
+# Aliases
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias cower='cower -t ~/aur'
@@ -25,7 +25,6 @@ alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc_projects/dank-nooodls-vitetris/tetris'
-alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
 alias proxyon='export http_proxy="proxy.lib.berkeley.edu:7777" && export https_proxy=$http_proxy'
 alias proxyoff='unset http_proxy https_proxy'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
@@ -37,7 +36,15 @@ alias resettp='tpset "libinput Accel Speed" 0.9 && tpset "libinput Accel Profile
 alias resetwifi='sudo systemctl restart netctl-auto@wlp3s0'
 alias ncwd='urxvt & disown'
 
-#Environment Variables
+# Temporary aliases
+alias cs61bstyle='python3 ~/school/compsci/cs61b/aqr/javalib/style61b.py *.java'
+alias docker-start-all='sudo docker start $(sudo docker ps -aq)'
+alias docker-stop-all='sudo docker stop $(sudo docker ps -aq)'
+alias docker-rm-all='sudo docker rm $(sudo docker ps -aq)'
+alias docker-rmi-all='sudo docker rmi $(sudo docker images -aq)'
+alias lovenv='source "${HOME}/school/compsci/intern/Live Objects/actual work/venv/bin/activate"'
+
+# Environment Variables
 export PATH="${PATH}"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/r/.Renviron"
@@ -46,7 +53,16 @@ export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcres
 export PYTHONSTARTUP="/home/wjow/.python_startup.py"
 export GOPATH="/home/wjow/.go/"
 
-#Functions
+# Functions
+find_containing() {
+    # list files matching $1 that contain $2
+    find ./ -name "$1" -exec grep -l "$2" {} +
+}
+
+zpdfd() {
+  zathura "$1" & disown
+}
+
 javacr() {
     javac $1 && java $(echo $1 | awk -F '.java' '{print $1}')
 }
@@ -105,6 +121,14 @@ wipedisk() {
             echo 'Not allowed to destroy if any of the partitions is mounted: '"$NOT_safe"
         fi
     fi 
+}
+
+# Temporary Functions
+lo-docker-compose() {
+    local version=$1 # v1.2.1
+    cd "/home/wjow/school/compsci/intern/Live Objects/actual work/repos/lodev" 
+    sudo bash docker-compose.sh -s ${version} -p ${version} -m ${version} -u ${version} -f FALSE
+    cd "${OLDPWD}"
 }
 
 shopt -s extglob

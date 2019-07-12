@@ -31,7 +31,7 @@ function! statusline#MyStatusLine()
     let l:s .= ' %{&fileformat}, '
     let l:s .= '%{strlen(&fenc)? &fenc : &enc} '
     let l:s .= s:dark_col
-    let l:s .= ' %c, %l/%L '
+    let l:s .= ' %{statusline#Col()}, %l/%L '
     return l:s
 endfunction
 
@@ -132,6 +132,15 @@ function! statusline#FileSize()
     else
         return printf(' %.0f B ', l:bytes)
     endif
+endfunction
+
+function! statusline#Col()
+    let l:bytecol = col('.')
+    let l:screencol = virtcol('.')
+    if l:bytecol != l:screencol
+        return l:bytecol . ' (' . l:screencol . ')'
+    else
+        return l:bytecol
 endfunction
 
 function! statusline#Words()

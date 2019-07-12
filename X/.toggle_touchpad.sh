@@ -3,7 +3,7 @@ device="SynPS/2 Synaptics TouchPad"
 state=$(xinput list-props "$device" | grep "Device Enabled" | grep -o "[01]$")
 
 if [ $state == '1' ]; then
-    xinput disable "$device"
+  xinput disable "$device"
 else
-    xinput enable "$device"
+  xinput enable "$device"
 fi

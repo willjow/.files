@@ -63,8 +63,8 @@ set expandtab     " don't use actual tab character (ctrl-v)
 set shiftwidth=4  " indenting is 4 spaces
 set autoindent    " turns it on
 
-" set tabs to 2 for C files
-autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" set tabs to 2 for certain files
+autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ColorScheme
 syntax enable
@@ -133,8 +133,7 @@ set noea
 
 " 3/10/2019: I never actually use this bind; changing it to open a tab
 "            instead, which happens much more frequently...
-" nnoremap <C-n> :vs. <bar> vertical res 25 <CR>
-nnoremap <C-n> :tabnew.<CR>
+nnoremap <C-t> :vs. <bar> vertical res 25 <CR>
 
 """""""""""
 " Keymaps "
@@ -172,7 +171,7 @@ autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
 nnoremap T :exe "tabn " . g:ptab<CR>
 
-nnoremap <C-t> :tabnew<CR>
+nnoremap <C-n> :tabnew.<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR> 
 nnoremap gl :tabm +<CR>
