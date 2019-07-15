@@ -30,7 +30,7 @@ alias swe5='feh --zoom 33 ~/misc/swe5.jpg & disown'
 alias tcr='feh --zoom 33 ~/misc/tcr.jpg & disown'
 alias bannedcamp='python /home/wjow/school/compsci/misc_projects/bandcamp_not_safe/dl_album.py'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
-alias resettp='tpset "libinput Accel Speed" 0.9 && tpset "libinput Accel Profile Enabled" 0, 1'
+alias resettp='tposet "libinput Accel Speed" 0 && tposet "libinput Accel Profile Enabled" 0, 1'
 alias ncwd='urxvt & disown'
 
 # Temporary aliases
@@ -94,7 +94,7 @@ mergepdf() {
     gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
 }
 
-tpset() {
+tposet() {
     xinput set-prop "TPPS/2 IBM TrackPoint" "$@"
 }
 
