@@ -5,6 +5,7 @@ precision=2
 pow_now=$(cat /sys/class/power_supply/BAT0/power_now)
 watts=$(bc <<< "scale=${precision}; ${pow_now}/1000000")
 watts_int=$(echo ${watts} | awk -F '.' '{print $1}')
+charge_status=$(cat /sys/class/power_supply/BAT0/status)
 
 # full text
 echo "${watts}W"
@@ -13,6 +14,8 @@ echo "${watts}W"
 echo "${watts}W"
 
 # color
-if [ ${watts_int} -ge ${threshold} ]; then
+if [ ${charge_status} = "Charging" ]; then
+  echo "#FF00FF"
+elif [ ${watts_int} -ge ${threshold} ]; then
   echo "#FFFF00"
 fi
