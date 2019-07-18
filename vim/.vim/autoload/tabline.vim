@@ -83,6 +83,8 @@ function! tabline#Truncate(tabs)
         " let l:cutr_pat .= '.\{-}\(' . s:back_pat . '.\{-}\)\{,2}'
         " let l:cutr_pat .= '\zs' . s:back_pat . '.*'
         " let l:t = substitute(a:tabs, l:cutr_pat, '', '')
+        "
+        " scheme (1)
     endif
     return l:t
 endfunction

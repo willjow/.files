@@ -1,0 +1,18 @@
+#!/bin/bash
+
+threshold=13
+precision=2
+pow_now=$(cat /sys/class/power_supply/BAT0/power_now)
+watts=$(bc <<< "scale=${precision}; ${pow_now}/1000000")
+watts_int=$(echo ${watts} | awk -F '.' '{print $1}')
+
+# full text
+echo "${watts}W"
+
+# short text
+echo "${watts}W"
+
+# color
+if [ ${watts_int} -ge ${threshold} ]; then
+  echo "#FFFF00"
+fi

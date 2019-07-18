@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+#
+# Requires xset (xorg-xset) to be installed
 
 state=$(xset q | awk '/Caps Lock/ {print $4}')
 
@@ -9,7 +11,7 @@ echo "CAPS"
 echo "CAPS"
 
 # color
-if [ $state = 'on' ]; then
+if [ ${state} = 'on' ]; then
   echo "#00FFFF"
 else
   echo "#424242"

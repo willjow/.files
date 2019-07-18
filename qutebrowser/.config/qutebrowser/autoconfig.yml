@@ -220,7 +220,7 @@ settings:
     global:
     - https://www.google.com
   zoom.default:
-    global: 85%
+    global: 90%
   zoom.levels:
     global:
     - 25%
@@ -228,7 +228,7 @@ settings:
     - 50%
     - 67%
     - 75%
-    - 85%
+    - 80%
     - 90%
     - 100%
     - 110%
