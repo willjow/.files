@@ -11,4 +11,4 @@ tposet "libinput Accel Profile Enabled" 0, 1
 tpaset "libinput Tapping Enabled" 1
 
 # disable touchpad and buttons
-xinput enable "${touchpad}"
+xinput disable "${touchpad}"
