@@ -1,6 +1,6 @@
 #!/bin/bash
 
-threshold=13
+threshold=14
 precision=2
 pow_now=$(cat /sys/class/power_supply/BAT0/power_now)
 watts=$(bc <<< "scale=${precision}; ${pow_now}/1000000")
@@ -16,6 +16,8 @@ echo "${watts}W"
 # color
 if [ ${charge_status} = "Charging" ]; then
   echo "#FF00FF"
+elif [ ${charge_status} = "Unknown" ]; then
+  echo "#00FFFF"
 elif [ ${watts_int} -ge ${threshold} ]; then
   echo "#FFFF00"
 fi
