@@ -1,0 +1,11 @@
+# run daemon-reload so that symlinked files are picked up
+# (therefore, it would defeat the purpose to symlink this one...)
+[Unit]
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=systemctl daemon-reload
+
+[Install]
+WantedBy=multi-user.target

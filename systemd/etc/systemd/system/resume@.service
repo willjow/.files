@@ -1,5 +1,6 @@
 [Unit]
 Description=User resume actions
+Requires=home.mount
 After=suspend.target
 
 [Service]

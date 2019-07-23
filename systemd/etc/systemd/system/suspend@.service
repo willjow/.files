@@ -1,5 +1,6 @@
 [Unit]
 Description=User suspend actions
+Requires=home.mount
 Before=sleep.target
 
 [Service]
