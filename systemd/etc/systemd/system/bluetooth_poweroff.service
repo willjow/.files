@@ -1,0 +1,10 @@
+[Unit]
+Description=Power off bluetooth controller at startup
+After=systemd-user-sessions.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bluetoothctl power off
+
+[Install]
+WantedBy=multi-user.target
