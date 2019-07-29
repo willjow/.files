@@ -62,7 +62,7 @@ if ($status eq 'Discharging') {
 		print "#FF0000\n";
 	} elsif ($percent < 40) {
 		print "#FFFF00\n";
-	} elsif ($percent < 60) {
+	} elsif ($percent < 64) {
 		print "#DEDEDE\n";
 	} elsif ($percent < 80) {
 		print "#00FF00\n";
@@ -74,7 +74,7 @@ if ($status eq 'Discharging') {
 		exit(33);
 	}
 } elsif ($status eq 'Charging') {
-    if ($percent >= 60) {
+    if ($percent >= 64) {
         print "#00FF00\n";
     }
 } elsif ($status eq 'Unknown') {
