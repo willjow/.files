@@ -40,3 +40,12 @@ URxvt.keysym.Mod1-k: command:\033]720;1\007
 URxvt.keysym.Mod1-j: command:\033]721;1\007
 ! Scroll to the bottom
 URxvt.keysym.Mod1-g: command:\033]721;1000\007
+
+! Xft stuff
+Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.dpi: 96
