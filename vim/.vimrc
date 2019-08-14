@@ -45,7 +45,7 @@ set smartcase
 set wrap lbr
 set report=0
 set display+=truncate
-set nohlsearch " Turns out search highlighting is really annoying and distracting
+set nohlsearch " Turns out search highlighting is really distracting
 set cursorline
 set nocursorcolumn
 set noshowcmd
@@ -69,6 +69,7 @@ autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " ColorScheme
 syntax enable
 set t_Co=256
+set cc=
 colorscheme darkblue
 
 " Custom Highlights
@@ -77,6 +78,7 @@ colorscheme darkblue
 "   0       Black       (0, 0, 0)
 "   9       Red         (255, 0, 0)
 "   11      Yellow      (255, 255, 0)
+"   15      White       (255, 255, 255)
 "   16      Grey0       (0, 0, 0)
 "   68      SteelBlue3  (95, 135, 215)
 "   124     Red3        (175, 0, 0)
@@ -87,7 +89,7 @@ hi User2 ctermbg=238 ctermfg=188 cterm=None
 hi User3 ctermbg=234 ctermfg=188 cterm=None
 hi User4 ctermbg=124 ctermfg=188 cterm=None
 
-hi ExtraWhitespace ctermbg=9
+hi ExtraWhitespace ctermbg=9 ctermfg=15 cterm=None
 
 " Messes with html titles and I can't be bothered to manually reassign those
 " Also, Title was originally set only for the default tabline which is no
@@ -107,6 +109,8 @@ hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
 hi CursorLine cterm=None
 hi CursorLineNr ctermfg=11 cterm=None
+
+hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 
 " Trailing Whitespace highlighting
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -162,6 +166,19 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " Toggle Relative Line Numbers
 nnoremap <silent> <C-l> :set relativenumber!<CR>
+
+" Toggle ColorColumn
+autocmd BufWinEnter * set cc=
+
+fun! ToggleCC()
+  if &cc == ''
+    set cc=81
+  else
+    set cc=
+  endif
+endfun
+
+nnoremap <silent> <C-k> :call ToggleCC()<CR>
 
 " Move By Displayed Line
 " 8/14/19 - this is actually annoying, commenting out
