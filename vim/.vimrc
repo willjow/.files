@@ -72,10 +72,22 @@ set t_Co=256
 colorscheme darkblue
 
 " Custom Highlights
+" Xterm Colors table:
+"   number  name        rgb
+"   0       Black       (0, 0, 0)
+"   9       Red         (255, 0, 0)
+"   11      Yellow      (255, 255, 0)
+"   16      Grey0       (0, 0, 0)
+"   68      SteelBlue3  (95, 135, 215)
+"   124     Red3        (175, 0, 0)
+"   188     Grey84      (215, 215, 215)
+"   238     Grey27      (68, 68, 68)
 hi User1 ctermbg=68 ctermfg=16 cterm=None
 hi User2 ctermbg=238 ctermfg=188 cterm=None
 hi User3 ctermbg=234 ctermfg=188 cterm=None
 hi User4 ctermbg=124 ctermfg=188 cterm=None
+
+hi ExtraWhitespace ctermbg=9
 
 " Messes with html titles and I can't be bothered to manually reassign those
 " Also, Title was originally set only for the default tabline which is no
@@ -95,6 +107,11 @@ hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
 hi CursorLine cterm=None
 hi CursorLineNr ctermfg=11 cterm=None
+
+" Trailing Whitespace highlighting
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Status Line
 set laststatus=2
@@ -122,7 +139,7 @@ set noea
 
 " nnoremap <C-n> :15Lexplore<CR>
 " this makes things less versatile because for some reason
-" the browse split behavior changes globally, even after 
+" the browse split behavior changes globally, even after
 " toggling off the Lexplore window
 
 " the following bind is the 'old,' manual approach,
@@ -147,15 +164,16 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <silent> <C-l> :set relativenumber!<CR>
 
 " Move By Displayed Line
-noremap <silent> k gk
-noremap <silent> j gj
-noremap <silent> ^ g^
-noremap <silent> $ g$
-
-onoremap <silent> k k
-onoremap <silent> j j
-onoremap <silent> ^ ^
-onoremap <silent> $ $
+" 8/14/19 - this is actually annoying, commenting out
+"noremap <silent> k gk
+"noremap <silent> j gj
+"noremap <silent> ^ g^
+"noremap <silent> $ g$
+"
+"onoremap <silent> k k
+"onoremap <silent> j j
+"onoremap <silent> ^ ^
+"onoremap <silent> $ $
 
 " Move In Insert Mode
 inoremap <C-l> <Esc><Right>a
@@ -173,7 +191,7 @@ nnoremap T :exe "tabn " . g:ptab<CR>
 
 nnoremap <C-n> :tabnew.<CR>
 nnoremap gf :tablast<CR>
-nnoremap gF :tabfirst<CR> 
+nnoremap gF :tabfirst<CR>
 nnoremap gl :tabm +<CR>
 nnoremap gh :tabm -<CR>
 nnoremap gm :tabm<Space>
@@ -192,7 +210,7 @@ nnoremap K  :tabp<CR>
 " Auto Complete Closing Characters
 
 " reduce the timeout cause I don't like waiting a second each time
-set timeoutlen=250 
+set timeoutlen=250
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
