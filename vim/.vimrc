@@ -212,8 +212,6 @@ nnoremap gF :tabfirst<CR>
 nnoremap gl :tabm +<CR>
 nnoremap gh :tabm -<CR>
 nnoremap gm :tabm<Space>
-nnoremap gj :tabm<CR>
-nnoremap gk :tabm 0<CR>
 nnoremap J  :tabn<CR>
 nnoremap K  :tabp<CR>
 
