@@ -71,7 +71,7 @@ adbaddmusic() {
 cl() {
     if [[ "$1" == "-a" ]]; then
         local dir="$2"
-    else 
+    else
         local dir="$1"
     fi
 
@@ -95,17 +95,17 @@ mergepdf() {
 }
 
 wipedisk() {
-    if [[ -e "$1" && -b "$1" ]];then 
+    if [[ -e "$1" && -b "$1" ]];then
         NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
         if [[ -z "$NOT_safe" ]];then
             sudo dd if=/dev/zero of="$1"
-            # Here you can use any of your favourite wiping tools 
+            # Here you can use any of your favourite wiping tools
             # to wipe destination passed on command line and stored in variable "$1"
-            # 
+            #
         else
             echo 'Not allowed to destroy if any of the partitions is mounted: '"$NOT_safe"
         fi
-    fi 
+    fi
 }
 
 # Temporary Functions
