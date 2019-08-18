@@ -9,7 +9,7 @@ Type=simple
 Environment=DISPLAY=:0
 ExecStartPre=/usr/bin/sleep 1
 ExecStart=/bin/sh /home/"%I"/.reset_tp.sh
-ExecStartPost=/bin/sh /home/"%I"/.xcalib.sh
+ExecStartPost=/bin/sh /home/"%I"/.toggle_redshift.sh restore
 
 [Install]
 WantedBy=suspend.target
