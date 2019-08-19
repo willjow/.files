@@ -1,32 +1,27 @@
 cmd=$1
-pwr=$(cat /sys/class/backlight/intel_backlight/brightness)
+pwr_file="/sys/class/backlight/intel_backlight/brightness"
+pwr=$(cat ${pwr_file})
+
+set_pwr() {
+  echo $1 > ${pwr_file}
+}
+
+lo_steps=(1 46 91 181 271 406 586)
+hi_steps=$(seq 849 263 4794)
+steps=(${lo_steps[*]} ${hi_steps[*]})
+
+i=0
+while (( ${pwr} > ${steps[$i]} )); do
+  i=$(($i + 1))
+done
 
 if [ ${cmd} = "inc" ]; then
-  if [ ${pwr} -le 1 ]; then
-    xbacklight -set 1
-  elif [ ${pwr} -lt 48 ]; then
-    xbacklight -set 2
-  elif [ ${pwr} -lt 96 ]; then
-    xbacklight -set 4
-  elif [ ${pwr} -lt 192 ]; then
-    xbacklight -set 6
-  elif [ ${pwr}-lt 600 ]; then
-    xbacklight -set 12
-  else
-    xbacklight -inc 6
+  if (( $i < 4794 )); then
+    set_pwr ${steps[$(($i + 1))]}
   fi
 elif  [ ${cmd} = "dec" ]; then
-  if [ ${pwr} -le 48 ]; then
-    xbacklight -set 0.02
-  elif [ ${pwr} -le 96 ]; then
-    xbacklight -set 1
-  elif [ ${pwr} -le 192 ]; then
-    xbacklight -set 2
-  elif [ ${pwr} -le 288 ]; then
-    xbacklight -set 4
-  elif [ ${pwr}-le 600 ]; then
-    xbacklight -set 6
-  else
-    xbacklight -dec 6
+  if (( $i > 0 )); then
+    set_pwr ${steps[$(($i - 1))]}
   fi
 fi
+
