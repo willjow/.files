@@ -10,6 +10,8 @@ if [ ${cmd} = "inc" ]; then
     xbacklight -set 4
   elif [ ${pwr} -lt 192 ]; then
     xbacklight -set 6
+  elif [ ${pwr}-lt 600 ]; then
+    xbacklight -set 12
   else
     xbacklight -inc 6
   fi
