@@ -1,3 +1,4 @@
+#!/bin/bash
 cmd=$1
 pwr_file="/sys/class/backlight/intel_backlight/brightness"
 pwr=$(cat ${pwr_file})
