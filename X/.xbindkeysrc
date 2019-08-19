@@ -16,11 +16,11 @@
 #     XF86AudioRaiseVolume
 
 # Backlight
-"xbacklight -dec 2"
+". $HOME/.adjust_backlight.sh dec"
     m:0x0 + c:232
     XF86MonBrightnessDown
 
-"xbacklight -inc 2"
+". $HOME/.adjust_backlight.sh inc"
     m:0x0 + c:233
     XF86MonBrightnessUp
 
