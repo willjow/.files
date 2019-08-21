@@ -45,6 +45,7 @@ set smartcase
 set wrap lbr
 set report=0
 set display+=truncate
+set scrolloff=15
 set nohlsearch " Turns out search highlighting is really distracting
 set cursorline
 set nocursorcolumn
