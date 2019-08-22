@@ -21,7 +21,7 @@ function! statusline#MyStatusLine()
     " defined for the highlights.
     " (e.g., set StatusLine[Term] = s:main_col)
     let l:s .= s:main_col
-    let l:s .= ' %F ' 
+    let l:s .= ' %F '
     let l:s .= s:dark_col
     let l:s .= '%{statusline#BufferType()}'
     let l:s .= s:warn_col
@@ -86,9 +86,12 @@ function! statusline#Warnings()
     " at the current point in time)
     let l:padl = (statusline#BufferType() == '' ? ' ' : '  ')
     let l:padr = ' '
-    let l:s = statusline#ReadOnly()
-    if l:s == ''
-        let l:s = statusline#Modified()
+    let l:ro = statusline#ReadOnly()
+    let l:mod = statusline#Modified()
+    if l:ro != '' && l:mod != ''
+        let l:s = l:ro . ' ' . l:mod
+    else
+        let l:s = l:ro  . l:mod
     endif
     return (l:s == '' ? l:s : l:padl . l:s . l:padr)
 endfunction
