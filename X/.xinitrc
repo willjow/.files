@@ -63,8 +63,8 @@ amixer set Speaker mute
 # second monitor
 xrandr --output LVDS1 --primary --auto --output VGA1 --auto --right-of LVDS1
 
-# icc profile
-sh ~/.xcalib.sh
+# restore color profile
+sh ~/.toggle_redshift.sh restore
 
 # background
 sh ~/.fehbg

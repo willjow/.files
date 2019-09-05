@@ -5,8 +5,8 @@ pwr=$(cat ${pwr_file})
 
 min_pwr=1
 max_pwr=4794
-lo_steps=(1 46 91 181 271 406 586)
-hi_steps=$(seq 849 263 4794)
+lo_steps=(1 46 91 181 271 406 541 721 901 1126 1351)
+hi_steps=$(seq 1626 288 4794)
 steps=(${lo_steps[@]} ${hi_steps[@]})
 
 
