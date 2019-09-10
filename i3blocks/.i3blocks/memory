@@ -37,6 +37,9 @@ awk -v type=$TYPE -v low_thresh=$LOW_THRESH '
 	swap_free=$2
 }
 END {
+  # label
+  printf("RAM ")
+
 	# full text / short text
 	if (type == "swap") {
 		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
