@@ -27,7 +27,7 @@ snippet ma "align environment" bA
 endsnippet
 
 
-snippet mi "inline math" wA
+snippet mi "inline math" bA
 $ $1 $$0
 endsnippet
 
@@ -40,101 +40,101 @@ endsnippet
 
 
 snippet ttt "text" wA
-\text{$1}$0
+\text{$1}
 endsnippet
 
 
 # Fractions
-snippet '([A-Za-z0-9\\]+) / ' "Fraction" wrA
-\frac{`!p snip.rv = match.group(1)`} {$1}$0
+snippet '([^\s]+) / (\d)' "Fraction" wrA
+\frac{`!p snip.rv=match.group(1)`} {`!p snip.rv=match.group(2)`}
+endsnippet
+
+
+snippet '([^\s]+) / ' "Fraction" wr
+\frac{`!p snip.rv=match.group(1)`} {$1}
 endsnippet
 
 
 snippet // "Fraction" wA
-\frac{$1} {$2}$0
+\frac{$1} {$2}
 endsnippet
 
 
 snippet n// "Nice Fraction" wA
-\nicefrac{$1} {$2}$0
+\nicefrac{$1} {$2}
 endsnippet
 
 
 # Superscripts / Subscripts
-snippet '([A-Za-z]+)(\d)' "auto subscript" wrA
-`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+snippet '([A-Za-z])(\d)' "auto single subscript" wrA
+`!p snip.rv=match.group(1)`_`!p snip.rv=match.group(2)`
 endsnippet
 
 
-snippet '([A-Za-z]+)_' "auto subscript2" wrA
-`!p snip.rv = match.group(1)`_{$1}$0
+snippet __ "auto subscript" iA
+_{$1}
 endsnippet
 
 
-snippet '([A-Za-z0-9]+) \*\* ([A-Za-z0-9])' "auto superscript" wrA
-`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`
+snippet ** "auto superscript" iA
+^{$1}
 endsnippet
 
 
-snippet '([A-Za-z0-9]+)\^' "auto superscript" wrA
-`!p snip.rv = match.group(1)`^{$1}$0
+snippet '([^\s]+)\\invs' "inverse" wrA
+`!p snip.rv=match.group(1)`^{-1}
 endsnippet
 
 
-snippet invs "inverse" iA
-^{-1}
+snippet '([^\s]+)\\compl' "complemente" wrA
+`!p snip.rv=match.group(1)`^{c}
 endsnippet
 
 
-snippet compl "complement" iA
-^{c}
-endsnippet
-
-
-# Variable Modifiers
+# Variable Modifiers (saves braces; allows for suffix declaration)
 snippet \hat "hat" wA
-\hat{$1}$0
+\hat{$1}
 endsnippet
 
 
-snippet '([A-Za-z\\]+)\\hat' "hat" wrA
+snippet '([^\s]+)\\hat' "hat" wrA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
 
 snippet \bar "bar" wA
-\overline{$1}$0
+\overline{$1}
 endsnippet
 
 
-snippet '([A-Za-z\\]+)\\bar' "bar" wrA
+snippet '([^\s]+)\\bar' "bar" wrA
 \overline{`!p snip.rv=match.group(1)`}
 endsnippet
 
 
-# Delimiters
+# Delimiters (just saves the braces...)
 snippet \abs "absolute value" wA
-\abs{$1}$0
+\abs{$1}
 endsnippet
 
 
 snippet \paren "parentheses" wA
-\paren{$1}$0
+\paren{$1}
 endsnippet
 
 
 snippet \set "set (braces)" wA
-\set{$1}$0
+\set{$1}
 endsnippet
 
 
 snippet \bracket "brackets" wA
-\bracket{$1}$0
+\bracket{$1}
 endsnippet
 
 
 snippet \quotes "quotes" wA
-\quotes{$1}$0
+\quotes{$1}
 endsnippet
 
 
@@ -174,13 +174,24 @@ snippet uu "union" wA
 endsnippet
 
 
+# Iterative operators
+snippet SS "sum" wA
+\sum_{${1:i = 1}}^{${2:n}} ${3:a_{i}}
+endsnippet
+
+
+snippet PP "product" wA
+\prod_{${1:i = 1}}^{${2:n}} ${3:a_{i}}
+endsnippet
+
+
 snippet UU "bigcup" wA
-\bigcup_{${1:i \in ${2: I}}} $0
+\bigcup_{${1:i \in ${2: I}}}
 endsnippet
 
 
 snippet NN "bigcap" wA
-\bigcap_{${1:i \in ${2: I}}} $0
+\bigcap_{${1:i \in ${2: I}}}
 endsnippet
 
 
@@ -201,7 +212,7 @@ endsnippet
 
 
 snippet norm "norm" wA
-\norm{$1}$0
+\norm{$1}
 endsnippet
 
 
