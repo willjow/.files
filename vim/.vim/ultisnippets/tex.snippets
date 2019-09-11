@@ -6,28 +6,28 @@ snippet beg "begin{} / end{}" bA
 endsnippet
 
 
-snippet enum "enumerate environment" bA
+snippet enu "enumerate environment" bA
 \begin{enumerate}[$1]
 	\item $0
 \end{enumerate}
 endsnippet
 
 
-snippet center "center environment" bA
+snippet cen "center environment" bA
 \begin{center}
 	$0
 \end{center}
 endsnippet
 
 
-snippet ma "align environment" bA
+snippet mal "align environment" bA
 \begin{align*}
 	$0
 \end{align*}
 endsnippet
 
 
-snippet cases "cases" bA
+snippet cas "cases" bA
 \begin{cases}
 	$0
 \end{cases}
@@ -151,8 +151,13 @@ snippet \\\ "setminus" wA
 endsnippet
 
 
-snippet cc "subset" wA
+snippet ccs "subset strict" wA
 \subset
+endsnippet
+
+
+snippet cce "subset equal" wA
+\subseteq
 endsnippet
 
 
@@ -182,7 +187,7 @@ endsnippet
 
 
 
-# Iterative operators
+# Subscript/Superscript Operators
 snippet SS "sum" wA
 \sum_{${1:i = 1}}^{${2:n}} ${3:a_{i}}
 endsnippet
@@ -200,6 +205,11 @@ endsnippet
 
 snippet NN "bigcap" wA
 \bigcap_{${1:i \in ${2: I}}}
+endsnippet
+
+
+snippet dint "integral" wA
+\int_{${1:a}}^{${2:b}}
 endsnippet
 
 
@@ -247,7 +257,7 @@ snippet ' xx ' "cross" wrA
 endsnippet
 
 
-snippet norm "norm" wA
+snippet \norm "norm" wA
 \norm{$1}
 endsnippet
 
