@@ -22,6 +22,7 @@ alias please='sudo bash -c "$(history -p !!)"'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrorlist="sudo reflector -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
+alias clearpaccache="sudo paccache -rk2 && paccache -ruk0"
 alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --left-of LVDS1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
