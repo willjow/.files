@@ -1,3 +1,4 @@
+# Environments
 snippet beg "begin{} / end{}" bA
 \begin{$1}
 	$0
@@ -12,15 +13,40 @@ snippet enum "enumerate environment" bA
 endsnippet
 
 
-snippet am "align environment" bA
-\begin{*align}
+snippet center "center environment" bA
+\begin{center}
 	$0
-\end{*align}
+\end{center}
 endsnippet
 
 
-snippet im "inline math" wA
+snippet ma "align environment" bA
+\begin{align*}
+	$0
+\end{align*}
+endsnippet
+
+
+snippet mi "inline math" wA
 $ $1 $$0
+endsnippet
+
+
+snippet cases "cases" bA
+\begin{cases}
+	$0
+\end{cases}
+endsnippet
+
+
+snippet ttt "text" wA
+\text{$1}$0
+endsnippet
+
+
+# Fractions
+snippet '([A-Za-z0-9\\]+) / ' "Fraction" wrA
+\frac{`!p snip.rv = match.group(1)`} {$1}$0
 endsnippet
 
 
@@ -34,6 +60,7 @@ snippet n// "Nice Fraction" wA
 endsnippet
 
 
+# Superscripts / Subscripts
 snippet '([A-Za-z]+)(\d)' "auto subscript" wrA
 `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
 endsnippet
@@ -44,16 +71,27 @@ snippet '([A-Za-z]+)_' "auto subscript2" wrA
 endsnippet
 
 
-snippet '([A-Za-z]+) \*\* (\d)' "auto superscript" wrA
+snippet '([A-Za-z0-9]+) \*\* ([A-Za-z0-9])' "auto superscript" wrA
 `!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`
 endsnippet
 
 
-snippet '([A-Za-z]+)\^' "auto superscript" wrA
+snippet '([A-Za-z0-9]+)\^' "auto superscript" wrA
 `!p snip.rv = match.group(1)`^{$1}$0
 endsnippet
 
 
+snippet invs "inverse" iA
+^{-1}
+endsnippet
+
+
+snippet compl "complement" iA
+^{c}
+endsnippet
+
+
+# Variable Modifiers
 snippet \hat "hat" wA
 \hat{$1}$0
 endsnippet
@@ -71,4 +109,162 @@ endsnippet
 
 snippet '([A-Za-z\\]+)\\bar' "bar" wrA
 \overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+
+# Delimiters
+snippet \abs "absolute value" wA
+\abs{$1}$0
+endsnippet
+
+
+snippet \paren "parentheses" wA
+\paren{$1}$0
+endsnippet
+
+
+snippet \set "set (braces)" wA
+\set{$1}$0
+endsnippet
+
+
+snippet \bracket "brackets" wA
+\bracket{$1}$0
+endsnippet
+
+
+snippet \quotes "quotes" wA
+\quotes{$1}$0
+endsnippet
+
+
+# Set Stuff
+snippet \\\ "setminus" wA
+\setminus
+endsnippet
+
+
+snippet cc "subset" wA
+\subset
+endsnippet
+
+
+snippet inn "in " wA
+\in
+endsnippet
+
+
+snippet notin "not in " wA
+\not\in
+endsnippet
+
+
+snippet emptyset "empty set" wA
+\varnothing
+endsnippet
+
+
+snippet nn "intersection" wA
+\cap
+endsnippet
+
+
+snippet uu "union" wA
+\cup
+endsnippet
+
+
+snippet UU "bigcup" wA
+\bigcup_{${1:i \in ${2: I}}} $0
+endsnippet
+
+
+snippet NN "bigcap" wA
+\bigcap_{${1:i \in ${2: I}}} $0
+endsnippet
+
+
+# Misc Symbols
+snippet ... "ellipses" wA
+\dotsc
+endsnippet
+
+
+snippet ' \* ' "multiplication" wrA
+ \cdot 
+endsnippet
+
+
+snippet ' xx ' "cross" wrA
+\times
+endsnippet
+
+
+snippet norm "norm" wA
+\norm{$1}$0
+endsnippet
+
+
+snippet <= "leq" wA
+\leq
+endsnippet
+
+
+snippet >= "geq" wA
+\geq
+endsnippet
+
+
+snippet == "aligned equal" wA
+&=
+endsnippet
+
+
+snippet -> "to" wA
+\to
+endsnippet
+
+
+snippet !> "mapsto" wA
+\mapsto
+endsnippet
+
+
+snippet => "implies" wA
+\implies
+endsnippet
+
+
+snippet EE "exists" wA
+\exists
+endsnippet
+
+
+snippet NE "not exists" wA
+\nexists
+endsnippet
+
+
+snippet AA "forall" wA
+\forall
+endsnippet
+
+
+snippet ooo "infty" wA
+\infty
+endsnippet
+
+
+snippet >> ">>" wA
+\gg
+endsnippet
+
+
+snippet << "<<" wA
+\ll
+endsnippet
+
+
+snippet ~~ "~" wA
+\sim
 endsnippet

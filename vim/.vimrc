@@ -20,10 +20,15 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set viewdir=~/.vim/view//
 
+" Preliminary Settings
+filetype plugin on
+syntax enable
+
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
@@ -35,10 +40,12 @@ let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-h>"
 
 " vimtex
-autocmd FileType tex setlocal spell spelllang=en_us
+" autocmd FileType tex setlocal spell spelllang=en_us
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
-set conceallevel=1
+
+" tex-conceal
+set conceallevel=2
 let g:tex_conceal='abdmg'
 
 " Nvim-R
@@ -48,7 +55,6 @@ let R_openhtml=1
 let R_openpdf=1
 
 " 'Basic' Settings
-filetype plugin on
 set number relativenumber
 set ignorecase
 set smartcase
@@ -67,7 +73,7 @@ set mouse=nvc
 set ttymouse=xterm2
 
 " Style Stuff
-filetype plugin indent on
+filetype indent on
 set tabstop=4     " tabs are at proper location
 set softtabstop=4 " deleting tabs in insert treats them as tabs, not spaces
 set expandtab     " don't use actual tab character (ctrl-v)
@@ -78,7 +84,6 @@ set autoindent    " turns it on
 autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ColorScheme
-syntax enable
 set t_Co=256
 set cc=
 colorscheme darkblue
@@ -138,7 +143,7 @@ set statusline=%!statusline#MyStatusLine()
 set showtabline=1
 set tabline=%!tabline#MyTabLine()
 
-" Fillchars
+" Fillchars (lines between windows)
 set fillchars=vert:\ 
 
 " NERDTree is not for me
