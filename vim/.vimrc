@@ -22,14 +22,24 @@ set viewdir=~/.vim/view//
 
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
-Plug 'jalvesaq/Nvim-R'
+Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
+Plug 'jalvesaq/Nvim-R'
 call plug#end()
+
+" ultisnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
+let g:UltiSnipsListSnippets="<C-u>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-h>"
 
 " vimtex
 autocmd FileType tex setlocal spell spelllang=en_us
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " Nvim-R
 let R_in_buffer=0
@@ -113,6 +123,8 @@ hi CursorLineNr ctermfg=11 cterm=None
 
 hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 
+hi Conceal ctermfg=11 ctermbg=0 cterm=None
+
 " Trailing Whitespace highlighting
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -194,8 +206,8 @@ nnoremap <silent> <C-k> :call ToggleCC()<CR>
 "onoremap <silent> $ $
 
 " Move In Insert Mode
-inoremap <C-l> <Esc><Right>a
-inoremap <C-h> <Esc><Left>a
+" inoremap <C-l> <Esc><Right>a
+" inoremap <C-h> <Esc><Left>a
 
 " Tabs
 " Switch to last-active tab
