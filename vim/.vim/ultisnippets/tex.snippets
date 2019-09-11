@@ -1,4 +1,4 @@
-# Environments
+# Environments (should start on new line)
 snippet beg "begin{} / end{}" bA
 \begin{$1}
 	$0
@@ -27,11 +27,6 @@ snippet ma "align environment" bA
 endsnippet
 
 
-snippet mi "inline math" bA
-$ $1 $$0
-endsnippet
-
-
 snippet cases "cases" bA
 \begin{cases}
 	$0
@@ -39,9 +34,17 @@ snippet cases "cases" bA
 endsnippet
 
 
+
+# In-line "Environments"
+snippet mii "inline math" wA
+$ $1 $
+endsnippet
+
+
 snippet ttt "text" wA
 \text{$1}
 endsnippet
+
 
 
 # Fractions
@@ -63,6 +66,7 @@ endsnippet
 snippet n// "Nice Fraction" wA
 \nicefrac{$1} {$2}
 endsnippet
+
 
 
 # Superscripts / Subscripts
@@ -91,6 +95,7 @@ snippet '([^\s]+)\\compl' "complemente" wrA
 endsnippet
 
 
+
 # Variable Modifiers (saves braces; allows for suffix declaration)
 snippet \hat "hat" wA
 \hat{$1}
@@ -110,6 +115,7 @@ endsnippet
 snippet '([^\s]+)\\bar' "bar" wrA
 \overline{`!p snip.rv=match.group(1)`}
 endsnippet
+
 
 
 # Delimiters (just saves the braces...)
@@ -136,6 +142,7 @@ endsnippet
 snippet \quotes "quotes" wA
 \quotes{$1}
 endsnippet
+
 
 
 # Set Stuff
@@ -174,6 +181,7 @@ snippet uu "union" wA
 endsnippet
 
 
+
 # Iterative operators
 snippet SS "sum" wA
 \sum_{${1:i = 1}}^{${2:n}} ${3:a_{i}}
@@ -193,6 +201,34 @@ endsnippet
 snippet NN "bigcap" wA
 \bigcap_{${1:i \in ${2: I}}}
 endsnippet
+
+
+
+# Black Board Bold
+snippet \N "mathbb N" wA
+\mathbb{N}
+endsnippet
+
+
+snippet \R "mathbb R" wA
+\mathbb{R}
+endsnippet
+
+
+snippet \C "mathbb C" wA
+\mathbb{C}
+endsnippet
+
+
+snippet \Q "mathbb Q" wA
+\mathbb{Q}
+endsnippet
+
+
+snippet \Z "mathbb Z" wA
+\mathbb{Z}
+endsnippet
+
 
 
 # Misc Symbols
