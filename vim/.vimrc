@@ -38,6 +38,7 @@ let g:UltiSnipsListSnippets="<C-u>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+nnoremap <C-p> :call UltiSnips#RefreshSnippets()<CR>
 
 " vimtex
 " autocmd FileType tex setlocal spell spelllang=en_us
@@ -181,6 +182,9 @@ nnoremap <C-t> :vs. <bar> vertical res 25 <CR>
 cabbrev w!! w !sudo tee > /dev/null %:p
 map <Enter> o<esc>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" Works with fat fingers holding down control...
+inoremap <C-@> <Space>
 
 " Toggle Relative Line Numbers
 nnoremap <silent> <C-l> :set relativenumber!<CR>

@@ -37,21 +37,18 @@ endsnippet
 
 snippet thm "theorem" bA
 \begin{theorem}[$1]
-\label{$1}
 	$2
 \end{theorem}
 endsnippet
 
 snippet crlry "corollary" bA
 \begin{corollary}[$1]
-\label{$1}
 	$2
 \end{corollary}
 endsnippet
 
 snippet lma "lemma" bA
 \begin{lemma}[$1]
-\label{$1}
 	$2
 \end{lemma}
 endsnippet
@@ -76,9 +73,26 @@ snippet prf "proof" bA
 \end{quote}
 endsnippet
 
+snippet exm "example" bA
+\begin{quote}
+	\textbf{Example.} $1
+\end{quote}
+endsnippet
+
+
+# Inkscape Figure
+snippet inkimg "inkscape image"
+\begin{figure}[ht]
+	\centering
+	\incfig{$1}
+	\caption{$2}
+	\label{fig:$1}
+\end{figure}
+endsnippet
+
 
 # In-line "Environments"
-snippet mii "inline math" iA
+snippet mti "inline math" iA
 $$1$
 endsnippet
 
@@ -86,9 +100,17 @@ snippet ttt "text" iA
 \text{$1}
 endsnippet
 
+snippet tti "text italic" iA
+\textit{$1}
+endsnippet
+
+snippet ttb "text bold" iA
+\textbf{$1}
+endsnippet
+
 
 # Fractions
-snippet '([^\s]+) / (\d)' "Fraction" wrA
+snippet '(\d+) / (\d)' "Fraction" wrA
 \frac{`!p snip.rv=match.group(1)`} {`!p snip.rv=match.group(2)`}
 endsnippet
 
@@ -114,7 +136,7 @@ snippet __ "auto subscript" iA
 _{$1}
 endsnippet
 
-snippet ** "auto superscript" iA
+snippet ^^ "auto superscript" iA
 ^{$1}
 endsnippet
 
@@ -145,44 +167,36 @@ snippet oset "over brace"
 endsnippet
 
 
-# Variable Modifiers (saves braces; allows for suffix declaration)
-snippet \hat "hat" wA
-\hat{$1}
-endsnippet
-
-snippet '([^\s]+)\\hat' "hat" wrA
+# Variable Modifiers (allows for postfix declaration)
+snippet '([^\s\$]+)\\hatt' "hat postfix" wrA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-snippet \bar "bar" wA
-\overline{$1}
-endsnippet
-
-snippet '([^\s]+)\\bar' "bar" wrA
+snippet '([^\s\$]+)\\barr' "bar postfix" wrA
 \overline{`!p snip.rv=match.group(1)`}
 endsnippet
 
 
 # Delimiters (just saves the braces...)
-snippet \abs "absolute value" iA
-\abs{$1}
-endsnippet
+# snippet \abs "absolute value" iA
+# \abs{$1}
+# endsnippet
 
-snippet \paren "parentheses" iA
-\paren{$1}
-endsnippet
+# snippet \paren "parentheses" iA
+# \paren{$1}
+# endsnippet
 
-snippet \set "set (braces)" iA
-\set{$1}
-endsnippet
+# snippet \braces "set (braces)" iA
+# \set{$1}
+# endsnippet
 
-snippet \bracket "brackets" iA
-\bracket{$1}
-endsnippet
+# snippet \bracket "brackets" iA
+# \bracket{$1}
+# endsnippet
 
-snippet \quotes "quotes" iA
-\quotes{$1}
-endsnippet
+# snippet \quotes "quotes" iA
+# \quotes{$1}
+# endsnippet
 
 
 # Set Stuff
@@ -198,15 +212,39 @@ snippet cce "subset equal" iA
 \subseteq
 endsnippet
 
-snippet inn "in " iA
-\in
+snippet sss "supset strict" iA
+\supset
 endsnippet
+
+snippet sse "supset equal" iA
+\supseteq
+endsnippet
+
+snippet nccs "not subset strict" iA
+\not\subset
+endsnippet
+
+snippet ncce "not subset equal" iA
+\nsubseteq
+endsnippet
+
+snippet nsss "not supset strict" iA
+\not\supset
+endsnippet
+
+snippet nsse "not supset equal" iA
+\nsupseteq
+endsnippet
+
+# snippet inn "in " iA
+# \in
+# endsnippet
 
 snippet notin "not in " iA
 \not\in
 endsnippet
 
-snippet emptyset "empty set" iA
+snippet empst "empty set" iA
 \varnothing
 endsnippet
 
@@ -241,27 +279,19 @@ snippet dint "integral" iA
 endsnippet
 
 
-# Black Board Bold
-snippet \N "mathbb N" iA
-\mathbb{N}
+# Math Fonts
+snippet mbb "mathbb" iA
+\mathbb{$1}
 endsnippet
 
-snippet \R "mathbb R" iA
-\mathbb{R}
+snippet mcl "mathcal" iA
+\mathcal{$1}
 endsnippet
 
-snippet \C "mathbb C" iA
-\mathbb{C}
+# Math Spacing
+snippet mspace "math space" wA
+\;
 endsnippet
-
-snippet \Q "mathbb Q" iA
-\mathbb{Q}
-endsnippet
-
-snippet \Z "mathbb Z" iA
-\mathbb{Z}
-endsnippet
-
 
 # Misc Symbols
 snippet ... "ellipses" iA
@@ -276,10 +306,6 @@ snippet ' xx ' "cross" wrA
  \times 
 endsnippet
 
-snippet \norm "norm" iA
-\norm{$1}
-endsnippet
-
 snippet <= "leq" iA
 \leq
 endsnippet
@@ -290,6 +316,10 @@ endsnippet
 
 snippet == "aligned equal" iA
 &=
+endsnippet
+
+snippet != "aligned equal" iA
+\neq
 endsnippet
 
 snippet -> "to" iA
@@ -304,15 +334,15 @@ snippet => "implies" iA
 \implies
 endsnippet
 
-snippet EEX "exists" iA
+snippet eex "exists" iA
 \exists
 endsnippet
 
-snippet NEX "not exists" iA
+snippet neex "not exists" iA
 \nexists
 endsnippet
 
-snippet AAA "forall" iA
+snippet faa "forall" iA
 \forall
 endsnippet
 
@@ -330,4 +360,10 @@ endsnippet
 
 snippet ~~ "~" iA
 \sim
+endsnippet
+
+
+# Misc Modifiers
+snippet \oname "operatorname" iA
+\operatorname{$1}\left( $2 \right)
 endsnippet
