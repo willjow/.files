@@ -41,7 +41,7 @@ snippet thm "theorem" bA
 \end{theorem}
 endsnippet
 
-snippet crlry "corollary" bA
+snippet crl "corollary" bA
 \begin{corollary}[$1]
 	$2
 \end{corollary}
@@ -81,13 +81,22 @@ endsnippet
 
 
 # Inkscape Figure
-snippet inkimg "inkscape image"
+snippet inkimg "inkscape image" bA
 \begin{figure}[ht]
 	\centering
-	\incfig{$1}
-	\caption{$2}
+	\incfig[$2]{$1}
 	\label{fig:$1}
 \end{figure}
+endsnippet
+
+
+# Spacing
+snippet mspace "math space" wA
+\;
+endsnippet
+
+snippet vsp-2 "2em vspace" bA
+\vspace*{2em}
 endsnippet
 
 
@@ -150,6 +159,14 @@ endsnippet
 
 
 # Under / Over Stuff
+snippet uarrow "under arrow"
+\underarrow[$2]{\text{$1}}{${VISUAL}}
+endsnippet
+
+snippet oarrow "over arrow"
+\overarrow[$2]{\text{$1}}{${VISUAL}}
+endsnippet
+
 snippet ubrace "under brace"
 \underbrace{${VISUAL}}_\text{$1}
 endsnippet
@@ -208,7 +225,7 @@ snippet ccs "subset strict" iA
 \subset
 endsnippet
 
-snippet cce "subset equal" iA
+snippet ccq "subset equal" iA
 \subseteq
 endsnippet
 
@@ -216,7 +233,7 @@ snippet sss "supset strict" iA
 \supset
 endsnippet
 
-snippet sse "supset equal" iA
+snippet ssq "supset equal" iA
 \supseteq
 endsnippet
 
@@ -224,7 +241,7 @@ snippet nccs "not subset strict" iA
 \not\subset
 endsnippet
 
-snippet ncce "not subset equal" iA
+snippet nccq "not subset equal" iA
 \nsubseteq
 endsnippet
 
@@ -232,7 +249,7 @@ snippet nsss "not supset strict" iA
 \not\supset
 endsnippet
 
-snippet nsse "not supset equal" iA
+snippet nssq "not supset equal" iA
 \nsupseteq
 endsnippet
 
@@ -288,10 +305,6 @@ snippet mcl "mathcal" iA
 \mathcal{$1}
 endsnippet
 
-# Math Spacing
-snippet mspace "math space" wA
-\;
-endsnippet
 
 # Misc Symbols
 snippet ... "ellipses" iA
@@ -364,6 +377,6 @@ endsnippet
 
 
 # Misc Modifiers
-snippet \oname "operatorname" iA
+snippet oname "operatorname" iA
 \operatorname{$1}\left( $2 \right)
 endsnippet
