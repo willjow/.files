@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'andymass/vim-matchup'
 Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
@@ -44,6 +45,9 @@ nnoremap <C-p> :call UltiSnips#RefreshSnippets()<CR>
 " autocmd FileType tex setlocal spell spelllang=en_us
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
+let g:vimtex_matchparen_enabled = 1
+let g:matchup_override_vimtex = 1
+let g:matchup_matchparen_deferred = 1
 
 " tex-conceal
 set conceallevel=2

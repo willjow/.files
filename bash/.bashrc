@@ -34,7 +34,6 @@ alias bannedcamp='python /home/wjow/school/compsci/misc/bandcamp_not_safe/dl_alb
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
-alias cplatex='cp ~/school/latextemplates/coursework_template.tex .'
 
 # Temporary aliases
 
@@ -51,65 +50,69 @@ find_containing() {
     find ./ -name "$1" -exec grep -l "$2" {} +
 }
 
+cplatex() {
+  cp $HOME/school/latextemplates/coursework_template.tex $1
+}
+
 zpdfd() {
   zathura "$1" & disown
 }
 
 javacr() {
-    javac $1 && java $(echo $1 | awk -F '.java' '{print $1}')
+  javac $1 && java $(echo $1 | awk -F '.java' '{print $1}')
 }
 
 junittest() {
-    java org.junit.runner.JUnitCore $(echo $1 | awk -F '.java' '{print $1}')
+  java org.junit.runner.JUnitCore $(echo $1 | awk -F '.java' '{print $1}')
 }
 
 prevpac() {
-    expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $1
+  expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $1
 }
 
 adbaddmusic() {
-    adb push ~/music/ /sdcard/Music/
+  adb push ~/music/ /sdcard/Music/
 }
 
 cl() {
+  if [[ "$1" == "-a" ]]; then
+    local dir="$2"
+  else
+    local dir="$1"
+  fi
+
+  local dir="${dir:=$HOME}"
+
+  if [[ -d "$dir"  ]]; then
     if [[ "$1" == "-a" ]]; then
-        local dir="$2"
+      cd "$dir" >/dev/null; ls -a
     else
-        local dir="$1"
+      cd "$dir" >/dev/null; ls
     fi
-
-    local dir="${dir:=$HOME}"
-
-    if [[ -d "$dir"  ]]; then
-        if [[ "$1" == "-a" ]]; then
-            cd "$dir" >/dev/null; ls -a
-        else
-            cd "$dir" >/dev/null; ls
-        fi
-    else
-        echo "bash: cl: $dir: Directory not found"
-    fi
+  else
+    echo "bash: cl: $dir: Directory not found"
+  fi
 }
 
 mergepdf() {
-    outputfile=$1
-    shift
-    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
+  outputfile=$1
+  shift
+  gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
 }
 
 wipedisk() {
-    if [[ -e "$1" && -b "$1" ]];then
-        NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
-        if [[ -z "$NOT_safe" ]];then
-            sudo dd if=/dev/zero of="$1"
-            # Here you can use any of your favourite wiping tools
-            # to wipe destination passed on command line and stored in variable "$1"
-            #
-        else
-            echo 'Not allowed to destroy if any of the partitions is mounted: '"$NOT_safe"
-        fi
-    fi
-}
+  if [[ -e "$1" && -b "$1" ]];then
+    NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
+    if [[ -z "$NOT_safe" ]];then
+      sudo dd if=/dev/zero of="$1"
+      # Here you can use any of your favourite wiping tools
+      # to wipe destination passed on command line and stored in variable "$1"
+      #
+    else
+      echo 'Not allowed to destroy if any of the partitions is mounted: '"$NOT_safe"
+      fi
+      fi
+    }
 
 # Temporary Functions
 
