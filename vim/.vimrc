@@ -48,6 +48,7 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_matchparen_enabled = 1
 let g:matchup_override_vimtex = 1
 let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_offscreen = {}
 
 " tex-conceal
 set conceallevel=2
