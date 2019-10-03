@@ -16,8 +16,8 @@ URxvt*highlightTextColor: Black
 URxvt*cursorColor: #5f87d7
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters. The first font defines the cell size for characters; other fonts
-URxvt*font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1, \
-            -*-freeserif-medium-*-*-*-*-120-*-*-*-*-iso10646-1
+URxvt*font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1
+            xft:DejaVu Math Tex Gyre
 
 ! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar; option +sb.
 URxvt*scrollBar: false
@@ -40,6 +40,11 @@ URxvt.keysym.Mod1-k: command:\033]720;1\007
 URxvt.keysym.Mod1-j: command:\033]721;1\007
 ! Scroll to the bottom
 URxvt.keysym.Mod1-g: command:\033]721;1000\007
+
+! :Bind C-0, C-- and C-= to activate normal, large, and larger font size resp.
+URxvt.keysym.C-0: command:\033]50;-*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1,xft:DejaVu Math TeX Gyre\007
+URxvt.keysym.C-minus: command:\033]50;-*-terminus-medium-*-*-*-*-180-*-*-*-*-iso10646-1,xft:DejaVu Math TeX Gyre\007
+URxvt.keysym.C-equal: command:\033]50;-*-terminus-medium-*-*-*-*-240-*-*-*-*-iso10646-1,xft:DejaVu Math TeX Gyre:size=10\007
 
 ! Xft stuff
 Xft.lcdfilter: lcddefault
