@@ -60,8 +60,8 @@ snippet rmk "remark" bA
 endsnippet
 
 snippet dfn "definition" bA
-\begin{definition}
-	$1
+\begin{definition}[$1]
+	$2
 \end{definition}
 endsnippet
 
@@ -95,8 +95,8 @@ snippet mspace "math space" wA
 \;
 endsnippet
 
-snippet vsp-2 "2em vspace" bA
-\vspace*{2em}
+snippet vsp- "2em vspace" bA
+\vspace*{$1em}
 endsnippet
 
 
@@ -195,25 +195,29 @@ endsnippet
 
 
 # Delimiters (just saves the braces...)
-# snippet \abs "absolute value" iA
-# \abs{$1}
-# endsnippet
+snippet \|| "absolute value" iA
+\abs{$1}
+endsnippet
 
-# snippet \paren "parentheses" iA
-# \paren{$1}
-# endsnippet
+snippet \() "parentheses" iA
+\paren{$1}
+endsnippet
 
-# snippet \braces "set (braces)" iA
-# \set{$1}
-# endsnippet
+snippet \{} "set (braces)" iA
+\set{$1}
+endsnippet
 
-# snippet \bracket "brackets" iA
-# \bracket{$1}
-# endsnippet
+snippet \[] "brackets" iA
+\bracket{$1}
+endsnippet
 
-# snippet \quotes "quotes" iA
-# \quotes{$1}
-# endsnippet
+snippet \"" "quotes" iA
+\quotes{$1}
+endsnippet
+
+snippet \<> "angles" iA
+\angles{$1}
+endsnippet
 
 
 # Set Stuff
@@ -253,8 +257,12 @@ snippet ntsq "not supset equal" iA
 \nsupseteq
 endsnippet
 
-snippet iin "in " iA
+snippet iin "in" iA
 \in
+endsnippet
+
+snippet nii "contains" iA
+\ni
 endsnippet
 
 snippet noin "not in " iA
@@ -335,7 +343,11 @@ snippet != "not equal" iA
 \neq
 endsnippet
 
-snippet ~= "sim equal" iA
+snippet ~= "cong" iA
+\cong
+endsnippet
+
+snippet ~_ "sim equal" iA
 \simeq
 endsnippet
 
