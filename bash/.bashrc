@@ -40,7 +40,7 @@ alias ncwd='urxvt & disown'
 # Environment Variables
 export PATH="${PATH}"
 export BROWSER="qutebrowser"
-export R_ENVIRON_USER="~/.config/r/.Renviron"
+export R_ENVIRON_USER="~/.config/R/.Renviron"
 export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
 export PYTHONSTARTUP="/home/wjow/.python_startup.py"
 
