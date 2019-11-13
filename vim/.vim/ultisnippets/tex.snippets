@@ -54,8 +54,8 @@ snippet lma "lemma" bA
 endsnippet
 
 snippet rmk "remark" bA
-\begin{remark}
-	$1
+\begin{remark}[$1]
+	$2
 \end{remark}
 endsnippet
 
@@ -75,13 +75,13 @@ endsnippet
 
 snippet exm "example" bA
 \begin{quote}
-	\textbf{Example.} $1
+	\textbf{Example$1.} $2
 \end{quote}
 endsnippet
 
 
 # Inkscape Figure
-snippet inkimg "inkscape image" bA
+snippet inkfig "inkscape figure" bA
 \begin{figure}[ht]
 	\centering
 	\incfig[$2]{$1}
@@ -105,15 +105,15 @@ snippet mti "inline math" iA
 $$1$
 endsnippet
 
-snippet ttt "text" iA
+snippet txx "text" iA
 \text{$1}
 endsnippet
 
-snippet tti "text italic" iA
+snippet txi "text italic" iA
 \textit{$1}
 endsnippet
 
-snippet ttb "text bold" iA
+snippet txb "text bold" iA
 \textbf{$1}
 endsnippet
 
@@ -221,7 +221,7 @@ endsnippet
 
 
 # Set Stuff
-snippet \\\ "setminus" iA
+snippet \\\ "setminus" wA
 \setminus
 endsnippet
 
@@ -241,31 +241,31 @@ snippet ssq "supset equal" iA
 \supseteq
 endsnippet
 
-snippet ntcs "not subset strict" iA
+snippet nocs "not subset strict" iA
 \not\subset
 endsnippet
 
-snippet ntcq "not subset equal" iA
+snippet nocq "not subset equal" iA
 \nsubseteq
 endsnippet
 
-snippet ntss "not supset strict" iA
+snippet noss "not supset strict" iA
 \not\supset
 endsnippet
 
-snippet ntsq "not supset equal" iA
+snippet nosq "not supset equal" iA
 \nsupseteq
 endsnippet
 
-snippet iin "in" iA
+snippet iin "in" wA
 \in
 endsnippet
 
-snippet nii "contains" iA
+snippet nii "contains" wA
 \ni
 endsnippet
 
-snippet noin "not in " iA
+snippet noin "not in " wA
 \not\in
 endsnippet
 
@@ -367,7 +367,7 @@ snippet eex "exists" iA
 \exists
 endsnippet
 
-snippet ntex "not exists" iA
+snippet noex "not exists" iA
 \nexists
 endsnippet
 

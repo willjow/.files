@@ -50,8 +50,12 @@ find_containing() {
     find ./ -name "$1" -exec grep -l "$2" {} +
 }
 
-cplatex() {
-  cp $HOME/school/latextemplates/coursework_template.tex $1
+cplsty() {
+  cp $HOME/school/latextemplates/style.tex $1
+}
+
+cpldoc() {
+  cp $HOME/school/latextemplates/document.tex $1
 }
 
 zpdfd() {
