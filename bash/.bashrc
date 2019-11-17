@@ -23,8 +23,8 @@ alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrorlist="sudo reflector -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias clearpaccache="sudo paccache -rk2 && paccache -ruk0"
-alias plugvga='xrandr --output VGA1 --left-of LVDS1 --auto && . ~/.fehbg'
-alias plugdp='xrandr --output HDMI1 --left-of LVDS1 --auto && . ~/.fehbg'
+alias plugvga='xrandr --output VGA1 --left-of eDP1 --auto && . ~/.fehbg'
+alias plugdp='xrandr --output HDMI1 --left-of eDP1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
@@ -51,11 +51,11 @@ find_containing() {
 }
 
 cplsty() {
-  cp $HOME/school/latextemplates/style.tex $1
+  cp $HOME/school/latextemplates/style.sty ${1-style.sty}
 }
 
 cpldoc() {
-  cp $HOME/school/latextemplates/document.tex $1
+  cp $HOME/school/latextemplates/document.tex ${1-document.tex}
 }
 
 zpdfd() {

@@ -135,6 +135,10 @@ snippet /n "Nice Fraction" iA
 \nicefrac{$1} {$2}
 endsnippet
 
+snippet /b "Big Nice Fraction" iA
+\bignicefrac{$1} {$2}
+endsnippet
+
 
 # Superscripts / Subscripts
 snippet '([A-Za-z])(\d)' "auto single subscript" wrA
@@ -160,11 +164,11 @@ endsnippet
 
 # Under / Over Stuff
 snippet uarrow "under arrow"
-\underarrow[$2]{\text{$1}}{${VISUAL}}
+\underarrow[${2:0.6em}]{\text{$1}}{${VISUAL}}
 endsnippet
 
 snippet oarrow "over arrow"
-\overarrow[$2]{\text{$1}}{${VISUAL}}
+\overarrow[${2:0.6em}]{\text{$1}}{${VISUAL}}
 endsnippet
 
 snippet ubrace "under brace"

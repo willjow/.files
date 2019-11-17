@@ -57,8 +57,8 @@ default_border pixel 1
 default_floating_border pixel 1
 
 # monitor workspaces
-workspace 11 output VGA1
-workspace 15 output HDMI1
+workspace 15 output VGA1
+workspace 18 output HDMI1
 
 # focus wrapping
 focus_wrapping force
