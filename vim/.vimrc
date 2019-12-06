@@ -59,6 +59,7 @@ let R_in_buffer=0
 let R_term='urxvt'
 let R_openhtml=1
 let R_openpdf=1
+let R_assign=0
 
 " 'Basic' Settings
 set number relativenumber
