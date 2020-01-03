@@ -32,6 +32,7 @@ settings:
         do: download-open
         dr: download-remove
         dx: download-delete
+        gJ: set-cmd-text -s :tab-take
         gh: tab-move -
         gj: tab-give
         gl: tab-move +
