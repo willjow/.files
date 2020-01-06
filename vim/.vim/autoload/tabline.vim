@@ -22,10 +22,12 @@
 let s:main_col = '%1*'
 let s:back_col = '%2*'
 let s:fill_col = '%3*'
-let s:main_pat = '%\d\+T' . substitute(s:main_col, '\*', '\\*', '')
-let s:back_pat = '%\d\+T' . substitute(s:back_col, '\*', '\\*', '')
 let s:tab_pat = '%\d\+T%\d\*'
-let s:end_pat = '%T' . s:fill_col . '.*'
+let s:end_pat = '%T%3\*%='
+let s:bufname_pat = '\(%\d\+T%\d\* [^:]\+: \)\([^%]\{1,3}\)[^%]* '
+" let s:main_pat = '%\d\+T' . substitute(s:main_col, '\*', '\\*', '')
+" let s:back_pat = '%\d\+T' . substitute(s:back_col, '\*', '\\*', '')
+
 
 function! tabline#MyTabLine()
     let l:s = ''
@@ -54,16 +56,16 @@ function! tabline#MyTabLine()
     let l:s .= ' '
     let l:s .= tabline#GetCWD()
     let l:s .= ' '
+
     " truncate tab text (l:s) here, before returning
-    
+    let l:s = tabline#Truncate(l:s)
+
     return l:s
 endfunction
 
+
 function! tabline#Truncate(tabs)
     " Truncate tabline so that the current tab is always visible
-    " TODO: figure out what you actually want to do here before
-    "       writing any more garbage
-    "
     "       Potential schemes:
     "           1) truncate non-active tabs to be just the number and
     "              first letter (don't worry about cutting any other text
@@ -76,7 +78,7 @@ function! tabline#Truncate(tabs)
     "              Obstacle: figure out how to clip the boundaries such that
     "                        current tab is intelligently centered
     let l:t = a:tabs
-    if (strlen(tabline#DisplayText(l:t)) > &columns)
+    if (strlen(tabline#DisplayText(l:t)) >= &columns)
         " Broken start to scheme (2)
         " let l:cutl_pat = '.*\ze\(' . s:back_pat . '.\{-}\)\{2}' . s:main_pat
         " let l:cutr_pat = s:main_pat
@@ -85,9 +87,11 @@ function! tabline#Truncate(tabs)
         " let l:t = substitute(a:tabs, l:cutr_pat, '', '')
         "
         " scheme (1)
+        let l:t = substitute(l:t, s:bufname_pat, '\1\2> ', 'g')
     endif
     return l:t
 endfunction
+
 
 function! tabline#ElementList(tabs)
     let l:tabs = tabline#TabList(a:tabs)
@@ -95,11 +99,13 @@ function! tabline#ElementList(tabs)
     return l:tabs + [l:end]
 endfunction
 
+
 function! tabline#TabList(tabs)
     let l:tabs = substitute(a:tabs, s:end_pat, '', '')
     let l:tlist = split(l:tabs, '\ze' . s:tab_pat . '.*')
     return l:tlist
 endfunction
+
 
 function! tabline#DisplayText(tabs)
     let l:dtext = substitute(a:tabs, s:tab_pat, '', 'g')
@@ -107,9 +113,11 @@ function! tabline#DisplayText(tabs)
     return l:dtext
 endfunction
 
+
 function! tabline#TabColor(i, t)
     return (a:i == a:t ? s:main_col : s:back_col)
 endfunction
+
 
 function! tabline#TabModified(bl, i, t)
     for l:b in a:bl
@@ -120,11 +128,15 @@ function! tabline#TabModified(bl, i, t)
     return ' '
 endfunction
 
+
 function! tabline#TabSplits(wn, tn)
     return (a:tn == 1 ? '' : a:wn . '/' . a:tn . ' ')
 endfunction
 
+
 function! tabline#BufferName(bn)
+    " TODO: maybe this is where you could be cutting out characters to make
+    " all of the tabs fit on the screen
     let l:bname = bufname(a:bn)
     let l:bt = getbufvar(a:bn, '&buftype')
     let l:ft = getbufvar(a:bn, '&filetype')
@@ -149,6 +161,7 @@ function! tabline#BufferName(bn)
     return l:bname
 endfunction
 
+
 function! tabline#ShortenParents(fp)
     let l:sfp = substitute(a:fp, $HOME, '~', '')
     let l:sfp = substitute(l:sfp, '\/$', '', '')
@@ -156,6 +169,7 @@ function! tabline#ShortenParents(fp)
     let l:sfp .= '/'
     return l:sfp
 endfunction
+
 
 function! tabline#GetCWD()
     let l:cwd = getcwd()
