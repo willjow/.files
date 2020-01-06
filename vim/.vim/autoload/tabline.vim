@@ -28,7 +28,7 @@ let s:bufname_pat = '\(%\d\+T%\d\* [^:]\+: \)\([^%]\{1,3}\)[^%]* '
 " let s:main_pat = '%\d\+T' . substitute(s:main_col, '\*', '\\*', '')
 " let s:back_pat = '%\d\+T' . substitute(s:back_col, '\*', '\\*', '')
 
-
+" TODO: escape characters in buffer names that mess things up, e.g. %
 function! tabline#MyTabLine()
     let l:s = ''
     let l:t = tabpagenr()
@@ -135,8 +135,6 @@ endfunction
 
 
 function! tabline#BufferName(bn)
-    " TODO: maybe this is where you could be cutting out characters to make
-    " all of the tabs fit on the screen
     let l:bname = bufname(a:bn)
     let l:bt = getbufvar(a:bn, '&buftype')
     let l:ft = getbufvar(a:bn, '&filetype')
