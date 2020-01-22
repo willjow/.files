@@ -32,6 +32,13 @@ settings:
         do: download-open
         dr: download-remove
         dx: download-delete
+        f: null
+        fb: hint all tab-bg
+        fd: hint all download
+        ff: hint all tab-fg
+        fn: hint all normal
+        fr: hint all right-click
+        fy: hint all yank
         gJ: set-cmd-text -s :tab-take
         gh: tab-move -
         gj: tab-give
@@ -168,33 +175,32 @@ settings:
     - vim
     - '{}'
   fonts.completion.category:
-    global: bold 10pt monospace
+    global: bold 10pt default_family
   fonts.completion.entry:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.debug_console:
-    global: 10pt monospace
+    global: 10pt default_family
+  fonts.default_family:
+    global:
+    - xos4 Terminus
   fonts.downloads:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.hints:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.keyhint:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.messages.error:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.messages.info:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.messages.warning:
-    global: 10pt monospace
-  fonts.monospace:
-    global: '"xos4 Terminus", Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera
-      Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
-      Fixed, Consolas, Terminal'
+    global: 10pt default_family
   fonts.prompts:
     global: 10pt sans-serif
   fonts.statusbar:
-    global: 10pt monospace
+    global: 10pt default_family
   fonts.tabs:
-    global: 10pt monospace
+    global: 10pt default_family
   hints.border:
     global: '1px solid #bbcde7'
   input.insert_mode.auto_leave:
