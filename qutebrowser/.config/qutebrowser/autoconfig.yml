@@ -11,6 +11,7 @@ settings:
   bindings.commands:
     global:
       normal:
+        ;c: hint all right-click
         ;o: hint links fill :open -t {hint-url}
         <Alt+9>: tab-focus 9
         <Ctrl+Shift+t>: null
@@ -32,13 +33,7 @@ settings:
         do: download-open
         dr: download-remove
         dx: download-delete
-        f: null
-        fb: hint all tab-bg
-        fd: hint all download
-        ff: hint all tab-fg
-        fn: hint all normal
-        fr: hint all right-click
-        fy: hint all yank
+        f: hint all
         gJ: set-cmd-text -s :tab-take
         gh: tab-move -
         gj: tab-give
