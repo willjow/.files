@@ -204,6 +204,8 @@ settings:
     global: true
   prompt.radius:
     global: 0
+  statusbar.hide:
+    global: false
   tabs.background:
     global: true
   tabs.close_mouse_button:

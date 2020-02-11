@@ -147,7 +147,7 @@ set laststatus=2
 set statusline=%!statusline#MyStatusLine()
 
 " Tab Line
-set showtabline=1
+set showtabline=2
 set tabline=%!tabline#MyTabLine()
 
 " Fillchars (lines between windows)

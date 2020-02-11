@@ -15,6 +15,11 @@ URxvt*highlightTextColor: Black
 ! Use the specified colour for the cursor. The default is to use the foreground colour; option -cr.
 URxvt*cursorColor: #5f87d7
 
+! Emphasis  colors
+URxvt.colorIT: #87af5f
+URxvt.colorBD: #87afd7
+URxvt.colorUL: #d75fd7
+
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters. The first font defines the cell size for characters; other fonts
 URxvt*font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1
             xft:DejaVu Math Tex Gyre

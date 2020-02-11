@@ -34,6 +34,7 @@ alias bannedcamp='python /home/wjow/school/compsci/misc/bandcamp_not_safe/dl_alb
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
+alias gitempty='git add -A && git commit --allow-empty-message -m "" && git push'
 
 # Temporary aliases
 

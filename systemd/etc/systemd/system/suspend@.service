@@ -7,7 +7,7 @@ Before=sleep.target
 User=%I
 Type=simple
 Environment=DISPLAY=:0
-ExecStartPre=/usr/bin/bluetoothctl power off
+#ExecStartPre=/usr/bin/bluetoothctl power off
 ExecStart=/usr/bin/slock
 ExecStartPost=/usr/bin/sleep 1
 
