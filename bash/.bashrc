@@ -17,7 +17,7 @@ LS_COLORS=$LS_COLORS:'di=0;35:'; export LS_COLORS
 # Aliases
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
-alias cower='cower -t ~/aur'
+alias grep='grep --color=auto'
 alias please='sudo bash -c "$(history -p !!)"'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
