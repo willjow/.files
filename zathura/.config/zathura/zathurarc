@@ -10,3 +10,4 @@ set vertical-center false
 
 map <C-t> set vertical-center false
 map <C-c> set vertical-center true
+map <C-i> recolor toggle

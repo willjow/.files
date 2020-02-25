@@ -73,10 +73,10 @@ floating_modifier $mod
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-# start a terminal
-exec --no-startup-id i3-sensible-terminal
-bindsym $mod+t exec --no-startup-id i3-sensible-terminal
-bindsym $mod+m exec --no-startup-id i3-sensible-terminal -e cmus
+# program binds
+bindsym $mod+Shift+t exec urxvtd -q -f -o
+bindsym $mod+t exec urxvtc
+bindsym $mod+m exec urxvtc -e cmus
 bindsym $mod+w exec qutebrowser --backend webengine
 bindsym $mod+Shift+w exec google-chrome-stable
 bindsym $mod+g exec dolphin-emu

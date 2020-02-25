@@ -141,6 +141,7 @@ hi Conceal ctermfg=11 ctermbg=0 cterm=None
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " Status Line
 set laststatus=2

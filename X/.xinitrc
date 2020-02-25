@@ -55,7 +55,7 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 # trackpoint stuff
-sh ~/.reset_tp.sh
+sh $HOME/.reset_tp.sh
 
 # mute the spearker
 amixer set Speaker mute
@@ -64,11 +64,12 @@ amixer set Speaker mute
 xrandr --output LVDS1 --primary --auto --output VGA1 --auto --right-of LVDS1
 
 # restore color profile
-sh ~/.toggle_redshift.sh restore
+sh $HOME/.toggle_redshift.sh restore
 
 # background
-sh ~/.fehbg
+sh $HOME/.fehbg
 
 # launch stuff
 xbindkeys
+urxvtd -q -f -o
 exec i3
