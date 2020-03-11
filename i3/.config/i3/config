@@ -45,6 +45,7 @@ gaps inner 2
 client.focused          #5f87d7 #5f87d7 #000000 #000000
 client.focused_inactive #20407e #20407e #dedede #000000
 client.unfocused        #444444 #444444 #dedede #000000
+
 client.urgent           #af0000 #af0000 #dedede #000000
 client.placeholder      #000000 #000000 #dedede #000000
 

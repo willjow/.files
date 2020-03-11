@@ -41,6 +41,9 @@ settings:
         gr: null
         gt: tab-focus
         m: enter-mode set_mark
+        zl: set-cmd-text -s :session-load -c
+        zsc: session-save --current
+        zso: session-save --only-active-window
   colors.completion.category.bg:
     global: '#444444'
   colors.completion.category.fg:
