@@ -44,6 +44,7 @@ settings:
         zl: set-cmd-text -s :session-load -c
         zsc: session-save --current
         zso: session-save --only-active-window
+        zss: set-cmd-text -s :session-save
   colors.completion.category.bg:
     global: '#444444'
   colors.completion.category.fg:
