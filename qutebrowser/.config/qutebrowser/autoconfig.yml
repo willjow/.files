@@ -42,8 +42,8 @@ settings:
         gt: tab-focus
         m: enter-mode set_mark
         zl: set-cmd-text -s :session-load -c
-        zsc: session-save --current
-        zso: session-save --only-active-window
+        zsc: set-cmd-text -s :session-save --current
+        zso: set-cmd-text -s :session-save --only-active-window
         zss: set-cmd-text -s :session-save
   colors.completion.category.bg:
     global: '#444444'
@@ -151,6 +151,9 @@ settings:
     global: 0
   completion.web_history.max_items:
     global: 1000
+  confirm_quit:
+    global:
+    - downloads
   content.cookies.accept:
     global: all
   content.host_blocking.enabled:
