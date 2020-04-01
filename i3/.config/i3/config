@@ -92,7 +92,7 @@ bindsym $mod+Shift+d kill
 # volume controls
 bindsym XF86AudioLowerVolume exec "amixer -c 1 set Master 1dB- && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioRaiseVolume exec "amixer -c 1 set Master 1dB+ && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMute exec "amixer set Master toggle && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
 # caps lock wrapper for bar indicator

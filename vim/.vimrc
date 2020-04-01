@@ -100,6 +100,7 @@ colorscheme darkblue
 "   number  name        rgb
 "   0       Black       (0, 0, 0)
 "   9       Red         (255, 0, 0)
+"   10      Lime        (0, 255, 0)
 "   11      Yellow      (255, 255, 0)
 "   15      White       (255, 255, 255)
 "   16      Grey0       (0, 0, 0)
@@ -136,6 +137,8 @@ hi CursorLineNr ctermfg=11 cterm=None
 hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 
 hi Conceal ctermfg=11 ctermbg=0 cterm=None
+
+hi Visual ctermfg=0 ctermbg=10 cterm=None
 
 " Trailing Whitespace highlighting
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -234,6 +237,9 @@ endif
 autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
 nnoremap T :exe "tabn " . g:ptab<CR>
+
+" Remove trailing whitespaces
+vnoremap <silent> gw :s/\%V\s\+$//e<CR>
 
 nnoremap <C-n> :tabnew.<CR>
 nnoremap gf :tablast<CR>
