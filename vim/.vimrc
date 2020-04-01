@@ -87,6 +87,11 @@ set expandtab     " don't use actual tab character (ctrl-v)
 set shiftwidth=4  " indenting is 4 spaces
 set autoindent    " turns it on
 
+" Auto-formatting
+set textwidth=79
+set formatlistpat=^\\s*[0-9\\*\\+\\>\\-]\\+[\\]:.)}\\t\ ]\\s*
+set formatoptions=cqonl
+
 " set tabs to 2 for certain files
 autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
