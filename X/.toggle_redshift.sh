@@ -20,6 +20,10 @@ set_temp() {
   redshift -P -O $1
 }
 
+reset_temp() {
+  redshift -P -x
+}
+
 no_indicators='false'
 if [ ! -e $DIM1_INDICATOR ] && \
    [ ! -e $DIM2_INDICATOR ] && \
@@ -67,6 +71,7 @@ else
 
   elif [ -e $MIN_INDICATOR ]; then
     rm $MIN_INDICATOR
+    reset_temp
     . $DEFAULT_COLOR
   fi
 fi

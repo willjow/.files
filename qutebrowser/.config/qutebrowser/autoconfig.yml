@@ -41,7 +41,9 @@ settings:
         gr: null
         gt: tab-focus
         m: enter-mode set_mark
-        zl: set-cmd-text -s :session-load -c
+        zd: set-cmd-text -s :session-delete
+        zlc: set-cmd-text -s :session-load -c
+        zll: set-cmd-text -s :session-load
         zsc: set-cmd-text -s :session-save --current
         zso: set-cmd-text -s :session-save --only-active-window
         zss: set-cmd-text -s :session-save
