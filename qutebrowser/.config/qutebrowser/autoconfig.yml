@@ -213,6 +213,8 @@ settings:
     global: true
   prompt.radius:
     global: 0
+  session.default_name:
+    global: throwaway
   statusbar.hide:
     global: false
   tabs.background:
