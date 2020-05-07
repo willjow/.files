@@ -6,8 +6,8 @@ prev_uj=$(cat ${prev_uj_file})
 echo ${cur_uj} > ${prev_uj_file}
 
 time_diff=$1
-threshold1=14
-threshold2=35
+threshold1=15
+threshold2=37
 precision=2
 watts=$(bc <<< "scale=${precision}; (${cur_uj}-${prev_uj})/(${time_diff}*1000000)")
 watts_int=$(echo ${watts} | awk -F '.' '{print $1}')
