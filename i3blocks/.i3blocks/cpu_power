@@ -1,0 +1,28 @@
+#!/bin/bash
+
+cur_uj=$(cat /sys/class/powercap/intel-rapl:0/energy_uj)
+prev_uj_file=$HOME/.prev_cpu_uj
+prev_uj=$(cat ${prev_uj_file})
+echo ${cur_uj} > ${prev_uj_file}
+
+time_diff=$1
+threshold1=14
+threshold2=35
+precision=2
+watts=$(bc <<< "scale=${precision}; (${cur_uj}-${prev_uj})/(${time_diff}*1000000)")
+watts_int=$(echo ${watts} | awk -F '.' '{print $1}')
+
+# full text
+echo "${watts}W"
+
+# short text
+echo "${watts}W"
+
+# color
+if [ -n "${watts_int}" ]; then
+  if [ ${watts_int} -ge ${threshold2} ]; then
+    echo "#FF0000"
+  elif [ ${watts_int} -ge ${threshold1} ]; then
+    echo "#FFFF00"
+  fi
+fi

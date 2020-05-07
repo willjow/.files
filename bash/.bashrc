@@ -21,8 +21,8 @@ alias grep='grep --color=auto'
 alias please='sudo bash -c "$(history -p !!)"'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
-alias updmirrorlist="sudo reflector -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
-alias clearpaccache="sudo paccache -rk2 && paccache -ruk0"
+alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
+alias clearpac="sudo paccache -rk2 && paccache -ruk0"
 alias plugvga='xrandr --output VGA1 --left-of eDP1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --left-of eDP1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
@@ -30,7 +30,7 @@ alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
 alias swe5='feh --zoom 33 ~/misc/swe5.jpg & disown'
 alias tcr='feh --zoom 33 ~/misc/tcr.jpg & disown'
-alias bannedcamp='python /home/wjow/school/compsci/misc/bandcamp_not_safe/dl_album.py'
+alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
@@ -43,7 +43,7 @@ export PATH="${PATH}"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/R/.Renviron"
 export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
-export PYTHONSTARTUP="/home/wjow/.python_startup.py"
+export PYTHONSTARTUP="$HOME/.python_startup.py"
 
 # Functions
 find_containing() {
