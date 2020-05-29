@@ -21,7 +21,7 @@ alias grep='grep --color=auto'
 alias please='sudo bash -c "$(history -p !!)"'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
-alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
+alias updmirrors="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias clearpac="sudo paccache -rk2 && paccache -ruk0"
 alias plugvga='xrandr --output VGA1 --left-of eDP1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --left-of eDP1 --auto && . ~/.fehbg'
@@ -35,6 +35,7 @@ alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
 alias gitempty='git add -A && git commit --allow-empty-message -m "" && git push'
+alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
 
 # Temporary aliases
 
