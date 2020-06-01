@@ -98,6 +98,19 @@ set formatlistpat+=[\\])}:.]\\?
 set formatlistpat+=[\\t\ ]
 set formatlistpat+=\\s*
 
+" Toggle Text Autoformatting
+function AutoFormatOn()
+    :set formatoptions+=t
+    :nnoremap <C-a> :call AutoFormatOff()<CR>
+endfunction
+
+function AutoFormatOff()
+    :set formatoptions-=t
+    :nnoremap <C-a> :call AutoFormatOn()<CR>
+endfunction
+
+nnoremap <C-a> :call AutoFormatOn()<CR>
+
 " set tabs to 2 for certain files
 autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
