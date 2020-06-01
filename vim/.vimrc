@@ -89,9 +89,14 @@ set autoindent    " turns it on
 
 " Auto-formatting
 set textwidth=79
-set formatlistpat=^\\s*[0-9\\*\\+\\>\\-]\\+[\\]:.)}\\t\ ]\\s*
 set formatoptions=croqnl1j
 set nojoinspaces
+set formatlistpat=^\\s*
+set formatlistpat+=[\\[({]\\?
+set formatlistpat+=\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)
+set formatlistpat+=[\\])}:.]\\?
+set formatlistpat+=[\\t\ ]
+set formatlistpat+=\\s*
 
 " set tabs to 2 for certain files
 autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
