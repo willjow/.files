@@ -12,7 +12,7 @@ PS1="\[\033[38;5;68m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;68m
 LS_COLORS=$LS_COLORS:'di=0;35:'; export LS_COLORS
 
 # efibootmgr command:
-#efibootmgr --disk /dev/sda --part 1 --create --label "Arch Linux No IPv6" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
+#efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux No IPv6" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
 
 # Aliases
 alias ls='ls --color=auto'
