@@ -88,8 +88,8 @@ set shiftwidth=4  " indenting is 4 spaces
 set autoindent    " turns it on
 
 " Auto-formatting
-" python pattern: ^\s*[\[({]?(\d+|[\*\+\>\-])[\])}:.]?\s+
-set formatlistpat=^\\s*[\\[({]\\?\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)[\\])}:.]\\?\\s\\+
+" python pattern: ^\s*[\[({]?(\d+|[\*\+\>\-])[:.]?[\])}]?\s+
+set formatlistpat=^\\s*[\\[({]\\?\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)[:.]\\?[\\])}]\\?\\s\\+
 set textwidth=79
 set formatoptions=croqnl1j
 set nojoinspaces
