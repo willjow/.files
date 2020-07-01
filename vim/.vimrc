@@ -79,6 +79,9 @@ let maplocalleader="\<Tab>"
 set mouse=nvc
 set ttymouse=xterm2
 
+" VirtualEdit
+set virtualedit=block
+
 " Style Stuff
 filetype indent on
 set tabstop=4     " tabs are at proper location
@@ -97,15 +100,15 @@ set nojoinspaces
 " Toggle Text Autoformatting
 function AutoFormatOn()
     :set formatoptions+=t
-    :nnoremap <C-a> :call AutoFormatOff()<CR>
+    :nnoremap <C-t> :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
     :set formatoptions-=t
-    :nnoremap <C-a> :call AutoFormatOn()<CR>
+    :nnoremap <C-t> :call AutoFormatOn()<CR>
 endfunction
 
-nnoremap <C-a> :call AutoFormatOn()<CR>
+nnoremap <C-t> :call AutoFormatOn()<CR>
 
 " set tabs to 2 for certain files
 autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -203,7 +206,7 @@ set noea
 
 " 3/10/2019: I never actually use this bind; changing it to open a tab
 "            instead, which happens much more frequently...
-nnoremap <C-t> :vs. <bar> vertical res 25 <CR>
+" nnoremap <C-> :vs. <bar> vertical res 25 <CR>
 
 """""""""""
 " Keymaps "

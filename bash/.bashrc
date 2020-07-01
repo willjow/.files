@@ -30,12 +30,14 @@ alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
 alias swe5='feh --zoom 33 ~/misc/swe5.jpg & disown'
 alias tcr='feh --zoom 33 ~/misc/tcr.jpg & disown'
-alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
 alias gitempty='git add -A && git commit --allow-empty-message -m "" && git push'
 alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
+alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
+alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
+alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 
 # Temporary aliases
 
