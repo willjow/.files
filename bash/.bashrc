@@ -108,6 +108,21 @@ mergepdf() {
   gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
 }
 
+silenceremove() {
+    ffmpeg -i "$1" -af "silenceremove=start_periods=1:start_duration=0:start_threshold=0.05:detection=peak,areverse,silenceremove=start_periods=1:start_duration=0:start_threshold=0.05:detection=peak,areverse" "$2"
+}
+
+silenceremovedir() {
+  inputdir=$1
+  outputdir=${inputdir%/}_silenceremoved
+  mkdir "$outputdir"
+
+  for inputfile in "${inputdir}"/*.mp3; do
+    outputfile=${outputdir}/$(basename "$inputfile")
+    silenceremove "$inputfile" "$outputfile"
+  done
+}
+
 wipedisk() {
   if [[ -e "$1" && -b "$1" ]];then
     NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
