@@ -35,6 +35,7 @@ alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
 alias gitempty='git add -A && git commit --allow-empty-message -m "" && git push'
 alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
+alias youtube-dl-mp3='youtube-dl -x --audio-format mp3 --audio-quality 0'
 alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
 alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
@@ -82,6 +83,10 @@ adbaddmusic() {
   adb push ~/music/ /sdcard/Music/
 }
 
+7zxo() {
+  7z x -o"${1%.*}" "$1"
+}
+
 cl() {
   if [[ "$1" == "-a" ]]; then
     local dir="$2"
@@ -109,7 +114,7 @@ mergepdf() {
 }
 
 silenceremove() {
-    ffmpeg -i "$1" -af "silenceremove=start_periods=1:start_duration=0:start_threshold=0.05:detection=peak,areverse,silenceremove=start_periods=1:start_duration=0:start_threshold=0.05:detection=peak,areverse" "$2"
+    ffmpeg -i "$1" -af "silenceremove=start_periods=1:start_duration=0:start_threshold=0.04:detection=peak,areverse,silenceremove=start_periods=1:start_duration=0:start_threshold=0.04:detection=peak,areverse" "$2"
 }
 
 silenceremovedir() {

@@ -214,7 +214,7 @@ set noea
 """""""""""
 cabbrev w!! w !sudo tee > /dev/null %:p
 map <Enter> o<esc>
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+nnoremap ;cd :cd %:p:h<CR>:pwd<CR>
 
 " Works with fat fingers holding down control...
 inoremap <C-@> <Space>
