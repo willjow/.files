@@ -35,6 +35,7 @@ alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
 alias gitempty='git add -A && git commit --allow-empty-message -m "" && git push'
 alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
+alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
 alias youtube-dl-mp3='youtube-dl -x --audio-format mp3 --audio-quality 0'
 alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
@@ -150,17 +151,22 @@ libmp3lame_convert() {
   ffmpeg -i "$2" -c:a libmp3lame -q:a 0 -map_metadata 0 -y "${2%.*}.$1"
 }
 
-reencodemp3dir() {
+reencodemp3() {
   # for some reason libmp3lame causes seeking problems and lame doesn't
+  mp3="$1"
+  base="${mp3%.mp3}"
+  wav="${base}.wav"
+  tagged="${base}_tagged.mp3"
+  libmp3lame_convert wav "$mp3"
+  mv -v "$mp3" "$tagged"
+  lame -V 0 "$wav" "$mp3"
+  id3cp "$tagged" "$mp3"
+  rm -v "$tagged" "$wav"
+}
+
+reencodemp3dir() {
   for mp3 in "$1"/*.mp3; do
-    base="${mp3%.mp3}"
-    wav="${base}.wav"
-    tagged="${base}_tagged.mp3"
-    libmp3lame_convert wav "$mp3"
-    mv -v "$mp3" "$tagged"
-    lame -V 0 "$wav" "$mp3"
-    id3cp "$tagged" "$mp3"
-    rm -v "$tagged" "$wav"
+    reencodemp3 "$mp3"
   done
 }
 
