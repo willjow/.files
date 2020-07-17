@@ -151,11 +151,16 @@ libmp3lame_convert() {
 }
 
 reencodemp3dir() {
+  # for some reason libmp3lame causes seeking problems and lame doesn't
   for mp3 in "$1"/*.mp3; do
-    flac="${mp3%.mp3}.flac"
-    flacify "$mp3"
-    libmp3lame_convert mp3 "$flac"
-    rm -v "$flac"
+    base="${mp3%.mp3}"
+    wav="${base}.wav"
+    tagged="${base}_tagged.mp3"
+    libmp3lame_convert wav "$mp3"
+    mv -v "$mp3" "$tagged"
+    lame -V 0 "$wav" "$mp3"
+    id3cp "$tagged" "$mp3"
+    rm -v "$tagged" "$wav"
   done
 }
 
