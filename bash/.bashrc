@@ -50,6 +50,20 @@ export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcres
 export PYTHONSTARTUP="$HOME/.python_startup.py"
 
 # Functions
+wipedisk() {
+  if [[ -e "$1" && -b "$1" ]];then
+    NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
+    if [[ -z "$NOT_safe" ]];then
+      sudo dd if=/dev/zero of="$1"
+      # Here you can use any of your favourite wiping tools
+      # to wipe destination passed on command line and stored in variable "$1"
+      #
+    else
+      echo 'Not allowed to destroy if any of the partitions is mounted: '"$NOT_safe"
+      fi
+      fi
+    }
+
 find_containing() {
     # list files matching $1 that contain $2
     find ./ -name "$1" -exec grep -l "$2" {} +
@@ -128,19 +142,22 @@ silenceremovedir() {
   done
 }
 
-wipedisk() {
-  if [[ -e "$1" && -b "$1" ]];then
-    NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
-    if [[ -z "$NOT_safe" ]];then
-      sudo dd if=/dev/zero of="$1"
-      # Here you can use any of your favourite wiping tools
-      # to wipe destination passed on command line and stored in variable "$1"
-      #
-    else
-      echo 'Not allowed to destroy if any of the partitions is mounted: '"$NOT_safe"
-      fi
-      fi
-    }
+flacify() {
+  ffmpeg -i "$1" -c:a flac -compression_level 0 -y "${1%.*}.flac"
+}
+
+libmp3lame_convert() {
+  ffmpeg -i "$2" -c:a libmp3lame -q:a 0 -map_metadata 0 -y "${2%.*}.$1"
+}
+
+reencodemp3dir() {
+  for mp3 in "$1"/*.mp3; do
+    flac="${mp3%.mp3}.flac"
+    flacify "$mp3"
+    libmp3lame_convert mp3 "$flac"
+    rm -v "$flac"
+  done
+}
 
 # Temporary Functions
 
