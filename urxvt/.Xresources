@@ -31,7 +31,7 @@ URxvt*scrollBar: false
 URxvt*scrollTtyOutput: false
 
 ! Save number lines in the scrollback buffer [default 1000]; option -sl.
-URxvt*saveLines: 2000
+URxvt*saveLines: 3200
 
 ! Scrollback bindings
 ! Scroll 50 lines

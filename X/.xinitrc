@@ -60,6 +60,9 @@ sh $HOME/.reset_tp.sh
 # mute the spearker
 amixer set Speaker mute
 
+# start pulseeffects in background
+pulseeffects --gapplication-service &
+
 # second monitor
 xrandr --output LVDS1 --primary --auto --output VGA1 --auto --right-of LVDS1
 

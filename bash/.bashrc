@@ -14,11 +14,19 @@ LS_COLORS=$LS_COLORS:'di=0;35:'; export LS_COLORS
 # efibootmgr command:
 #efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux No IPv6" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1'
 
+shopt -s extglob
+set -o vi
+set -o ignoreeof
+
+# Source
+source /usr/share/fzf/completion.bash
+
 # Aliases
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias grep='grep --color=auto'
 alias please='sudo bash -c "$(history -p !!)"'
+alias alsaequal='alsamixer -D equal'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrors="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
@@ -33,7 +41,6 @@ alias tcr='feh --zoom 33 ~/misc/tcr.jpg & disown'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
-alias gitempty='git add -A && git commit --allow-empty-message -m "" && git push'
 alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
 alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
 alias youtube-dl-mp3='youtube-dl -x --audio-format mp3 --audio-quality 0'
@@ -121,6 +128,7 @@ cl() {
     echo "bash: cl: $dir: Directory not found"
   fi
 }
+_fzf_setup_completion path cl
 
 mergepdf() {
   outputfile=$1
@@ -171,7 +179,3 @@ reencodemp3dir() {
 }
 
 # Temporary Functions
-
-shopt -s extglob
-set -o vi
-set -o ignoreeof
