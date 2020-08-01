@@ -26,6 +26,8 @@ syntax enable
 
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
@@ -189,6 +191,23 @@ let g:netrw_fastbrowse=2
 let g:netrw_bufsettings="noma nomod nobl nowrap ro nu rnu"
 set noea
 
+""""""""""""
+" Commands "
+"          "
+""""""""""""
+cabbrev w!! w !sudo tee > /dev/null %:p
+function CD(...)
+    call fzf#run(fzf#wrap({'source': 'find -L '.(a:0 == 0 ? getcwd() : a:1).' -path *.git -prune -o -type d -print', 'sink': 'cd'}))
+endfunction
+command! -nargs=* CD call CD(<q-args>)
+
+"""""""""""
+" Keymaps "
+"         "
+"""""""""""
+map <Enter> o<esc>
+nnoremap ;cd :cd %:p:h<CR>:pwd<CR>
+
 " Keybind to open the directory listing
 " (set selected directory to be root of tree with "gn")
 " (open selected file in previous split with "P")
@@ -207,14 +226,6 @@ set noea
 " 3/10/2019: I never actually use this bind; changing it to open a tab
 "            instead, which happens much more frequently...
 " nnoremap <C-> :vs. <bar> vertical res 25 <CR>
-
-"""""""""""
-" Keymaps "
-"         "
-"""""""""""
-cabbrev w!! w !sudo tee > /dev/null %:p
-map <Enter> o<esc>
-nnoremap ;cd :cd %:p:h<CR>:pwd<CR>
 
 " Works with fat fingers holding down control...
 inoremap <C-@> <Space>
@@ -263,8 +274,9 @@ nnoremap T :exe "tabn " . g:ptab<CR>
 
 " Remove trailing whitespaces
 vnoremap <silent> gw :s/\%V\s\+$//e<CR>
-
 nnoremap <C-n> :tabnew.<CR>
+nnoremap <C-j> :tabnew<CR>:Files<CR>
+nnoremap <C-k> :Files<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR>
 nnoremap gl :tabm +<CR>

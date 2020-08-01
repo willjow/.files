@@ -57,9 +57,9 @@ export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/R/.Renviron"
 export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
 export PYTHONSTARTUP="$HOME/.python_startup.py"
-export FZF_DEFAULT_COMMAND="command fd --hidden --follow ."
-export FZF_ALT_C_COMMAND="command fd --hidden --follow --min-depth 1 --type d"
-#export FZF_ALT_C_COMMAND="command find -L . -mindepth 1 \\( -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune -o -type d -print 2> /dev/null | cut -b 3-"
+export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
+export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
+#export FZF_ALT_C_COMMAND="command find -L . -mindepth 1 \\( -path '*.git' -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune -o -type d -print 2> /dev/null | cut -b 3-"
 
 # Functions
 wipedisk() {
