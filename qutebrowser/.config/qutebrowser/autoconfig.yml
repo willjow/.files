@@ -6,6 +6,11 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      q: close
+      qa: quit
+      w: save
   backend:
     global: webengine
   bindings.commands:
@@ -203,8 +208,20 @@ settings:
     global: 10pt sans-serif
   fonts.statusbar:
     global: 10pt default_family
-  fonts.tabs:
+  fonts.tabs.selected:
     global: 10pt default_family
+  fonts.tabs.unselected:
+    global: 10pt default_family
+  fonts.web.family.fixed:
+    global: null
+  fonts.web.family.sans_serif:
+    global: null
+  fonts.web.size.default:
+    global: 16
+  fonts.web.size.default_fixed:
+    global: 13
+  fonts.web.size.minimum:
+    global: 0
   hints.border:
     global: '1px solid #bbcde7'
   input.insert_mode.auto_leave:
@@ -215,8 +232,8 @@ settings:
     global: 0
   session.default_name:
     global: throwaway
-  statusbar.hide:
-    global: false
+  statusbar.show:
+    global: always
   tabs.background:
     global: true
   tabs.close_mouse_button:
