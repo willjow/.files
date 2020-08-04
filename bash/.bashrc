@@ -159,6 +159,23 @@ flacify() {
   ffmpeg -i "$1" -c:a flac -compression_level 0 -y "${1%.*}.flac"
 }
 
+flactomp3() {
+  # for some reason libmp3lame causes seeking problems and lame doesn't
+  flac="$1"
+  base="${flac%.flac}"
+  mp3="${base}.mp3"
+  wav="${base}.wav"
+  libmp3lame_convert wav "$flac"
+  lame -V 0 "$wav" "$mp3"
+  rm -v "$wav" "$flac"
+}
+
+flactomp3dir() {
+  for flac in "$1"/*.flac; do
+    flactomp3 "$flac"
+  done
+}
+
 libmp3lame_convert() {
   ffmpeg -i "$2" -c:a libmp3lame -q:a 0 -map_metadata 0 -y "${2%.*}.$1"
 }
