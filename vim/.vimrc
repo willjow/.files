@@ -244,7 +244,7 @@ fun! ToggleCC()
   endif
 endfun
 
-nnoremap <silent> <C-k> :call ToggleCC()<CR>
+nnoremap <silent> <C-h> :call ToggleCC()<CR>
 
 " Move By Displayed Line
 " 8/14/19 - this is actually annoying, commenting out
