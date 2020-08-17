@@ -16,7 +16,7 @@ set $mod Mod4
 #
 # the pango name for terminus changed in an update, so we're not longer using pango...
 # font pango:xos4 terminus 8
-font -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1
+font -xos4-terminus-medium-*-*-*-*-140-*-*-*-*-*-*
 
 # gaps
 smart_gaps on

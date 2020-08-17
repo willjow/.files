@@ -21,7 +21,7 @@ URxvt.colorBD: #87afd7
 URxvt.colorUL: #d75fd7
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters. The first font defines the cell size for characters; other fonts
-URxvt*font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1
+URxvt*font: -xos4-terminus-medium-*-*-*-*-140-*-*-*-*-*-*
             xft:DejaVu Math Tex Gyre
 
 ! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar; option +sb.
