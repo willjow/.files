@@ -31,7 +31,7 @@ alias alsaequal='alsamixer -D equal'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrors="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
-alias clearpac="sudo paccache -rk2 && paccache -ruk0"
+alias clearpac='sudo paccache -rk2 && paccache -ruk0'
 alias plugvga='xrandr --output VGA1 --left-of eDP1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output HDMI1 --left-of eDP1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
@@ -43,7 +43,7 @@ alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
 alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
-alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done 2> reencode_errors.txt'
+alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
 alias youtube-dl-mp3='youtube-dl -x --audio-format mp3 --audio-quality 0'
 alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
@@ -155,6 +155,10 @@ silenceremovedir() {
   done
 }
 
+libmp3lame_convert() {
+  ffmpeg -i "$2" -c:a libmp3lame -q:a 0 -map_metadata 0 -y "${2%.*}.$1"
+}
+
 flacify() {
   ffmpeg -i "$1" -c:a flac -compression_level 0 -y "${1%.*}.flac"
 }
@@ -176,21 +180,15 @@ flactomp3dir() {
   done
 }
 
-libmp3lame_convert() {
-  ffmpeg -i "$2" -c:a libmp3lame -q:a 0 -map_metadata 0 -y "${2%.*}.$1"
-}
-
 reencodemp3() {
   # for some reason libmp3lame causes seeking problems and lame doesn't
   mp3="$1"
   base="${mp3%.mp3}"
-  wav="${base}.wav"
   tagged="${base}_tagged.mp3"
-  libmp3lame_convert wav "$mp3"
   mv -v "$mp3" "$tagged"
-  lame -V 0 "$wav" "$mp3"
+  lame --mp3input -V 0 "$tagged" "$mp3"
   id3cp "$tagged" "$mp3"
-  rm -v "$tagged" "$wav"
+  rm -v "$tagged"
 }
 
 reencodemp3dir() {
