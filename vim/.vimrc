@@ -45,6 +45,7 @@ nnoremap <C-p> :call UltiSnips#RefreshSnippets()<CR>
 
 " vimtex
 " autocmd FileType tex setlocal spell spelllang=en_us
+let g:tex_flavor='latex'
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
 let g:vimtex_matchparen_enabled = 1

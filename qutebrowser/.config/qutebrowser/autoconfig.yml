@@ -23,7 +23,7 @@ settings:
         <Ctrl+Shift+w>: null
         <Ctrl+q>: stop
         <Ctrl+w>: null
-        B: set-cmd-text -s :quickmark-load
+        B: set-cmd-text -s :bookmark-add "{url:pretty}" "{title}"
         D: null
         I: set-cmd-text -s :open -p
         M: null
@@ -156,7 +156,7 @@ settings:
   completion.scrollbar.width:
     global: 0
   completion.web_history.max_items:
-    global: 1000
+    global: 2000
   confirm_quit:
     global:
     - downloads
