@@ -97,7 +97,7 @@ set autoindent    " turns it on
 " python pattern: ^\s*[\[({]?(\d+|[\*\+\>\-])[:.]?[\])}]?\s+
 set formatlistpat=^\\s*[\\[({]\\?\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)[:.]\\?[\\])}]\\?\\s\\+
 set textwidth=79
-set formatoptions=croqnl1j
+set formatoptions=croqnl1jt
 set nojoinspaces
 
 " Toggle Text Autoformatting
@@ -111,7 +111,7 @@ function AutoFormatOff()
     :nnoremap <C-t> :call AutoFormatOn()<CR>
 endfunction
 
-nnoremap <C-t> :call AutoFormatOn()<CR>
+nnoremap <C-t> :call AutoFormatOff()<CR>
 
 " set tabs to 2 for certain files
 autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
