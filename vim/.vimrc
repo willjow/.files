@@ -97,17 +97,17 @@ set autoindent    " turns it on
 " python pattern: ^\s*[\[({]?(\d+|[\*\+\>\-])[:.]?[\])}]?\s+
 set formatlistpat=^\\s*[\\[({]\\?\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)[:.]\\?[\\])}]\\?\\s\\+
 set textwidth=79
-set formatoptions=croqnl1jt
+set formatoptions=qnl1jtcro
 set nojoinspaces
 
 " Toggle Text Autoformatting
 function AutoFormatOn()
-    :set formatoptions+=t
+    :set formatoptions+=tcro
     :nnoremap <C-t> :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
-    :set formatoptions-=t
+    :set formatoptions-=tcro
     :nnoremap <C-t> :call AutoFormatOn()<CR>
 endfunction
 
