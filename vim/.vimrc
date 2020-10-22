@@ -102,13 +102,13 @@ set nojoinspaces
 
 " Toggle Text Autoformatting
 function AutoFormatOn()
-    :set formatoptions+=tcro
-    :nnoremap <C-t> :call AutoFormatOff()<CR>
+    set formatoptions+=tcro
+    nnoremap <C-t> :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
-    :set formatoptions-=tcro
-    :nnoremap <C-t> :call AutoFormatOn()<CR>
+    set formatoptions-=tcro
+    nnoremap <C-t> :call AutoFormatOn()<CR>
 endfunction
 
 nnoremap <C-t> :call AutoFormatOff()<CR>

@@ -33,7 +33,6 @@ alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrors="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias clearpac='sudo paccache -rk2 && paccache -ruk0'
 alias plugvga='xrandr --output VGA1 --left-of eDP1 --auto && . ~/.fehbg'
-alias plugdp='xrandr --output HDMI1 --left-of eDP1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
@@ -55,7 +54,7 @@ alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 export PATH="${PATH}"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/R/.Renviron"
-export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
+export CLASSPATH="/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
 export PYTHONSTARTUP="$HOME/.python_startup.py"
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
@@ -163,20 +162,21 @@ flacify() {
   ffmpeg -i "$1" -c:a flac -compression_level 0 -y "${1%.*}.flac"
 }
 
-flactomp3() {
+converttomp3() {
   # for some reason libmp3lame causes seeking problems and lame doesn't
-  flac="$1"
-  base="${flac%.flac}"
+  sourcef="$1"
+  base="${sourcef%.*}"
+  ext="${sourcef##*.}"
   mp3="${base}.mp3"
   wav="${base}.wav"
-  libmp3lame_convert wav "$flac"
+  libmp3lame_convert wav "$sourcef"
   lame -V 0 "$wav" "$mp3"
-  rm -v "$wav" "$flac"
+  rm -v "$wav" "$sourcef"
 }
 
-flactomp3dir() {
-  for flac in "$1"/*.flac; do
-    flactomp3 "$flac"
+converttomp3dir() {
+  for f in "$1"/*.$2; do
+    converttomp3 "$f"
   done
 }
 
