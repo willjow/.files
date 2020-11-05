@@ -21,6 +21,7 @@ set -o ignoreeof
 # Aliases
 alias ls='ls -G'
 alias grep='grep --color=auto'
+alias vim='/usr/local/bin/vim'
 
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
