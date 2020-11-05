@@ -1,0 +1,420 @@
+# Environments (should start on new line)
+snippet beg "begin{} / end{}" bA
+\begin{$1}
+	$2
+\end{$1}
+endsnippet
+
+snippet enu "enumerate environment" bA
+\begin{enumerate}[$1]
+	\item $2
+\end{enumerate}
+endsnippet
+
+snippet itm "itemize environment" bA
+\begin{itemize}[$1]
+	\item $2
+\end{itemize}
+endsnippet
+
+snippet cen "center environment" bA
+\begin{center}
+	$1
+\end{center}
+endsnippet
+
+snippet mal "align environment" bA
+\begin{align*}
+	$1
+\end{align*}
+endsnippet
+
+snippet cas "cases" bA
+\begin{cases}
+	$1
+\end{cases}
+endsnippet
+
+snippet thm "theorem" bA
+\begin{theorem}[$1]
+	$2
+\end{theorem}
+endsnippet
+
+snippet crl "corollary" bA
+\begin{corollary}[$1]
+	$2
+\end{corollary}
+endsnippet
+
+snippet lma "lemma" bA
+\begin{lemma}[$1]
+	$2
+\end{lemma}
+endsnippet
+
+snippet rmk "remark" bA
+\begin{remark}[$1]
+	$2
+\end{remark}
+endsnippet
+
+snippet dfn "definition" bA
+\begin{definition}[$1]
+	$2
+\end{definition}
+endsnippet
+
+snippet prf "proof" bA
+\begin{quote}
+	\begin{proof}
+		$1
+	\end{proof}
+\end{quote}
+endsnippet
+
+snippet exm "example" bA
+\begin{quote}
+	\textbf{Example$1.} $2
+\end{quote}
+endsnippet
+
+
+# Matrices
+snippet bmat "bracket matrix" bA
+\begin{bmatrix}
+	$1
+\end{bmatrix}
+endsnippet
+
+snippet pmat "parentheses matrix" bA
+\begin{pmatrix}
+	$1
+\end{pmatrix}
+endsnippet
+
+
+# Inkscape Figure
+snippet inkfig "inkscape figure" bA
+\begin{figure}[ht]
+	\centering
+	\incfig[$2]{$1}
+	\label{fig:$1}
+\end{figure}
+endsnippet
+
+
+# Spacing
+snippet mspace "math space" wA
+\;
+endsnippet
+
+snippet vsp- "_ex vspace" bA
+\vspace*{$1ex}
+endsnippet
+
+
+# In-line "Environments"
+snippet mti "inline math" iA
+$$1$
+endsnippet
+
+snippet txx "text" iA
+\text{$1}
+endsnippet
+
+snippet txi "text italic" iA
+\textit{$1}
+endsnippet
+
+snippet txb "text bold" iA
+\textbf{$1}
+endsnippet
+
+snippet txc "text teletype" iA
+\texttt{$1}
+endsnippet
+
+
+# Fractions
+snippet '(\d+) / (\d)' "Fraction" wrA
+\frac{`!p snip.rv=match.group(1)`} {`!p snip.rv=match.group(2)`}
+endsnippet
+
+snippet '([^\s]+) / ' "Fraction" wr
+\frac{`!p snip.rv=match.group(1)`} {$1}
+endsnippet
+
+snippet // "Fraction" iA
+\frac{$1} {$2}
+endsnippet
+
+snippet /n "Nice Fraction" iA
+\nicefrac{$1} {$2}
+endsnippet
+
+snippet /b "Big Nice Fraction" iA
+\bignicefrac{$1} {$2}
+endsnippet
+
+
+# Superscripts / Subscripts
+snippet '([A-Za-z])(\d)' "auto single subscript" wrA
+`!p snip.rv=match.group(1)`_`!p snip.rv=match.group(2)`
+endsnippet
+
+snippet __ "auto subscript" iA
+_{$1}
+endsnippet
+
+snippet ^^ "auto superscript" iA
+^{$1}
+endsnippet
+
+snippet '([^\s]+)\\invs' "inverse" wrA
+`!p snip.rv=match.group(1)`^{-1}
+endsnippet
+
+snippet '([^\s]+)\\compl' "complement" wrA
+`!p snip.rv=match.group(1)`^{c}
+endsnippet
+
+
+# Under / Over Stuff
+snippet uarrow "under arrow"
+\underarrow[${2:0.6em}]{\text{$1}}{${VISUAL}}
+endsnippet
+
+snippet oarrow "over arrow"
+\overarrow[${2:0.6em}]{\text{$1}}{${VISUAL}}
+endsnippet
+
+snippet ubrace "under brace"
+\underbrace{${VISUAL}}_\text{$1}
+endsnippet
+
+snippet obrace "over brace"
+\overbrace{${VISUAL}}_\text{$1}
+endsnippet
+
+snippet uset "under brace"
+\underset{\text{$1}}{${VISUAL}}
+endsnippet
+
+snippet oset "over brace"
+\overset{\text{$1}}{${VISUAL}}
+endsnippet
+
+
+# Variable Modifiers (allows for postfix declaration)
+snippet '([^\s\$]+)\\hatt' "hat postfix" wrA
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet '([^\s\$]+)\\barr' "bar postfix" wrA
+\overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+
+# Delimiters (just saves the braces...)
+snippet \|| "absolute value" iA
+\abs{$1}
+endsnippet
+
+snippet \() "parentheses" iA
+\paren{$1}
+endsnippet
+
+snippet \{} "set (braces)" iA
+\set{$1}
+endsnippet
+
+snippet \[] "brackets" iA
+\bracket{$1}
+endsnippet
+
+snippet \"" "quotes" iA
+\quotes{$1}
+endsnippet
+
+snippet \<> "angles" iA
+\angles{$1}
+endsnippet
+
+
+# Set Stuff
+snippet \\\ "setminus" wA
+\setminus
+endsnippet
+
+snippet ccs "subset strict" iA
+\subset
+endsnippet
+
+snippet ccq "subset equal" iA
+\subseteq
+endsnippet
+
+snippet sss "supset strict" iA
+\supset
+endsnippet
+
+snippet ssq "supset equal" iA
+\supseteq
+endsnippet
+
+snippet nocs "not subset strict" iA
+\not\subset
+endsnippet
+
+snippet nocq "not subset equal" iA
+\nsubseteq
+endsnippet
+
+snippet noss "not supset strict" iA
+\not\supset
+endsnippet
+
+snippet nosq "not supset equal" iA
+\nsupseteq
+endsnippet
+
+snippet iin "in" wA
+\in
+endsnippet
+
+snippet nii "contains" wA
+\ni
+endsnippet
+
+snippet noin "not in " wA
+\not\in
+endsnippet
+
+snippet empst "empty set" iA
+\varnothing
+endsnippet
+
+snippet nn "intersection" wA
+\cap
+endsnippet
+
+snippet uu "union" wA
+\cup
+endsnippet
+
+
+# Subscript/Superscript Operators
+snippet SS "sum" iA
+\sum_{${1:i = 1}}^{${2:n}} ${3:a_{i}}
+endsnippet
+
+snippet PP "product" iA
+\prod_{${1:i = 1}}^{${2:n}} ${3:a_{i}}
+endsnippet
+
+snippet UU "bigcup" iA
+\bigcup_{${1:i \in ${2: I}}}
+endsnippet
+
+snippet NN "bigcap" iA
+\bigcap_{${1:i \in ${2: I}}}
+endsnippet
+
+snippet dint "integral" iA
+\int_{${1:a}}^{${2:b}}
+endsnippet
+
+
+# Math Fonts
+snippet mbb "mathbb" iA
+\mathbb{$1}
+endsnippet
+
+snippet mcl "mathcal" iA
+\mathcal{$1}
+endsnippet
+
+
+# Misc Symbols
+snippet .... "ellipses" iA
+\dotsc
+endsnippet
+
+snippet ' \* ' "multiplication" wrA
+ \cdot 
+endsnippet
+
+snippet ' xx ' "cross" wrA
+ \times 
+endsnippet
+
+snippet <= "leq" iA
+\leq
+endsnippet
+
+snippet >= "geq" iA
+\geq
+endsnippet
+
+snippet == "aligned equal" iA
+&=
+endsnippet
+
+snippet != "not equal" iA
+\neq
+endsnippet
+
+snippet ~= "cong" iA
+\cong
+endsnippet
+
+snippet ~~ "sim" iA
+\sim
+endsnippet
+
+snippet ~_ "sim equal" iA
+\simeq
+endsnippet
+
+snippet -> "to" iA
+\to
+endsnippet
+
+snippet !> "mapsto" iA
+\mapsto
+endsnippet
+
+snippet => "implies" iA
+\implies
+endsnippet
+
+snippet eex "exists" iA
+\exists
+endsnippet
+
+snippet noex "not exists" iA
+\nexists
+endsnippet
+
+snippet faa "forall" iA
+\forall
+endsnippet
+
+snippet ooo "infty" iA
+\infty
+endsnippet
+
+snippet >> ">>" iA
+\gg
+endsnippet
+
+snippet << "<<" iA
+\ll
+endsnippet
+
+
+# Misc Modifiers
+snippet oname "operatorname" iA
+\operatorname{$1}\paren{$2}
+endsnippet
