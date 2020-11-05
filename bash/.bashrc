@@ -22,6 +22,7 @@ set -o ignoreeof
 alias ls='ls -G'
 alias grep='grep --color=auto'
 alias vim='/usr/local/bin/vim'
+alias ncwd='alacritty --working-directory $(pwd -P) & disown'
 
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
