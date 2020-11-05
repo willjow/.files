@@ -10,4 +10,4 @@
     * `skhd` requires accessibility access
         - https://github.com/koekeishiya/skhd
 
-2. Create relevant symlinks with `stow`. (e.g., `stow vim`)
+2. Create relevant symlinks with `stow`. (e.g., `stow --no-folding vim`)
