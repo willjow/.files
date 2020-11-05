@@ -80,7 +80,7 @@
 # Application Shortcuts #
 #########################
 alt - w : /Applications/qutebrowser.app/Contents/MacOS/qutebrowser
-alt - t : /Applications/Alacritty.app/Contents/MacOS/alacritty --hold
+alt - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 ###########################
 # Window Manager Commands #
