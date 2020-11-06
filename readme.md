@@ -11,3 +11,8 @@
         - https://github.com/koekeishiya/skhd
 
 2. Create relevant symlinks with `stow`. (e.g., `stow --no-folding vim`)
+
+### Notes
+
+For `kitty` windows to open in new windows instead of tabs, set "System
+Preferences->Dock->Prefer tabs when opening documents" to "Manually."
