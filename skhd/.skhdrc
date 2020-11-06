@@ -82,6 +82,7 @@
 # alt - d : "Show Spotlight Search"
 # alt - b : "Show Finder search window"
 alt - w : /Applications/qutebrowser.app/Contents/MacOS/qutebrowser
+shift + alt - w : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 alt - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 ###########################
