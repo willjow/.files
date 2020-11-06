@@ -52,6 +52,7 @@ let g:tex_conceal='abdmg'
 "let R_assign=0
 
 " 'Basic' Settings
+set backspace=2
 set number relativenumber
 set ignorecase
 set smartcase
