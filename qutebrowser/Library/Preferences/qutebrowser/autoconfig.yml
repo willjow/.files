@@ -51,6 +51,8 @@ settings:
         zss: set-cmd-text -s :session-save
   content.host_blocking.enabled:
     global: true
+  content.proxy:
+    global: system
   fonts.web.size.default:
     global: 14
   tabs.last_close:
