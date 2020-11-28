@@ -30,7 +30,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'andymass/vim-matchup'
 Plug 'jalvesaq/Nvim-R'
 call plug#end()
@@ -48,10 +47,18 @@ nnoremap <C-p> :call UltiSnips#RefreshSnippets()<CR>
 let g:tex_flavor='latex'
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
-let g:vimtex_matchparen_enabled = 1
-let g:matchup_override_vimtex = 1
-let g:matchup_matchparen_deferred = 1
-let g:matchup_matchparen_offscreen = {}
+let g:vimtex_matchparen_enabled=1
+let g:matchup_override_vimtex=1
+let g:matchup_matchparen_deferred=1
+let g:matchup_matchparen_offscreen={}
+let g:vimtex_syntax_conceal={'accents': 1,
+                           \ 'greek': 1,
+                           \ 'math_bounds': 1,
+                           \ 'math_delimiters': 1,
+                           \ 'math_super_sub': 0,
+                           \ 'math_symbols': 1,
+                           \ 'styles': 1}
+let g:vimtex_syntax_conceal_default=1
 
 " tex-conceal
 set conceallevel=2
