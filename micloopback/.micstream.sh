@@ -19,6 +19,6 @@ SPEAKER_SINK=alsa_output.pci-0000_00_1b.0.analog-stereo
 
 pactl load-module module-null-sink sink_name=combined_output sink_properties=device.description=combined_output
 pactl load-module module-null-sink sink_name=recorded_sink sink_properties=device.description=recorded_sink
-pactl load-module module-loopback source=$MIC_SOURCE sink=recorded_sink
+pactl load-module module-loopback source=$MIC_SOURCE sink=combined_output
 pactl load-module module-loopback source=recorded_sink.monitor sink=combined_output
 pactl load-module module-loopback source=recorded_sink.monitor sink=$SPEAKER_SINK
