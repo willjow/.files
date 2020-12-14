@@ -97,9 +97,9 @@ alt - m : yabai -m space --toggle mission-control
 shift + alt - d : yabai -m window --close
 
 # set layout
-ctrl + alt - b : yabai -m space --layout bsp
-ctrl + alt - n : yabai -m space --layout stack
-ctrl + alt - m : yabai -m space --layout float
+ctrl + cmd - b : yabai -m space --layout bsp
+ctrl + cmd - n : yabai -m space --layout stack
+ctrl + cmd - m : yabai -m space --layout float
 
 # set window split type
 alt - s : yabai -m window --insert south
@@ -122,9 +122,9 @@ shift + alt - k : yabai -m window --warp north
 shift + alt - l : yabai -m window --warp east
 
 # fast focus desktop
-ctrl + alt - h : yabai -m space --focus prev
-ctrl + alt - l : yabai -m space --focus next
-ctrl + alt - q : yabai -m space --focus recent
+ctrl + cmd - h : yabai -m space --focus prev
+ctrl + cmd - l : yabai -m space --focus next
+ctrl + cmd - q : yabai -m space --focus recent
 
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
