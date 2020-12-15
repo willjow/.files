@@ -97,9 +97,9 @@ alt - m : yabai -m space --toggle mission-control
 shift + alt - d : yabai -m window --close
 
 # set layout
-ctrl + cmd - b : yabai -m space --layout bsp
-ctrl + cmd - n : yabai -m space --layout stack
-ctrl + cmd - m : yabai -m space --layout float
+ctrl + alt - b : yabai -m space --layout bsp
+ctrl + alt - n : yabai -m space --layout stack
+ctrl + alt - m : yabai -m space --layout float
 
 # set window split type
 alt - s : yabai -m window --insert south
