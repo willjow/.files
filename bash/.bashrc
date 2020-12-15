@@ -54,6 +54,10 @@ cl() {
 }
 _fzf_setup_completion path cl
 
+zpdfd() {
+  zathura "$1" & disown
+}
+
 mergepdf() {
   outputfile=$1
   shift
