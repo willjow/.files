@@ -30,7 +30,7 @@ alias please='sudo bash -c "$(history -p !!)"'
 alias alsaequal='alsamixer -D equal'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
-alias updmirrors="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
+alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias clearpac='sudo paccache -rk2 && paccache -ruk0'
 alias plugvga='xrandr --output VGA1 --left-of eDP1 --auto && . ~/.fehbg'
 alias unplug='xrandr --output VGA1 --off && xrandr --output HDMI1 --off && . ~/.fehbg'
@@ -51,7 +51,7 @@ alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 # Temporary aliases
 
 # Environment Variables
-export PATH="${PATH}"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/R/.Renviron"
 export CLASSPATH="/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"

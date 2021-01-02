@@ -2,7 +2,7 @@
 
 # After running this script, run `pavucontrol`.
 #
-# In `pavucontrol`, go to the "Recording tab", where you should see "WEBRTC
+# In `pavucontrol`, go to the "Recording" tab, where you should see "WEBRTC
 # VoiceEngine". If not, make sure discord is open and in a call. To the right,
 # you should see a dropdown menu that says "Built-in Analog Audio" or similar.
 # Change this to "Monitor of combined_output".
@@ -13,6 +13,15 @@
 #
 # To disable this, just `systemctl --user restart pulseaudio`. You should reset
 # anything that uses audio after restarting pulseaudio.
+#
+#
+# tl;dr:
+#
+# 0. Open Discord
+# 1. Recording tab -> set "WEBRTC VoiceEngine" to "Monitor of combined_output"
+# 2. Playback tab -> set relevant program to "recorded_sink"
+#
+# to reset, `systemctl --user restart pulseaudio`
 
 MIC_SOURCE=alsa_input.pci-0000_00_1b.0.analog-stereo
 SPEAKER_SINK=alsa_output.pci-0000_00_1b.0.analog-stereo
