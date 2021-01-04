@@ -12,7 +12,9 @@
 # is outputting audio). Then, change the right dropdown to be "recorded_sink".
 #
 # To disable this, just `systemctl --user restart pulseaudio`. You should reset
-# anything that uses audio after restarting pulseaudio.
+# anything that uses audio after restarting pulseaudio. Make sure to also
+# restart programs using pulse (ahem, cmus) otherwise they might freak out and
+# hog the cpu.
 #
 #
 # tl;dr:
@@ -21,7 +23,7 @@
 # 1. Recording tab -> set "WEBRTC VoiceEngine" to "Monitor of combined_output"
 # 2. Playback tab -> set relevant program to "recorded_sink"
 #
-# to reset, `systemctl --user restart pulseaudio`
+# to reset, close discord, cmus, etc. and `systemctl --user restart pulseaudio`
 
 MIC_SOURCE=alsa_input.pci-0000_00_1b.0.analog-stereo
 SPEAKER_SINK=alsa_output.pci-0000_00_1b.0.analog-stereo
