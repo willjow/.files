@@ -7,6 +7,7 @@ set viewdir=~/.vim/view//
 " Preliminary Settings
 filetype plugin on
 syntax enable
+set fileformat=unix
 
 " vim-plug stuff
 " call plug#begin('~/.vim/plugged')

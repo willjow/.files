@@ -21,6 +21,8 @@ export EDITOR=vim
 # Aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias csgo='cd /mnt/g/Program\ Files\ \(x86\)/Steam/SteamApps/common/Counter-Strike\ Global\ Offensive/csgo'
+alias tf='cd /mnt/g/Program\ Files\ \(x86\)/Steam/SteamApps/common/Team\ Fortress\ 2/tf'
 
 #export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 #export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
