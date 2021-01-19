@@ -7,7 +7,7 @@ set window-title-basename "true"
 set selection-clipboard "clipboard"
 set first-page-column 1:1
 set vertical-center false
+set synctex true
 
-map zt set vertical-center false
-map zz set vertical-center true
-map <C-r> recolor toggle
+map zz set vertical-center
+map <C-r> recolor
