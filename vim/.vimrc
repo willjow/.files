@@ -254,21 +254,8 @@ endfun
 
 nnoremap <silent> <C-h> :call ToggleCC()<CR>
 
-" Move By Displayed Line
-" 8/14/19 - this is actually annoying, commenting out
-"noremap <silent> k gk
-"noremap <silent> j gj
-"noremap <silent> ^ g^
-"noremap <silent> $ g$
-"
-"onoremap <silent> k k
-"onoremap <silent> j j
-"onoremap <silent> ^ ^
-"onoremap <silent> $ $
-
-" Move In Insert Mode
-" inoremap <C-l> <Esc><Right>a
-" inoremap <C-h> <Esc><Left>a
+" Join
+noremap Q J
 
 " Tabs
 " Switch to last-active tab
@@ -285,11 +272,11 @@ vnoremap <silent> gw :s/\%V\s\+$//e<CR>
 nnoremap <C-n> :tabnew.<CR>
 nnoremap <C-j> :tabnew<CR>:Files<CR>
 nnoremap <C-k> :Files<CR>
-nnoremap gf :tablast<CR>
-nnoremap gF :tabfirst<CR>
-nnoremap gl :tabm +<CR>
-nnoremap gh :tabm -<CR>
-nnoremap gm :tabm<Space>
+nnoremap tf :tablast<CR>
+nnoremap tF :tabfirst<CR>
+nnoremap tl :tabm +<CR>
+nnoremap th :tabm -<CR>
+nnoremap tm :tabm<Space>
 nnoremap J  :tabn<CR>
 nnoremap K  :tabp<CR>
 
