@@ -44,7 +44,11 @@ if ($status eq 'Discharging') {
 }
 
 $percent = $2;
-$full_text .= "$percent%";
+if ($percent eq '0') {
+    exit(0)
+} else {
+    $full_text .= "$percent%";
+}
 
 $short_text = $full_text;
 
