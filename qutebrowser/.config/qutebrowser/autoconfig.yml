@@ -27,10 +27,10 @@ settings:
         D: null
         I: set-cmd-text -s :open -p
         M: null
-        T: set-cmd-text -s :buffer
+        T: set-cmd-text -s :tab-select
         '`': null
         ad: null
-        b: set-cmd-text -s :buffer
+        b: set-cmd-text -s :tab-select
         co: null
         d: null
         dc: download-cancel
@@ -45,7 +45,7 @@ settings:
         gl: tab-move +
         gr: null
         gt: tab-focus
-        m: enter-mode set_mark
+        m: mode-enter set_mark
         zd: set-cmd-text -s :session-delete
         zlc: set-cmd-text -s :session-load -c
         zll: set-cmd-text -s :session-load
