@@ -272,11 +272,11 @@ vnoremap <silent> gw :s/\%V\s\+$//e<CR>
 nnoremap <C-n> :tabnew.<CR>
 nnoremap <C-j> :tabnew<CR>:Files<CR>
 nnoremap <C-k> :Files<CR>
-nnoremap tf :tablast<CR>
-nnoremap tF :tabfirst<CR>
-nnoremap tl :tabm +<CR>
-nnoremap th :tabm -<CR>
-nnoremap tm :tabm<Space>
+nnoremap gf :tablast<CR>
+nnoremap gF :tabfirst<CR>
+nnoremap gl :tabm +<CR>
+nnoremap gh :tabm -<CR>
+nnoremap gm :tabm<Space>
 nnoremap J  :tabn<CR>
 nnoremap K  :tabp<CR>
 
