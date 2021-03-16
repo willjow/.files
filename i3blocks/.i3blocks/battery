@@ -61,25 +61,28 @@ print "$full_text\n";
 print "$short_text\n";
 
 if ($status eq 'Discharging') {
-
-	if ($percent < 20) {
-		print "#FF0000\n";
-	} elsif ($percent < 40) {
-		print "#FFFF00\n";
-	} elsif ($percent < 64) {
-        print "";
-	} elsif ($percent < 80) {
-		print "#00FF00\n";
-	} else {
-		print "#FF00FF\n";
-    }
-
-	if ($percent < 5) {
-		exit(33);
-	}
-} elsif ($status eq 'Charging') {
-    if ($percent >= 64) {
+    if ($percent >= 80) {
+        print "#FF00FF\n";
+    } elsif ($percent >= 64) {
         print "#00FF00\n";
+    } elsif ($percent >= 40) {
+        print "\n";
+    } elsif ($percent >= 20) {
+        print "#FFFF00\n";
+    } elsif ($percent >= 10) {
+        print "#FF0000\n";
+    } else {
+        exit(33);
+    }
+} elsif ($status eq 'Charging') {
+    if ($percent >= 80) {
+        print "#FF00FF\n";
+    } elsif ($percent >= 64) {
+        print "#00FF00\n";
+    } elsif ($percent >= 40) {
+        print "#4AA5FF\n";
+    } else {
+        print "\n";
     }
 } elsif ($status eq 'Unknown') {
     print "#00FFFF\n";
