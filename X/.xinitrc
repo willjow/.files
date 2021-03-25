@@ -58,13 +58,10 @@ fi
 sh $HOME/.reset_tp.sh
 
 # mute the spearker
-amixer set Speaker mute
+amixer -q -c 1 set Speaker mute
 
 # start pulseeffects in background
 pulseeffects --gapplication-service &
-
-# second monitor
-xrandr --output LVDS1 --primary --auto --output VGA1 --auto --right-of LVDS1
 
 # restore color profile
 sh $HOME/.toggle_redshift.sh restore
