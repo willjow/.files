@@ -246,7 +246,7 @@ autocmd BufWinEnter * set cc=
 
 fun! ToggleCC()
   if &cc == ''
-    set cc=81
+    set cc=80
   else
     set cc=
   endif
