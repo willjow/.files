@@ -1,6 +1,6 @@
 #!/bin/sh
-trackpoint="TPPS/2 IBM TrackPoint" 
-touchpad="Synaptics TM3053-004" 
+trackpoint="TPPS/2 IBM TrackPoint"
+touchpad="Synaptics TM3053-004"
 
 # enable before changing settings
 xinput enable "${touchpad}"

@@ -40,6 +40,9 @@ settings:
         dx: download-delete
         f: hint all
         gJ: set-cmd-text -s :tab-take
+        gd: null
+        gdd: download
+        gdm: download --mhtml
         gh: tab-move -
         gj: tab-give
         gl: tab-move +
@@ -160,6 +163,11 @@ settings:
   confirm_quit:
     global:
     - downloads
+  content.blocking.adblock.lists:
+    global:
+    - https://easylist.to/easylist/easylist.txt
+    - https://easylist.to/easylist/easyprivacy.txt
+    - https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt
   content.blocking.enabled:
     global: true
   content.cookies.accept:

@@ -60,8 +60,8 @@ sh $HOME/.reset_tp.sh
 # mute the spearker
 amixer -q -c 1 set Speaker mute
 
-# start pulseeffects in background
-pulseeffects --gapplication-service &
+# start easyeffects in background
+easyeffects --gapplication-service &
 
 # restore color profile
 sh $HOME/.toggle_redshift.sh restore
