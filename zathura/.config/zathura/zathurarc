@@ -10,4 +10,6 @@ set vertical-center false
 set synctex true
 
 map zz set vertical-center
+map gh set "first-page-column 1:1"
+map gl set "first-page-column 1:2"
 map <C-r> recolor
