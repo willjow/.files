@@ -79,7 +79,6 @@ set wrap lbr
 set report=0
 set display+=truncate
 set scrolloff=12
-set nohlsearch " Turns out search highlighting is really distracting
 set cursorline
 set nocursorcolumn
 set noshowcmd
@@ -121,7 +120,7 @@ endfunction
 nnoremap <C-t> :call AutoFormatOff()<CR>
 
 " set tabs to 2 for certain files
-autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ColorScheme
 set t_Co=256
@@ -253,6 +252,10 @@ fun! ToggleCC()
 endfun
 
 nnoremap <silent> <C-h> :call ToggleCC()<CR>
+
+" Press CTRL-/ to toggle search highlighting on/off and show current value.
+set nohlsearch
+nnoremap <C-_> :set hlsearch! hlsearch?<CR>
 
 " Join
 noremap Q J
