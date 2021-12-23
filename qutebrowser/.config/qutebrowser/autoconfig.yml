@@ -25,7 +25,6 @@ settings:
         <Ctrl+w>: null
         B: set-cmd-text -s :bookmark-add "{url:pretty}" "{title}"
         D: null
-        I: set-cmd-text -s :open -p
         M: null
         T: set-cmd-text -s :tab-select
         '`': null
@@ -49,6 +48,7 @@ settings:
         gr: null
         gt: tab-focus
         m: mode-enter set_mark
+        wp: set-cmd-text -s :open -p
         zd: set-cmd-text -s :session-delete
         zlc: set-cmd-text -s :session-load -c
         zll: set-cmd-text -s :session-load
