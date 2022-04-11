@@ -49,10 +49,12 @@ settings:
         zll: set-cmd-text -s :session-load
         zso: set-cmd-text -s :session-save --only-active-window
         zss: set-cmd-text -s :session-save
-  content.host_blocking.enabled:
+  content.blocking.enabled:
     global: true
   content.proxy:
     global: system
+  fonts.default_size:
+    global: 12pt
   fonts.web.size.default:
     global: 14
   tabs.last_close:
