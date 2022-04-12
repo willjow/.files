@@ -14,7 +14,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'andymass/vim-matchup'
 "Plug 'jalvesaq/Nvim-R'
 call plug#end()
@@ -35,10 +34,18 @@ nnoremap <C-p> :call UltiSnips#RefreshSnippets()<CR>
 let g:tex_flavor='latex'
 let g:vimtex_view_use_temp_files=1
 let g:vimtex_view_method='zathura'
-let g:vimtex_matchparen_enabled = 1
-let g:matchup_override_vimtex = 1
-let g:matchup_matchparen_deferred = 1
-let g:matchup_matchparen_offscreen = {}
+let g:vimtex_matchparen_enabled=1
+let g:matchup_override_vimtex=1
+let g:matchup_matchparen_deferred=1
+let g:matchup_matchparen_offscreen={}
+let g:vimtex_syntax_conceal={'accents': 1,
+                           \ 'greek': 1,
+                           \ 'math_bounds': 1,
+                           \ 'math_delimiters': 1,
+                           \ 'math_super_sub': 0,
+                           \ 'math_symbols': 1,
+                           \ 'styles': 1}
+let g:vimtex_syntax_conceal_default=1
 
 " tex-conceal
 set conceallevel=2
@@ -60,7 +67,6 @@ set wrap lbr
 set report=0
 set display+=truncate
 set scrolloff=12
-set nohlsearch " Turns out search highlighting is really distracting
 set cursorline
 set nocursorcolumn
 set noshowcmd
@@ -102,7 +108,7 @@ endfunction
 nnoremap <C-t> :call AutoFormatOff()<CR>
 
 " set tabs to 2 for certain files
-autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ColorScheme
 set t_Co=256
@@ -227,7 +233,7 @@ autocmd BufWinEnter * set cc=
 
 fun! ToggleCC()
   if &cc == ''
-    set cc=81
+    set cc=80
   else
     set cc=
   endif
@@ -235,21 +241,12 @@ endfun
 
 nnoremap <silent> <C-h> :call ToggleCC()<CR>
 
-" Move By Displayed Line
-" 8/14/19 - this is actually annoying, commenting out
-"noremap <silent> k gk
-"noremap <silent> j gj
-"noremap <silent> ^ g^
-"noremap <silent> $ g$
-"
-"onoremap <silent> k k
-"onoremap <silent> j j
-"onoremap <silent> ^ ^
-"onoremap <silent> $ $
+" Press CTRL-/ to toggle search highlighting on/off and show current value.
+set nohlsearch
+nnoremap <C-_> :set hlsearch! hlsearch?<CR>
 
-" Move In Insert Mode
-" inoremap <C-l> <Esc><Right>a
-" inoremap <C-h> <Esc><Left>a
+" Join
+noremap Q J
 
 " Tabs
 " Switch to last-active tab
