@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export EDITOR=vim
+
 # Outputs
 # pikles color: [38;5;41m]
 # empoleon color: [38;5;68m]
@@ -21,7 +24,9 @@ set -o ignoreeof
 # Aliases
 alias ls='ls -G'
 alias grep='grep --color=auto'
-alias ncwd='kitty -1 -d $(pwd -P) & disown'
+alias ncwd="kitty -1 -d \"$(pwd -P)\" & disown"
+alias venv_dover='source ~/.venvs/dover/bin/activate'
+alias dover_envs='source ~/.dover_env'
 
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
@@ -62,3 +67,7 @@ mergepdf() {
   shift
   gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
