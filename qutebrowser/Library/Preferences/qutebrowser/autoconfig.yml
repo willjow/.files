@@ -25,7 +25,7 @@ settings:
         B: set-cmd-text -s :bookmark-add "{url:pretty}" "{title}"
         D: null
         M: null
-        T: set-cmd-text -s :tab-select
+        T: tab-focus last
         '`': null
         ad: null
         b: set-cmd-text -s :tab-select
@@ -73,7 +73,7 @@ settings:
   colors.completion.match.fg:
     global: '#404fbf'
   colors.completion.odd.bg:
-    global: '#191919'
+    global: '#1B1B1B'
   colors.completion.scrollbar.bg:
     global: '#444444'
   colors.completion.scrollbar.fg:
