@@ -24,7 +24,7 @@ set -o ignoreeof
 # Aliases
 alias ls='ls -G'
 alias grep='grep --color=auto'
-alias ncwd="kitty -1 -d \"$(pwd -P)\" & disown"
+alias ncwd='kitty -1 -d "$(pwd -P)" & disown'
 alias venv_dover='source ~/.venvs/dover/bin/activate'
 alias dover_envs='source ~/.dover_env'
 
