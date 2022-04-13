@@ -196,7 +196,7 @@ settings:
   fonts.default_size:
     global: 12pt
   fonts.web.size.default:
-    global: 14
+    global: 16
   fonts.web.size.default_fixed:
     global: 13
   fonts.web.size.minimum:
