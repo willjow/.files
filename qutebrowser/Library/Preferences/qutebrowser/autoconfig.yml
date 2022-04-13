@@ -73,7 +73,7 @@ settings:
   colors.completion.match.fg:
     global: '#404fbf'
   colors.completion.odd.bg:
-    global: '#090909'
+    global: '#191919'
   colors.completion.scrollbar.bg:
     global: '#444444'
   colors.completion.scrollbar.fg:
