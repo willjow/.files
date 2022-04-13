@@ -11,6 +11,8 @@ settings:
       q: close
       qa: quit
       w: save
+  backend:
+    global: webengine
   bindings.commands:
     global:
       normal:
@@ -22,13 +24,11 @@ settings:
         <Ctrl+w>: null
         B: set-cmd-text -s :bookmark-add "{url:pretty}" "{title}"
         D: null
-        I: set-cmd-text -s :open -p
         M: null
-        T: null
-        W: set-cmd-text -s :open -w
+        T: set-cmd-text -s :tab-select
         '`': null
         ad: null
-        b: set-cmd-text -s :buffer
+        b: set-cmd-text -s :tab-select
         co: null
         d: null
         dc: download-cancel
@@ -38,31 +38,222 @@ settings:
         dx: download-delete
         f: hint all
         gJ: set-cmd-text -s :tab-take
+        gd: null
+        gdd: download
+        gdm: download --mhtml
         gh: tab-move -
         gj: tab-give
         gl: tab-move +
         gr: null
         gt: tab-focus
-        m: enter-mode set_mark
+        m: mode-enter set_mark
+        wp: set-cmd-text -s :open -p
         zd: set-cmd-text -s :session-delete
         zlc: set-cmd-text -s :session-load -c
         zll: set-cmd-text -s :session-load
         zso: set-cmd-text -s :session-save --only-active-window
         zss: set-cmd-text -s :session-save
+  colors.completion.category.bg:
+    global: '#444444'
+  colors.completion.category.fg:
+    global: '#dedede'
+  colors.completion.even.bg:
+    global: '#000000'
+  colors.completion.fg:
+    global: '#dedede'
+  colors.completion.item.selected.bg:
+    global: '#5f87d7'
+  colors.completion.item.selected.border.bottom:
+    global: '#5f87d7'
+  colors.completion.item.selected.border.top:
+    global: '#5f87d7'
+  colors.completion.item.selected.fg:
+    global: black
+  colors.completion.match.fg:
+    global: '#404fbf'
+  colors.completion.odd.bg:
+    global: '#090909'
+  colors.completion.scrollbar.bg:
+    global: '#444444'
+  colors.completion.scrollbar.fg:
+    global: '#dedede'
+  colors.downloads.error.fg:
+    global: '#dedede'
+  colors.downloads.start.fg:
+    global: '#dedede'
+  colors.downloads.stop.fg:
+    global: '#dedede'
+  colors.hints.bg:
+    global: '#5f87d7'
+  colors.hints.fg:
+    global: black
+  colors.hints.match.fg:
+    global: '#dedede'
+  colors.keyhint.fg:
+    global: '#dedede'
+  colors.keyhint.suffix.fg:
+    global: '#5f87d7'
+  colors.messages.error.fg:
+    global: '#dedede'
+  colors.messages.info.border:
+    global: '#444444'
+  colors.messages.info.fg:
+    global: '#dedede'
+  colors.messages.warning.fg:
+    global: '#dedede'
+  colors.prompts.bg:
+    global: '#000000'
+  colors.prompts.fg:
+    global: '#dedede'
+  colors.prompts.selected.bg:
+    global: '#5f87d7'
+  colors.statusbar.caret.fg:
+    global: '#dedede'
+  colors.statusbar.caret.selection.fg:
+    global: '#dedede'
+  colors.statusbar.command.fg:
+    global: '#dedede'
+  colors.statusbar.command.private.fg:
+    global: '#dedede'
+  colors.statusbar.insert.fg:
+    global: '#dedede'
+  colors.statusbar.normal.fg:
+    global: '#dedede'
+  colors.statusbar.passthrough.fg:
+    global: '#dedede'
+  colors.statusbar.private.fg:
+    global: '#dedede'
+  colors.statusbar.progress.bg:
+    global: '#dedede'
+  colors.statusbar.url.fg:
+    global: '#dedede'
+  colors.statusbar.url.success.http.fg:
+    global: '#dedede'
+  colors.tabs.bar.bg:
+    global: '#000000'
+  colors.tabs.even.bg:
+    global: '#444444'
+  colors.tabs.even.fg:
+    global: '#dedede'
+  colors.tabs.indicator.error:
+    global: '#ff0000'
+  colors.tabs.odd.bg:
+    global: '#444444'
+  colors.tabs.odd.fg:
+    global: '#dedede'
+  colors.tabs.selected.even.bg:
+    global: '#5f87d7'
+  colors.tabs.selected.even.fg:
+    global: black
+  colors.tabs.selected.odd.bg:
+    global: '#5f87d7'
+  colors.tabs.selected.odd.fg:
+    global: black
+  colors.webpage.bg:
+    global: white
+  completion.height:
+    global: 36%
+  completion.scrollbar.padding:
+    global: 0
+  completion.scrollbar.width:
+    global: 0
+  completion.web_history.max_items:
+    global: 2000
+  confirm_quit:
+    global:
+    - downloads
+  content.blocking.adblock.lists:
+    global:
+    - https://easylist.to/easylist/easylist.txt
+    - https://easylist.to/easylist/easyprivacy.txt
+    - https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt
   content.blocking.enabled:
     global: true
-  content.proxy:
-    global: system
+  content.cookies.accept:
+    global: all
+  content.pdfjs:
+    global: false
+  content.persistent_storage:
+    https://mega.nz: false
+  content.plugins:
+    global: true
+  content.webgl:
+    global: false
+  downloads.location.directory:
+    global: ~/Downloads/
+  downloads.location.suggestion:
+    global: path
+  downloads.open_dispatcher:
+    global: null
+  editor.command:
+    global:
+    - kitty
+    - vim
+    - '{}'
   fonts.default_size:
     global: 12pt
   fonts.web.size.default:
     global: 14
+  fonts.web.size.default_fixed:
+    global: 13
+  fonts.web.size.minimum:
+    global: 0
+  hints.border:
+    global: '1px solid #bbcde7'
+  input.insert_mode.auto_leave:
+    global: false
+  input.insert_mode.auto_load:
+    global: true
+  prompt.radius:
+    global: 0
+  session.default_name:
+    global: throwaway
+  statusbar.show:
+    global: always
+  tabs.background:
+    global: true
+  tabs.close_mouse_button:
+    global: none
   tabs.last_close:
     global: close
+  tabs.max_width:
+    global: -1
+  tabs.mousewheel_switching:
+    global: false
+  tabs.select_on_remove:
+    global: next
+  tabs.show:
+    global: multiple
+  tabs.show_switching_delay:
+    global: 1000
   url.default_page:
-    global: about:blank
+    global: https://www.google.com
   url.searchengines:
     global:
       DEFAULT: https://www.google.com/search?q={}
   url.start_pages:
-    global: https://google.com
+    global:
+    - https://www.google.com
+  zoom.default:
+    global: 100%
+  zoom.levels:
+    global:
+    - 25%
+    - 33%
+    - 50%
+    - 67%
+    - 75%
+    - 80%
+    - 90%
+    - 100%
+    - 110%
+    - 125%
+    - 150%
+    - 175%
+    - 200%
+    - 250%
+    - 300%
+    - 400%
+    - 500%
+  zoom.mouse_divider:
+    global: 0
