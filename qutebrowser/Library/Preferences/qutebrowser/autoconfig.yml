@@ -41,6 +41,7 @@ settings:
         gd: null
         gdd: download
         gdm: download --mhtml
+        ge: edit-text
         gh: tab-move -
         gj: tab-give
         gl: tab-move +
@@ -177,6 +178,8 @@ settings:
     https://mega.nz: false
   content.plugins:
     global: true
+  content.proxy:
+    global: system
   content.webgl:
     global: false
   downloads.location.directory:
