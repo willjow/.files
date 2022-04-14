@@ -55,7 +55,7 @@ settings:
         zso: set-cmd-text -s :session-save --only-active-window
         zss: set-cmd-text -s :session-save
   colors.completion.category.bg:
-    global: '#444444'
+    global: '#555555'
   colors.completion.category.fg:
     global: '#dedede'
   colors.completion.even.bg:
@@ -75,7 +75,7 @@ settings:
   colors.completion.odd.bg:
     global: '#1B1B1B'
   colors.completion.scrollbar.bg:
-    global: '#444444'
+    global: '#555555'
   colors.completion.scrollbar.fg:
     global: '#dedede'
   colors.downloads.error.fg:
@@ -97,7 +97,7 @@ settings:
   colors.messages.error.fg:
     global: '#dedede'
   colors.messages.info.border:
-    global: '#444444'
+    global: '#555555'
   colors.messages.info.fg:
     global: '#dedede'
   colors.messages.warning.fg:
@@ -133,13 +133,13 @@ settings:
   colors.tabs.bar.bg:
     global: '#000000'
   colors.tabs.even.bg:
-    global: '#444444'
+    global: '#555555'
   colors.tabs.even.fg:
     global: '#dedede'
   colors.tabs.indicator.error:
     global: '#ff0000'
   colors.tabs.odd.bg:
-    global: '#444444'
+    global: '#555555'
   colors.tabs.odd.fg:
     global: '#dedede'
   colors.tabs.selected.even.bg:
