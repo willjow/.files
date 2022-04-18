@@ -33,6 +33,10 @@ export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git
 #export FZF_ALT_C_COMMAND="command find -L . -mindepth 1 \\( -path '*.git' -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune -o -type d -print 2> /dev/null | cut -b 3-"
 
 # Functions
+integration_test() {
+    pytest --reuse-db --ds config.settings.integration_test --no-cov "$1"
+}
+
 7zxo() {
   7z x -o"${1%.*}" "$1"
 }
