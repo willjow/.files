@@ -108,7 +108,7 @@ endfunction
 nnoremap <C-t> :call AutoFormatOff()<CR>
 
 " set tabs to 2 for certain files
-" autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType tsx setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ColorScheme
 set t_Co=256
