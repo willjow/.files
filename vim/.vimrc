@@ -125,7 +125,9 @@ nnoremap <C-t> :call AutoFormatOff()<CR>
 " ColorScheme
 set t_Co=256
 set cc=
-colorscheme darkblue
+colorscheme darkblueOG
+highlight Normal ctermbg=16
+let &t_ut=''
 
 " Custom Highlights
 " Xterm Colors table:
@@ -163,8 +165,8 @@ hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
 
 hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
-hi CursorLine cterm=None
-hi CursorLineNr ctermfg=11 cterm=None
+hi CursorLine ctermbg=None ctermfg=None cterm=None
+hi CursorLineNr ctermbg=None ctermfg=11 cterm=None
 
 hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 
