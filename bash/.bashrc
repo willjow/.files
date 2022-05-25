@@ -20,23 +20,19 @@ set -o ignoreeof
 
 # Source
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source ~/.dover_env
 
 # Aliases
 alias ls='ls -G'
 alias grep='grep --color=auto'
+alias greppy='grep --color=auto --include=./*py'
 alias ncwd='kitty -1 -d "$(pwd -P)" & disown'
-alias venv_dover='source ~/.venvs/dover/bin/activate'
-alias dover_envs='source ~/.dover_env'
 
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
 #export FZF_ALT_C_COMMAND="command find -L . -mindepth 1 \\( -path '*.git' -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune -o -type d -print 2> /dev/null | cut -b 3-"
 
 # Functions
-integration_test() {
-    pytest --reuse-db --ds config.settings.integration_test --no-cov "$1"
-}
-
 7zxo() {
   7z x -o"${1%.*}" "$1"
 }
