@@ -135,9 +135,9 @@ cl() {
 _fzf_setup_completion path cl
 
 mergepdf() {
-  outputfile=$1
+  outputfile="$1"
   shift
-  gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
+  gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE="$outputfile" "$@"
 }
 
 silenceremove() {
