@@ -26,7 +26,7 @@ settings:
         B: set-cmd-text -s :bookmark-add "{url:pretty}" "{title}"
         D: null
         M: null
-        T: set-cmd-text -s :tab-select
+        T: tab-focus last
         '`': null
         ad: null
         b: set-cmd-text -s :tab-select
