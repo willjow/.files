@@ -137,6 +137,16 @@ cmd - 7 : yabai -m space --focus 7
 cmd - 8 : yabai -m space --focus 8
 cmd - 9 : yabai -m space --focus 9
 cmd - 0 : yabai -m space --focus 10
+cmd + alt - 1 : yabai -m space --focus 11
+cmd + alt - 2 : yabai -m space --focus 12
+cmd + alt - 3 : yabai -m space --focus 13
+cmd + alt - 4 : yabai -m space --focus 14
+cmd + alt - 5 : yabai -m space --focus 15
+cmd + alt - 6 : yabai -m space --focus 16
+cmd + alt - 7 : yabai -m space --focus 17
+cmd + alt - 8 : yabai -m space --focus 18
+cmd + alt - 9 : yabai -m space --focus 19
+cmd + alt - 0 : yabai -m space --focus 20
 
 # send window to desktop
 shift + cmd - 1 : yabai -m window --space 1
@@ -149,6 +159,16 @@ shift + cmd - 7 : yabai -m window --space 7
 shift + cmd - 8 : yabai -m window --space 8
 shift + cmd - 9 : yabai -m window --space 9
 shift + cmd - 0 : yabai -m window --space 10
+shift + cmd + alt - 1 : yabai -m window --space 11
+shift + cmd + alt - 2 : yabai -m window --space 12
+shift + cmd + alt - 3 : yabai -m window --space 13
+shift + cmd + alt - 4 : yabai -m window --space 14
+shift + cmd + alt - 5 : yabai -m window --space 15
+shift + cmd + alt - 6 : yabai -m window --space 16
+shift + cmd + alt - 7 : yabai -m window --space 17
+shift + cmd + alt - 8 : yabai -m window --space 18
+shift + cmd + alt - 9 : yabai -m window --space 19
+shift + cmd + alt - 0 : yabai -m window --space 20
 
 # toggle window zoom
 cmd - f : yabai -m window --toggle zoom-fullscreen
