@@ -20,6 +20,8 @@ call plug#end()
 
 " fzf
 set rtp+=/usr/local/opt/fzf
+nnoremap <C-j> :Rg!<CR>
+nnoremap <C-k> :Files!<CR>
 
 " ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
@@ -260,8 +262,6 @@ autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
 nnoremap T :exe "tabn " . g:ptab<CR>
 nnoremap <C-n> :tabnew.<CR>
-nnoremap <C-j> :tabnew<CR>:Files!<CR>
-nnoremap <C-k> :Files!<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR>
 nnoremap gl :tabm +<CR>
