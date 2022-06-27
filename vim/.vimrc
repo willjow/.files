@@ -263,8 +263,8 @@ nnoremap T :exe "tabn " . g:ptab<CR>
 " Remove trailing whitespaces
 vnoremap <silent> gw :s/\%V\s\+$//e<CR>
 nnoremap <C-n> :tabnew.<CR>
-nnoremap <C-j> :tabnew<CR>:Files<CR>
-nnoremap <C-k> :Files<CR>
+nnoremap <C-j> :tabnew<CR>:Files!<CR>
+nnoremap <C-k> :Files!<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR>
 nnoremap gl :tabm +<CR>
