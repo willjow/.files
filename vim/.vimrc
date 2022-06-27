@@ -271,9 +271,6 @@ endif
 autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
 nnoremap T :exe "tabn " . g:ptab<CR>
-
-" Remove trailing whitespaces
-vnoremap <silent> gw :s/\%V\s\+$//e<CR>
 nnoremap <C-n> :tabnew.<CR>
 nnoremap <C-j> :tabnew<CR>:Files!<CR>
 nnoremap <C-k> :Files!<CR>
@@ -284,6 +281,9 @@ nnoremap gh :tabm -<CR>
 nnoremap gm :tabm<Space>
 nnoremap J  :tabn<CR>
 nnoremap K  :tabp<CR>
+
+" Remove trailing whitespaces
+vnoremap <silent> gw :s/\%V\s\+$//e<CR>
 
 " Auto save/load folds
 " This had a bunch of weird buffer side effects, so I commented it out
