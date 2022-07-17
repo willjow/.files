@@ -278,9 +278,6 @@ Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 " fzf
-nnoremap <C-j> :Rg!<CR>
-nnoremap <C-k> :Files!<CR>
-
 function CD(...)
     call fzf#run(fzf#wrap({
         \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
@@ -288,6 +285,20 @@ function CD(...)
     \}))
 endfunction
 command! -nargs=* CD call CD(<q-args>)
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+nnoremap <C-j> :Rg!<CR>
+nnoremap <leader>j :RG!<CR>
+nnoremap <C-k> :Files!<CR>
 
 " ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
