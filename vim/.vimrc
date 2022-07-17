@@ -36,6 +36,7 @@ set cursorline
 set nocursorcolumn
 set noshowcmd
 let maplocalleader="\<Tab>"
+let mapleader="\<Space>"
 
 " Enable scrolling
 set mouse=nvc
