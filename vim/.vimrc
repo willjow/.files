@@ -282,7 +282,10 @@ nnoremap <C-j> :Rg!<CR>
 nnoremap <C-k> :Files!<CR>
 
 function CD(...)
-    call fzf#run(fzf#wrap({'source': 'find -L '.(a:0 == 0 ? getcwd() : a:1).' -path *.git -prune -o -type d -print', 'sink': 'cd'}))
+    call fzf#run(fzf#wrap({
+        \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
+        \'sink': 'cd'
+    \}))
 endfunction
 command! -nargs=* CD call CD(<q-args>)
 
