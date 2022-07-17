@@ -63,15 +63,15 @@ set nojoinspaces
 " Toggle Text Autoformatting
 function AutoFormatOn()
     set formatoptions+=tcro
-    nnoremap <C-t> :call AutoFormatOff()<CR>
+    nnoremap <leader>af :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
     set formatoptions-=tcro
-    nnoremap <C-t> :call AutoFormatOn()<CR>
+    nnoremap <leader>af :call AutoFormatOn()<CR>
 endfunction
 
-nnoremap <C-t> :call AutoFormatOff()<CR>
+nnoremap <leader>af :call AutoFormatOff()<CR>
 
 " set tabs to 2 for certain files
 " autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -165,7 +165,7 @@ cabbrev w!! w !sudo tee > /dev/null %:p
 "         "
 """""""""""
 map <Enter> o<esc>
-nnoremap ;cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Keybind to open the directory listing
 " (set selected directory to be root of tree with "gn")
@@ -190,7 +190,7 @@ nnoremap ;cd :cd %:p:h<CR>:pwd<CR>
 inoremap <C-@> <Space>
 
 " Toggle Relative Line Numbers
-nnoremap <silent> <C-l> :set relativenumber!<CR>
+nnoremap <silent> <leader>rl :set relativenumber!<CR>
 
 " Toggle ColorColumn
 autocmd BufWinEnter * set cc=
@@ -203,11 +203,11 @@ fun! ToggleCC()
   endif
 endfun
 
-nnoremap <silent> <C-h> :call ToggleCC()<CR>
+nnoremap <silent> <leader>cc :call ToggleCC()<CR>
 
 " Press CTRL-/ to toggle search highlighting on/off and show current value.
 set nohlsearch
-nnoremap <C-_> :set hlsearch! hlsearch?<CR>
+nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
 
 " Join
 noremap Q J
@@ -306,7 +306,7 @@ let g:UltiSnipsListSnippets="<C-u>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-h>"
-nnoremap <C-p> :call UltiSnips#RefreshSnippets()<CR>
+nnoremap <leader>ur :call UltiSnips#RefreshSnippets()<CR>
 
 " vimtex
 " autocmd FileType tex setlocal spell spelllang=en_us
