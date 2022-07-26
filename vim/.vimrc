@@ -8,58 +8,6 @@ set viewdir=~/.vim/view//
 filetype plugin on
 syntax enable
 
-" vim-plug stuff
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'SirVer/ultisnips'
-Plug 'lervag/vimtex'
-Plug 'andymass/vim-matchup'
-"Plug 'jalvesaq/Nvim-R'
-call plug#end()
-
-" fzf
-set rtp+=/usr/local/opt/fzf
-nnoremap <C-j> :Rg!<CR>
-nnoremap <C-k> :Files!<CR>
-
-" ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
-let g:UltiSnipsListSnippets="<C-u>"
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-h>"
-nnoremap <C-p> :call UltiSnips#RefreshSnippets()<CR>
-
-" vimtex
-" autocmd FileType tex setlocal spell spelllang=en_us
-let g:tex_flavor='latex'
-let g:vimtex_view_use_temp_files=1
-let g:vimtex_view_method='zathura'
-let g:vimtex_matchparen_enabled=1
-let g:matchup_override_vimtex=1
-let g:matchup_matchparen_deferred=1
-let g:matchup_matchparen_offscreen={}
-let g:vimtex_syntax_conceal={'accents': 1,
-                           \ 'greek': 1,
-                           \ 'math_bounds': 1,
-                           \ 'math_delimiters': 1,
-                           \ 'math_super_sub': 0,
-                           \ 'math_symbols': 1,
-                           \ 'styles': 1}
-let g:vimtex_syntax_conceal_default=1
-
-" tex-conceal
-set conceallevel=2
-let g:tex_conceal='abdmg'
-
-" Nvim-R
-"let R_in_buffer=0
-"let R_term='urxvt'
-"let R_openhtml=1
-"let R_openpdf=1
-"let R_assign=0
-
 " 'Basic' Settings
 set backspace=2
 set number relativenumber
@@ -73,6 +21,7 @@ set cursorline
 set nocursorcolumn
 set noshowcmd
 let maplocalleader="\<Tab>"
+let mapleader="\<Space>"
 
 " Enable scrolling
 set mouse=nvc
@@ -99,15 +48,15 @@ set nojoinspaces
 " Toggle Text Autoformatting
 function AutoFormatOn()
     set formatoptions+=tcro
-    nnoremap <C-t> :call AutoFormatOff()<CR>
+    nnoremap <leader>af :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
     set formatoptions-=tcro
-    nnoremap <C-t> :call AutoFormatOn()<CR>
+    nnoremap <leader>af :call AutoFormatOn()<CR>
 endfunction
 
-nnoremap <C-t> :call AutoFormatOff()<CR>
+nnoremap <leader>af :call AutoFormatOff()<CR>
 
 " set tabs to 2 for certain files
 autocmd FileType javascript,typescript,typescriptreact setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -205,7 +154,7 @@ command! -nargs=* CD call CD(<q-args>)
 "         "
 """""""""""
 map <Enter> o<esc>
-nnoremap ;cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Keybind to open the directory listing
 " (set selected directory to be root of tree with "gn")
@@ -230,7 +179,7 @@ nnoremap ;cd :cd %:p:h<CR>:pwd<CR>
 inoremap <C-@> <Space>
 
 " Toggle Relative Line Numbers
-nnoremap <silent> <C-l> :set relativenumber!<CR>
+nnoremap <silent> <leader>rl :set relativenumber!<CR>
 
 " Toggle ColorColumn
 autocmd BufWinEnter * set cc=
@@ -243,11 +192,11 @@ fun! ToggleCC()
   endif
 endfun
 
-nnoremap <silent> <C-h> :call ToggleCC()<CR>
+nnoremap <silent> <leader>cc :call ToggleCC()<CR>
 
 " Press CTRL-/ to toggle search highlighting on/off and show current value.
 set nohlsearch
-nnoremap <C-_> :set hlsearch! hlsearch?<CR>
+nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
 
 " Join
 noremap Q J
@@ -306,3 +255,66 @@ inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\
 inoremap '<CR>  '<CR>'<Esc>O
 inoremap ''     '
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+
+" vim-plug stuff
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
+Plug 'lervag/vimtex'
+Plug 'andymass/vim-matchup'
+"Plug 'jalvesaq/Nvim-R'
+call plug#end()
+
+" fzf
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+set rtp+=/usr/local/opt/fzf
+nnoremap <C-j> :Rg!<CR>
+nnoremap <leader>j :RG!<CR>
+nnoremap <C-k> :Files!<CR>
+
+" ultisnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
+let g:UltiSnipsListSnippets="<C-u>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+nnoremap <leader>ur :call UltiSnips#RefreshSnippets()<CR>
+
+" vimtex
+" autocmd FileType tex setlocal spell spelllang=en_us
+let g:tex_flavor='latex'
+let g:vimtex_view_use_temp_files=1
+let g:vimtex_view_method='zathura'
+let g:vimtex_matchparen_enabled=1
+let g:matchup_override_vimtex=1
+let g:matchup_matchparen_deferred=1
+let g:matchup_matchparen_offscreen={}
+let g:vimtex_syntax_conceal={'accents': 1,
+                           \ 'greek': 1,
+                           \ 'math_bounds': 1,
+                           \ 'math_delimiters': 1,
+                           \ 'math_super_sub': 0,
+                           \ 'math_symbols': 1,
+                           \ 'styles': 1}
+let g:vimtex_syntax_conceal_default=1
+
+" tex-conceal
+set conceallevel=2
+let g:tex_conceal='abdmg'
+
+" Nvim-R
+"let R_in_buffer=0
+"let R_term='urxvt'
+"let R_openhtml=1
+"let R_openpdf=1
+"let R_assign=0
