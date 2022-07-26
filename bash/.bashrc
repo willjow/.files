@@ -27,6 +27,7 @@ alias ls='ls -G'
 alias grep='grep --color=auto'
 alias greppy='grep --color=auto --include=./*py'
 alias ncwd='kitty -1 -d "$(pwd -P)" & disown'
+alias brewx86="arch -x86_64 /usr/local/bin/brew"
 
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
