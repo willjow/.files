@@ -34,7 +34,7 @@ alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http 
 alias clearpac='sudo paccache -rk2 && paccache -ruk0'
 alias plugvga='xrandr --output VGA-1 --left-of eDP-1 --auto && . ~/.fehbg'
 alias plugdp='xrandr --output DP-1 --right-of eDP-1 --mode 1920x1080 --rate 165 && . ~/.fehbg'
-alias switchdp='xrandr --output eDP-1 --off && xrandr --output DP-1 --mode 1920x1080 --rate 165 && . ~/.fehbg'
+alias switchdp='xrandr --output eDP-1 --off && xrandr --output DP-1 --mode 1920x1080 --rate 165 && xset s off -dpms && . ~/.fehbg'
 alias unplug='xrandr --output VGA-1 --off; xrandr --output DP-1 --off; xrandr --output eDP-1 --auto; . ~/.fehbg'
 alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
@@ -200,6 +200,16 @@ reencodemp3dir() {
   for mp3 in "$1"/*.mp3; do
     reencodemp3 "$mp3"
   done
+}
+
+ddcbrightness() {
+    ddcutil setvcp 10 $1
+}
+
+ddcgain() {
+    ddcutil setvcp 16 $1
+    ddcutil setvcp 18 $1
+    ddcutil setvcp 1A $1
 }
 
 # Temporary Functions
