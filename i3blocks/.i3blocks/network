@@ -39,7 +39,7 @@ fi
 if [[ $ipaddr == "" ]]; then
     full="no IP (${qualityfull})"
 else
-    full="${qualityfull}, ${speed} Mb/s"
+    full="${qualityfull} ${speed} Mb/s"
 fi
 
 short=$full
