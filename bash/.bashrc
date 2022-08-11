@@ -51,6 +51,8 @@ alias yt-dlp-mp3='yt-dlp -x --audio-format mp3 --audio-quality 0'
 alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
 alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
+alias wifi-stop='sudo systemctl stop netctl-auto@wlp3s0.service'
+alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
 
 # Temporary aliases
 
