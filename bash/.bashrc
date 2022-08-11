@@ -70,6 +70,14 @@ mergepdf() {
   gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile "$@"
 }
 
+git-stash-apply() {
+  git stash apply stash@{$1}
+}
+
+git-stash-revert() {
+  git stash show -p stash@{$1} | git apply --reverse --verbose
+}
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
