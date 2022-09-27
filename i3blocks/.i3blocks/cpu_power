@@ -12,7 +12,7 @@ precision=2
 watts=$(bc <<< "scale=${precision}; (${cur_uj}-${prev_uj})/(${time_diff}*1000000)")
 watts_int=$(echo ${watts} | awk -F '.' '{print $1}')
 
-if [ -z ${watts}]; then
+if [ -z "${watts}" ]; then
   exit 0
 fi
 
