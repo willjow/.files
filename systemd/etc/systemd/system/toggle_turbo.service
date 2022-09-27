@@ -1,0 +1,12 @@
+[Unit]
+Description=Toggle no_turbo
+After=suspend.target
+
+[Service]
+User=root
+Type=oneshot
+ExecStartPre=/bin/sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo'
+ExecStart=/bin/sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo'
+
+[Install]
+WantedBy=suspend.target
