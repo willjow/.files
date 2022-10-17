@@ -163,6 +163,8 @@ settings:
   confirm_quit:
     global:
     - downloads
+  content.autoplay:
+    global: false
   content.blocking.adblock.lists:
     global:
     - https://easylist.to/easylist/easylist.txt
