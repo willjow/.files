@@ -1,0 +1,11 @@
+#!/bin/bash
+
+capacity_path="/sys/class/power_supply/sony_controller_battery_*/capacity"
+if [ -f $capacity_path ]; then
+    text="DS3 $(cat $capacity_path)%"
+else
+    text=""
+fi
+
+# full text
+echo $text
