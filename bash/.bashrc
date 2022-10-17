@@ -23,6 +23,7 @@ source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
 # Aliases
+alias suspend='systemctl suspend'
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias grep='grep --color=auto'
