@@ -9,7 +9,7 @@
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages.
-runtime! archlinux.vim
+" runtime! archlinux.vim
 
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
@@ -274,7 +274,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'andymass/vim-matchup'
-Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
 " fzf
@@ -329,10 +328,3 @@ let g:vimtex_syntax_conceal_default=1
 " tex-conceal
 set conceallevel=2
 let g:tex_conceal='abdmg'
-
-" Nvim-R
-let R_in_buffer=0
-let R_term='urxvt'
-let R_openhtml=1
-let R_openpdf=1
-let R_assign=0
