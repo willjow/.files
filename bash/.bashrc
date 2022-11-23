@@ -22,7 +22,7 @@ source /usr/share/fzf/shell/key-bindings.bash
 # Aliases
 alias suspend='systemctl suspend'
 alias ls='ls --color=auto'
-alias vim='vim --servername vim'
+alias vim='vimx --servername vim'
 alias grep='grep --color=auto'
 alias please='sudo bash -c "$(history -p !!)"'
 alias alsaequal='alsamixer -D equal'
