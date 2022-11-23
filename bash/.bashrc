@@ -6,21 +6,18 @@
 [[ $- != *i* ]] && return
 
 # Outputs
-# pikles color: [38;5;41m]
-# empoleon color: [38;5;68m]
+# green color: [38;5;41m]
+# blue color: [38;5;68m]
 PS1="\[\033[38;5;68m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;68m\]]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 LS_COLORS=$LS_COLORS:'di=0;35:'; export LS_COLORS
-
-# efibootmgr command:
-#efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux -IPv6 -i915mitigations -pstate" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img ipv6.disable=1 i915.mitigations=off intel_pstate=disable'
 
 shopt -s extglob
 set -o vi
 set -o ignoreeof
 
 # Source
-source /usr/share/fzf/key-bindings.bash
-source /usr/share/fzf/completion.bash
+#source /usr/share/fzf/completion.bash
+source /usr/share/fzf/shell/key-bindings.bash
 
 # Aliases
 alias suspend='systemctl suspend'
@@ -39,8 +36,6 @@ alias switchdp='xrandr --output eDP-1 --off && xrandr --output DP-1 --mode 1920x
 alias unplug='xrandr --output VGA-1 --off; xrandr --output DP-1 --off; xrandr --output eDP-1 --auto; . ~/.fehbg'
 alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
-alias swe5='feh --zoom 33 ~/misc/bikes/swe5.jpg & disown'
-alias tcr='feh --zoom 33 ~/misc/bikes/tcr.jpg & disown'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
 alias resettp='sh ~/.reset_tp.sh'
 alias ncwd='urxvt & disown'
@@ -58,10 +53,8 @@ alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
 # Temporary aliases
 
 # Environment Variables
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+#export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export BROWSER="qutebrowser"
-export R_ENVIRON_USER="~/.config/R/.Renviron"
-export CLASSPATH="/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
 export PYTHONSTARTUP="$HOME/.python_startup.py"
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
@@ -88,14 +81,6 @@ find_containing() {
     find ./ -name "$1" -exec grep -l "$2" {} +
 }
 
-cplsty() {
-  cp $HOME/school/latextemplates/style.sty ${1-style.sty}
-}
-
-cpldoc() {
-  cp $HOME/school/latextemplates/document.tex ${1-document.tex}
-}
-
 zpdfd() {
   zathura "$1" & disown
 }
@@ -106,14 +91,6 @@ javacr() {
 
 junittest() {
   java org.junit.runner.JUnitCore $(echo $1 | awk -F '.java' '{print $1}')
-}
-
-prevpac() {
-  expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $1
-}
-
-adbaddmusic() {
-  adb push ~/music/ /sdcard/Music/
 }
 
 7zxo() {
@@ -139,7 +116,7 @@ cl() {
     echo "bash: cl: $dir: Directory not found"
   fi
 }
-_fzf_setup_completion path cl
+#_fzf_setup_completion path cl
 
 mergepdf() {
   outputfile="$1"
