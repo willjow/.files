@@ -215,4 +215,8 @@ ddcgain() {
     ddcutil setvcp 1A $1
 }
 
+qutehistory() {
+    sqlite3 ~/.qutebrowser_history "select * from history where url='$1';"
+}
+
 # Temporary Functions
