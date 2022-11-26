@@ -63,7 +63,7 @@ tpset() { xinput set-prop "TPPS/2 IBM TrackPoint" "$@"; }
 # tpset "Evdev Wheel Emulation Timeout" 200
 # tpset "Evdev Wheel Emulation Axes" 6 7 4 5
 # tpset "Device Accel Constant Deceleration" 0.55
-tpset "libinput Accel Speed" 0.9
+tpset "libinput Accel Speed" 0.45
 tpset "libinput Accel Profile Enabled" 0, 1
 
 # disable touchpad and buttons
