@@ -73,6 +73,10 @@ xinput set-button-map "SynPS/2 Synaptics TouchPad" 0 0 0 4 5 6 7
 # second monitor
 xrandr --output LVDS1 --primary --auto --output VGA1 --auto --right-of LVDS1
 
+# screensaver
+xset -dpms
+xset s off
+
 # background
 sh ~/.fehbg
 
