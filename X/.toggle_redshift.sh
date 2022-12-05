@@ -4,8 +4,6 @@ DIM2_INDICATOR=$HOME/.toggle_redshift_indicator_dim2
 DIM3_INDICATOR=$HOME/.toggle_redshift_indicator_dim3
 MIN_INDICATOR=$HOME/.toggle_redshift_indicator_min
 
-DEFAULT_COLOR=$HOME/.xcalib.sh
-
 DIM1_TEMP=5000
 
 DIM2_TEMP=4200
@@ -35,7 +33,7 @@ fi
 
 if [ -n "$1" ] && [ "$1" = "restore" ]; then
   if [ $no_indicators = 'true' ]; then
-    . $DEFAULT_COLOR
+    reset_temp
 
   elif [ -e $DIM1_INDICATOR ]; then
     set_temp $DIM1_TEMP
@@ -72,6 +70,5 @@ else
   elif [ -e $MIN_INDICATOR ]; then
     rm $MIN_INDICATOR
     reset_temp
-    . $DEFAULT_COLOR
   fi
 fi
