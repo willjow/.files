@@ -36,5 +36,5 @@
 
 # Redshift (F9)
 ". $HOME/.toggle_redshift.sh"
-    m:0x0 + c:179
-    XF86Tools
+    m:0x40 + c:75
+    Mod4 + F9
