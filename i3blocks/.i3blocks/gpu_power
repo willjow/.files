@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $power = 0;
+
+open (NVIDIA_SMI, 'nvidia-smi |') or die;
+while (<NVIDIA_SMI>) {
+    if (/(\d+)W \/ (\d+)W/) {
+        $power = $1;
+        last;
+    }
+}
+close(NVIDIA_SMI);
+
+printf "GPU %dW\n", $power;

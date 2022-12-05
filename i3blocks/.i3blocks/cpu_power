@@ -1,32 +1,18 @@
-#!/bin/bash
+#!/usr/bin/perl
+use strict;
+use warnings;
 
-cur_uj=$(cat /sys/class/powercap/intel-rapl:0/energy_uj)
-prev_uj_file=$HOME/.prev_cpu_uj
-prev_uj=$(cat ${prev_uj_file})
-echo ${cur_uj} > ${prev_uj_file}
+my $V = 0;
+my $I = 0;
 
-time_diff=$1
-threshold1=15
-threshold2=37
-precision=2
-watts=$(bc <<< "scale=${precision}; (${cur_uj}-${prev_uj})/(${time_diff}*1000000)")
-watts_int=$(echo ${watts} | awk -F '.' '{print $1}')
+open (SENSORS, 'sensors -u |') or die;
+while (<SENSORS>) {
+    if (/in0_input: (.+)/) {
+        $V = $1;
+    } elsif (/curr1_input: (.+)/) {
+        $I = $1;
+    }
+}
+close(SENSORS);
 
-if [ -z "${watts}" ]; then
-  exit 0
-fi
-
-# full text
-echo "${watts}W"
-
-# short text
-echo "${watts}W"
-
-# color
-if [ -n "${watts_int}" ]; then
-  if [ ${watts_int} -ge ${threshold2} ]; then
-    echo "#FF0000"
-  elif [ ${watts_int} -ge ${threshold1} ]; then
-    echo "#FFFF00"
-  fi
-fi
+printf "%.2fW\n", $I * $V;
