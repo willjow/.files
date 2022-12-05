@@ -35,6 +35,7 @@ set scrolloff=12
 set cursorline
 set nocursorcolumn
 set noshowcmd
+set belloff=all
 let maplocalleader="\<Tab>"
 let mapleader="\<Space>"
 
