@@ -4,5 +4,8 @@ set vi-ins-mode-string +
 set show-mode-in-prompt on
 set editing-mode vi
 
+# disable bell
+set bell-style none
+
 # set macro for sl train
 "\e[7~":"\C-k \C-usl -ac\n"
