@@ -1,4 +1,15 @@
 #!/bin/bash
-volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 * 100}')
+volume_str=$(wpctl get-volume @DEFAULT_SINK@)
+percent=$(awk '{print $2 * 100}' <<< ${volume_str})
+muted=$(awk 'index($3, "MUTED")' <<< ${volume_str})
 
-echo "VOL ${volume}%"
+# full text
+echo "VOL ${percent}%"
+
+# short text
+echo "VOL ${percent}%"
+
+# color
+if [ -n "${muted}" ]; then
+    echo "#FFFF00"
+fi
