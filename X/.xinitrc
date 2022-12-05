@@ -54,15 +54,6 @@ fi
 # xterm -geometry 80x20+494-0 &
 # exec xterm -geometry 80x66+0+0 -name login
 
-# trackpoint stuff
-sh $HOME/.reset_tp.sh
-
-# mute the spearker
-amixer -q -c 1 set Speaker mute
-
-# start easyeffects in background
-easyeffects --gapplication-service &
-
 # restore color profile
 sh $HOME/.toggle_redshift.sh restore
 
