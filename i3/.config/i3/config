@@ -168,9 +168,9 @@ bindsym $mod+z border toggle
 
 # switch to workspace
 workspace_auto_back_and_forth no
-bindsym Control+Mod1+h workspace prev_on_output
-bindsym Control+Mod1+l workspace next_on_output
-bindsym Control+Mod1+q workspace back_and_forth
+bindsym $mod+Control+h workspace prev_on_output
+bindsym $mod+Control+l workspace next_on_output
+bindsym $mod+Control+q workspace back_and_forth
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
