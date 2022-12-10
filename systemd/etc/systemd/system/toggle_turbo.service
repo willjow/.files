@@ -1,3 +1,5 @@
+# Turbo stops working after suspending for some reason.
+# Disabling and reenabling it seems to work around this.
 [Unit]
 Description=Toggle no_turbo
 After=suspend.target

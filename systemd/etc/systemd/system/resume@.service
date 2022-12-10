@@ -7,9 +7,9 @@ After=suspend.target
 User=%I
 Type=simple
 Environment=DISPLAY=:0
-ExecStartPre=/usr/bin/sleep 1
-ExecStartPost=/bin/sh /home/"%I"/.reset_tp.sh
+ExecStart=/usr/bin/sleep 1
 ExecStartPost=/bin/sh /home/"%I"/.toggle_redshift.sh restore
+ExecStartPost=/bin/sh /home/"%I"/.reset_tp.sh
 
 [Install]
 WantedBy=suspend.target
