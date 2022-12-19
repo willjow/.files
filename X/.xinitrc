@@ -54,7 +54,7 @@ fi
 # xterm -geometry 80x20+494-0 &
 # exec xterm -geometry 80x66+0+0 -name login
 
-# trackpoint stuff
+# trackpoint/touchpad settings
 sh $HOME/.reset_tp.sh
 
 # mute the spearker
