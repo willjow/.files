@@ -7,6 +7,7 @@
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=vim
+export PYTHONBREAKPOINT=ipdb.set_trace
 
 # Outputs
 # pikles color: [38;5;41m]
