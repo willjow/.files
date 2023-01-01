@@ -58,6 +58,9 @@ endfunction
 
 nnoremap <leader>af :call AutoFormatOff()<CR>
 
+nnoremap <leader>bf :%!black - -q<CR>
+nnoremap <leader>is :%!isort - -q<CR>
+
 " set tabs to 2 for certain files
 autocmd FileType javascript,typescript,typescriptreact setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
