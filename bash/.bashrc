@@ -68,6 +68,7 @@ export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
 #export FZF_ALT_C_COMMAND="command find -L . -mindepth 1 \\( -path '*.git' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune -o -type d -print 2> /dev/null | cut -b 3-"
 export FZF_DEFAULT_OPTS="--bind=ctrl-h:half-page-up,ctrl-l:half-page-down"
+export PYTHONBREAKPOINT="ipdb.set_trace"
 
 # Functions
 wipedisk() {
