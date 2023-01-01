@@ -184,10 +184,10 @@ inoremap <C-@> <Space>
 " Toggle Relative Line Numbers
 nnoremap <silent> <leader>rl :set relativenumber!<CR>
 
-" Toggle ColorColumn
+" Toggle color column limit indicator
 autocmd BufWinEnter * set cc=
 
-fun! ToggleCC()
+fun! ToggleCL()
   if &cc == ''
     set cc=80
   else
@@ -195,7 +195,7 @@ fun! ToggleCC()
   endif
 endfun
 
-nnoremap <silent> <leader>cc :call ToggleCC()<CR>
+nnoremap <silent> <leader>cl :call ToggleCL()<CR>
 
 " Press CTRL-/ to toggle search highlighting on/off and show current value.
 set nohlsearch
@@ -221,6 +221,11 @@ nnoremap gh :tabm -<CR>
 nnoremap gm :tabm<Space>
 nnoremap J  :tabn<CR>
 nnoremap K  :tabp<CR>
+
+" Quickfix
+nnoremap <leader>cn :cn<CR>
+nnoremap <leader>cp :cp<CR>
+nnoremap <leader>cc :.cc<CR>
 
 " Remove trailing whitespaces
 vnoremap <silent> gw :s/\%V\s\+$//e<CR>
