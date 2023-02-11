@@ -235,10 +235,34 @@ nnoremap gm :tabm<Space>
 nnoremap J  :tabn<CR>
 nnoremap K  :tabp<CR>
 
-" Quickfix
-nnoremap <leader>cn :cn<CR>
-nnoremap <leader>cp :cp<CR>
+" Quickfix/Location list
+packadd cfilter
+
+command! QuickFixToLocList call setloclist(0, getqflist())
+command! LocListToQuickFix call setqflist(getloclist(0))
+
+nnoremap <leader>ql :QuickFixToLocList<CR> :cclose<CR> :lopen<CR>
+
+function! RemoveLineFromQuickFix(line)
+  let l:line = a:line - 1
+  call setqflist(filter(getqflist(), "v:key['lnum'] != l:line"))
+endfunction
+
+function! RemoveLineFromLocList(line)
+  let l:line = a:line - 1
+  call setloclist(0, filter(getloclist(0), "v:key['lnum'] != l:line"))
+endfunction
+
+nnoremap <leader>qd :call RemoveLineFromQuickFix(line("."))<CR>
+nnoremap <leader>ld :call RemoveLineFromLocList(line("."))<CR>
+
 nnoremap <leader>cc :.cc<CR>
+
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cp :cprevious<CR>
+
+nnoremap <leader>ln :lnext<CR>
+nnoremap <leader>lp :lprevious<CR>
 
 " Remove trailing whitespaces
 vnoremap <silent> gw :s/\%V\s\+$//e<CR>
