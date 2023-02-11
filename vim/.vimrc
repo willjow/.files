@@ -99,6 +99,7 @@ let &t_ut=''
 "   68      SteelBlue3  (95, 135, 215)
 "   124     Red3        (175, 0, 0)
 "   188     Grey84      (215, 215, 215)
+"   234     Grey11      (28, 28, 28)
 "   238     Grey27      (68, 68, 68)
 hi User1 ctermbg=68 ctermfg=16 cterm=None
 hi User2 ctermbg=238 ctermfg=188 cterm=None
@@ -123,8 +124,8 @@ hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
 
 hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
-hi CursorLine ctermbg=None ctermfg=None cterm=None
-hi CursorLineNr ctermbg=None ctermfg=11 cterm=None
+hi CursorLine ctermbg=234 ctermfg=None cterm=None
+hi CursorLineNr ctermbg=234 ctermfg=11 cterm=None
 
 hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 
