@@ -59,7 +59,6 @@ alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
 # Temporary aliases
 
 # Environment Variables
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/R/.Renviron"
 export CLASSPATH="/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
