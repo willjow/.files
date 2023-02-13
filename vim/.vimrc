@@ -169,7 +169,7 @@ cabbrev w!! w !sudo tee > /dev/null %:p
 " Keymaps "
 "         "
 """""""""""
-map <Enter> o<esc>
+noremap <Enter> o<esc>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Keybind to open the directory listing
