@@ -11,7 +11,7 @@ tposet() { xinput set-prop "${trackpoint}" "$@"; }
 tpaset() { xinput set-prop "${touchpad}" "$@"; }
 
 # trackpoint
-tposet "libinput Accel Speed" 0.50  # in [-1, 1]
+tposet "libinput Accel Speed" 0.45  # in [-1, 1]
 tposet "libinput Accel Profile Enabled" 0, 1  # adaptive, flat
 
 # touchpad
