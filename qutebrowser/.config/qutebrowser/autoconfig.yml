@@ -34,6 +34,7 @@ settings:
         d: null
         dc: download-cancel
         dd: tab-close -o
+        dms: jseval --file librescore.js
         do: download-open
         dr: download-remove
         dx: download-delete
@@ -48,6 +49,8 @@ settings:
         gr: null
         gt: tab-focus
         m: mode-enter set_mark
+        msdl: '"jseval javascript:(function () {let code = document.createElement(''script'');code.src
+          = ''https://github.com/LibreScore/dl-librescore/releases/latest/download/dl-librescore.user.js'';document.body.appendChild(code);}())"'
         wp: set-cmd-text -s :open -p
         zd: set-cmd-text -s :session-delete
         zlc: set-cmd-text -s :session-load -c
