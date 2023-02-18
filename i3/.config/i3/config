@@ -87,13 +87,15 @@ exec --no-startup-id unclutter --timeout 1 --jitter 15 -b
 bindsym $mod+Shift+d kill
 
 # volume controls
-bindsym XF86AudioLowerVolume exec "amixer -c 1 set Master 1dB- && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioRaiseVolume exec "amixer -c 1 set Master 1dB+ && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMute exec "amixer set Master toggle && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+# use pactl to adjust volume in PulseAudio.
+set $refresh_i3status pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 1%+ && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 1%- && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ toggle
 
 # caps lock wrapper for bar indicator
-bindsym --release Caps_Lock exec "pkill -SIGRTMIN+11 i3blocks"
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'Terminus-12' -nb '#000000' -sb '#5f87d7' -sf '#000000'
