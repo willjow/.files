@@ -693,7 +693,7 @@ c.TerminalInteractiveShell.editing_mode = 'vi'
 ## Cursor shape changes depending on vi mode: beam in vi insert mode, block in
 #  nav mode, underscore in replace mode.
 #  Default: True
-# c.TerminalInteractiveShell.modal_cursor = True
+c.TerminalInteractiveShell.modal_cursor = False
 
 ## Enable mouse support in the prompt (Note: prevents selecting text with the
 #  mouse)
