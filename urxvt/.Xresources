@@ -15,6 +15,9 @@ URxvt*highlightTextColor: Black
 ! Use the specified colour for the cursor. The default is to use the foreground colour; option -cr.
 URxvt*cursorColor: #5f87d7
 
+! Set cursor blinking
+URxvt.cursorBlink: 0
+
 ! Emphasis  colors
 URxvt.colorIT: #87af5f
 URxvt.colorBD: #87afd7
