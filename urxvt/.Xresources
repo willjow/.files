@@ -46,7 +46,8 @@ URxvt.keysym.Mod1-f: command:\033]721;50\007
 ! Scroll to the bottom
 URxvt.keysym.Mod1-g: command:\033]721;1000\007
 
-! :Bind C-0, C-- and C-= to activate normal, large, and larger font size resp.
+! :Bind C-9, C-0, C-- and C-= to activate normal, large, and larger font size resp.
+URxvt.keysym.C-9: command:\033]50;-*-terminus-medium-*-*-*-*-120-*-*-*-*-iso10646-1,xft:DejaVu Math TeX Gyre\007
 URxvt.keysym.C-0: command:\033]50;-*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1,xft:DejaVu Math TeX Gyre\007
 URxvt.keysym.C-minus: command:\033]50;-*-terminus-medium-*-*-*-*-180-*-*-*-*-iso10646-1,xft:DejaVu Math TeX Gyre\007
 URxvt.keysym.C-equal: command:\033]50;-*-terminus-bold-*-*-*-*-320-*-*-*-*-iso10646-1,xft:DejaVu Math TeX Gyre:size=10\007
