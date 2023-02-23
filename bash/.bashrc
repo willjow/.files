@@ -197,3 +197,9 @@ qutehistory() {
 }
 
 # Temporary Functions
+stress_test() {
+    # use -x 1 for extreme
+    # use -i [0-8] to set index
+    cd ~/Documents/ryzen_tuning
+    ./stress_test.sh -s 1m -m 1m "$@" 2>&1 | tee stress_results.txt
+}
