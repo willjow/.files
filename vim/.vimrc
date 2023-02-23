@@ -28,7 +28,7 @@ syntax enable
 set number relativenumber
 set ignorecase
 set smartcase
-set wrap lbr
+set wrap lbr sms
 set report=0
 set display+=truncate
 set scrolloff=12
