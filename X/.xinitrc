@@ -60,6 +60,11 @@ sh $HOME/.toggle_redshift.sh restore
 # background
 sh $HOME/.fehbg
 
+# set screen saver blanking time to 1 hour
+xset -dpms
+xset s blank
+xset s 3600
+
 # launch stuff
 xbindkeys
 urxvtd -q -f -o
