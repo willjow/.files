@@ -65,6 +65,9 @@ xset -dpms
 xset s blank
 xset s 3600
 
+# turn off bell
+xset b off
+
 # launch stuff
 xbindkeys
 urxvtd -q -f -o
