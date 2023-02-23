@@ -53,7 +53,6 @@ alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
 # Temporary aliases
 
 # Environment Variables
-#export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export BROWSER="qutebrowser"
 export PYTHONSTARTUP="$HOME/.python_startup.py"
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
