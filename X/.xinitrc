@@ -70,6 +70,7 @@ sh $HOME/.toggle_redshift.sh restore
 sh $HOME/.fehbg
 
 # set screen saver blanking time to 1 hour
+xset dpms 3600 3600 3600
 xset -dpms
 xset s blank
 xset s 3600
