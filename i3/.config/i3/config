@@ -56,7 +56,8 @@ default_floating_border pixel 1
 
 # monitor workspaces
 workspace 11 output VGA-1
-workspace 16 output DP-1
+workspace 14 output HDMI-1
+workspace 17 output DP-1
 
 # focus wrapping
 focus_wrapping force
@@ -219,6 +220,10 @@ bindsym $mod+Mod1+Shift+7 move container to workspace 17
 bindsym $mod+Mod1+Shift+8 move container to workspace 18
 bindsym $mod+Mod1+Shift+9 move container to workspace 19
 bindsym $mod+Mod1+Shift+0 move container to workspace 20
+
+# move workspace to left and right monitors
+bindsym $mod+Shift+bracketleft move workspace to output left
+bindsym $mod+Shift+bracketright move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
