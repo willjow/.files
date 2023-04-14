@@ -179,6 +179,8 @@ settings:
     global: all
   content.javascript.can_open_tabs_automatically:
     global: false
+  content.notifications.enabled:
+    https://voice.google.com: false
   content.pdfjs:
     global: false
   content.persistent_storage:
