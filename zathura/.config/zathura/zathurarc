@@ -12,4 +12,5 @@ set synctex true
 map zz set vertical-center
 map gh set "first-page-column 1:1"
 map gl set "first-page-column 1:2"
+map gr set page-right-to-left
 map <C-r> recolor
