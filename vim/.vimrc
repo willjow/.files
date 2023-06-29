@@ -300,14 +300,13 @@ inoremap '<CR>  '<CR>'<Esc>O
 inoremap ''     '
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 
-" View git blame
-nnoremap <leader>gb :new <bar> 0 r !git blame #<CR>
 
 " vim-plug stuff
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 Plug 'andymass/vim-matchup'
 Plug 'jalvesaq/Nvim-R'
