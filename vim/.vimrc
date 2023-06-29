@@ -14,17 +14,25 @@ runtime! archlinux.vim
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
-" Vim Directories
+
+
+"""""""""""""""
+" Directories "
+"             "
+"""""""""""""""
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set viewdir=~/.vim/view//
 
-" Preliminary Settings
+
+""""""""""""""""""""
+" 'Basic' Settings "
+"                  "
+""""""""""""""""""""
 filetype plugin on
 syntax enable
 
-" 'Basic' Settings
 set number relativenumber
 set ignorecase
 set smartcase
@@ -158,11 +166,13 @@ let g:netrw_fastbrowse=2
 let g:netrw_bufsettings="noma nomod nobl nowrap ro nu rnu"
 set noea
 
+
 """"""""""""
 " Commands "
 "          "
 """"""""""""
 cabbrev w!! w !sudo tee > /dev/null %:p
+
 
 """""""""""
 " Keymaps "
@@ -301,7 +311,12 @@ inoremap ''     '
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 
 
-" vim-plug stuff
+"""""""""""
+" Plugins "
+"         "
+"""""""""""
+" vim-plug
+" --------
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -331,11 +346,14 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
+" fuzzy
 nnoremap <C-j> :Rg!<CR>
+" full-word
 nnoremap <leader>j :RG!<CR>
 nnoremap <C-k> :Files!<CR>
 
 " ultisnips
+" ---------
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
 let g:UltiSnipsListSnippets="<C-u>"
 let g:UltiSnipsExpandTrigger="<C-j>"
@@ -343,7 +361,9 @@ let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-h>"
 nnoremap <leader>ur :call UltiSnips#RefreshSnippets()<CR>
 
+
 " vimtex
+" ------
 " autocmd FileType tex setlocal spell spelllang=en_us
 let g:tex_flavor='latex'
 let g:vimtex_view_use_temp_files=1
@@ -368,11 +388,15 @@ let g:vimtex_syntax_conceal = {
       \ 'styles': 1,
       \}
 
+
 " tex-conceal
+" -----------
 set conceallevel=2
 let g:tex_conceal='abdmg'
 
+
 " Nvim-R
+" ------
 let R_in_buffer=0
 let R_term='urxvt'
 let R_openhtml=1
