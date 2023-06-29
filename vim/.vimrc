@@ -384,13 +384,14 @@ let lspServers = [
     \     args: [],
     \     workspaceConfig: #{
     \         pylsp: #{
-    \             configurationSources: [],
+    \             configurationSources: ['pycodestyle'],
     \             plugins: #{
     \                 autopeop8: #{
     \                     enabled: v:false,
     \                 },
     \                 black: #{
     \                     enabled: v:true,
+    \                     line_length: 79,
     \                 },
     \                 flake8: #{
     \                     enabled: v:false,
@@ -406,13 +407,14 @@ let lspServers = [
     \                     dmypy: v:true,
     \                 },
     \                 pycodestyle: #{
-    \                     enabled: v:false,
+    \                     enabled: v:true,
+    \                     maxLineLength: 79,
     \                 },
     \                 pydocstyle: #{
     \                     enabled: v:false,
     \                 },
     \                 pyflakes: #{
-    \                     enabled: v:false,
+    \                     enabled: v:true,
     \                 },
     \                 pylint: #{
     \                     enabled: v:false,
