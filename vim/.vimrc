@@ -444,6 +444,7 @@ let lspOpts = #{
     \   showInlayHints: v:false,
     \   showSignature: v:true,
     \   ultisnipsSupport: v:true,
+    \   useBufferCompletion: v:true,
     \   usePopupInCodeAction: v:false,
     \   useQuickfixForLocations: v:false,
     \ }
