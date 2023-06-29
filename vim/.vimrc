@@ -232,6 +232,9 @@ nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
 " Join
 noremap Q J
 
+" Buffers
+nnoremap gB :b #<CR>
+
 " Tabs
 " Switch to last-active tab
 if !exists('g:ptab')
@@ -240,7 +243,7 @@ if !exists('g:ptab')
 endif
 autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
-nnoremap T :exe "tabn " . g:ptab<CR>
+nnoremap gT :exe "tabn " . g:ptab<CR>
 nnoremap <C-n> :tabnew.<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR>
