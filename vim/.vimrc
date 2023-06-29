@@ -54,6 +54,10 @@ set ttymouse=xterm2
 " VirtualEdit
 set virtualedit=block
 
+" Wildmenu
+set wildmenu
+set wildoptions=fuzzy,pum
+
 " Style Stuff
 filetype indent on
 set tabstop=4     " tabs are at proper location
