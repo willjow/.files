@@ -327,15 +327,20 @@ inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\
 " vim-plug
 " --------
 call plug#begin('~/.vim/plugged')
+
+" general
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yegappan/lsp'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+
+" filetype-specific
 Plug 'lervag/vimtex'
 Plug 'andymass/vim-matchup'
 Plug 'jalvesaq/Nvim-R'
+
 call plug#end()
 
 
