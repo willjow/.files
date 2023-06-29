@@ -56,6 +56,7 @@ set virtualedit=block
 
 " Wildmenu
 set wildmenu
+set wildmode=full
 set wildoptions=fuzzy,pum
 
 " Style Stuff
