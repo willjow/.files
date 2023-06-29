@@ -321,6 +321,7 @@ inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'yegappan/lsp'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
@@ -328,7 +329,9 @@ Plug 'andymass/vim-matchup'
 Plug 'jalvesaq/Nvim-R'
 call plug#end()
 
+
 " fzf
+" ---
 function CD(...)
     call fzf#run(fzf#wrap({
         \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
@@ -352,6 +355,65 @@ nnoremap <C-j> :Rg!<CR>
 " full-word
 nnoremap <leader>j :RG!<CR>
 nnoremap <C-k> :Files!<CR>
+
+
+" lsp
+" ---
+let lspServers = [
+    \ #{
+    \     name: 'clangd',
+    \     filetype: ['c', 'cpp'],
+    \     path: '/usr/bin/clangd',
+    \     args: ['--background-index']
+    \ },
+    \ #{
+    \     name: 'python-lsp-server',
+    \     filetype: ['python'],
+    \     path: '/usr/bin/pylsp',
+    \     args: []
+    \ }
+    \ ]
+autocmd VimEnter * call LspAddServer(lspServers)
+
+let lspOpts = #{
+    \   autoComplete: v:true,
+    \   autoHighlight: v:false,
+    \   autoHighlightDiags: v:false,
+    \   autoPopulateDiags: v:false,
+    \   diagVirtualTextAlign: 'below',
+    \   hoverInPreview: v:false,
+    \   noDiagHoverOnLine: v:false,
+    \   showDiagInPopup: v:true,
+    \   showDiagOnStatusLine: v:false,
+    \   showDiagWithVirtualText: v:true,
+    \   showInlayHints: v:false,
+    \   showSignature: v:true,
+    \   ultisnipsSupport: v:true,
+    \   usePopupInCodeAction: v:false,
+    \   useQuickfixForLocations: v:false,
+    \ }
+autocmd VimEnter * call LspOptionsSet(lspOpts)
+
+nnoremap <leader>ac :LspCodeAction<CR>
+nnoremap <leader>df :LspGotoDefinition<CR>
+nnoremap <leader>dc :LspGotoDeclaration<CR>
+nnoremap <leader>im :LspGotoImpl<CR>
+nnoremap <leader>ty :LspGotoTypeDef<CR>
+nnoremap <leader>hv :LspHover<CR>
+
+" Toggle Diagnostic Highlight
+function LspDiagnosticHighlightOn()
+    LspDiagHighlightEnable
+    nnoremap <leader>hd :call LspDiagnosticHighlightOff()<CR>
+endfunction
+
+function LspDiagnosticHighlightOff()
+    LspDiagHighlightDisable
+    nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
+endfunction
+
+nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
+
 
 " ultisnips
 " ---------
