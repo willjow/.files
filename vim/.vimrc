@@ -87,9 +87,6 @@ endfunction
 
 nnoremap <leader>af :call AutoFormatOff()<CR>
 
-nnoremap <leader>bl :%!black - -q<CR>
-nnoremap <leader>is :%!isort - -q<CR>
-
 " set tabs to 2 for certain files
 " autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
@@ -451,6 +448,8 @@ let lspOpts = #{
 autocmd VimEnter * call LspOptionsSet(lspOpts)
 
 nnoremap <leader>ac :LspCodeAction<CR>
+nnoremap <leader>ff :LspFormat<CR>
+vnoremap <leader>ff :LspFormat<CR>
 nnoremap <leader>df :LspGotoDefinition<CR>
 nnoremap <leader>dc :LspGotoDeclaration<CR>
 nnoremap <leader>im :LspGotoImpl<CR>
