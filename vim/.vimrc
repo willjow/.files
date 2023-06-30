@@ -76,19 +76,19 @@ set nojoinspaces
 
 " Toggle Text Autoformatting
 function AutoFormatOn()
-    set formatoptions+=tcro
-    nnoremap <leader>af :call AutoFormatOff()<CR>
+  set formatoptions+=tcro
+  nnoremap <leader>af :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
-    set formatoptions-=tcro
-    nnoremap <leader>af :call AutoFormatOn()<CR>
+  set formatoptions-=tcro
+  nnoremap <leader>af :call AutoFormatOn()<CR>
 endfunction
 
 nnoremap <leader>af :call AutoFormatOff()<CR>
 
 " set tabs to 2 for certain files
-" autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ColorScheme
 set t_Co=256
@@ -235,8 +235,8 @@ nnoremap gB :b #<CR>
 " Tabs
 " Switch to last-active tab
 if !exists('g:ptab')
-    let g:ptab = 1
-    let g:ptab_backup = 1
+  let g:ptab = 1
+  let g:ptab_backup = 1
 endif
 autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
@@ -344,10 +344,10 @@ call plug#end()
 " fzf
 " ---
 function CD(...)
-    call fzf#run(fzf#wrap({
-        \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
-        \'sink': 'cd'
-    \}))
+  call fzf#run(fzf#wrap({
+    \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
+    \'sink': 'cd'
+  \}))
 endfunction
 command! -nargs=* CD call CD(<q-args>)
 
@@ -371,61 +371,61 @@ nnoremap <C-k> :Files!<CR>
 " lsp
 " ---
 let lspServers = [
-    \ #{
+    \   #{
     \     name: 'clangd',
     \     filetype: ['c', 'cpp'],
     \     path: '/usr/bin/clangd',
     \     args: ['--background-index'],
-    \ },
-    \ #{
+    \   },
+    \   #{
     \     name: 'python-lsp-server',
     \     filetype: ['python'],
     \     path: '/usr/bin/pylsp',
     \     args: [],
     \     workspaceConfig: #{
-    \         pylsp: #{
-    \             configurationSources: ['pycodestyle'],
-    \             plugins: #{
-    \                 autopeop8: #{
-    \                     enabled: v:false,
-    \                 },
-    \                 black: #{
-    \                     enabled: v:true,
-    \                     line_length: 79,
-    \                 },
-    \                 flake8: #{
-    \                     enabled: v:false,
-    \                 },
-    \                 mccabe: #{
-    \                     enabled: v:false,
-    \                 },
-    \                 pyls_isort: #{
-    \                     enabled: v:true,
-    \                 },
-    \                 pylsp_mypy: #{
-    \                     enabled: v:true,
-    \                     dmypy: v:true,
-    \                 },
-    \                 pycodestyle: #{
-    \                     enabled: v:true,
-    \                     maxLineLength: 79,
-    \                 },
-    \                 pydocstyle: #{
-    \                     enabled: v:false,
-    \                 },
-    \                 pyflakes: #{
-    \                     enabled: v:true,
-    \                 },
-    \                 pylint: #{
-    \                     enabled: v:false,
-    \                 },
-    \                 yapf: #{
-    \                     enabled: v:false,
-    \                 },
-    \             },
+    \       pylsp: #{
+    \         configurationSources: ['pycodestyle'],
+    \         plugins: #{
+    \           autopeop8: #{
+    \             enabled: v:false,
+    \           },
+    \           black: #{
+    \             enabled: v:true,
+    \             line_length: 79,
+    \           },
+    \           flake8: #{
+    \             enabled: v:false,
+    \           },
+    \           mccabe: #{
+    \             enabled: v:false,
+    \           },
+    \           pyls_isort: #{
+    \             enabled: v:true,
+    \           },
+    \           pylsp_mypy: #{
+    \             enabled: v:true,
+    \             dmypy: v:true,
+    \           },
+    \           pycodestyle: #{
+    \             enabled: v:true,
+    \             maxLineLength: 79,
+    \           },
+    \           pydocstyle: #{
+    \             enabled: v:false,
+    \           },
+    \           pyflakes: #{
+    \             enabled: v:true,
+    \           },
+    \           pylint: #{
+    \             enabled: v:false,
+    \           },
+    \           yapf: #{
+    \             enabled: v:false,
+    \           },
     \         },
+    \       },
     \     },
-    \ },
+    \   },
     \ ]
 autocmd VimEnter * call LspAddServer(lspServers)
 
@@ -460,13 +460,13 @@ nnoremap <leader>hv :LspHover<CR>
 
 " Toggle Diagnostic Highlight
 function LspDiagnosticHighlightOn()
-    LspDiagHighlightEnable
-    nnoremap <leader>hd :call LspDiagnosticHighlightOff()<CR>
+  LspDiagHighlightEnable
+  nnoremap <leader>hd :call LspDiagnosticHighlightOff()<CR>
 endfunction
 
 function LspDiagnosticHighlightOff()
-    LspDiagHighlightDisable
-    nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
+  LspDiagHighlightDisable
+  nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
 endfunction
 
 nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
@@ -492,21 +492,21 @@ let g:vimtex_matchparen_enabled=1
 let g:matchup_override_vimtex=1
 let g:matchup_matchparen_deferred=1
 let g:matchup_matchparen_offscreen={}
-let g:vimtex_syntax_conceal = {
-      \ 'accents': 1,
-      \ 'ligatures': 1,
-      \ 'cites': 1,
-      \ 'fancy': 1,
-      \ 'spacing': 1,
-      \ 'greek': 1,
-      \ 'math_bounds': 1,
-      \ 'math_delimiters': 1,
-      \ 'math_fracs': 1,
-      \ 'math_super_sub': 0,
-      \ 'math_symbols': 1,
-      \ 'sections': 0,
-      \ 'styles': 1,
-      \}
+let g:vimtex_syntax_conceal = #{
+    \   accents: 1,
+    \   ligatures: 1,
+    \   cites: 1,
+    \   fancy: 1,
+    \   spacing: 1,
+    \   greek: 1,
+    \   math_bounds: 1,
+    \   math_delimiters: 1,
+    \   math_fracs: 1,
+    \   math_super_sub: 0,
+    \   math_symbols: 1,
+    \   sections: 0,
+    \   styles: 1,
+    \ }
 
 
 " tex-conceal
