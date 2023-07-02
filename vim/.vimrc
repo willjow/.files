@@ -458,6 +458,7 @@ nnoremap <leader>dc :LspGotoDeclaration<CR>
 nnoremap <leader>im :LspGotoImpl<CR>
 nnoremap <leader>ty :LspGotoTypeDef<CR>
 nnoremap <leader>hv :LspHover<CR>
+nnoremap <leader>rf :LspShowReferences<CR>
 
 " Toggle Diagnostic Highlight
 function LspDiagnosticHighlightOn()
