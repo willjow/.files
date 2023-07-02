@@ -405,6 +405,7 @@ let lspServers = [
     \           pylsp_mypy: #{
     \             enabled: v:true,
     \             dmypy: v:true,
+    \             live_mode: v:false,
     \           },
     \           pycodestyle: #{
     \             enabled: v:true,
