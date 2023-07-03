@@ -161,12 +161,12 @@ set tabline=%!tabline#MyTabLine()
 set fillchars=vert:\ 
 
 " NERDTree is not for me
-let g:netrw_liststyle=0
-let g:netrw_browse_split=0
-let g:netrw_altv=1
-let g:netrw_banner=0
-let g:netrw_fastbrowse=2
-let g:netrw_bufsettings="noma nomod nobl nowrap ro nu rnu"
+let g:netrw_liststyle = 0
+let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_fastbrowse = 2
+let g:netrw_bufsettings = "noma nomod nobl nowrap ro nu rnu"
 set noea
 
 
@@ -427,24 +427,24 @@ nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
 
 " ultisnips
 " ---------
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
-let g:UltiSnipsListSnippets="<C-u>"
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/ultisnippets/']
+let g:UltiSnipsListSnippets = "<C-u>"
+let g:UltiSnipsExpandTrigger = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
 nnoremap <leader>ur :call UltiSnips#RefreshSnippets()<CR>
 
 
 " vimtex
 " ------
 " autocmd FileType tex setlocal spell spelllang=en_us
-let g:tex_flavor='latex'
-let g:vimtex_view_use_temp_files=1
-let g:vimtex_view_method='zathura'
-let g:vimtex_matchparen_enabled=1
-let g:matchup_override_vimtex=1
-let g:matchup_matchparen_deferred=1
-let g:matchup_matchparen_offscreen={}
+let g:tex_flavor = 'latex'
+let g:vimtex_view_use_temp_files = 1
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_matchparen_enabled = 1
+let g:matchup_override_vimtex = 1
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_offscreen = {}
 let g:vimtex_syntax_conceal = #{
     \   accents: 1,
     \   ligatures: 1,
@@ -465,13 +465,13 @@ let g:vimtex_syntax_conceal = #{
 " tex-conceal
 " -----------
 set conceallevel=2
-let g:tex_conceal='abdmg'
+let g:tex_conceal = 'abdmg'
 
 
 " Nvim-R
 " ------
-let g:R_in_buffer=0
-let g:R_term='urxvt'
-let g:R_openhtml=1
-let g:R_openpdf=1
-let g:R_assign=0
+let g:R_in_buffer = 0
+let g:R_term = 'urxvt'
+let g:R_openhtml = 1
+let g:R_openpdf = 1
+let g:R_assign = 0
