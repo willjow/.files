@@ -231,11 +231,11 @@ noremap Q J
 
 " Macro over visual selection
 function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
+  echo "@"
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+vnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 " Buffers
 nnoremap gB :b #<CR>
