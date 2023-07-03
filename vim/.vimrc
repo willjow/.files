@@ -470,8 +470,8 @@ let g:tex_conceal='abdmg'
 
 " Nvim-R
 " ------
-let R_in_buffer=0
-let R_term='urxvt'
-let R_openhtml=1
-let R_openpdf=1
-let R_assign=0
+let g:R_in_buffer=0
+let g:R_term='urxvt'
+let g:R_openhtml=1
+let g:R_openpdf=1
+let g:R_assign=0
