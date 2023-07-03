@@ -229,6 +229,14 @@ nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
 " Join
 noremap Q J
 
+" Macro over visual selection
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
 " Buffers
 nnoremap gB :b #<CR>
 
