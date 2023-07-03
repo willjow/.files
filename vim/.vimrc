@@ -378,67 +378,10 @@ nnoremap <C-k> :Files!<CR>
 
 " lsp
 " ---
-let lspServers = [
-    \   #{
-    \     name: 'clangd',
-    \     filetype: ['c', 'cpp'],
-    \     path: '/usr/bin/clangd',
-    \     args: ['--background-index'],
-    \   },
-    \   #{
-    \     name: 'python-lsp-server',
-    \     filetype: ['python'],
-    \     path: '/usr/bin/pylsp',
-    \     args: [],
-    \     workspaceConfig: #{
-    \       pylsp: #{
-    \         configurationSources: ['pycodestyle'],
-    \         plugins: #{
-    \           autopeop8: #{
-    \             enabled: v:false,
-    \           },
-    \           black: #{
-    \             enabled: v:true,
-    \             line_length: 79,
-    \           },
-    \           flake8: #{
-    \             enabled: v:false,
-    \           },
-    \           mccabe: #{
-    \             enabled: v:false,
-    \           },
-    \           pyls_isort: #{
-    \             enabled: v:true,
-    \           },
-    \           pylsp_mypy: #{
-    \             enabled: v:true,
-    \             dmypy: v:true,
-    \             live_mode: v:false,
-    \           },
-    \           pycodestyle: #{
-    \             enabled: v:true,
-    \             maxLineLength: 79,
-    \           },
-    \           pydocstyle: #{
-    \             enabled: v:false,
-    \           },
-    \           pyflakes: #{
-    \             enabled: v:true,
-    \           },
-    \           pylint: #{
-    \             enabled: v:false,
-    \           },
-    \           yapf: #{
-    \             enabled: v:false,
-    \           },
-    \         },
-    \       },
-    \     },
-    \   },
-    \ ]
-autocmd VimEnter * call LspAddServer(lspServers)
+source ~/.vim/config/lspservers.vim
+autocmd VimEnter * call LspAddServer(g:lspServers)
 
-let lspOpts = #{
+let g:lspOpts = #{
     \   autoComplete: v:true,
     \   autoHighlight: v:false,
     \   autoHighlightDiags: v:false,
@@ -456,7 +399,7 @@ let lspOpts = #{
     \   usePopupInCodeAction: v:false,
     \   useQuickfixForLocations: v:false,
     \ }
-autocmd VimEnter * call LspOptionsSet(lspOpts)
+autocmd VimEnter * call LspOptionsSet(g:lspOpts)
 
 nnoremap <leader>ac :LspCodeAction<CR>
 nnoremap <leader>ff :LspFormat<CR>
