@@ -32,7 +32,7 @@ let g:lspServers = [
     \             enabled: v:true,
     \           },
     \           pylsp_mypy: #{
-    \             enabled: v:true,
+    \             enabled: v:false,
     \             dmypy: v:true,
     \             live_mode: v:false,
     \           },
