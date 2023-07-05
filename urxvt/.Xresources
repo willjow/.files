@@ -38,8 +38,8 @@ URxvt*saveLines: 3200
 
 ! Scrollback bindings
 ! Scroll 1 line
-! URxvt.keysym.Mod1-k: command:\033]720;1\007
-! URxvt.keysym.Mod1-j: command:\033]721;1\007
+!URxvt.keysym.Mod1-k: command:\033]720;1\007
+!URxvt.keysym.Mod1-j: command:\033]721;1\007
 ! Scroll 20 lines
 URxvt.keysym.Mod1-u: command:\033]720;20\007
 URxvt.keysym.Mod1-d: command:\033]721;20\007
