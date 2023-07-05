@@ -48,7 +48,7 @@ let maplocalleader="\<Tab>"
 let mapleader="\<Space>"
 
 " Enable scrolling
-set mouse=nvc
+set mouse=a
 set ttymouse=xterm2
 
 " VirtualEdit
