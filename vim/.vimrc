@@ -387,6 +387,7 @@ let g:lspOpts = #{
     \   autoHighlightDiags: v:false,
     \   autoPopulateDiags: v:false,
     \   diagVirtualTextAlign: 'below',
+    \   echoSignature: v:false,
     \   hoverInPreview: v:false,
     \   noDiagHoverOnLine: v:false,
     \   showDiagInPopup: v:true,
@@ -396,7 +397,7 @@ let g:lspOpts = #{
     \   showSignature: v:true,
     \   ultisnipsSupport: v:true,
     \   useBufferCompletion: v:true,
-    \   usePopupInCodeAction: v:false,
+    \   usePopupInCodeAction: v:true,
     \   useQuickfixForLocations: v:false,
     \ }
 autocmd VimEnter * call LspOptionsSet(g:lspOpts)
