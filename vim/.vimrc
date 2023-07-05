@@ -93,7 +93,7 @@ autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " ColorScheme
 set t_Co=256
 set cc=
-colorscheme darkblueOG
+colorscheme darkblueOG-256
 highlight Normal ctermbg=16
 let &t_ut=''
 
@@ -134,8 +134,8 @@ hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
 
 hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
-hi CursorLine ctermbg=234 ctermfg=None cterm=None
-hi CursorLineNr ctermbg=234 ctermfg=11 cterm=None
+hi CursorLine ctermbg=None ctermfg=None cterm=None
+hi CursorLineNr ctermbg=None ctermfg=11 cterm=None
 
 hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 
