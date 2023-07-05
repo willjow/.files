@@ -49,7 +49,7 @@ let mapleader="\<Space>"
 
 " Enable scrolling
 set mouse=a
-set ttymouse=xterm2
+set ttymouse=sgr
 
 " VirtualEdit
 set virtualedit=block
