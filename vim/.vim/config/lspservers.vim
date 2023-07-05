@@ -56,4 +56,21 @@ let g:lspServers = [
     \       },
     \     },
     \   },
+    \ #{
+    \    name: 'rustlang',
+    \    filetype: ['rust'],
+    \    path: '/usr/bin/rust-analyzer',
+    \    args: [],
+    \    syncInit: v:true,
+    \    initializationOptions: #{
+    \      cargo: #{
+    \        buildScripts: #{
+    \          enable: v:true,
+    \        },
+    \      },
+    \      procMacro: #{
+    \        enable: v:true,
+    \      },
+    \    },
+    \  },
     \ ]
