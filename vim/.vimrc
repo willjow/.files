@@ -71,7 +71,7 @@ set autoindent    " turns it on
 " python pattern: ^\s*[\[({]?(\d+|[\*\+\>\-])[:.]?[\])}]?\s+
 set formatlistpat=^\\s*[\\[({]\\?\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)[:.]\\?[\\])}]\\?\\s\\+
 set textwidth=79
-set formatoptions=qnl1jtcro
+set formatoptions=qnl1j
 set nojoinspaces
 
 " Toggle Text Autoformatting
@@ -85,7 +85,7 @@ function AutoFormatOff()
   nnoremap <leader>af :call AutoFormatOn()<CR>
 endfunction
 
-nnoremap <leader>af :call AutoFormatOff()<CR>
+nnoremap <leader>af :call AutoFormatOn()<CR>
 
 " set tabs to 2 for certain files
 autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
