@@ -197,9 +197,6 @@ bindsym $mod+Mod1+9 workspace 19
 bindsym $mod+Mod1+0 workspace 20
 
 # move focused container to workspace
-bindsym Control+Shift+h move container to workspace prev_on_output
-bindsym Control+Shift+l move container to workspace next_on_output
-bindsym Control+Shift+q move container to workspace back_and_forth
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
