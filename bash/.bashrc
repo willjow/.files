@@ -221,4 +221,16 @@ qutehistory() {
     sqlite3 ~/.qutebrowser_history "select * from history where url='$1';"
 }
 
+zathura_seq_dir() {
+    start=$1
+
+    end_file=$(ls | tail -n 1)
+    extension=${end_file##*.}
+    base_name=${end_file%.*}
+    title=$(echo ${base_name} | rev | cut -d ' ' -f 1 --complement | rev)
+    limit=$(echo ${base_name} | rev | cut -d ' ' -f 1 | rev)
+
+    seq -f "${title} %0${#limit}g.${extension}" ${start} ${limit} | xargs -n1 -d '\n' zathura
+}
+
 # Temporary Functions
