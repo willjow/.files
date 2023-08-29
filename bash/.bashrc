@@ -226,9 +226,9 @@ zathura_seq_dir() {
 
     end_file=$(ls | tail -n 1)
     extension=${end_file##*.}
-    base_name=${end_file%.*}
-    title=$(echo ${base_name} | rev | cut -d ' ' -f 1 --complement | rev)
-    limit=$(echo ${base_name} | rev | cut -d ' ' -f 1 | rev)
+    rev_name=$(echo ${end_file%.*} | rev)
+    title=$(echo ${rev_name} | cut -d ' ' -f 1 --complement | rev)
+    limit=$(echo ${rev_name} | cut -d ' ' -f 1 | rev)
 
     seq -f "${title} %0${#limit}g.${extension}" ${start} ${limit} | xargs -n1 -d '\n' zathura
 }
