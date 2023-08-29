@@ -339,6 +339,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'yegappan/lsp'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " filetype-specific
