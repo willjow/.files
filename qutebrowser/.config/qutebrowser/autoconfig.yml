@@ -23,13 +23,13 @@ settings:
         <Ctrl+Shift+w>: null
         <Ctrl+q>: stop
         <Ctrl+w>: null
-        B: set-cmd-text -s :bookmark-add "{url:pretty}" "{title}"
+        B: cmd-set-text -s :bookmark-add "{url:pretty}" "{title}"
         D: null
         M: null
         T: tab-focus last
         '`': null
         ad: null
-        b: set-cmd-text -s :tab-select
+        b: cmd-set-text -s :tab-select
         co: null
         d: null
         dc: download-cancel
@@ -39,7 +39,7 @@ settings:
         dr: download-remove
         dx: download-delete
         f: hint all
-        gJ: set-cmd-text -s :tab-take
+        gJ: cmd-set-text -s :tab-take
         gd: null
         gdd: download
         gdm: download --mhtml
@@ -51,12 +51,12 @@ settings:
         m: mode-enter set_mark
         msdl: '"jseval javascript:(function () {let code = document.createElement(''script'');code.src
           = ''https://github.com/LibreScore/dl-librescore/releases/latest/download/dl-librescore.user.js'';document.body.appendChild(code);}())"'
-        wp: set-cmd-text -s :open -p
-        zd: set-cmd-text -s :session-delete
-        zlc: set-cmd-text -s :session-load -c
-        zll: set-cmd-text -s :session-load
-        zso: set-cmd-text -s :session-save --only-active-window
-        zss: set-cmd-text -s :session-save
+        wp: cmd-set-text -s :open -p
+        zd: cmd-set-text -s :session-delete
+        zlc: cmd-set-text -s :session-load -c
+        zll: cmd-set-text -s :session-load
+        zso: cmd-set-text -s :session-save --only-active-window
+        zss: cmd-set-text -s :session-save
   colors.completion.category.bg:
     global: '#444444'
   colors.completion.category.fg:
@@ -173,8 +173,13 @@ settings:
     - https://easylist.to/easylist/easylist.txt
     - https://easylist.to/easylist/easyprivacy.txt
     - https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt
+    - https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+    - https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/mobile.txt
   content.blocking.enabled:
     global: true
+  content.blocking.hosts.lists:
+    global:
+    - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
   content.cookies.accept:
     global: all
   content.javascript.can_open_tabs_automatically:
