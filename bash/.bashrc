@@ -102,6 +102,16 @@ zpdfd() {
   zathura "$1" & disown
 }
 
+zathura_tail() {
+    start_pattern=$1
+
+    ls_v=$(ls -v)
+    start=$(echo "${ls_v}" | grep -n "${start_pattern}" | head -n 1 | cut -d ':' -f 1)
+    limit=$(echo "${ls_v}" | wc -l)
+
+    echo "${ls_v}" | tail -n $((${limit} - ${start} + 1)) | xargs -n 1 -d '\n' zathura
+}
+
 javacr() {
   javac $1 && java $(echo $1 | awk -F '.java' '{print $1}')
 }
@@ -219,18 +229,6 @@ ddcgain() {
 
 qutehistory() {
     sqlite3 ~/.qutebrowser_history "select * from history where url='$1';"
-}
-
-zathura_seq() {
-    start=$1
-
-    end_file=$(ls | tail -n 1)
-    extension=${end_file##*.}
-    rev_name=$(echo ${end_file%.*} | rev)
-    title=$(echo ${rev_name} | cut -d ' ' -f 1 --complement | rev)
-    limit=$(echo ${rev_name} | cut -d ' ' -f 1 | rev)
-
-    seq -f "${title} %0${#limit}g.${extension}" ${start} ${limit} | xargs -n1 -d '\n' zathura
 }
 
 # Temporary Functions
