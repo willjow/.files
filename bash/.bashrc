@@ -221,7 +221,7 @@ qutehistory() {
     sqlite3 ~/.qutebrowser_history "select * from history where url='$1';"
 }
 
-zathura_seq_dir() {
+zathura_seq() {
     start=$1
 
     end_file=$(ls | tail -n 1)
