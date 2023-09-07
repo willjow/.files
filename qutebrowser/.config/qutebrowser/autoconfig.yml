@@ -196,10 +196,14 @@ settings:
     global: false
   downloads.location.directory:
     global: ~/downloads/
+  downloads.location.remember:
+    global: false
   downloads.location.suggestion:
-    global: path
+    global: both
   downloads.open_dispatcher:
     global: null
+  downloads.position:
+    global: bottom
   editor.command:
     global:
     - urxvt
