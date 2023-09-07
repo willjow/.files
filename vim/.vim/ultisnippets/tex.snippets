@@ -79,6 +79,12 @@ snippet exm "example" bA
 \end{quote}
 endsnippet
 
+snippet ``` "code block" bA
+\begin{lstlisting}
+	$1
+\end{lstlisting}
+endsnippet
+
 
 # Matrices
 snippet bmat "bracket matrix" bA
@@ -131,7 +137,7 @@ snippet txb "text bold" iA
 \textbf{$1}
 endsnippet
 
-snippet txc "text teletype" iA
+snippet `` "text teletype" i
 \texttt{$1}
 endsnippet
 
@@ -365,7 +371,11 @@ snippet != "not equal" iA
 \neq
 endsnippet
 
-snippet ~= "cong" iA
+snippet ~= "approx" iA
+\approx
+endsnippet
+
+snippet =~ "cong" iA
 \cong
 endsnippet
 

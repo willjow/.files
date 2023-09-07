@@ -12,7 +12,7 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let colors_name = "darkblueOG"
+let colors_name = "darkblueOG-256"
 
 hi Normal		guifg=#c0c0c0 guibg=#000040						ctermfg=gray ctermbg=black
 hi ErrorMsg		guifg=#ffffff guibg=#287eff						ctermfg=white ctermbg=lightblue
@@ -60,7 +60,7 @@ hi Underlined	cterm=underline term=underline
 hi Ignore	guifg=bg ctermfg=bg
 
 " suggested by tigmoid, 2008 Jul 18
-hi Pmenu guifg=#c0c0c0 guibg=#404080
-hi PmenuSel guifg=#c0c0c0 guibg=#2050d0
-hi PmenuSbar guifg=blue guibg=darkgray
-hi PmenuThumb guifg=#c0c0c0
+hi Pmenu guifg=#c0c0c0 guibg=#404080    ctermfg=lightgrey ctermbg=17
+hi PmenuSel guifg=#c0c0c0 guibg=#2050d0   ctermfg=lightgrey ctermbg=blue
+hi PmenuSbar guifg=blue guibg=darkgray    ctermfg=blue ctermbg=darkgray
+hi PmenuThumb guifg=#c0c0c0   ctermfg=lightgrey

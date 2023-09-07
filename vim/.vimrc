@@ -14,21 +14,29 @@
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
-" Vim Directories
+
+
+"""""""""""""""
+" Directories "
+"             "
+"""""""""""""""
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set viewdir=~/.vim/view//
 
-" Preliminary Settings
+
+""""""""""""""""""""
+" 'Basic' Settings "
+"                  "
+""""""""""""""""""""
 filetype plugin on
 syntax enable
 
-" 'Basic' Settings
 set number relativenumber
 set ignorecase
 set smartcase
-set wrap lbr
+set wrap lbr sms
 set report=0
 set display+=truncate
 set scrolloff=12
@@ -36,15 +44,21 @@ set cursorline
 set nocursorcolumn
 set noshowcmd
 set belloff=all
+set incsearch
 let maplocalleader="\<Tab>"
 let mapleader="\<Space>"
 
 " Enable scrolling
-set mouse=nvc
-set ttymouse=xterm2
+set mouse=a
+set ttymouse=sgr
 
 " VirtualEdit
 set virtualedit=block
+
+" Wildmenu
+set wildmenu
+set wildmode=full
+set wildoptions=fuzzy,pum
 
 " Style Stuff
 filetype indent on
@@ -58,32 +72,29 @@ set autoindent    " turns it on
 " python pattern: ^\s*[\[({]?(\d+|[\*\+\>\-])[:.]?[\])}]?\s+
 set formatlistpat=^\\s*[\\[({]\\?\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)[:.]\\?[\\])}]\\?\\s\\+
 set textwidth=79
-set formatoptions=qnl1jtcro
+set formatoptions=qnl1j
 set nojoinspaces
 
 " Toggle Text Autoformatting
 function AutoFormatOn()
-    set formatoptions+=tcro
-    nnoremap <leader>af :call AutoFormatOff()<CR>
+  set formatoptions+=tcro
+  nnoremap <leader>af :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
-    set formatoptions-=tcro
-    nnoremap <leader>af :call AutoFormatOn()<CR>
+  set formatoptions-=tcro
+  nnoremap <leader>af :call AutoFormatOn()<CR>
 endfunction
 
-nnoremap <leader>af :call AutoFormatOff()<CR>
-
-nnoremap <leader>bl :%!black - -q<CR>
-nnoremap <leader>is :%!isort - -q<CR>
+nnoremap <leader>af :call AutoFormatOn()<CR>
 
 " set tabs to 2 for certain files
-" autocmd FileType c,cpp,sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ColorScheme
 set t_Co=256
 set cc=
-colorscheme darkblueOG
+colorscheme darkblueOG-256
 highlight Normal ctermbg=16
 let &t_ut=''
 
@@ -124,8 +135,8 @@ hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
 
 hi VertSplit ctermbg=238 ctermfg=68 cterm=None
 
-hi CursorLine ctermbg=234 ctermfg=None cterm=None
-hi CursorLineNr ctermbg=234 ctermfg=11 cterm=None
+hi CursorLine ctermbg=None ctermfg=None cterm=None
+hi CursorLineNr ctermbg=None ctermfg=11 cterm=None
 
 hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 
@@ -151,19 +162,21 @@ set tabline=%!tabline#MyTabLine()
 set fillchars=vert:\ 
 
 " NERDTree is not for me
-let g:netrw_liststyle=0
-let g:netrw_browse_split=0
-let g:netrw_altv=1
-let g:netrw_banner=0
-let g:netrw_fastbrowse=2
-let g:netrw_bufsettings="noma nomod nobl nowrap ro nu rnu"
+let g:netrw_liststyle = 0
+let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_fastbrowse = 2
+let g:netrw_bufsettings = "noma nomod nobl nowrap ro nu rnu"
 set noea
+
 
 """"""""""""
 " Commands "
 "          "
 """"""""""""
 cabbrev w!! w !sudo tee > /dev/null %:p
+
 
 """""""""""
 " Keymaps "
@@ -217,15 +230,26 @@ nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
 " Join
 noremap Q J
 
+" Macro over visual selection
+function! ExecuteMacroOverVisualRange()
+  echo "@"
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+vnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+" Buffers
+nnoremap gB :b #<CR>
+
 " Tabs
 " Switch to last-active tab
 if !exists('g:ptab')
-    let g:ptab = 1
-    let g:ptab_backup = 1
+  let g:ptab = 1
+  let g:ptab_backup = 1
 endif
 autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
-nnoremap T :exe "tabn " . g:ptab<CR>
+nnoremap gT :exe "tabn " . g:ptab<CR>
 nnoremap <C-n> :tabnew.<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR>
@@ -301,21 +325,39 @@ inoremap '<CR>  '<CR>'<Esc>O
 inoremap ''     '
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 
-" vim-plug stuff
+
+"""""""""""
+" Plugins "
+"         "
+"""""""""""
+" vim-plug
+" --------
 call plug#begin('~/.vim/plugged')
+
+" general
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'yegappan/lsp'
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+
+" filetype-specific
 Plug 'lervag/vimtex'
 Plug 'andymass/vim-matchup'
+Plug 'jalvesaq/Nvim-R'
+
 call plug#end()
 
+
 " fzf
+" ---
 function CD(...)
-    call fzf#run(fzf#wrap({
-        \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
-        \'sink': 'cd'
-    \}))
+  call fzf#run(fzf#wrap({
+    \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
+    \'sink': 'cd'
+  \}))
 endfunction
 command! -nargs=* CD call CD(<q-args>)
 
@@ -329,36 +371,111 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
+" fuzzy
 nnoremap <C-j> :Rg!<CR>
+" full-word
 nnoremap <leader>j :RG!<CR>
 nnoremap <C-k> :Files!<CR>
 
+
+" lsp
+" ---
+source ~/.vim/config/lspservers.vim
+autocmd VimEnter * call LspAddServer(g:lspServers)
+
+let g:lspOpts = #{
+    \   autoComplete: v:true,
+    \   autoHighlight: v:false,
+    \   autoHighlightDiags: v:false,
+    \   autoPopulateDiags: v:false,
+    \   diagVirtualTextAlign: 'below',
+    \   echoSignature: v:false,
+    \   highlightDiagInline: v:false,
+    \   hoverInPreview: v:false,
+    \   showDiagInPopup: v:true,
+    \   showDiagOnStatusLine: v:false,
+    \   showDiagWithSign: v:true,
+    \   showDiagWithVirtualText: v:true,
+    \   showInlayHints: v:false,
+    \   showSignature: v:true,
+    \   ultisnipsSupport: v:true,
+    \   useBufferCompletion: v:true,
+    \   usePopupInCodeAction: v:true,
+    \   useQuickfixForLocations: v:false,
+    \ }
+autocmd VimEnter * call LspOptionsSet(g:lspOpts)
+
+nnoremap <leader>ac :LspCodeAction<CR>
+nnoremap <leader>ff :LspFormat<CR>
+vnoremap <leader>ff :LspFormat<CR>
+nnoremap <leader>df :LspGotoDefinition<CR>
+nnoremap <leader>dc :LspGotoDeclaration<CR>
+nnoremap <leader>im :LspGotoImpl<CR>
+nnoremap <leader>ty :LspGotoTypeDef<CR>
+nnoremap <leader>hv :LspHover<CR>
+nnoremap <leader>rf :LspShowReferences<CR>
+
+" Toggle Diagnostic Highlight
+function LspDiagnosticHighlightOn()
+  LspDiag highlight enable
+  nnoremap <leader>hd :call LspDiagnosticHighlightOff()<CR>
+endfunction
+
+function LspDiagnosticHighlightOff()
+  LspDiag highlight disable
+  nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
+endfunction
+
+nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
+
+
 " ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnippets/']
-let g:UltiSnipsListSnippets="<C-u>"
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+" ---------
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/ultisnippets/']
+let g:UltiSnipsListSnippets = "<C-u>"
+let g:UltiSnipsExpandTrigger = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
 nnoremap <leader>ur :call UltiSnips#RefreshSnippets()<CR>
 
+
 " vimtex
+" ------
 " autocmd FileType tex setlocal spell spelllang=en_us
-let g:tex_flavor='latex'
-let g:vimtex_view_use_temp_files=1
-let g:vimtex_view_method='zathura'
-let g:vimtex_matchparen_enabled=1
-let g:matchup_override_vimtex=1
-let g:matchup_matchparen_deferred=1
-let g:matchup_matchparen_offscreen={}
-let g:vimtex_syntax_conceal={'accents': 1,
-                           \ 'greek': 1,
-                           \ 'math_bounds': 1,
-                           \ 'math_delimiters': 1,
-                           \ 'math_super_sub': 0,
-                           \ 'math_symbols': 1,
-                           \ 'styles': 1}
-let g:vimtex_syntax_conceal_default=1
+let g:tex_flavor = 'latex'
+let g:vimtex_view_use_temp_files = 1
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_matchparen_enabled = 1
+let g:matchup_override_vimtex = 1
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_offscreen = {}
+let g:vimtex_syntax_conceal = #{
+    \   accents: 1,
+    \   ligatures: 1,
+    \   cites: 1,
+    \   fancy: 1,
+    \   spacing: 1,
+    \   greek: 1,
+    \   math_bounds: 1,
+    \   math_delimiters: 1,
+    \   math_fracs: 1,
+    \   math_super_sub: 0,
+    \   math_symbols: 1,
+    \   sections: 0,
+    \   styles: 1,
+    \ }
+
 
 " tex-conceal
+" -----------
 set conceallevel=2
-let g:tex_conceal='abdmg'
+let g:tex_conceal = 'abdmg'
+
+
+" Nvim-R
+" ------
+let g:R_in_buffer = 0
+let g:R_term = 'urxvt'
+let g:R_openhtml = 1
+let g:R_openpdf = 1
+let g:R_assign = 0
