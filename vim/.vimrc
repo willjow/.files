@@ -389,10 +389,11 @@ let g:lspOpts = #{
     \   autoPopulateDiags: v:false,
     \   diagVirtualTextAlign: 'below',
     \   echoSignature: v:false,
+    \   highlightDiagInline: v:false,
     \   hoverInPreview: v:false,
-    \   noDiagHoverOnLine: v:false,
     \   showDiagInPopup: v:true,
     \   showDiagOnStatusLine: v:false,
+    \   showDiagWithSign: v:true,
     \   showDiagWithVirtualText: v:true,
     \   showInlayHints: v:false,
     \   showSignature: v:true,
@@ -415,12 +416,12 @@ nnoremap <leader>rf :LspShowReferences<CR>
 
 " Toggle Diagnostic Highlight
 function LspDiagnosticHighlightOn()
-  LspDiagHighlightEnable
+  LspDiag highlight enable
   nnoremap <leader>hd :call LspDiagnosticHighlightOff()<CR>
 endfunction
 
 function LspDiagnosticHighlightOff()
-  LspDiagHighlightDisable
+  LspDiag highlight disable
   nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
 endfunction
 
