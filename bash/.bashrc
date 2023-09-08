@@ -30,10 +30,6 @@ alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias clearpac='sudo paccache -rk2 && paccache -ruk0'
-alias plugvga='xrandr --output VGA-1 --left-of eDP-1 --auto && . ~/.fehbg'
-alias plugdp='xrandr --output DP-1 --right-of eDP-1 --mode 1920x1080 --rate 165 && . ~/.fehbg'
-alias switchdp='xrandr --output eDP-1 --off && xrandr --output DP-1 --mode 1920x1080 --rate 165 && xset s off -dpms && . ~/.fehbg'
-alias unplug='xrandr --output VGA-1 --off; xrandr --output DP-1 --off; xrandr --output eDP-1 --auto; . ~/.fehbg'
 alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
 alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'

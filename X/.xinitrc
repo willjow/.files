@@ -54,6 +54,9 @@ fi
 # xterm -geometry 80x20+494-0 &
 # exec xterm -geometry 80x66+0+0 -name login
 
+# explicitly set monitor mode
+sh $HOME/.monitor_setting
+
 # restore color profile
 sh $HOME/.toggle_redshift.sh restore
 
