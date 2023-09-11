@@ -34,6 +34,8 @@ settings:
         d: null
         dc: download-cancel
         dd: tab-close -o
+        dlp: hint links spawn nohup mpv --cache=yes --demuxer-max-bytes=300M --demuxer-max-back-bytes=200M
+          --ytdl-format="(bv*[vcodec~='^(avc|h264)']+ba) / (bv*+ba/b)" {hint-url}
         dms: jseval --file librescore.js
         do: download-open
         dr: download-remove
