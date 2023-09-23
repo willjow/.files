@@ -34,8 +34,12 @@ settings:
         d: null
         dc: download-cancel
         dd: tab-close -o
-        dlp: hint links spawn nohup mpv --cache=yes --demuxer-max-bytes=300M --demuxer-max-back-bytes=200M
-          --ytdl-format="(bv*[vcodec~='^(avc|h264)']+ba) / (bv*+ba/b)" {hint-url}
+        dlpf: hint links spawn --verbose --detach mpv --cache=yes --demuxer-max-bytes=400M
+          --demuxer-max-back-bytes=100M --ytdl-format="(bv*[height<=?1080][vcodec~='^(avc|h264)']+ba)
+          / (bv*[height<=?1080]+ba) / (bv*+ba/b)" {hint-url}
+        dlpy: spawn --verbose --detach mpv --cache=yes --demuxer-max-bytes=400M --demuxer-max-back-bytes=100M
+          --ytdl-format="(bv*[height<=?1080][vcodec~='^(avc|h264)']+ba) / (bv*[height<=?1080]+ba)
+          / (bv*+ba/b)" {url}
         dms: jseval --file librescore.js
         do: download-open
         dr: download-remove
