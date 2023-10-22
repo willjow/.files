@@ -189,6 +189,8 @@ settings:
     - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
   content.cookies.accept:
     global: all
+  content.geolocation:
+    https://planner.bart.gov: false
   content.javascript.can_open_tabs_automatically:
     global: false
   content.notifications.enabled:
