@@ -183,6 +183,7 @@ cabbrev w!! w !sudo tee > /dev/null %:p
 "         "
 """""""""""
 noremap <Enter> o<esc>
+nnoremap <leader>ins :let @z=input('INSERT: ') <bar> norm "zP<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Keybind to open the directory listing
