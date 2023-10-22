@@ -26,7 +26,7 @@ settings:
         B: cmd-set-text -s :bookmark-add "{url:pretty}" "{title}"
         D: null
         M: null
-        T: tab-focus last
+        T: null
         '`': null
         ad: null
         b: cmd-set-text -s :tab-select
@@ -46,6 +46,7 @@ settings:
         dx: download-delete
         f: hint all
         gJ: cmd-set-text -s :tab-take
+        gT: tab-focus last
         gd: null
         gdd: download
         gdm: download --mhtml
