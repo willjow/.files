@@ -79,6 +79,7 @@ bindsym $mod+t exec urxvtc
 bindsym $mod+m exec urxvtc -e cmus
 bindsym $mod+w exec qutebrowser --backend webengine
 bindsym $mod+Shift+w exec google-chrome-stable
+bindsym $mod+Shift+$alt+w exec urxvtc -e elinks
 bindsym $mod+g exec dolphin-emu
 bindsym $mod+b exec thunar
 
