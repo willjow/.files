@@ -266,8 +266,7 @@ settings:
   prompt.radius:
     global: 0
   qt.args:
-    global:
-    - disable-accelerated-2d-canvas
+    global: null
   session.default_name:
     global: throwaway
   statusbar.show:
