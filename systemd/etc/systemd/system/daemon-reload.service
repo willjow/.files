@@ -1,5 +1,7 @@
-# run daemon-reload so that symlinked files are picked up
-# (therefore, it would defeat the purpose to symlink this one...)
+# DO NOT SYMLINK
+#
+# Run daemon-reload so that symlinked files are picked up.
+# (Therefore, it would defeat the purpose to symlink this one...)
 [Unit]
 Description=Runs daemon-reload on startup to properly follow symlinked service files
 After=local-fs.target
