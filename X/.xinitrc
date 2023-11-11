@@ -75,7 +75,9 @@ xset -dpms
 xset s blank
 xset s 3600
 
-# launch stuff
+# keyboard
 xbindkeys
+
+# launch stuff
 urxvtd -q -f -o
 exec i3
