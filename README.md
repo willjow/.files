@@ -6,5 +6,5 @@ target to root with `-t /` when necessary.
 
 Also, take care not to symlink files containing a `DO NOT SYMLINK` comment.
 ```
-grep --exclude-dir=.git -r "DO NOT SYMLINK" .
+grep --exclude-dir=.git --exclude=README.md -r "DO NOT SYMLINK" .
 ```
