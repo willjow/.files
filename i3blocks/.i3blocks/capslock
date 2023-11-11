@@ -13,10 +13,10 @@ echo "CAPS"
 # color
 if [ ${state} = 'on' ]; then
   echo "#00FFFF"
-  #echo 1 > /sys/class/leds/tpacpi::kbd_backlight/brightness
+  echo 1 > /sys/class/leds/tpacpi::kbd_backlight/brightness
   exit 33;
 else
   echo "#424242"
-  #echo 0 > /sys/class/leds/tpacpi::kbd_backlight/brightness
+  echo 0 > /sys/class/leds/tpacpi::kbd_backlight/brightness
   exit 0;
 fi
