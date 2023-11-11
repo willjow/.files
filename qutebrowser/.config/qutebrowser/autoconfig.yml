@@ -267,6 +267,8 @@ settings:
     global: 0
   qt.args:
     global: null
+  qt.workarounds.disable_accelerated_2d_canvas:
+    global: always
   session.default_name:
     global: throwaway
   statusbar.show:
