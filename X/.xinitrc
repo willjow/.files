@@ -77,6 +77,7 @@ xset s 3600
 
 # keyboard
 xbindkeys
+sudo /usr/local/sbin/kbd_mode_force_unicode.sh
 
 # launch stuff
 urxvtd -q -f -o
