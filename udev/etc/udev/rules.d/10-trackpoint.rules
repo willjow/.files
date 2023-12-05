@@ -1,4 +1,4 @@
 # DO NOT SYMLINK
-# Unfortunately, PS/2 sample rate only ranges from 10-200 Hz,
-# with a default of 100 Hz
-KERNEL=="serio2", SUBSYSTEM=="serio", DRIVERS=="psmouse", ATTR{rate}="200"
+# The sample rate only ranges from 10-200 Hz, with a default of 100 Hz
+# (aligns with PS/2 limits)
+KERNEL=="serio2", SUBSYSTEM=="serio", DRIVERS=="psmouse", ATTR{rate}="200", ATTR{sensitivity}="255", ATTR{speed}="42"
