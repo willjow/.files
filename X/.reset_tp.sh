@@ -17,10 +17,17 @@ tposet "libinput Accel Profile Enabled" 0, 1, 0  # adaptive, flat, custom
 tposet "libinput Scrolling Pixel Distance" 10  # 10 seems to be the min
 
 # touchpad
+# Custom acceleration function generated with
+# `windows-acceleration-function.py`, linked at the bottom of the libinput
+# merge request:
+# https://gitlab.freedesktop.org/libinput/libinput/-/merge_requests/775
 tpaset "libinput Tapping Enabled" 0
 tpaset "libinput Disable While Typing Enabled" 0
-tpaset "libinput Accel Speed" -0.09  # in [-1, 1]
-tpaset "libinput Accel Profile Enabled" 1, 0, 0  # adaptive, flat, custom
+tpaset "libinput Accel Speed" 0  # in [-1, 1]
+tpaset "libinput Accel Profile Enabled" 0, 0, 1  # adaptive, flat, custom
+tpaset "libinput Accel Custom Motion Points" 0.000, 0.079, 0.159, 0.274, 0.393, 0.512, 0.632, 0.804, 0.985, 1.167, 1.348, 1.529, 1.711, 1.892, 2.074, 2.255, 2.436, 2.618, 2.799, 2.981, 3.355
+tpaset "libinput Accel Custom Motion Step" 0.2031610269
+tpaset "libinput Scrolling Pixel Distance" 25
 
 # disable touchpad and buttons
 xinput disable "${touchpad}"

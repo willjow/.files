@@ -1,0 +1,7 @@
+# DO NOT SYMLINK
+# Lenovo T440p/T450s touchpad
+evdev:name:Synaptics TM3053-004:dmi:*svnLENOVO:*pvrThinkPadT440p**
+ EVDEV_ABS_00=::19
+ EVDEV_ABS_01=::19
+ EVDEV_ABS_35=::19
+ EVDEV_ABS_36=::19
