@@ -1,4 +1,9 @@
 # DO NOT SYMLINK
 # The sample rate only ranges from 10-200 Hz, with a default of 100 Hz
 # (aligns with PS/2 limits)
+#
+# NOTE: Setting the rate to 200 doesn't actualy yield 200Hz; testing with
+# `libinput debug-events` shows 100Hz updates with the trackpoint. However,
+# setting the rate to 10 gives a noticeably choppy movement, so it must be
+# doing something...
 KERNEL=="serio2", SUBSYSTEM=="serio", DRIVERS=="psmouse", ATTR{rate}="200", ATTR{sensitivity}="255", ATTR{speed}="70"
