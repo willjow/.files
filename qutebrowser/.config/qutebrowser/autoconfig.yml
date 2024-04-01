@@ -18,6 +18,7 @@ settings:
       normal:
         ;c: hint all right-click
         ;o: hint links fill :open -t {hint-url}
+        ;p: hint all run :open -p {hint-url}
         <Alt+9>: tab-focus 9
         <Ctrl+Shift+t>: null
         <Ctrl+Shift+w>: null
