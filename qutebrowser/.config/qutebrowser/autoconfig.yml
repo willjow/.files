@@ -183,6 +183,7 @@ settings:
     - https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt
     - https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
     - https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/mobile.txt
+    - https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt
   content.blocking.enabled:
     global: true
   content.blocking.hosts.lists:
