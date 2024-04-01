@@ -68,28 +68,30 @@ set expandtab     " don't use actual tab character (ctrl-v)
 set shiftwidth=4  " indenting is 4 spaces
 set autoindent    " turns it on
 
+" Set tabs to 2 for certain files
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " Auto-formatting
 " python pattern: ^\s*[\[({]?(\d+|[\*\+\>\-])[:.]?[\])}]?\s+
 set formatlistpat=^\\s*[\\[({]\\?\\(\\d\\+\\\|[\\*\\+\\>\\-]\\)[:.]\\?[\\])}]\\?\\s\\+
 set textwidth=79
-set formatoptions=qnl1j
+set formatoptions=tc,roqnl1j
 set nojoinspaces
 
 " Toggle Text Autoformatting
 function AutoFormatOn()
-  set formatoptions+=tcro
+  set formatoptions+=t
+  set formatoptions+=c
   nnoremap <leader>af :call AutoFormatOff()<CR>
 endfunction
 
 function AutoFormatOff()
-  set formatoptions-=tcro
+  set formatoptions-=t
+  set formatoptions-=c
   nnoremap <leader>af :call AutoFormatOn()<CR>
 endfunction
 
-nnoremap <leader>af :call AutoFormatOn()<CR>
-
-" set tabs to 2 for certain files
-autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+nnoremap <leader>af :call AutoFormatOff()<CR>
 
 " ColorScheme
 set t_Co=256
