@@ -347,9 +347,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " filetype-specific
-Plug 'lervag/vimtex'
-Plug 'andymass/vim-matchup'
 Plug 'jalvesaq/Nvim-R'
+Plug 'andymass/vim-matchup'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -432,6 +432,21 @@ endfunction
 nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
 
 
+" Nvim-R
+" ------
+let g:R_in_buffer = 0
+let g:R_term = 'urxvt'
+let g:R_openhtml = 1
+let g:R_openpdf = 1
+let g:R_assign = 0
+
+
+" tex-conceal
+" -----------
+set conceallevel=2
+let g:tex_conceal = 'abdmg'
+
+
 " ultisnips
 " ---------
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/ultisnippets/']
@@ -467,18 +482,3 @@ let g:vimtex_syntax_conceal = #{
     \   sections: 0,
     \   styles: 1,
     \ }
-
-
-" tex-conceal
-" -----------
-set conceallevel=2
-let g:tex_conceal = 'abdmg'
-
-
-" Nvim-R
-" ------
-let g:R_in_buffer = 0
-let g:R_term = 'urxvt'
-let g:R_openhtml = 1
-let g:R_openpdf = 1
-let g:R_assign = 0
