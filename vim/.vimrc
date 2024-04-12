@@ -344,6 +344,7 @@ Plug 'yegappan/lsp'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 
 " filetype-specific
