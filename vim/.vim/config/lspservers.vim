@@ -73,5 +73,15 @@ let g:lspServers = [
     \        },
     \      },
     \    },
-    \  },
-    \ ]
+    \   #{
+    \      name: 'vtsls',
+    \      filetype: [
+    \        'javascript',
+    \        'typescript',
+    \        'javascriptreact',
+    \        'typescriptreact',
+    \      ],
+    \      path: '/usr/bin/vtsls',
+    \      args: ['--stdio'],
+    \    },
+    \  ]
