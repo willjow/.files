@@ -4,7 +4,7 @@ let g:lspServers = [
     \     name: 'clangd',
     \     filetype: ['c', 'cpp'],
     \     path: '/usr/bin/clangd',
-    \     args: ['--background-index'],
+    \     args: ['--background-index', '--clang-tidy'],
     \   },
     \   #{
     \     name: 'eclipse.jdt.ls',
