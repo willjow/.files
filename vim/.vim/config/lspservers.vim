@@ -7,6 +7,12 @@ let g:lspServers = [
     \     args: ['--background-index'],
     \   },
     \   #{
+    \     name: 'eclipse.jdt.ls',
+    \     filetype: ['java'],
+    \     path: '/usr/bin/jdtls',
+    \     args: [],
+    \   },
+    \   #{
     \     name: 'vtsls',
     \     filetype: [
     \       'javascript',
