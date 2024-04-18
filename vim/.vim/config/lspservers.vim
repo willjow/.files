@@ -7,6 +7,17 @@ let g:lspServers = [
     \     args: ['--background-index'],
     \   },
     \   #{
+    \     name: 'vtsls',
+    \     filetype: [
+    \       'javascript',
+    \       'typescript',
+    \       'javascriptreact',
+    \       'typescriptreact',
+    \     ],
+    \     path: '/usr/bin/vtsls',
+    \     args: ['--stdio'],
+    \   },
+    \   #{
     \     name: 'python-lsp-server',
     \     filetype: ['python'],
     \     path: '/usr/bin/pylsp',
@@ -57,31 +68,20 @@ let g:lspServers = [
     \     },
     \   },
     \   #{
-    \      name: 'rustlang',
-    \      filetype: ['rust'],
-    \      path: '/usr/bin/rust-analyzer',
-    \      args: [],
-    \      syncInit: v:true,
-    \      initializationOptions: #{
-    \        cargo: #{
-    \          buildScripts: #{
-    \            enable: v:true,
-    \          },
-    \        },
-    \        procMacro: #{
-    \          enable: v:true,
-    \        },
-    \      },
-    \    },
-    \   #{
-    \      name: 'vtsls',
-    \      filetype: [
-    \        'javascript',
-    \        'typescript',
-    \        'javascriptreact',
-    \        'typescriptreact',
-    \      ],
-    \      path: '/usr/bin/vtsls',
-    \      args: ['--stdio'],
-    \    },
-    \  ]
+    \     name: 'rustlang',
+    \     filetype: ['rust'],
+    \     path: '/usr/bin/rust-analyzer',
+    \     args: [],
+    \     syncInit: v:true,
+    \     initializationOptions: #{
+    \       cargo: #{
+    \         buildScripts: #{
+    \           enable: v:true,
+    \         },
+    \       },
+    \       procMacro: #{
+    \         enable: v:true,
+    \       },
+    \     },
+    \   },
+    \ ]
