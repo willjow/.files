@@ -365,21 +365,32 @@ function CD(...)
 endfunction
 command! -nargs=* CD call CD(<q-args>)
 
+" wrap fzf grep to use ripgrep and ignore file names in fuzzy search
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let command_fmt = 'rg --hidden --column --line-number --no-heading --color=always --smart-case -- %s'
+  let command = printf(command_fmt, shellescape(a:query))
+  let spec = {'options': ['--delimiter=:', '--nth=4..']}
+  call fzf#vim#grep(command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+" disable fzf search, use only ripgrep and reload after each character
+function! RipgrepLauncherFzf(query, fullscreen)
+  let command_fmt = 'rg --hidden --column --line-number --no-heading --color=always --smart-case -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  let spec = {'options': ['--disabled', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* -bang RG call RipgrepLauncherFzf(<q-args>, <bang>0)
 
 " fuzzy
-nnoremap <C-j> :Rg!<CR>
-" full-word
-nnoremap <leader>j :RG!<CR>
+nnoremap <leader>j :Rg! 
 nnoremap <C-k> :Files!<CR>
+
+" full-word
+nnoremap <C-j> :RG!<CR>
 
 
 " lsp
