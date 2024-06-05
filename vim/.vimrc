@@ -367,7 +367,7 @@ command! -nargs=* CD call CD(<q-args>)
 
 " wrap fzf grep to use ripgrep and ignore file names in fuzzy search
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --hidden --column --line-number --no-heading --color=always --smart-case -- %s'
+  let command_fmt = 'rg --hidden --column --line-number --no-heading --color=always --smart-case -- %s || true'
   let command = printf(command_fmt, shellescape(a:query))
   let spec = {'options': ['--delimiter=:', '--nth=4..']}
   call fzf#vim#grep(command, 1, fzf#vim#with_preview(spec), a:fullscreen)
