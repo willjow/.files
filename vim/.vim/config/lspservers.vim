@@ -42,11 +42,11 @@ let g:lspServers = [
     \           flake8: #{
     \             enabled: v:false,
     \           },
+    \           isort: #{
+    \             enabled: v:true,
+    \           },
     \           mccabe: #{
     \             enabled: v:false,
-    \           },
-    \           pyls_isort: #{
-    \             enabled: v:true,
     \           },
     \           pylsp_mypy: #{
     \             enabled: v:false,
