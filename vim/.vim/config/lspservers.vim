@@ -59,7 +59,7 @@ let g:lspServers = [
     \ #{
     \    name: 'rustlang',
     \    filetype: ['rust'],
-    \    path: '/usr/bin/rust-analyzer',
+    \    path: '/home/wjow/.cargo/bin/rust-analyzer',
     \    args: [],
     \    syncInit: v:true,
     \    initializationOptions: #{
