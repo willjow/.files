@@ -3,13 +3,12 @@ volume_str=$(wpctl get-volume @DEFAULT_SINK@)
 percent=$(awk '{print $2 * 100}' <<< ${volume_str})
 muted=$(awk 'index($3, "MUTED")' <<< ${volume_str})
 
-# full text
-echo "VOL ${percent}%"
-
-# short text
-echo "VOL ${percent}%"
-
 # color
 if [ -n "${muted}" ]; then
+    echo "MUTE ${percent}%"  # full text
+    echo "MUTE ${percent}%"  # short text
     echo "#FFFF00"
+else
+    echo "VOL ${percent}%"  # full text
+    echo "VOL ${percent}%"  # short text
 fi
