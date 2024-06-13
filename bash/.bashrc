@@ -45,6 +45,7 @@ alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
 alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 alias wifi-stop='sudo systemctl stop netctl-auto@wlp3s0.service'
 alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
+alias bootwindows="sudo efibootmgr -n 0000; reboot"
 
 # Temporary aliases
 
@@ -198,3 +199,4 @@ stress_test() {
     cd ~/Documents/ryzen_tuning
     ./stress_test.sh -s 1m -m 1m "$@" 2>&1 | tee stress_results.txt
 }
+. "$HOME/.cargo/env"
