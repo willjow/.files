@@ -420,6 +420,7 @@ let g:lspOpts = #{
     \ }
 autocmd VimEnter * call LspOptionsSet(g:lspOpts)
 
+nnoremap <leader>pc :call popup_clear()<CR>
 nnoremap <leader>ac :LspCodeAction<CR>
 nnoremap <leader>ff :LspFormat<CR>
 vnoremap <leader>ff :LspFormat<CR>
