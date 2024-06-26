@@ -52,8 +52,9 @@ alias bton="bluetoothctl -- power on"
 alias btoff="bluetoothctl -- power off"
 alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
 alias venv-yt-dlp='source ~/.venv/yt-dlp-pip/bin/activate'
-alias yt-dlp-pip='pip install -U --pre "yt-dlp[default,curl-cffi]"'
+alias yt-dlp-pip-install='pip install -U --pre "yt-dlp[default,curl-cffi]"'
 alias yt-dlp-mp3='yt-dlp -x --audio-format mp3 --audio-quality 0'
+alias yt-dlp-1080avc='yt-dlp -f "(bv*[height<=?1080][vcodec~='\''^(avc|h264)'\'']+ba)"'
 alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
 alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
