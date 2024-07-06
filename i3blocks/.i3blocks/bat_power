@@ -15,11 +15,11 @@ if [ -n "${watts}" ]; then
   echo "${watts}W"
 
   # color
-  if [ ${charge_status} = "Charging" ]; then
+  if [ "${charge_status}" = "Charging" ]; then
     echo "#FF00FF"
-  elif [ ${charge_status} = "Unknown" ]; then
-    echo "#00FFFF"
-  elif [ ${watts_int} -ge ${threshold} ]; then
-    echo "#FFFF00"
+  elif [ "${charge_status}" = "Discharging" ]; then
+    if [ ${watts_int} -ge ${threshold} ]; then
+      echo "#FFFF00"
+    fi
   fi
 fi
