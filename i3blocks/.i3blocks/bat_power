@@ -1,25 +1,30 @@
 #!/bin/bash
 
+bat=${BLOCK_INSTANCE:-0}
 threshold=14
 precision=2
-pow_now=$(cat /sys/class/power_supply/BAT0/power_now)
-watts=$(bc <<< "scale=${precision}; ${pow_now}/1000000")
+
+charge_status=$(cat /sys/class/power_supply/BAT${bat}/status)
+
+pow_now=$(cat /sys/class/power_supply/BAT${bat}/power_now)
+watts=$(bc <<< "scale=${precision}; ${pow_now} / 1000000")
 watts_int=$(echo ${watts} | awk -F '.' '{print $1}')
-charge_status=$(cat /sys/class/power_supply/BAT0/status)
 
-if [ -n "${watts}" ]; then
-  # full text
-  echo "${watts}W"
+if [ -z "${watts}" ]; then
+  exit 1
+fi
 
-  # short text
-  echo "${watts}W"
+# full text
+echo "${watts}W"
 
-  # color
-  if [ "${charge_status}" = "Charging" ]; then
-    echo "#FF00FF"
-  elif [ "${charge_status}" = "Discharging" ]; then
-    if [ ${watts_int} -ge ${threshold} ]; then
-      echo "#FFFF00"
-    fi
+# short text
+echo "${watts}W"
+
+# color
+if [ "${charge_status}" = "Charging" ]; then
+  echo "#FF00FF"
+elif [ "${charge_status}" = "Discharging" ]; then
+  if [ ${watts_int} -ge ${threshold} ]; then
+    echo "#FFFF00"
   fi
 fi

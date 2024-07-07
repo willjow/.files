@@ -1,0 +1,59 @@
+#!/bin/bash
+
+bat=${BLOCK_INSTANCE:-0}
+
+charge_status=$(cat /sys/class/power_supply/BAT${bat}/status)
+
+energy_now=$(cat /sys/class/power_supply/BAT${bat}/energy_now)
+energy_full=$(cat /sys/class/power_supply/BAT${bat}/energy_full)
+percent=$(bc <<< "${energy_now} * 100 / ${energy_full}")
+
+voltage_now=$(cat /sys/class/power_supply/BAT${bat}/voltage_now)
+voltage_avg=$(bc <<< "scale=2; ${voltage_now} / 3000000")
+
+critical=""
+
+if [ -z "${percent}" ]; then
+  exit 1
+fi
+
+if [ "${charge_status}" = "Discharging" ]; then
+  bat_level="BATT ${percent}% ${voltage_avg}V"
+
+  if [ ${percent} -ge 80 ]; then
+    color="#FF00FF"
+  elif [ ${percent} -ge 64 ]; then
+    color="#00FF00"
+  elif [ ${percent} -ge 40 ]; then
+    color=""
+  elif [ ${percent} -ge 20 ]; then
+    color="#FFFF00"
+  elif [ ${percent} -ge 10 ]; then
+    color="#FF0000"
+  else
+    critical=1
+  fi
+elif [ "${charge_status}" = "Charging" ]; then
+  bat_level="CHRG ${percent}% ${voltage_avg}V"
+
+  if [ ${percent} -ge 80 ]; then
+    color="#FF00FF"
+  elif [ ${percent} -ge 64 ]; then
+    color="#4AA5FF"
+  elif [ ${percent} -ge 40 ]; then
+    color="#00FF00"
+  else
+    color=""
+  fi
+else
+  bat_level="HOLD ${percent}% ${voltage_avg}V"
+  color="#00FFFF"
+fi
+
+echo "${bat_level}"
+echo "${bat_level}"
+echo "${color}"
+
+if [ -n "${critical}" ]; then
+  exit 33
+fi
