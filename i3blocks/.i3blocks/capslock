@@ -4,19 +4,20 @@
 
 state=$(xset q | awk '/Caps Lock/ {print $4}')
 
-# full text
-echo "CAPS"
-
-# short text
-echo "CAPS"
-
 # color
 if [ ${state} = 'on' ]; then
-  echo "#00FFFF"
+  color="#00FFFF"
   echo 1 > /sys/class/leds/tpacpi::kbd_backlight/brightness
-  exit 33;
+  exit_code=33
 else
-  echo "#424242"
+  color="#424242"
   echo 0 > /sys/class/leds/tpacpi::kbd_backlight/brightness
-  exit 0;
+  exit_code=0
 fi
+
+# full text, short text, color
+echo "CAPS"
+echo "CAPS"
+echo "${color}"
+
+exit ${exit_code}
