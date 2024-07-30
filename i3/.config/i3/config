@@ -66,6 +66,9 @@ focus_wrapping force
 # focus follow mouse
 focus_follows_mouse no
 
+# warp mouse to center when switching outputs
+mouse_warping output
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -84,7 +87,7 @@ bindsym $mod+g exec dolphin-emu
 bindsym $mod+b exec thunar
 
 # start unclutter
-exec --no-startup-id unclutter --timeout 1 --jitter 15 -b
+exec --no-startup-id unclutter --timeout 1 --jitter 15 --start-hidden --fork
 
 # kill focused window
 bindsym $mod+Shift+d kill
