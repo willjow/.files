@@ -37,10 +37,11 @@ settings:
         dd: tab-close -o
         dlpf: hint links spawn --verbose --detach mpv --cache=yes --demuxer-max-bytes=400M
           --demuxer-max-back-bytes=100M --ytdl-format="(bv*[height<=?1080][vcodec~='^(avc|h264)']+ba)
-          / (bv*[height<=?1080]+ba) / (bv*+ba/b)" {hint-url}
+          / (bv*[height<=?1080]+ba) / (bv*+ba/b)" --ytdl-raw-options=cookies-from-browser=chromium
+          {hint-url}
         dlpy: spawn --verbose --detach mpv --cache=yes --demuxer-max-bytes=400M --demuxer-max-back-bytes=100M
           --ytdl-format="(bv*[height<=?1080][vcodec~='^(avc|h264)']+ba) / (bv*[height<=?1080]+ba)
-          / (bv*+ba/b)" {url}
+          / (bv*+ba/b)" --ytdl-raw-options=cookies-from-browser=chromium {url}
         dms: jseval --file librescore.js
         do: download-open
         dr: download-remove
@@ -273,6 +274,8 @@ settings:
     global: null
   qt.workarounds.disable_accelerated_2d_canvas:
     global: always
+  scrolling.bar:
+    global: overlay
   session.default_name:
     global: throwaway
   statusbar.show:
