@@ -268,8 +268,6 @@ packadd cfilter
 command! QuickFixToLocList call setloclist(0, getqflist())
 command! LocListToQuickFix call setqflist(getloclist(0))
 
-nnoremap <leader>ql :QuickFixToLocList<CR> :cclose<CR> :lopen<CR>
-
 function! RemoveLineFromQuickFix(line)
   let l:line = a:line - 1
   call setqflist(filter(getqflist(), "v:key['lnum'] != l:line"))
@@ -280,14 +278,15 @@ function! RemoveLineFromLocList(line)
   call setloclist(0, filter(getloclist(0), "v:key['lnum'] != l:line"))
 endfunction
 
-nnoremap <leader>qd :call RemoveLineFromQuickFix(line("."))<CR>
-nnoremap <leader>ld :call RemoveLineFromLocList(line("."))<CR>
+nnoremap <leader>ql :QuickFixToLocList<CR> :cclose<CR> :lopen<CR>
 
 nnoremap <leader>cc :.cc<CR>
-
+nnoremap <leader>cr :call RemoveLineFromQuickFix(line("."))<CR>
 nnoremap <leader>cn :cnext<CR>
 nnoremap <leader>cp :cprevious<CR>
 
+nnoremap <leader>ll :.ll<CR>
+nnoremap <leader>lr :call RemoveLineFromLocList(line("."))<CR>
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lp :lprevious<CR>
 
@@ -391,6 +390,10 @@ nnoremap <C-k> :Files!<CR>
 
 " full-word
 nnoremap <C-j> :RG!<CR>
+
+" open lists as location lists
+let g:fzf_vim = {}
+let g:fzf_vim.listproc = { list -> fzf#vim#listproc#location(list) }
 
 
 " lsp
