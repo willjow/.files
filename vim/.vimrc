@@ -341,6 +341,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yegappan/lsp'
 Plug 'SirVer/ultisnips'
+Plug 'chrisbra/unicode.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'justinmk/vim-sneak'
