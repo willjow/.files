@@ -400,7 +400,7 @@ let g:fzf_vim.listproc = { list -> fzf#vim#listproc#location(list) }
 " lsp
 " ---
 source ~/.vim/config/lspservers.vim
-autocmd VimEnter * call LspAddServer(g:lspServers)
+autocmd User LspSetup call LspAddServer(g:lspServers)
 
 let g:lspOpts = #{
     \   autoComplete: v:true,
@@ -422,7 +422,7 @@ let g:lspOpts = #{
     \   usePopupInCodeAction: v:true,
     \   useQuickfixForLocations: v:false,
     \ }
-autocmd VimEnter * call LspOptionsSet(g:lspOpts)
+autocmd User LspSetup call LspOptionsSet(g:lspOpts)
 
 nnoremap <leader>pc :call popup_clear()<CR>
 nnoremap <leader>ac :LspCodeAction<CR>

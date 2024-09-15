@@ -3,13 +3,13 @@ let g:lspServers = [
     \   #{
     \     name: 'clangd',
     \     filetype: ['c', 'cpp'],
-    \     path: '/usr/bin/clangd',
+    \     path: 'clangd',
     \     args: ['--background-index', '--clang-tidy'],
     \   },
     \   #{
     \     name: 'eclipse.jdt.ls',
     \     filetype: ['java'],
-    \     path: '/usr/bin/jdtls',
+    \     path: 'jdtls',
     \     args: [],
     \   },
     \   #{
@@ -20,13 +20,13 @@ let g:lspServers = [
     \       'javascriptreact',
     \       'typescriptreact',
     \     ],
-    \     path: '/usr/bin/vtsls',
+    \     path: 'vtsls',
     \     args: ['--stdio'],
     \   },
     \   #{
     \     name: 'python-lsp-server',
     \     filetype: ['python'],
-    \     path: '/usr/bin/pylsp',
+    \     path: 'pylsp',
     \     args: [],
     \     workspaceConfig: #{
     \       pylsp: #{
@@ -44,6 +44,8 @@ let g:lspServers = [
     \           },
     \           isort: #{
     \             enabled: v:true,
+    \             profile: 'black',
+    \             line_length: 79,
     \           },
     \           mccabe: #{
     \             enabled: v:false,
@@ -76,7 +78,7 @@ let g:lspServers = [
     \   #{
     \     name: 'rustlang',
     \     filetype: ['rust'],
-    \     path: '/usr/bin/rust-analyzer',
+    \     path: 'rust-analyzer',
     \     args: [],
     \     syncInit: v:true,
     \     initializationOptions: #{
