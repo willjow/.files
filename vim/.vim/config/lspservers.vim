@@ -13,15 +13,27 @@ let g:lspServers = [
     \     args: [],
     \   },
     \   #{
-    \     name: 'vtsls',
+    \     name: 'tsserver',
     \     filetype: [
     \       'javascript',
     \       'typescript',
     \       'javascriptreact',
     \       'typescriptreact',
     \     ],
-    \     path: 'vtsls',
+    \     path: 'typescript-language-server',
     \     args: ['--stdio'],
+    \     workspaceConfig: #{
+    \       typescript: #{
+    \         format: #{
+    \           indentSize: 4,
+    \         }
+    \       },
+    \       javascript: #{
+    \         format: #{
+    \           indentSize: 4,
+    \         }
+    \       },
+    \     },
     \   },
     \   #{
     \     name: 'python-lsp-server',
