@@ -48,14 +48,14 @@ let g:lspServers = [
     \             enabled: v:false,
     \           },
     \           black: #{
-    \             enabled: v:true,
+    \             enabled: v:false,
     \             line_length: 79,
     \           },
     \           flake8: #{
     \             enabled: v:false,
     \           },
     \           isort: #{
-    \             enabled: v:true,
+    \             enabled: v:false,
     \             profile: 'black',
     \             line_length: 79,
     \           },
@@ -68,17 +68,24 @@ let g:lspServers = [
     \             live_mode: v:false,
     \           },
     \           pycodestyle: #{
-    \             enabled: v:true,
+    \             enabled: v:false,
     \             maxLineLength: 79,
     \           },
     \           pydocstyle: #{
     \             enabled: v:false,
     \           },
     \           pyflakes: #{
-    \             enabled: v:true,
+    \             enabled: v:false,
     \           },
     \           pylint: #{
     \             enabled: v:false,
+    \           },
+    \           ruff: #{
+    \             enabled: v:true,
+    \             formatEnabled: v:true,
+    \             format: ['ALL'],
+    \             extendSelect: ['ALL'],
+    \             lineLength: 79,
     \           },
     \           yapf: #{
     \             enabled: v:false,
