@@ -51,8 +51,10 @@ alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
 alias bton="bluetoothctl -- power on"
 alias btoff="bluetoothctl -- power off"
 alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
+alias venv-streamrip='source ~/.venv/streamrip/bin/activate'
 alias venv-yt-dlp='source ~/.venv/yt-dlp-pip/bin/activate'
 alias yt-dlp-pip-install='pip install -U --pre "yt-dlp[default,curl-cffi]"'
+alias yt-dlp-ba='yt-dlp -f "ba" -x'
 alias yt-dlp-mp3='yt-dlp -x --audio-format mp3 --audio-quality 0'
 alias yt-dlp-flac='yt-dlp -x --audio-format flac --audio-quality 0'
 alias yt-dlp-1080avc='yt-dlp -f "(bv*[height<=?1080][vcodec~='\''^(avc|h264)'\'']+ba)"'
