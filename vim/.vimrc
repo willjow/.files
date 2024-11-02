@@ -79,19 +79,21 @@ set formatoptions=tc,roqnl1j
 set nojoinspaces
 
 " Toggle Text Autoformatting
-function AutoFormatOn()
-  set formatoptions+=t
-  set formatoptions+=c
-  nnoremap <leader>af :call AutoFormatOff()<CR>
+function! ToggleAutoFormat()
+  if empty(matchstr(&formatoptions, 'c'))
+    set formatoptions+=c
+  else
+    set formatoptions-=c
+  endif
+
+  if empty(matchstr(&formatoptions, 't'))
+    set formatoptions+=t
+  else
+    set formatoptions-=t
+  endif
 endfunction
 
-function AutoFormatOff()
-  set formatoptions-=t
-  set formatoptions-=c
-  nnoremap <leader>af :call AutoFormatOn()<CR>
-endfunction
-
-nnoremap <leader>af :call AutoFormatOff()<CR>
+nnoremap <leader>af :call ToggleAutoFormat()<CR>
 
 " ColorScheme
 set t_Co=256
@@ -169,7 +171,7 @@ let g:netrw_browse_split = 0
 let g:netrw_altv = 1
 let g:netrw_banner = 0
 let g:netrw_fastbrowse = 2
-let g:netrw_bufsettings = "noma nomod nobl nowrap ro nu rnu"
+let g:netrw_bufsettings = 'noma nomod nobl nowrap ro nu rnu'
 set noea
 
 
@@ -216,13 +218,13 @@ nnoremap <silent> <leader>rl :set relativenumber!<CR>
 " Toggle color column limit indicator
 autocmd BufWinEnter * set cc=
 
-fun! ToggleCL()
-  if &cc == ''
+function! ToggleCL()
+  if empty(&cc)
     set cc=80
   else
     set cc=
   endif
-endfun
+endfunction
 
 nnoremap <silent> <leader>cl :call ToggleCL()<CR>
 
@@ -357,7 +359,7 @@ call plug#end()
 
 " fzf
 " ---
-function CD(...)
+function! CD(...)
   call fzf#run(fzf#wrap({
     \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
     \'sink': 'cd'
@@ -436,17 +438,15 @@ nnoremap <leader>hv :LspHover<CR>
 nnoremap <leader>rf :LspShowReferences<CR>
 
 " Toggle Diagnostic Highlight
-function LspDiagnosticHighlightOn()
-  LspDiag highlight enable
-  nnoremap <leader>hd :call LspDiagnosticHighlightOff()<CR>
-endfunction
+function! ToggleLspDiagHighlight()
+  if LspOptionsGet()['autoHighlightDiags']
+    LspDiag highlight disable
+  else
+    LspDiag highlight enable
+  endif
+endfunction!
 
-function LspDiagnosticHighlightOff()
-  LspDiag highlight disable
-  nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
-endfunction
-
-nnoremap <leader>hd :call LspDiagnosticHighlightOn()<CR>
+nnoremap <leader>hd :call ToggleLspDiagHighlight()<CR>
 
 
 " Nvim-R
