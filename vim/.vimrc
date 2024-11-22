@@ -427,13 +427,15 @@ let g:lspOpts = #{
 autocmd User LspSetup call LspOptionsSet(g:lspOpts)
 
 nnoremap <leader>pc :call popup_clear()<CR>
-nnoremap <leader>ac :LspCodeAction<CR>
+nnoremap <leader>ca :LspCodeAction<CR>
+nnoremap <leader>dc :LspDiag current<CR>
+nnoremap <leader>ds :LspDiag show<CR>
 nnoremap <leader>ff :LspFormat<CR>
 vnoremap <leader>ff :LspFormat<CR>
-nnoremap <leader>df :LspGotoDefinition<CR>
-nnoremap <leader>dc :LspGotoDeclaration<CR>
-nnoremap <leader>im :LspGotoImpl<CR>
-nnoremap <leader>ty :LspGotoTypeDef<CR>
+nnoremap <leader>gf :LspGotoDefinition<CR>
+nnoremap <leader>gc :LspGotoDeclaration<CR>
+nnoremap <leader>gi :LspGotoImpl<CR>
+nnoremap <leader>gt :LspGotoTypeDef<CR>
 nnoremap <leader>hv :LspHover<CR>
 nnoremap <leader>rf :LspShowReferences<CR>
 
@@ -446,7 +448,7 @@ function! ToggleLspDiagHighlight()
   endif
 endfunction!
 
-nnoremap <leader>hd :call ToggleLspDiagHighlight()<CR>
+nnoremap <leader>dh :call ToggleLspDiagHighlight()<CR>
 
 
 " Nvim-R
