@@ -51,8 +51,6 @@ alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
 alias bton="bluetoothctl -- power on"
 alias btoff="bluetoothctl -- power off"
 alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
-alias venv-streamrip='source ~/.venv/streamrip/bin/activate'
-alias venv-yt-dlp='source ~/.venv/yt-dlp-pip/bin/activate'
 alias yt-dlp-pip-install='pip install -U --pre "yt-dlp[default,curl-cffi]"'
 alias yt-dlp-ba='yt-dlp -f "ba" -x'
 alias yt-dlp-mp3='yt-dlp -x --audio-format mp3 --audio-quality 0'
@@ -63,6 +61,11 @@ alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
 alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 alias wifi-stop='sudo systemctl stop netctl-auto@wlp3s0.service'
 alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
+
+# Python venv
+alias venv-pylsp-ruff='source ~/.venv/pylsp-ruff/bin/activate'
+alias venv-streamrip='source ~/.venv/streamrip/bin/activate'
+alias venv-yt-dlp='source ~/.venv/yt-dlp-pip/bin/activate'
 
 # Temporary aliases
 
