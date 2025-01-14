@@ -74,6 +74,7 @@ export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/R/.Renviron"
 export CLASSPATH="/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
 export PYTHONSTARTUP="$HOME/.python_startup.py"
+export PYTHON_BASIC_REPL=1
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude \".git\" ."
 export FZF_ALT_C_COMMAND="command fd --type d --hidden --follow --exclude \".git\" ."
 #export FZF_ALT_C_COMMAND="command find -L . -mindepth 1 \\( -path '*.git' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune -o -type d -print 2> /dev/null | cut -b 3-"
