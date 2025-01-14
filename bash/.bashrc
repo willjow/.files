@@ -52,9 +52,9 @@ alias bton="bluetoothctl -- power on"
 alias btoff="bluetoothctl -- power off"
 alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
 alias yt-dlp-pip-install='pip install -U --pre "yt-dlp[default,curl-cffi]"'
-alias yt-dlp-ba='yt-dlp -f "ba" -x'
-alias yt-dlp-mp3='yt-dlp -x --audio-format mp3 --audio-quality 0'
-alias yt-dlp-flac='yt-dlp -x --audio-format flac --audio-quality 0'
+alias yt-dlp-ba='yt-dlp -f "ba" -x --embed-metadata --parse-metadata "playlist_index:%(track_number)s" -o "%(playlist_index)s %(title)s.%(ext)s" --embed-thumbnail'
+alias yt-dlp-mp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-metadata --parse-metadata "playlist_index:%(track_number)s" -o "%(playlist_index)s %(title)s.%(ext)s" --embed-thumbnail'
+alias yt-dlp-flac='yt-dlp -x --audio-format flac --audio-quality 0 --embed-metadata --parse-metadata "playlist_index:%(track_number)s" -o "%(playlist_index)s %(title)s.%(ext)s" --embed-thumbnail'
 alias yt-dlp-1080avc='yt-dlp -f "(bv*[height<=?1080][vcodec~='\''^(avc|h264)'\'']+ba)"'
 alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
