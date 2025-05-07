@@ -91,6 +91,8 @@ function! ToggleAutoFormat()
   else
     set formatoptions-=t
   endif
+
+  set formatoptions?
 endfunction
 
 nnoremap <leader>af :call ToggleAutoFormat()<CR>
