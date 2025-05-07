@@ -60,6 +60,7 @@ alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
 alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 alias wifi-stop='sudo systemctl stop netctl-auto@wlp3s0.service'
 alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
+alias mpv-powersave="mpv --profile=powersave"
 
 # Python venv
 alias venv-pylsp-ruff='source ~/.venv/pylsp-ruff/bin/activate'
