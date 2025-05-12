@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $temperature = 0;
+
+open (NVIDIA_SMI, 'nvidia-smi |') or die;
+while (<NVIDIA_SMI>) {
+    if (/(\d+)C/) {
+        $temperature = $1;
+        last;
+    }
+}
+close(NVIDIA_SMI);
+
+printf "%d°C\n", $temperature;
