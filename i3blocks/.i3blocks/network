@@ -24,10 +24,10 @@ fi
 
 ipaddr="$(ip addr show $interface | perl -n -e'/inet (.+)\// && print $1')"
 
-if [[ $BLOCK_INSTANCE == wlp* ]]; then
+if [[ $BLOCK_INSTANCE == wlan* ]]; then
     quality=$(grep $interface /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
     qualityfull="$quality% at $(iw $interface link | grep SSID | cut -d " " -f 2-)"
-    speed=$(iw wlp3s0 link \
+    speed=$(iw wlan0 link \
             | grep bitrate \
             | sed -E -e '1s/(.+) MBit/\1↓ /1' -e '2s/(.+) MBit/\1↑ /1' \
             | cut -d " " -f 3)

@@ -350,6 +350,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
+Plug 'jasonccox/vim-wayland-clipboard'
 
 " filetype-specific
 Plug 'jalvesaq/Nvim-R'
@@ -404,7 +405,7 @@ let g:fzf_vim.listproc = { list -> fzf#vim#listproc#location(list) }
 " lsp
 " ---
 source ~/.vim/config/lspservers.vim
-autocmd User LspSetup call LspAddServer(g:lspServers)
+" autocmd User LspSetup call LspAddServer(g:lspServers)
 
 let g:lspOpts = #{
     \   autoComplete: v:true,

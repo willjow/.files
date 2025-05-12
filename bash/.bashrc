@@ -24,6 +24,7 @@ source /usr/share/fzf/completion.bash
 
 # Aliases
 alias suspend='systemctl suspend'
+alias swayi='WLR_DRM_DEVICES=/dev/dri/by-name/intel sway'
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias grep='grep --color=auto'
@@ -70,6 +71,8 @@ alias venv-yt-dlp='source ~/.venv/yt-dlp-pip/bin/activate'
 # Temporary aliases
 
 # Environment Variables
+export VISUAL="vim"
+export EDITOR="$VISUAL"
 export BROWSER="qutebrowser"
 export R_ENVIRON_USER="~/.config/R/.Renviron"
 export CLASSPATH="/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.jar:./"
