@@ -34,12 +34,10 @@ client.placeholder      #000000 #000000 #dedede #000000
 client.background       #000000
 
 # borders
-# smart_borders on
+smart_borders no_gaps
 hide_edge_borders smart
 default_border pixel 1
 default_floating_border pixel 1
-
-# titlebars
 titlebar_border_thickness 0
 titlebar_padding 4 2
 
