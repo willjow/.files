@@ -35,7 +35,7 @@ client.background       #000000
 
 # borders
 smart_borders no_gaps
-hide_edge_borders smart
+hide_edge_borders --i3 smart_no_gaps
 default_border pixel 1
 default_floating_border pixel 1
 titlebar_border_thickness 0
