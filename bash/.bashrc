@@ -23,14 +23,13 @@ source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
 # Aliases
+alias startw='WLR_DRM_DEVICES=/dev/dri/by-name/intel sway'
 alias suspend='systemctl suspend'
-alias swayi='WLR_DRM_DEVICES=/dev/dri/by-name/intel sway'
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias grep='grep --color=auto'
 alias please='sudo bash -c "$(history -p !!)"'
 alias rsyncfat='rsync --modify-window=1'
-alias alsaequal='alsamixer -D equal'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
@@ -41,14 +40,8 @@ alias plugdp='xrandr --output DP-1 --right-of eDP-1 --mode 1920x1080 --rate 165 
 alias switchhdmi='xrandr --output eDP-1 --off && xrandr --output HDMI-1 --mode 1920x1080 --rate 60 && xset s off -dpms && . ~/.fehbg'
 alias switchdp='xrandr --output eDP-1 --off && xrandr --output DP-1 --mode 1920x1080 --rate 165 && xset s off -dpms && . ~/.fehbg'
 alias unplug='xrandr --output VGA-1 --off; xrandr --output DP-1 --off; xrandr --output HDMI-1 --off; xrandr --output eDP-1 --auto; . ~/.fehbg'
-alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
-alias swe5='feh --zoom 33 ~/misc/bikes/swe5.jpg & disown'
-alias tcr='feh --zoom 33 ~/misc/bikes/tcr.jpg & disown'
-alias left_gif='byzanz-record -v -x 1 -y 17 -w 681 -h 750'
-alias resettp='sh ~/.reset_tp.sh'
-alias ncwd='urxvt & disown'
-alias rewi='sudo systemctl restart netctl-auto@wlp3s0'
+alias ncwd='foot & disown'
 alias bton="bluetoothctl -- power on"
 alias btoff="bluetoothctl -- power off"
 alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
@@ -59,8 +52,6 @@ alias yt-dlp-1080avc='yt-dlp -f "(bv*[height<=?1080][vcodec~='\''^(avc|h264)'\''
 alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
 alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
 alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
-alias wifi-stop='sudo systemctl stop netctl-auto@wlp3s0.service'
-alias wifi-start='sudo systemctl start netctl-auto@wlp3s0.service'
 alias mpv-powersave="mpv --profile=powersave"
 
 # Python venv
@@ -138,10 +129,6 @@ junittest() {
 
 prevpac() {
   expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $1
-}
-
-adbaddmusic() {
-  adb push ~/music/ /sdcard/Music/
 }
 
 7zxo() {
