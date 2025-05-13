@@ -39,6 +39,10 @@ hide_edge_borders smart
 default_border pixel 1
 default_floating_border pixel 1
 
+# titlebars
+titlebar_border_thickness 0
+titlebar_padding 4 2
+
 # monitor workspaces
 workspace 11 output VGA-1
 workspace 14 output HDMI-1
