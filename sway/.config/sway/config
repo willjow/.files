@@ -49,6 +49,10 @@ workspace 17 output DP-1
 # wallpaper
 output * bg ~/.desktop_backgrounds/tyranitar.png fill
 
+# swayidle
+exec swayidle -w \
+  before-sleep 'swaylock -fuc 555555'
+
 # focus wrapping
 focus_wrapping force
 
