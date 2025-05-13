@@ -12,5 +12,3 @@ echo "${freq}"
 
 # short text
 echo "${freq}"
-
-# color
