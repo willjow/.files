@@ -1,2 +1,3 @@
+# DO NOT SYMLINK
 KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x10de", ATTRS{device}=="0x24b7", SYMLINK+="dri/by-name/nvidia"
 KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x9a60", SYMLINK+="dri/by-name/intel"
