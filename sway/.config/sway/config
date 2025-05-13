@@ -286,6 +286,43 @@ bar {
 }
 
 
+###############
+#    INPUT    #
+###############
+# mouse (general)
+input type:pointer accel_profile flat
+input type:pointer pointer_accel 0
+
+# touchpad
+#
+# Custom acceleration function generated with
+# `windows-acceleration-function.py`, linked at the bottom of the libinput
+# merge request:
+# https://gitlab.freedesktop.org/libinput/libinput/-/merge_requests/775
+#
+# "libinput Accel Custom Motion Points" 0.000, 0.079, 0.159, 0.274, 0.393, 0.512, 0.632, 0.804, 0.985, 1.167, 1.348, 1.529, 1.711, 1.892, 2.074, 2.255, 2.436, 2.618, 2.799, 2.981, 3.355
+# "libinput Accel Custom Motion Step" 0.2031610269
+set $touchpad 'type:touchpad'
+input $touchpad accel_profile adaptive
+input $touchpad pointer_accel 0
+input $touchpad scroll_factor 0.6
+input $touchpad scroll_method two_finger
+input $touchpad natural_scroll disabled
+input $touchpad tap disabled
+input $touchpad dwt enabled
+input $touchpad dwtp enabled
+
+# trackpoint
+set $trackpoint '2:10:TPPS/2_Elan_TrackPoint'
+input $trackpoint accel_profile flat
+input $trackpoint pointer_accel 0.6
+input $trackpoint scroll_factor 0.6
+
+# keyboard (thinkpad)
+set $keyboard '1:1:AT_Translated_Set_2_keyboard'
+input $keyboard xkb_options 'caps:capslock,altwin:prtsc_rwin'
+
+
 ########################
 #    LAUNCH DAEMONS    #
 ########################
