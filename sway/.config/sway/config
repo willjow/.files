@@ -86,9 +86,6 @@ bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle 
 bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ toggle
 # bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
 
-# caps lock wrapper for bar indicator
-bindsym --release Caps_Lock exec "~/.i3blocks/capslock"
-
 # brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl --exponent=3 set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl --exponent=3 set 5%-
