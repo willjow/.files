@@ -242,7 +242,7 @@ bindsym $mod+d exec --no-startup-id wmenu-run -i -f 'Terminus 12' -N '#000000' -
 # program binds
 bindsym $mod+t exec foot
 bindsym $mod+m exec foot cmus
-bindsym $mod+w exec qutebrowser --backend webengine
+bindsym $mod+w exec qutebrowser -s qt.force_software_rendering chromium,
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+$alt+w exec foot elinks
 bindsym $mod+b exec thunar
