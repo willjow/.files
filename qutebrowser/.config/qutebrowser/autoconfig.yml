@@ -266,8 +266,12 @@ settings:
     global: 13
   fonts.web.size.minimum:
     global: 0
+  hints.auto_follow:
+    global: full-match
   hints.border:
     global: '1px solid #bbcde7'
+  hints.mode:
+    global: number
   input.insert_mode.auto_leave:
     global: false
   input.insert_mode.auto_load:
