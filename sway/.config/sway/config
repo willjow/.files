@@ -32,14 +32,6 @@ default_floating_border pixel 1
 titlebar_border_thickness 0
 titlebar_padding 4 2
 
-# monitor workspaces
-workspace 11 output VGA-1
-workspace 14 output HDMI-1
-workspace 17 output DP-1
-
-# wallpaper
-output * bg ~/.desktop_backgrounds/tyranitar.png fill
-
 # focus/mouse
 focus_wrapping force
 focus_follows_mouse no
@@ -324,6 +316,19 @@ input $trackpoint scroll_factor 0.5
 # keyboard (thinkpad)
 set $keyboard '1:1:AT_Translated_Set_2_keyboard'
 input $keyboard xkb_options 'caps:capslock,altwin:prtsc_rwin'
+
+
+################
+#    OUTPUT    #
+################
+# monitor workspaces
+workspace 11 output HDMI-1
+workspace 16 output DP-1
+
+# all
+output * bg ~/.desktop_backgrounds/tyranitar.png fill
+output * max_render_time off
+output * allow_tearing yes
 
 
 ########################
