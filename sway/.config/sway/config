@@ -236,9 +236,7 @@ bindsym $mod+d exec --no-startup-id wmenu-run -i -f 'Terminus 12' -N '#000000' -
 bindsym $mod+t exec foot
 bindsym $mod+m exec foot cmus
 bindsym $mod+w exec qutebrowser
-bindsym $mod+Shift+w exec chromium
-bindsym $mod+Shift+$alt+w exec foot elinks
-bindsym $mod+b exec thunar
+bindsym $mod+Shift+w exec firefox
 
 # volume controls
 # use pactl to adjust volume in PulseAudio.
