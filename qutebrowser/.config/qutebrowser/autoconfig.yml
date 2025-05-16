@@ -196,6 +196,10 @@ settings:
     global: all
   content.geolocation:
     https://planner.bart.gov: false
+    https://usa.yamaha.com: false
+  content.headers.user_agent:
+    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
+      Chrome/135.0.0.0 Safari/537.36
   content.javascript.can_open_tabs_automatically:
     global: false
   content.javascript.clipboard:
@@ -266,8 +270,12 @@ settings:
     global: 13
   fonts.web.size.minimum:
     global: 0
+  hints.auto_follow:
+    global: full-match
   hints.border:
     global: '1px solid #bbcde7'
+  hints.mode:
+    global: number
   input.insert_mode.auto_leave:
     global: false
   input.insert_mode.auto_load:
