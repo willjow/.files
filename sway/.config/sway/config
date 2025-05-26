@@ -335,4 +335,4 @@ output * allow_tearing yes
 ########################
 # swayidle
 exec swayidle -w \
-  before-sleep 'swaylock -fuc 555555'
+  before-sleep 'swaylock -fuc 777777'
