@@ -336,3 +336,6 @@ output * allow_tearing yes
 # swayidle
 exec swayidle -w \
   before-sleep 'swaylock -fuc 777777'
+
+# wl-gammarelay-rs
+exec wl-gammarelay-rs run

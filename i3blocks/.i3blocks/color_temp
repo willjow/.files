@@ -1,0 +1,30 @@
+#!/bin/bash
+
+_refresh()
+{
+    pkill -RTMIN+35 i3blocks
+}
+
+_get_temp()
+{
+    busctl --user get-property rs.wl-gammarelay / rs.wl.gammarelay Temperature
+}
+
+_set_temp()
+{
+    busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q $1
+}
+
+
+_update_temp()
+{
+    busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n $1
+}
+
+case $BLOCK_BUTTON in
+  3) _set_temp 6500 && _refresh ;; # right click
+  4) _update_temp 200 && _refresh ;; # scroll up
+  5) _update_temp -200 && _refresh ;; # scroll down
+esac
+
+_get_temp | awk '{if (NF) printf "CT %dK\n", $2}'
