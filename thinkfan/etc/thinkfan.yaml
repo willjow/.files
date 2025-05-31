@@ -1,0 +1,113 @@
+##############################################################################
+# thinkfan Example Config File
+# ============================
+#
+# Please read the config manpage thinkfan.conf(5) before playing around with
+# this.
+#
+# This is NOT a working config file that can just be copied. It is only meant
+# to give a rough idea what can be done. In particular, don't copy & paste the
+# fan speed config! Think about what you're doing.
+#
+# If you don't know what temperatures are right for your system, you should
+# not be using thinkfan!
+##############################################################################
+
+
+##############################################################################
+# Sensor Drivers and Temperature Inputs
+# =====================================
+#
+# ATTENTION: The order in which sensors are specified here is significant when
+# specifying the fan speeds further below!
+
+sensors:
+  # hwmon: Base path with name-based search
+  # =======================================
+  # Thinkfan will search under the given path for a hwmon driver that has a
+  # file called "name" which contains the given name. This method should work
+  # with all hwmon drivers and is robust against driver load order.
+  - hwmon: /sys/class/hwmon
+    name: thinkpad
+    indices: [1]  # temp1_input: CPU
+
+  - hwmon: /sys/class/hwmon
+    name: thinkpad
+    indices: [2]  # temp2_input: GPU
+    optional: true  # don't exit if the sensor can't be read
+
+  # nvml: The proprietary nVidia driver
+  # ===================================
+  # Temperatures can be read directly from nVidia GPUs that run with the
+  # proprietary driver. The "nvml:" entry must specify the PCI bus ID of the
+  # GPU (can be found with lspci)
+  #
+  # Note that this does not work with the open-source "nouveau" driver. Open
+  # source drivers should support the hwmon interface instead (see above).
+  #
+  # (This seems to significantly increase CPU power usage.)
+  # - nvml: 01:00.0
+  #   optional: true
+
+##############################################################################
+
+
+##############################################################################
+# Fan Drivers
+# ===========
+#
+# Currently, thinkfan supports only one fan, but support for multiple fans is
+# in development and will be released soon. For the time being, the examples
+# given below are mutually exclusive.
+#
+fans:
+  # hwmon: Base path with name-based search
+  # =======================================
+  - hwmon: /sys/class/hwmon
+    name: thinkpad
+    indices: [1]
+
+##############################################################################
+
+
+##############################################################################
+# Fan Speeds (detailed mode)
+# ==========================
+#
+# It is generally advisable to configure the temperature limits for each
+# sensor individually.
+#
+# The speed values used here range from 0 to 255, which is valid for the PWM
+# control files used by hwmon-based drivers.
+#
+# The temperatures specified in upper_limit and lower_limit apply to the
+# sensors in the same order in which they were specified in the "sensors:"
+# section above, and their length must match the total number of sensors that
+# have been configured.
+#
+levels:
+  - speed: 0
+    upper_limit: [55, 55]
+
+  - speed: 50
+    lower_limit: [50, 50]
+    upper_limit: [60, 60]
+
+  - speed: 100
+    lower_limit: [55, 55]
+    upper_limit: [65, 65]
+
+  - speed: 150
+    lower_limit: [60, 60]
+    upper_limit: [70, 70]
+
+  - speed: 200
+    lower_limit: [65, 65]
+    upper_limit: [75, 75]
+
+  - speed: 255
+    lower_limit: [70, 70]
+
+##############################################################################
+
+
