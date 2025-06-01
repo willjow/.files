@@ -262,10 +262,11 @@ bar {
         position top
         height 18
         gaps 0
+        separator_symbol "<-"
         colors {
             background #000000
             statusline #dedede
-            separator #666666
+            separator #777777
 
             # <colorclass> <border> <background> <text>
             focused_workspace  #5f87d7 #5f87d7 #000000

@@ -11,4 +11,4 @@ nvidia_smi=$(nvidia-smi)
 power=$(rg '(\d+)W\s*\/\s*(\d+)W' -or '$1' <<< "${nvidia_smi}")
 temperature=$(rg '(\d+)C' -or '$1' <<< "${nvidia_smi}")
 
-printf "GPU %dW  %d°C\n" $power $temperature
+printf "GPU %dW %d°C\n" $power $temperature
