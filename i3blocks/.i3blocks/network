@@ -43,14 +43,12 @@ fi
 # color
 if [[ $ipaddr == "" ]]; then
     color="#FF0000"
-elif [[ $quality -ge 85 ]]; then
+elif [[ $quality -ge 80 ]]; then
     color="#00FF00"
-elif [[ $quality -lt 85 ]]; then
+elif [[ $quality -ge 40 ]]; then
     color=""
-elif [[ $quality -lt 50 ]]; then
+else
     color="#FFFF00"
-elif [[ $quality -lt 30 ]]; then
-    color="#FF5F00"
 fi
 
 # output
