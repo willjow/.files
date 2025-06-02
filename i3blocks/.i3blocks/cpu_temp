@@ -16,12 +16,14 @@ if [ "${temperature}" -ge "${t_crit}" ]; then
     color="#FF0000"
 elif [ "${temperature}" -ge "${t_warn}" ]; then
     color="#FFFF00"
+else
+    color=""
 fi
 
 # Output
 cat << EOF
 {
     "full_text": "${temperature}°C",
-    "color": "${color:-}"
+    "color": "${color}"
 }
 EOF

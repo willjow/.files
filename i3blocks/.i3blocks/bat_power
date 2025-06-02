@@ -15,6 +15,7 @@ if [ -z "${watts}" ]; then
 fi
 
 # color
+color=""
 if [ "${charge_status}" = "Charging" ]; then
   color="#FF00FF"
 elif [ "${charge_status}" = "Discharging" ]; then
@@ -27,6 +28,6 @@ fi
 cat << EOF
 {
     "full_text": "${watts}W",
-    "color": "${color:-}"
+    "color": "${color}"
 }
 EOF

@@ -19,12 +19,14 @@ if [[ ${watts} -ge 15 ]]; then
     color="#FFFF00"
 elif [[ ${watts} -ge 30 ]]; then
     color="#FF0000"
+else
+    color=""
 fi
 
 # output
 cat << EOF
 {
     "full_text": "CPU ${watts}W"
-    "color": "${color:-}"
+    "color": "${color}"
 }
 EOF

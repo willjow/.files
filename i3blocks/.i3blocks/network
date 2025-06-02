@@ -53,6 +53,6 @@ fi
 cat << EOF
 {
     "full_text": "${text}",
-    "color": "${color:-}"
+    "color": "${color}"
 }
 EOF

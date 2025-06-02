@@ -7,12 +7,14 @@ label=$([ "${muted}" ] && echo "MUTE" || echo "VOL")
 # color
 if [ -n "${muted}" ]; then
     color="#FFFF00"
+else
+    color=""
 fi
 
 # output
 cat << EOF
 {
     "full_text": "${label} ${percent}%",
-    "color": "${color:-}"
+    "color": "${color}"
 }
 EOF
