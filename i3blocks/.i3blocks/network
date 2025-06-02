@@ -6,46 +6,44 @@
 # @param {String} interface: The network interface to check
 
 interface="${BLOCK_INSTANCE:-"eth0"}"
-netPath=/sys/class/net
-interfacePath=`echo $netPath/$interface`
+net_path=/sys/class/net
+interface_path=$(echo ${net_path}/${interface})
 # Expand wildcard interfaces
-interface=${interfacePath#$netPath/}
+interface=${interface_path#${net_path}/}
 
-state="$(cat $interfacePath/operstate)"
+state="$(cat ${interface_path}/operstate)"
 
-if [[ $state != "up" ]]; then
-    # if the interface is downright down (haha), it shouldn't be displayed
+if [[ ${state} != "up" ]]; then
     exit 0
 fi
 
-ipaddr="$(ip addr show $interface | perl -n -e'/inet (.+)\// && print $1')"
+ipaddr=$(ip addr show wlan0 | awk 'match($0, "inet (.+)/", groups) {print groups[1]}')
 
-if [[ $BLOCK_INSTANCE == wlan* ]]; then
-    quality=$(grep $interface /proc/net/wireless | awk '{print int($3 * 100 / 70)}')
-    qualityfull="$quality% at $(iw $interface link | grep SSID | cut -d " " -f 2-)"
-    speed=$(iw wlan0 link \
-            | grep bitrate \
-            | sed -E -e '1s/(.+) MBit/\1↓ /1' -e '2s/(.+) MBit/\1↑ /1' \
-            | cut -d " " -f 3 \
-            | paste -sd " " \
-          )
-elif [[ $BLOCK_INSTANCE == enp* ]]; then
-    quality="100"
-    speed=$(cat $interfacePath/speed)
-fi
-
-if [[ $ipaddr == "" ]]; then
-    output="no IP (${qualityfull})"
+if [[ ${BLOCK_INSTANCE} == "wlan*" ]]; then
+    quality=$(grep ${interface} /proc/net/wireless | awk '{print int($3 * 100 / 70)}')
+    ssid="$(iw ${interface} link | grep SSID | cut -d ' ' -f 2)"
+    IFS=' ' read -r down up <<< $(\
+        iw ${interface} link \
+        | grep bitrate \
+        | cut -d " " -f 3 \
+        | paste -sd " " \
+    )
+    speed=$(printf "%d↓ %d↑" "${down}" "${up}")
+    text="${quality}% ${speed} Mb/s (${ssid})"
+elif [[ ${BLOCK_INSTANCE} == "enp*" ]]; then
+    quality=100
+    speed=$(cat ${interface_path}/speed)
+    text="${speed} Mb/s"
 else
-    output="${qualityfull} ${speed} Mb/s"
+    exit 0
 fi
 
 # color
-if [[ $ipaddr == "" ]]; then
+if [[ -z "${ipaddr}" ]]; then
     color="#FF0000"
-elif [[ $quality -ge 80 ]]; then
+elif [[ ${quality} -ge 80 ]]; then
     color="#00FF00"
-elif [[ $quality -ge 40 ]]; then
+elif [[ ${quality} -ge 40 ]]; then
     color=""
 else
     color="#FFFF00"
@@ -54,7 +52,7 @@ fi
 # output
 cat << EOF
 {
-    "full_text": "${output}",
+    "full_text": "${text}",
     "color": "${color:-}"
 }
 EOF
