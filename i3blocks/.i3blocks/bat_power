@@ -21,14 +21,12 @@ elif [ "${charge_status}" = "Discharging" ]; then
   if [ ${watts_int} -ge ${threshold} ]; then
     color="#FFFF00"
   fi
-else
-  color=""
 fi
 
 # output
 cat << EOF
 {
     "full_text": "${watts}W",
-    "color": "${color}"
+    "color": "${color:-}"
 }
 EOF
