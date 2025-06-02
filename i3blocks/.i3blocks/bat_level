@@ -24,9 +24,9 @@ if [ "${charge_status}" = "Discharging" ]; then
     color="#00FF00"
   elif [ ${percent} -ge 40 ]; then
     color=""
-  elif [ ${percent} -ge 20 ]; then
+  elif [ ${percent} -ge 30 ]; then
     color="#FFFF00"
-  elif [ ${percent} -ge 10 ]; then
+  elif [ ${percent} -ge 20 ]; then
     color="#FF0000"
   else
     critical=true
