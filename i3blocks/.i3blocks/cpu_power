@@ -8,7 +8,7 @@ echo ${cur_uj} > ${prev_uj_file}
 time_diff=$1
 precision=2
 watts_bc=$(bc <<< "scale=${precision}; (${cur_uj}-${prev_uj})/(${time_diff}*1000000)")
-watts=$(printf "%.2f" "${watts_bc}")
+watts=$(printf "%#.2g" "${watts_bc}" | sed -e 's/\.$//')
 
 if [ -z "${watts}" ]; then
   exit 0
