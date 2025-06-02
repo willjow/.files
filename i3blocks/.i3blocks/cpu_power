@@ -6,18 +6,23 @@ prev_uj=$(cat ${prev_uj_file})
 echo ${cur_uj} > ${prev_uj_file}
 
 time_diff=$1
-precision=2
-watts_bc=$(bc <<< "scale=${precision}; (${cur_uj}-${prev_uj})/(${time_diff}*1000000)")
-watts=$(printf "%#.2g" "${watts_bc}" | sed -e 's/\.$//')
+watts_raw=$(bc <<< "scale=2; (${cur_uj}-${prev_uj})/(${time_diff}*1000000)")
+watts_int=$(printf "%.0f" ${watts_raw})
 
-if [ -z "${watts}" ]; then
+if [ -z "${watts_raw}" ]; then
   exit 0
 fi
 
+if [[ ${watts_int} -lt 10 ]]; then
+    watts=$(printf "%.2f" "${watts_raw}")
+else
+    watts=$(printf "%.1f" "${watts_raw}")
+fi
+
 # color
-if [[ ${watts} -ge 15 ]]; then
+if [[ ${watts_int} -ge 15 ]]; then
     color="#FFFF00"
-elif [[ ${watts} -ge 30 ]]; then
+elif [[ ${watts_int} -ge 30 ]]; then
     color="#FF0000"
 else
     color=""
