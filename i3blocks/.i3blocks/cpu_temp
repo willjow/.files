@@ -29,6 +29,7 @@ my $t_warn = 60;
 my $t_crit = 75;
 my $chip = "";
 my $temperature = -9999;
+my $color = "";
 
 sub help {
     print "Usage: temperature [-w <warning>] [-c <critical>] [--chip <chip>]\n";
@@ -55,15 +56,21 @@ close(SENSORS);
 
 $temperature eq -9999 and die 'Cannot find temperature';
 
-# Print short_text, full_text
-print "$temperature°C\n" x2;
-
-# Print color, if needed
+# Color
 if ($temperature >= $t_crit) {
-    print "#FF0000\n";
-    # exit 33 for red lines above and below
+    $color = "#FF0000";
 } elsif ($temperature >= $t_warn) {
-    print "#FFFF00\n";
+    $color = "#FFFF00";
 }
+
+# Output
+my $output = <<EOF;
+{
+    "full_text": "$temperature°C",
+    "color": "$color"
+}
+EOF
+
+print $output;
 
 exit 0;

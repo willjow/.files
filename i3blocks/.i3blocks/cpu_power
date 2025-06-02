@@ -14,8 +14,9 @@ if [ -z "${watts}" ]; then
   exit 0
 fi
 
-# full text
-echo "${watts}W"
-
-# short text
-echo "${watts}W"
+# output
+cat << EOF
+{
+    "full_text": "CPU ${watts}W"
+}
+EOF

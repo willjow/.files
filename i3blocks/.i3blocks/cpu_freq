@@ -7,8 +7,9 @@ if [ -z "${freq}" ]; then
   exit 0
 fi
 
-# full text
-echo "${freq}"
-
-# short text
-echo "${freq}"
+# output
+cat << EOF
+{
+    "full_text": "${freq}"
+}
+EOF

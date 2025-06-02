@@ -14,17 +14,21 @@ if [ -z "${watts}" ]; then
   exit 1
 fi
 
-# full text
-echo "${watts}W"
-
-# short text
-echo "${watts}W"
-
 # color
 if [ "${charge_status}" = "Charging" ]; then
-  echo "#FF00FF"
+  color="#FF00FF"
 elif [ "${charge_status}" = "Discharging" ]; then
   if [ ${watts_int} -ge ${threshold} ]; then
-    echo "#FFFF00"
+    color="#FFFF00"
   fi
+else
+  color=""
 fi
+
+# output
+cat << EOF
+{
+    "full_text": "${watts}W",
+    "color": "${color}"
+}
+EOF

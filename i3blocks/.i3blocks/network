@@ -5,10 +5,6 @@
 #
 # @param {String} interface: The network interface to check
 
-full=""
-short=""
-color=""
-
 interface="${BLOCK_INSTANCE:-"eth0"}"
 netPath=/sys/class/net
 interfacePath=`echo $netPath/$interface`
@@ -30,19 +26,19 @@ if [[ $BLOCK_INSTANCE == wlan* ]]; then
     speed=$(iw wlan0 link \
             | grep bitrate \
             | sed -E -e '1s/(.+) MBit/\1↓ /1' -e '2s/(.+) MBit/\1↑ /1' \
-            | cut -d " " -f 3)
+            | cut -d " " -f 3 \
+            | paste -sd " " \
+          )
 elif [[ $BLOCK_INSTANCE == enp* ]]; then
     quality="100"
     speed=$(cat $interfacePath/speed)
 fi
 
 if [[ $ipaddr == "" ]]; then
-    full="no IP (${qualityfull})"
+    output="no IP (${qualityfull})"
 else
-    full="${qualityfull} ${speed} Mb/s"
+    output="${qualityfull} ${speed} Mb/s"
 fi
-
-short=$full
 
 # color
 if [[ $ipaddr == "" ]]; then
@@ -57,8 +53,10 @@ elif [[ $quality -lt 30 ]]; then
     color="#FF5F00"
 fi
 
-echo $full
-echo $short
-if [[ $color != "" ]]; then
-  echo $color
-fi
+# output
+cat << EOF
+{
+    "full_text": "${output}",
+    "color": "${color:-}"
+}
+EOF

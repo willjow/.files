@@ -37,21 +37,22 @@ awk -v type=$TYPE -v low_thresh=$LOW_THRESH '
 	swap_free=$2
 }
 END {
-  # label
-  printf("RAM ")
-
-	# full text / short text
+    # usage
 	if (type == "swap") {
-		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
-		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
+		usage=sprintf("%.1fG", (swap_total-swap_free)/1024/1024)
     } else {
-		printf("%.1fG\n", mem_free/1024/1024)
-		printf("%.1fG\n", mem_free/1024/1024)
+		usage=sprintf("%.1fG", mem_free/1024/1024)
     }
 
 	# color (if less than LOW_THRESH %)
     if (mem_free/mem_total * 100 < low_thresh) {
-        print("#FFFF00")
+        color="#FFFF00"
     }
+
+    # output
+    print("{")
+    printf("    \"full_text\": \"RAM %s\",\n", usage)
+    printf("    \"color\": \"%s\"\n", color)
+    print("}")
 }
 ' /proc/meminfo

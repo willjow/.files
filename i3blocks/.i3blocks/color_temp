@@ -27,4 +27,15 @@ case $BLOCK_BUTTON in
   5) _update_temp -200 && _refresh ;; # scroll down
 esac
 
-_get_temp | awk '{if (NF) printf "CT %dK\n", $2}'
+temp=$(_get_temp | cut -d ' ' -f 2)
+
+if [ -z "${temp}" ]; then
+    exit 0;
+fi
+
+# output
+cat << EOF
+{
+    "full_text": "CT ${temp}"
+}
+EOF
