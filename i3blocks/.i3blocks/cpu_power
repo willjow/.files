@@ -15,9 +15,9 @@ if [ -z "${watts}" ]; then
 fi
 
 # color
-if [[ $watts -ge 15 ]]; then
+if [[ ${watts} -ge 15 ]]; then
     color="#FFFF00"
-elif [[ $watts -ge 30 ]]; then
+elif [[ ${watts} -ge 30 ]]; then
     color="#FF0000"
 fi
 
