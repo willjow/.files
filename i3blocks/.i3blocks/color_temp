@@ -36,6 +36,6 @@ fi
 # output
 cat << EOF
 {
-    "full_text": "CT ${temp}"
+    "full_text": "CT ${temp}K"
 }
 EOF
