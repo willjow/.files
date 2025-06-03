@@ -17,41 +17,53 @@
 TYPE="${BLOCK_INSTANCE:-mem}"
 LOW_THRESH="${1:-25}" # color will turn yellow under this threshold (default: 25%)
 
-awk -v type=$TYPE -v low_thresh=$LOW_THRESH '
-/^MemTotal:/ {
-	mem_total=$2
-}
-/^MemFree:/ {
-	mem_free=$2
-}
-/^Buffers:/ {
-	mem_free+=$2
-}
-/^Cached:/ {
-	mem_free+=$2
-}
-/^SwapTotal:/ {
-	swap_total=$2
-}
-/^SwapFree:/ {
-	swap_free=$2
-}
-END {
-  # label
-  printf("RAM ")
-
-	# full text / short text
-	if (type == "swap") {
-		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
-		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
-    } else {
-		printf("%.1fG\n", mem_free/1024/1024)
-		printf("%.1fG\n", mem_free/1024/1024)
+IFS=' ' read -r usage color <<< $(awk -v type=$TYPE -v low_thresh=$LOW_THRESH '
+    /^MemTotal:/ {
+        mem_total=$2
     }
-
-	# color (if less than LOW_THRESH %)
-    if (mem_free/mem_total * 100 < low_thresh) {
-        print("#FFFF00")
+    /^MemFree:/ {
+        mem_free=$2
     }
+    /^Buffers:/ {
+        mem_free+=$2
+    }
+    /^Cached:/ {
+        mem_free+=$2
+    }
+    /^SwapTotal:/ {
+        swap_total=$2
+    }
+    /^SwapFree:/ {
+        swap_free=$2
+    }
+    END {
+        # usage
+        if (type == "swap") {
+            usage=sprintf("%.1fG", (swap_total-swap_free)/1024/1024)
+        } else {
+            usage=sprintf("%.1fG", mem_free/1024/1024)
+        }
+
+        # color (if less than LOW_THRESH %)
+        if (mem_free/mem_total * 100 < low_thresh) {
+            color="#FFFF00"
+        } else {
+            color=""
+        }
+
+        printf("%s %s", usage, color)
+    }
+    ' /proc/meminfo
+)
+
+if [ -z "${usage}" ]; then
+    exit 0
+fi
+
+# output
+cat << EOF
+{
+    "full_text": "RAM ${usage}",
+    "color": "${color}"
 }
-' /proc/meminfo
+EOF

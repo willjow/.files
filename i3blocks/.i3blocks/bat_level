@@ -11,12 +11,11 @@ percent=$(bc <<< "${energy_now} * 100 / ${energy_full}")
 voltage_now=$(cat /sys/class/power_supply/BAT${bat}/voltage_now)
 voltage_avg=$(bc <<< "scale=2; ${voltage_now} / 3000000")
 
-color=""
-critical=""
-
 if [ -z "${percent}" ]; then
   exit 1
 fi
+
+critical=false
 
 if [ "${charge_status}" = "Discharging" ]; then
   bat_level="BATT ${percent}% ${voltage_avg}V"
@@ -27,12 +26,13 @@ if [ "${charge_status}" = "Discharging" ]; then
     color="#00FF00"
   elif [ ${percent} -ge 40 ]; then
     color=""
-  elif [ ${percent} -ge 20 ]; then
+  elif [ ${percent} -ge 30 ]; then
     color="#FFFF00"
-  elif [ ${percent} -ge 10 ]; then
+  elif [ ${percent} -ge 20 ]; then
     color="#FF0000"
   else
-    critical=1
+    color=""
+    critical=true
   fi
 elif [ "${charge_status}" = "Charging" ]; then
   bat_level="CHRG ${percent}% ${voltage_avg}V"
@@ -43,18 +43,18 @@ elif [ "${charge_status}" = "Charging" ]; then
     color="#4AA5FF"
   elif [ ${percent} -ge 40 ]; then
     color="#00FF00"
+  else
+    color=""
   fi
 else
   bat_level="HOLD ${percent}% ${voltage_avg}V"
 fi
 
-echo "${bat_level}"
-echo "${bat_level}"
-
-if [ -n "${color}" ]; then
-  echo "${color}"
-fi
-
-if [ -n "${critical}" ]; then
-  exit 33
-fi
+# output
+cat << EOF
+{
+    "full_text": "${bat_level}",
+    "color": "${color}",
+    "urgent": ${critical}
+}
+EOF

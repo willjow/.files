@@ -1,0 +1,29 @@
+#!/bin/bash
+
+chip=${1:-thinkad-isa-0000}
+t_warn=${2:-60}
+t_crit=${3:-75}
+
+# Get chip temperature
+temperature=$(sensors -u "${chip}" 2>/dev/null | awk '/temp1_input/ {printf("%d", $2)}')
+
+if [ -z "${temperature}" ]; then
+    exit 0
+fi
+
+# Color
+if [ "${temperature}" -ge "${t_crit}" ]; then
+    color="#FF0000"
+elif [ "${temperature}" -ge "${t_warn}" ]; then
+    color="#FFFF00"
+else
+    color=""
+fi
+
+# Output
+cat << EOF
+{
+    "full_text": "${temperature}°C",
+    "color": "${color}"
+}
+EOF
