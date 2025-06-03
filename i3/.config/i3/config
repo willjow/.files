@@ -87,7 +87,7 @@ bindsym $mod+g exec dolphin-emu
 bindsym $mod+b exec thunar
 
 # start unclutter
-exec --no-startup-id unclutter --timeout 1 --jitter 15 --start-hidden --fork
+exec --no-startup-id unclutter --no-timeout --hide-on-key-press --jitter 15 --start-hidden --fork
 
 # kill focused window
 bindsym $mod+Shift+d kill
