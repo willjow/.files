@@ -274,7 +274,7 @@ bar {
         height 18
         colors {
             background #000000
-            statusline #dedede
+            statusline #a9a9a9
             separator #666666
 
             # <colorclass> <border> <background> <text>
