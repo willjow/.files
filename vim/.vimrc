@@ -404,8 +404,15 @@ let g:fzf_vim.listproc = { list -> fzf#vim#listproc#location(list) }
 
 " lsp
 " ---
-source ~/.vim/config/lspservers.vim
-" autocmd User LspSetup call LspAddServer(g:lspServers)
+let g:lspServers = []
+
+source ~/.vim/lsp_servers/lsp_c.vim
+source ~/.vim/lsp_servers/lsp_java.vim
+source ~/.vim/lsp_servers/lsp_javascript.vim
+source ~/.vim/lsp_servers/lsp_python.vim
+source ~/.vim/lsp_servers/lsp_rust.vim
+
+autocmd User LspSetup call LspAddServer(g:lspServers)
 
 let g:lspOpts = #{
     \   autoComplete: v:true,
