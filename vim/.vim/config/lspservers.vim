@@ -26,71 +26,37 @@ let g:lspServers = [
     \       typescript: #{
     \         format: #{
     \           indentSize: 4,
-    \         }
+    \         },
     \       },
     \       javascript: #{
     \         format: #{
     \           indentSize: 4,
-    \         }
+    \         },
     \       },
     \     },
     \   },
     \   #{
-    \     name: 'python-lsp-server',
+    \     name: 'basedpyright',
     \     filetype: ['python'],
-    \     path: 'pylsp',
-    \     args: [],
+    \     path: 'basedpyright-langserver',
+    \     args: ['--stdio'],
+    \     features: #{
+    \       codeAction: v:false,
+    \       documentFormatting: v:false,
+    \     },
     \     workspaceConfig: #{
-    \       pylsp: #{
-    \         configurationSources: ['pycodestyle'],
-    \         plugins: #{
-    \           autopeop8: #{
-    \             enabled: v:false,
-    \           },
-    \           black: #{
-    \             enabled: v:false,
-    \             line_length: 79,
-    \           },
-    \           flake8: #{
-    \             enabled: v:false,
-    \           },
-    \           isort: #{
-    \             enabled: v:false,
-    \             profile: 'black',
-    \             line_length: 79,
-    \           },
-    \           mccabe: #{
-    \             enabled: v:false,
-    \           },
-    \           pylsp_mypy: #{
-    \             enabled: v:false,
-    \             dmypy: v:true,
-    \             live_mode: v:false,
-    \           },
-    \           pycodestyle: #{
-    \             enabled: v:false,
-    \             maxLineLength: 79,
-    \           },
-    \           pydocstyle: #{
-    \             enabled: v:false,
-    \           },
-    \           pyflakes: #{
-    \             enabled: v:false,
-    \           },
-    \           pylint: #{
-    \             enabled: v:false,
-    \           },
-    \           ruff: #{
-    \             enabled: v:true,
-    \             formatEnabled: v:true,
-    \             format: ['ALL'],
-    \             extendSelect: ['ALL'],
-    \             lineLength: 79,
-    \           },
-    \           yapf: #{
-    \             enabled: v:false,
-    \           },
-    \         },
+    \       disableOrganizeImports: v:true,
+    \     },
+    \   },
+    \   #{
+    \     name: 'ruff',
+    \     filetype: ['python'],
+    \     path: 'ruff',
+    \     args: ['server'],
+    \     workspaceConfig: #{
+    \       lineLength: 79,
+    \       lint: #{
+    \         extendSelect: ['ALL'],
     \       },
     \     },
     \   },
