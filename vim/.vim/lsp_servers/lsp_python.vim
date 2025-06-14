@@ -9,7 +9,9 @@ let g:lspServers += [
     \       documentFormatting: v:false,
     \     },
     \     workspaceConfig: #{
-    \       disableOrganizeImports: v:true,
+    \       basedpyright: #{
+    \         disableOrganizeImports: v:true,
+    \       },
     \     },
     \   },
     \   #{
@@ -17,10 +19,16 @@ let g:lspServers += [
     \     filetype: ['python'],
     \     path: 'ruff',
     \     args: ['server'],
-    \     workspaceConfig: #{
-    \       lineLength: 79,
-    \       lint: #{
-    \         extendSelect: ['ALL'],
+    \     initializationOptions: #{
+    \       settings: #{
+    \         configuration: #{
+    \           line-length: 79,
+    \           lint: #{
+    \             select: ['ALL'],
+    \           },
+    \         },
+    \         configurationPreference: "filesystemFirst",
+    \         showSyntaxErrors: v:false,
     \       },
     \     },
     \   },
