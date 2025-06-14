@@ -239,8 +239,8 @@ noremap Q J
 
 " Macro over visual selection
 function! ExecuteMacroOverVisualRange()
-  echo "@"
-  execute ":'<,'>normal @".nr2char(getchar())
+  echo '@'
+  execute ':''<,''>normal @'.nr2char(getchar())
 endfunction
 
 vnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -256,7 +256,7 @@ if !exists('g:ptab')
 endif
 autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
-nnoremap gT :exe "tabn " . g:ptab<CR>
+nnoremap gT :exe 'tabn ' . g:ptab<CR>
 nnoremap <C-n> :tabnew.<CR>
 nnoremap gf :tablast<CR>
 nnoremap gF :tabfirst<CR>
@@ -274,23 +274,23 @@ command! LocListToQuickFix call setqflist(getloclist(0))
 
 function! RemoveLineFromQuickFix(line)
   let l:line = a:line - 1
-  call setqflist(filter(getqflist(), "v:key['lnum'] != l:line"))
+  call setqflist(filter(getqflist(), 'v:key[''lnum''] != l:line'))
 endfunction
 
 function! RemoveLineFromLocList(line)
   let l:line = a:line - 1
-  call setloclist(0, filter(getloclist(0), "v:key['lnum'] != l:line"))
+  call setloclist(0, filter(getloclist(0), 'v:key[''lnum''] != l:line'))
 endfunction
 
 nnoremap <leader>ql :QuickFixToLocList<CR> :cclose<CR> :lopen<CR>
 
 nnoremap <leader>cc :.cc<CR>
-nnoremap <leader>cr :call RemoveLineFromQuickFix(line("."))<CR>
+nnoremap <leader>cr :call RemoveLineFromQuickFix(line('.'))<CR>
 nnoremap <leader>cn :cnext<CR>
 nnoremap <leader>cp :cprevious<CR>
 
 nnoremap <leader>ll :.ll<CR>
-nnoremap <leader>lr :call RemoveLineFromLocList(line("."))<CR>
+nnoremap <leader>lr :call RemoveLineFromLocList(line('.'))<CR>
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lp :lprevious<CR>
 
@@ -311,25 +311,25 @@ set timeoutlen=250
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
-inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == '}' ? "\<Right>" : '}'
 
 inoremap (      ()<Left>
 inoremap (<CR>  (<CR>)<Esc>O
 inoremap ((     (
-inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ')' ? "\<Right>" : ')'
 
 inoremap [      []<Left>
 inoremap [<CR>  [<CR>]<Esc>O
 inoremap [[     [
-inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == ']' ? "\<Right>" : ']'
 
 inoremap "<CR>  "<CR>"<Esc>O
 inoremap ""     "
-inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
+inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == '"' ? "\<Right>" : "\"\"\<Left>"
 
 inoremap '<CR>  '<CR>'<Esc>O
 inoremap ''     '
-inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "'" ? "\<Right>" : "''\<Left>"
 
 
 """""""""""
@@ -364,7 +364,7 @@ call plug#end()
 " ---
 function! CD(...)
   call fzf#run(fzf#wrap({
-    \'source': 'command fd --type d --hidden --follow --exclude ".git" . '.(a:0 == 0 ? getcwd() : a:1),
+    \'source': 'command fd --type d --hidden --follow --exclude ''.git'' . '.(a:0 == 0 ? getcwd() : a:1),
     \'sink': 'cd'
   \}))
 endfunction
@@ -479,10 +479,10 @@ let g:tex_conceal = 'abdmg'
 " ultisnips
 " ---------
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/ultisnippets/']
-let g:UltiSnipsListSnippets = "<C-u>"
-let g:UltiSnipsExpandTrigger = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
+let g:UltiSnipsListSnippets = '<C-u>'
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-h>'
 nnoremap <leader>ur :call UltiSnips#RefreshSnippets()<CR>
 
 
