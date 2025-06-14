@@ -414,25 +414,25 @@ source ~/.vim/lsp_servers/lsp_rust.vim
 
 autocmd User LspSetup call LspAddServer(g:lspServers)
 
-let g:lspOpts = #{
-    \   autoComplete: v:true,
-    \   autoHighlight: v:false,
-    \   autoHighlightDiags: v:false,
-    \   autoPopulateDiags: v:false,
-    \   diagVirtualTextAlign: 'below',
-    \   echoSignature: v:false,
-    \   highlightDiagInline: v:false,
-    \   hoverInPreview: v:false,
-    \   showDiagInPopup: v:true,
-    \   showDiagOnStatusLine: v:false,
-    \   showDiagWithSign: v:true,
-    \   showDiagWithVirtualText: v:true,
-    \   showInlayHints: v:false,
-    \   showSignature: v:true,
-    \   ultisnipsSupport: v:true,
-    \   useBufferCompletion: v:true,
-    \   usePopupInCodeAction: v:true,
-    \   useQuickfixForLocations: v:false,
+let g:lspOpts = {
+    \   'autoComplete': v:true,
+    \   'autoHighlight': v:false,
+    \   'autoHighlightDiags': v:false,
+    \   'autoPopulateDiags': v:false,
+    \   'diagVirtualTextAlign': 'below',
+    \   'echoSignature': v:false,
+    \   'highlightDiagInline': v:false,
+    \   'hoverInPreview': v:false,
+    \   'showDiagInPopup': v:true,
+    \   'showDiagOnStatusLine': v:false,
+    \   'showDiagWithSign': v:true,
+    \   'showDiagWithVirtualText': v:true,
+    \   'showInlayHints': v:false,
+    \   'showSignature': v:true,
+    \   'ultisnipsSupport': v:true,
+    \   'useBufferCompletion': v:true,
+    \   'usePopupInCodeAction': v:true,
+    \   'useQuickfixForLocations': v:false,
     \ }
 autocmd User LspSetup call LspOptionsSet(g:lspOpts)
 
@@ -496,18 +496,18 @@ let g:vimtex_matchparen_enabled = 1
 let g:matchup_override_vimtex = 1
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_offscreen = {}
-let g:vimtex_syntax_conceal = #{
-    \   accents: 1,
-    \   ligatures: 1,
-    \   cites: 1,
-    \   fancy: 1,
-    \   spacing: 1,
-    \   greek: 1,
-    \   math_bounds: 1,
-    \   math_delimiters: 1,
-    \   math_fracs: 1,
-    \   math_super_sub: 0,
-    \   math_symbols: 1,
-    \   sections: 0,
-    \   styles: 1,
+let g:vimtex_syntax_conceal = {
+    \   'accents': 1,
+    \   'ligatures': 1,
+    \   'cites': 1,
+    \   'fancy': 1,
+    \   'spacing': 1,
+    \   'greek': 1,
+    \   'math_bounds': 1,
+    \   'math_delimiters': 1,
+    \   'math_fracs': 1,
+    \   'math_super_sub': 0,
+    \   'math_symbols': 1,
+    \   'sections': 0,
+    \   'styles': 1,
     \ }
