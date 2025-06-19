@@ -451,8 +451,10 @@ nnoremap <leader>rf :LspShowReferences<CR>
 function! ToggleLspDiagHighlight()
   if LspOptionsGet()['autoHighlightDiags']
     LspDiag highlight disable
+    echo 'LspDiag highlight disable'
   else
     LspDiag highlight enable
+    echo 'LspDiag highlight enable'
   endif
 endfunction!
 
