@@ -40,6 +40,8 @@ alias plugdp='xrandr --output DP-1 --right-of eDP-1 --mode 1920x1080 --rate 165 
 alias switchhdmi='xrandr --output eDP-1 --off && xrandr --output HDMI-1 --mode 1920x1080 --rate 60 && xset s off -dpms && . ~/.fehbg'
 alias switchdp='xrandr --output eDP-1 --off && xrandr --output DP-1 --mode 1920x1080 --rate 165 && xset s off -dpms && . ~/.fehbg'
 alias unplug='xrandr --output VGA-1 --off; xrandr --output DP-1 --off; xrandr --output HDMI-1 --off; xrandr --output eDP-1 --auto; . ~/.fehbg'
+alias rotatel='xrandr --output eDP-1 --rotate left --auto && . ~/.fehbg'
+alias rotaten='xrandr --output eDP-1 --rotate normal --auto && . ~/.fehbg'
 alias ntetris='~/school/compsci/misc/dank-nooodls-vitetris/tetris'
 alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
 alias swe5='feh --zoom 33 ~/misc/bikes/swe5.jpg & disown'
