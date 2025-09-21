@@ -199,8 +199,8 @@ settings:
     https://planner.bart.gov: false
     https://usa.yamaha.com: false
   content.headers.user_agent:
-    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
-      Chrome/137.0.0.0 Safari/537.36
+    global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
+      {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}
   content.javascript.can_open_tabs_automatically:
     global: false
   content.javascript.clipboard:
