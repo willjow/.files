@@ -338,7 +338,7 @@ output * adaptive_sync on
 ########################
 # swayidle
 exec swayidle -w \
-  before-sleep 'swaylock -fuc 777777'
+  before-sleep 'waylock -fork-on-lock -ignore-empty-password'
 
 # wl-gammarelay-rs
 exec wl-gammarelay-rs run
