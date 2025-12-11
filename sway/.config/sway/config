@@ -229,8 +229,9 @@ bindsym $mod+r mode "resize"
 ########################
 #    MISC KEY BINDS    #
 ########################
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id wmenu-run -i -f 'Terminus 12' -N '#000000' -S '#5f87d7' -s '#000000'
+# start menu/program launcher
+bindsym $mod+d exec --no-startup-id BEMENU_SCALE=1 \
+        bemenu-run -i -p '>' --fn 'Terminus 24' -H 36 --hp 12 --tf '#5f87d7' --hf '#5f87d7'
 
 # program binds
 bindsym $mod+t exec foot
