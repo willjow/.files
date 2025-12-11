@@ -263,7 +263,7 @@ bar {
         position top
         height 18
         gaps 0
-        separator_symbol "<-"
+        separator_symbol "|"
         colors {
             background #000000
             statusline #dedede
