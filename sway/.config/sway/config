@@ -336,9 +336,6 @@ output * adaptive_sync on
 ########################
 #    LAUNCH DAEMONS    #
 ########################
-# swayidle
 exec swayidle -w \
   before-sleep 'waylock -fork-on-lock -ignore-empty-password'
-
-# wl-gammarelay-rs
 exec wl-gammarelay-rs run
