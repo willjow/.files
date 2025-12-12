@@ -122,7 +122,7 @@ bindsym $mod+Shift+space floating toggle; resize set 942 480; move position cent
 bindsym $mod+Control+space sticky toggle
 
 # scratchpad stuff
-bindsym $mod+Shift+minus sticky enable move scratchpad
+bindsym $mod+Shift+minus sticky enable; move scratchpad
 bindsym $mod+minus scratchpad show
 
 # change focus between tiling / floating windows
