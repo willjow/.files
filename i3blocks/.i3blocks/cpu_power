@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cur_uj=$(cat /sys/class/powercap/intel-rapl:0/energy_uj)
-prev_uj_file=$HOME/.prev_cpu_uj
+prev_uj_file=/tmp/i3blocks-cpu_power-prev_cpu_uj
 prev_uj=$(cat ${prev_uj_file})
 echo ${cur_uj} > ${prev_uj_file}
 
