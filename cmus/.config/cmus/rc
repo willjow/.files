@@ -3,6 +3,7 @@ set output_plugin=alsa
 set auto_expand_albums_follow=false
 set auto_expand_albums_search=false
 set auto_expand_albums_selcur=false
+set show_current_bitrate=true
 set format_current= %a - %l -%3n. %t %= %{?show_current_bitrate & bitrate>=0?%{bitrate} kbps }%{codec} | %y 
 set format_statusline= %{status}%{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}%{?stream?- buf: %{buffer} }%= %{?repeat_current?repeat current?%{?play_library?%{playlist_mode} from %{?play_sorted?sorted }library?playlist}} | %1{continue}%1{follow}%1{repeat}%1{shuffle} 
 
