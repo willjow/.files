@@ -1,3 +1,4 @@
+set output_plugin=alsa
 set color_cmdline_attr=default
 set color_cmdline_bg=default
 set color_cmdline_fg=default
