@@ -54,7 +54,6 @@ alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 alias mpv-powersave="mpv --profile=powersave"
 
 # Python venv
-alias venv-pylsp-ruff='source ~/.venv/pylsp-ruff/bin/activate'
 alias venv-streamrip='source ~/.venv/streamrip/bin/activate'
 alias venv-yt-dlp='source ~/.venv/yt-dlp-pip/bin/activate'
 
