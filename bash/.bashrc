@@ -21,6 +21,7 @@ source /usr/share/fzf/completion.bash
 
 # Aliases
 alias startw='WLR_DRM_DEVICES=/dev/dri/by-name/intel sway'
+alias bootwindows='sudo efibootmgr -n 0001 && reboot'
 alias please='sudo bash -c "$(history -p !!)"'
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
