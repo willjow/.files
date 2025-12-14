@@ -1,33 +1,32 @@
-#!/bin/bash
+#!/bin/sh
 
-_refresh()
+refresh()
 {
-    pkill -RTMIN+35 i3blocks
+    pkill -RTMIN+30 i3blocks
 }
 
-_get_temp()
+get_temp()
 {
-    busctl --user get-property rs.wl-gammarelay / rs.wl.gammarelay Temperature
+    busctl --user -- get-property rs.wl-gammarelay / rs.wl.gammarelay Temperature | cut -d ' ' -f 2
 }
 
-_set_temp()
+set_temp()
 {
-    busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q $1
+    busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q $1 > /dev/null
 }
 
-
-_update_temp()
+update_temp()
 {
-    busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n $1
+    busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n $1 > /dev/null
 }
 
 case $BLOCK_BUTTON in
-  3) _set_temp 6500 && _refresh ;; # right click
-  4) _update_temp 200 && _refresh ;; # scroll up
-  5) _update_temp -200 && _refresh ;; # scroll down
+  3) set_temp 6500 && refresh ;; # right click
+  4) update_temp 200 && refresh ;; # scroll up
+  5) update_temp -200 && refresh ;; # scroll down
 esac
 
-temp=$(_get_temp | cut -d ' ' -f 2)
+temp=$(get_temp)
 
 if [ -z "${temp}" ]; then
     exit 0;

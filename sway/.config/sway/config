@@ -338,5 +338,5 @@ output * adaptive_sync on
 ########################
 exec swayidle -w \
   before-sleep 'waylock -fork-on-lock -ignore-empty-password'
-exec wl-gammarelay-rs run
+exec wl-gammarelay
 exec easyeffects --hide-window --service-mode
