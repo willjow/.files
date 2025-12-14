@@ -335,7 +335,8 @@ output * adaptive_sync on
 ########################
 #    LAUNCH DAEMONS    #
 ########################
-exec swayidle -w \
-  before-sleep 'waylock -fork-on-lock -ignore-empty-password'
 exec wl-gammarelay
 exec easyeffects --hide-window --service-mode
+exec swayidle -w \
+  before-sleep 'sh $HOME/.config/swayidle/before-sleep.sh' \
+  after-resume 'sh $HOME/.config/swayidle/after-resume.sh'
