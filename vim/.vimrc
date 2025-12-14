@@ -405,6 +405,7 @@ let g:fzf_vim.listproc = { list -> fzf#vim#listproc#location(list) }
 let g:lspServers = []
 
 source ~/.vim/lsp_servers/lsp_c.vim
+source ~/.vim/lsp_servers/lsp_go.vim
 " source ~/.vim/lsp_servers/lsp_java.vim
 source ~/.vim/lsp_servers/lsp_javascript.vim
 source ~/.vim/lsp_servers/lsp_python.vim
