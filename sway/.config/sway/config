@@ -333,7 +333,7 @@ workspace 16 output DP-1
 # all
 output * {
     bg ~/.desktop_backgrounds/tyranitar.png fill
-    max_render_time 2
+    max_render_time off
     allow_tearing yes
     adaptive_sync on
 }
