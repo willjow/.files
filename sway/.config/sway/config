@@ -282,8 +282,10 @@ bar {
 #    INPUT    #
 ###############
 # mouse (general)
-input type:pointer accel_profile flat
-input type:pointer pointer_accel 0
+input type:pointer {
+    accel_profile flat
+    pointer_accel 0
+}
 
 # touchpad
 #
@@ -294,28 +296,31 @@ input type:pointer pointer_accel 0
 #
 # "libinput Accel Custom Motion Points" 0.000, 0.079, 0.159, 0.274, 0.393, 0.512, 0.632, 0.804, 0.985, 1.167, 1.348, 1.529, 1.711, 1.892, 2.074, 2.255, 2.436, 2.618, 2.799, 2.981, 3.355
 # "libinput Accel Custom Motion Step" 0.2031610269
-set $touchpad 'type:touchpad'
-input $touchpad dwt enabled
-input $touchpad dwtp enabled
-input $touchpad accel_profile adaptive
-input $touchpad pointer_accel 0
-input $touchpad scroll_factor 0.5
-input $touchpad scroll_method two_finger
-input $touchpad natural_scroll disabled
-input $touchpad tap disabled
-input $touchpad click_method clickfinger
-input $touchpad clickfinger_button_map lrm
-input $touchpad middle_emulation enabled
+input 'type:touchpad' {
+    dwt enabled
+    dwtp enabled
+    accel_profile adaptive
+    pointer_accel 0
+    scroll_factor 0.5
+    scroll_method two_finger
+    natural_scroll disabled
+    tap disabled
+    click_method clickfinger
+    clickfinger_button_map lrm
+    middle_emulation enabled
+}
 
 # trackpoint
-set $trackpoint '2:10:TPPS/2_Elan_TrackPoint'
-input $trackpoint accel_profile flat
-input $trackpoint pointer_accel 0.5
-input $trackpoint scroll_factor 0.5
+input '2:10:TPPS/2_Elan_TrackPoint' {
+    accel_profile flat
+    pointer_accel 0.5
+    scroll_factor 0.5
+}
 
 # keyboard (thinkpad)
-set $keyboard '1:1:AT_Translated_Set_2_keyboard'
-input $keyboard xkb_options 'caps:capslock,altwin:prtsc_rwin'
+input '1:1:AT_Translated_Set_2_keyboard' {
+    xkb_options 'caps:capslock,altwin:prtsc_rwin'
+}
 
 
 ################
@@ -326,10 +331,12 @@ workspace 11 output HDMI-1
 workspace 16 output DP-1
 
 # all
-output * bg ~/.desktop_backgrounds/tyranitar.png fill
-output * max_render_time 2
-output * allow_tearing yes
-output * adaptive_sync on
+output * {
+    bg ~/.desktop_backgrounds/tyranitar.png fill
+    max_render_time 2
+    allow_tearing yes
+    adaptive_sync on
+}
 
 
 ########################
