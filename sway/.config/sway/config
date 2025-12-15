@@ -299,7 +299,7 @@ input $touchpad dwt enabled
 input $touchpad dwtp enabled
 input $touchpad accel_profile adaptive
 input $touchpad pointer_accel 0
-input $touchpad scroll_factor 0.6
+input $touchpad scroll_factor 0.5
 input $touchpad scroll_method two_finger
 input $touchpad natural_scroll disabled
 input $touchpad tap disabled
