@@ -224,8 +224,7 @@ settings:
     global: bottom
   editor.command:
     global:
-    - urxvt
-    - -e
+    - foot
     - vim
     - '{}'
   fonts.completion.category:
