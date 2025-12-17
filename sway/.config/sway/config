@@ -300,7 +300,7 @@ input 'type:touchpad' {
     dwt enabled
     dwtp enabled
     accel_profile adaptive
-    pointer_accel 0
+    pointer_accel 0.1
     scroll_factor 0.5
     scroll_method two_finger
     natural_scroll disabled
