@@ -22,28 +22,15 @@ source /usr/share/fzf/completion.bash
 # Aliases
 alias startw='WLR_DRM_DEVICES=/dev/dri/by-name/intel sway'
 alias bootwindows='sudo efibootmgr -n 0001 && reboot'
-alias please='sudo bash -c "$(history -p !!)"'
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
 alias grep='grep --color=auto'
-alias tt='gio trash'
 alias suspend='systemctl suspend'
 alias ncwd='foot & disown'
 alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
-alias clearpac='sudo paccache -rk2 && paccache -ruk0'
 alias rsyncfat='rsync --modify-window=1'
-alias plugvga='xrandr --output VGA-1 --right-of eDP-1 --auto && . ~/.fehbg'
-alias plughdmi='xrandr --output HDMI-1 --right-of eDP-1 --auto && . ~/.fehbg'
-alias plugdp='xrandr --output DP-1 --right-of eDP-1 --mode 1920x1080 --rate 165 && . ~/.fehbg'
-alias switchhdmi='xrandr --output eDP-1 --off && xrandr --output HDMI-1 --mode 1920x1080 --rate 60 && xset s off -dpms && . ~/.fehbg'
-alias switchdp='xrandr --output eDP-1 --off && xrandr --output DP-1 --mode 1920x1080 --rate 165 && xset s off -dpms && . ~/.fehbg'
-alias unplug='xrandr --output VGA-1 --off; xrandr --output DP-1 --off; xrandr --output HDMI-1 --off; xrandr --output eDP-1 --auto; . ~/.fehbg'
-alias lpr-4tile='lpr -o number-up=4 -o orientation-requested=5 -o number-up-layout-btlr -o sides=two-sided-long-edge'
-alias bton="bluetoothctl -- power on"
-alias btoff="bluetoothctl -- power off"
-alias reencodemp3all='for dir in ./*; do reencodemp3dir "$dir"; done'
 alias yt-dlp-pip-install='pip install -U --pre "yt-dlp[default,curl-cffi]"'
 alias yt-dlp-ba='yt-dlp -f "ba" -x --embed-metadata --parse-metadata "playlist_index:%(track_number)s" -o "%(playlist_index)02d. %(title)s.%(ext)s" --embed-thumbnail'
 alias yt-dlp-ba-split='yt-dlp -f "ba" -x --embed-metadata --split-chapters -o "chapter:%(section_number)02d. %(section_title)s.%(ext)s"'
@@ -76,35 +63,45 @@ export RUSTUP_HOME="$HOME/.rust/rustup"
 export CARGO_HOME="$HOME/.rust/cargo"
 
 # Functions
-wipedisk() {
-  if [[ -e "$1" && -b "$1" ]];then
-    NOT_safe="$(lsblk -o "NAME,MOUNTPOINT" ${1//[0-9]/} | grep -e / -e '\]')";
-    if [[ -z "$NOT_safe" ]];then
-      sudo dd if=/dev/zero of="$1"
-      # Here you can use any of your favourite wiping tools
-      # to wipe destination passed on command line and stored in variable "$1"
-      #
+7zxo() {
+    7z x -o"${1%.*}" "$1"
+}
+
+cl() {
+    if [[ "$#" -eq 0 ]] || [[ "${@: -1}" == -* ]]; then
+        local dir=$HOME
     else
-      echo 'Not allowed to destroy if any of the partitions is mounted: '"$NOT_safe"
-      fi
-      fi
-    }
+        local dir="${@: -1}"
+        set -- "${@:1:$(($#-1))}"
+    fi
+
+    cd "$dir" && ls "$@"
+}
+_fzf_setup_completion path cl
+
+ddcbrightness() {
+    ddcutil setvcp 10 $1
+}
+
+ddcgain() {
+    ddcutil setvcp 16 $1
+    ddcutil setvcp 18 $1
+    ddcutil setvcp 1A $1
+}
 
 find_containing() {
     # list files matching $1 that contain $2
     find ./ -name "$1" -exec grep -l "$2" {} +
 }
 
-cplsty() {
-  cp $HOME/school/latextemplates/style.sty ${1-style.sty}
+mergepdf() {
+    outputfile="$1"
+    shift
+    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE="$outputfile" "$@"
 }
 
-cpldoc() {
-  cp $HOME/school/latextemplates/document.tex ${1-document.tex}
-}
-
-zpdfd() {
-  zathura "$1" & disown
+prevpac() {
+    expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $1
 }
 
 zathura_tail() {
@@ -117,119 +114,8 @@ zathura_tail() {
     echo "${ls_v}" | tail -n $((${limit} - ${start} + 1)) | xargs -n 1 -d '\n' zathura
 }
 
-javacr() {
-  javac $1 && java $(echo $1 | awk -F '.java' '{print $1}')
-}
-
-junittest() {
-  java org.junit.runner.JUnitCore $(echo $1 | awk -F '.java' '{print $1}')
-}
-
-prevpac() {
-  expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $1
-}
-
-7zxo() {
-  7z x -o"${1%.*}" "$1"
-}
-
-cl() {
-  if [[ "$1" == "-a" ]]; then
-    local dir="$2"
-  else
-    local dir="$1"
-  fi
-
-  local dir="${dir:=$HOME}"
-
-  if [[ -d "$dir"  ]]; then
-    if [[ "$1" == "-a" ]]; then
-      cd "$dir" >/dev/null; ls -a
-    else
-      cd "$dir" >/dev/null; ls
-    fi
-  else
-    echo "bash: cl: $dir: Directory not found"
-  fi
-}
-_fzf_setup_completion path cl
-
-mergepdf() {
-  outputfile="$1"
-  shift
-  gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOUTPUTFILE="$outputfile" "$@"
-}
-
-silenceremove() {
-    ffmpeg -i "$1" -af "silenceremove=start_periods=1:start_duration=0:start_threshold=0.04:detection=peak,areverse,silenceremove=start_periods=1:start_duration=0:start_threshold=0.04:detection=peak,areverse" "$2"
-}
-
-silenceremovedir() {
-  inputdir=$1
-  outputdir=${inputdir%/}_silenceremoved
-  mkdir "$outputdir"
-
-  for inputfile in "${inputdir}"/*.mp3; do
-    outputfile=${outputdir}/$(basename "$inputfile")
-    silenceremove "$inputfile" "$outputfile"
-  done
-}
-
-libmp3lame_convert() {
-  ffmpeg -i "$2" -c:a libmp3lame -q:a 0 -map_metadata 0 -y "${2%.*}.$1"
-}
-
-flacify() {
-  ffmpeg -i "$1" -c:a flac -compression_level 0 -y "${1%.*}.flac"
-}
-
-converttomp3() {
-  # for some reason libmp3lame causes seeking problems and lame doesn't
-  sourcef="$1"
-  base="${sourcef%.*}"
-  ext="${sourcef##*.}"
-  mp3="${base}.mp3"
-  wav="${base}.wav"
-  libmp3lame_convert wav "$sourcef"
-  lame -V 0 "$wav" "$mp3"
-  rm -v "$wav" "$sourcef"
-}
-
-converttomp3dir() {
-  for f in "$1"/*.$2; do
-    converttomp3 "$f"
-  done
-}
-
-reencodemp3() {
-  # for some reason libmp3lame causes seeking problems and lame doesn't
-  mp3="$1"
-  base="${mp3%.mp3}"
-  tagged="${base}_tagged.mp3"
-  mv -v "$mp3" "$tagged"
-  lame --mp3input -V 0 "$tagged" "$mp3"
-  id3cp "$tagged" "$mp3"
-  rm -v "$tagged"
-}
-
-reencodemp3dir() {
-  for mp3 in "$1"/*.mp3; do
-    reencodemp3 "$mp3"
-  done
-}
-
-ddcbrightness() {
-    ddcutil setvcp 10 $1
-}
-
-ddcgain() {
-    ddcutil setvcp 16 $1
-    ddcutil setvcp 18 $1
-    ddcutil setvcp 1A $1
-}
-
-qutehistory() {
-    sqlite3 ~/.qutebrowser_history "select * from history where url='$1';"
+zpdfd() {
+    zathura "$1" & disown
 }
 
 # Temporary Functions
