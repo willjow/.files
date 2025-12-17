@@ -301,7 +301,6 @@ input 'type:touchpad' {
     dwtp enabled
     accel_profile adaptive
     pointer_accel 0.1
-    scroll_factor 0.5
     scroll_method two_finger
     natural_scroll disabled
     tap disabled
@@ -314,7 +313,6 @@ input 'type:touchpad' {
 input '2:10:TPPS/2_Elan_TrackPoint' {
     accel_profile flat
     pointer_accel 0.5
-    scroll_factor 0.5
 }
 
 # keyboard (thinkpad)
