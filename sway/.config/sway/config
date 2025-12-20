@@ -40,6 +40,11 @@ focus_follows_mouse no
 mouse_warping output
 
 # hide cursor
+#
+# NOTE: `hid_cursor when-typing enable` breaks aiming, etc. when holding mouse
+# buttons and keys at the same time. This is noted in the manual as well.
+#
+# See: https://github.com/swaywm/sway/issues/6297
 seat * hide_cursor when-typing enable
 
 # use Mouse+$mod to drag floating windows to their wanted position
@@ -226,6 +231,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# enable/disable hide_cursor
+bindsym $mod+Control+m exec "swaymsg 'seat * hide_cursor when-typing disable'"
+bindsym $mod+Control+n exec "swaymsg 'seat * hide_cursor when-typing enable'"
 
 
 ########################
