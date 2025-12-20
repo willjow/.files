@@ -20,7 +20,7 @@ source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
 # Aliases
-alias startw='WLR_DRM_DEVICES=/dev/dri/by-name/intel sway'
+alias startw='WLR_DRM_DEVICES=/dev/dri/by-name/intel MESA_VK_DEVICE_SELECT=8086:9a60! sway'
 alias bootwindows='sudo efibootmgr -n 0001 && reboot'
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
