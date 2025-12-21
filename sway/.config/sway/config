@@ -196,6 +196,7 @@ bindsym $mod+Shift+bracketright move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # exit sway (logs you out of your wayland session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit wayland' 'swaymsg exit'"
 
@@ -231,8 +232,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # enable/disable hide_cursor
-bindsym $mod+Control+m exec "swaymsg 'seat * hide_cursor when-typing disable'"
-bindsym $mod+Control+n exec "swaymsg 'seat * hide_cursor when-typing enable'"
+bindsym $mod+Shift+m exec "swaymsg 'seat * hide_cursor when-typing disable'"
+bindsym $mod+Shift+n exec "swaymsg 'seat * hide_cursor when-typing enable'"
 
 
 ########################
