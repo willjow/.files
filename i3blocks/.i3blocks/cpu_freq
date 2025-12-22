@@ -13,9 +13,14 @@ if [ -z "${freq}" ]; then
   exit 0
 fi
 
-# output
-cat << EOF
-{
-    "full_text": "${freq}"
-}
-EOF
+declare -A output
+
+# Full text
+output[full_text]="${freq}"
+
+# Output
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"

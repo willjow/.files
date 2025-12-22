@@ -11,19 +11,21 @@ if [ -z "${temperature}" ]; then
     exit 0
 fi
 
+declare -A output
+
+# Full text
+output[full_text]="${temperature}°C"
+
 # Color
 if [ "${temperature}" -ge "${t_crit}" ]; then
-    color="#FF0000"
+    output[color]="#FF0000"
 elif [ "${temperature}" -ge "${t_warn}" ]; then
-    color="#FFFF00"
-else
-    color=""
+    output[color]="#FFFF00"
 fi
 
 # Output
-cat << EOF
-{
-    "full_text": "${temperature}°C",
-    "color": "${color}"
-}
-EOF
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"

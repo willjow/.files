@@ -13,25 +13,27 @@ if [ -z "${watts_raw}" ]; then
   exit 0
 fi
 
+declare -A output
+
 if [[ ${watts_int} -lt 10 ]]; then
     watts=$(printf "%.2f" "${watts_raw}")
 else
     watts=$(printf "%.1f" "${watts_raw}")
 fi
 
-# color
+# Full text
+output[full_text]="CPU ${watts}W"
+
+# Color
 if [[ ${watts_int} -ge 15 ]]; then
-    color="#FFFF00"
+    output[color]="#FFFF00"
 elif [[ ${watts_int} -ge 30 ]]; then
-    color="#FF0000"
-else
-    color=""
+    output[color]="#FF0000"
 fi
 
-# output
-cat << EOF
-{
-    "full_text": "CPU ${watts}W"
-    "color": "${color}"
-}
-EOF
+# Output
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"

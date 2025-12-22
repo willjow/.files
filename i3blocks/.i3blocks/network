@@ -17,6 +17,8 @@ if [[ ${state} != "up" ]]; then
     exit 0
 fi
 
+declare -A output
+
 ipaddr=$(ip addr show wlan0 | awk 'match($0, "inet (.+)/", groups) {print groups[1]}')
 
 if [[ ${BLOCK_INSTANCE} == "wlan*" ]]; then
@@ -38,21 +40,23 @@ else
     exit 0
 fi
 
-# color
+# Full text
+output[full_text]="${text}"
+
+# Color
 if [[ -z "${ipaddr}" ]]; then
-    color="#FF0000"
+    output[color]="#FF0000"
 elif [[ ${quality} -ge 80 ]]; then
-    color="#00FF00"
+    output[color]="#00FF00"
 elif [[ ${quality} -ge 40 ]]; then
-    color=""
+    :
 else
-    color="#FFFF00"
+    output[color]="#FFFF00"
 fi
 
-# output
-cat << EOF
-{
-    "full_text": "${text}",
-    "color": "${color}"
-}
-EOF
+# Output
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"

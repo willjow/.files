@@ -14,20 +14,23 @@ if [ -z "${watts}" ]; then
   exit 1
 fi
 
-# color
-color=""
+declare -A output
+
+# Full text
+output[full_text]="${watts}W"
+
+# Color
 if [ "${charge_status}" = "Charging" ]; then
-  color="#FF00FF"
+  output[color]="#FF00FF"
 elif [ "${charge_status}" = "Discharging" ]; then
   if [ ${watts_int} -ge ${threshold} ]; then
-    color="#FFFF00"
+    output[color]="#FFFF00"
   fi
 fi
 
-# output
-cat << EOF
-{
-    "full_text": "${watts}W",
-    "color": "${color}"
-}
-EOF
+# Output
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"

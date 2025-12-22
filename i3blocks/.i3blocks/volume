@@ -4,17 +4,19 @@ percent=$(awk '{print $2 * 100}' <<< ${volume_str})
 muted=$(awk 'index($3, "MUTED")' <<< ${volume_str})
 label=$([ "${muted}" ] && echo "MUTE" || echo "VOL")
 
-# color
+declare -A output
+
+# Full text
+output[full_text]="${label} ${percent}%"
+
+# Color
 if [ -n "${muted}" ]; then
-    color="#FFFF00"
-else
-    color=""
+    output[color]="#FFFF00"
 fi
 
-# output
-cat << EOF
-{
-    "full_text": "${label} ${percent}%",
-    "color": "${color}"
-}
-EOF
+# Output
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"

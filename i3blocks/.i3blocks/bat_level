@@ -15,46 +15,45 @@ if [ -z "${percent}" ]; then
   exit 1
 fi
 
-critical=false
+declare -A output
 
+# Urgent
+output[urgent]="false"
+
+# Full text, color
 if [ "${charge_status}" = "Discharging" ]; then
-  bat_level="BATT ${percent}% ${voltage_avg}V"
+  output[full_text]="BATT ${percent}% ${voltage_avg}V"
 
   if [ ${percent} -ge 80 ]; then
-    color="#FF00FF"
+    output[color]="#FF00FF"
   elif [ ${percent} -ge 64 ]; then
-    color="#00FF00"
+    output[color]="#00FF00"
   elif [ ${percent} -ge 40 ]; then
-    color=""
+    :
   elif [ ${percent} -ge 30 ]; then
-    color="#FFFF00"
+    output[color]="#FFFF00"
   elif [ ${percent} -ge 20 ]; then
-    color="#FF0000"
+    output[color]="#FF0000"
   else
-    color=""
-    critical=true
+    output[urgent]="true"
   fi
 elif [ "${charge_status}" = "Charging" ]; then
-  bat_level="CHRG ${percent}% ${voltage_avg}V"
+  output[full_text]="CHRG ${percent}% ${voltage_avg}V"
 
   if [ ${percent} -ge 80 ]; then
-    color="#FF00FF"
+    output[color]="#FF00FF"
   elif [ ${percent} -ge 64 ]; then
-    color="#4AA5FF"
+    output[color]="#4AA5FF"
   elif [ ${percent} -ge 40 ]; then
-    color="#00FF00"
-  else
-    color=""
+    output[color]="#00FF00"
   fi
 else
-  bat_level="HOLD ${percent}% ${voltage_avg}V"
+  output[full_text]="HOLD ${percent}% ${voltage_avg}V"
 fi
 
-# output
-cat << EOF
-{
-    "full_text": "${bat_level}",
-    "color": "${color}",
-    "urgent": ${critical}
-}
-EOF
+# Output
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"

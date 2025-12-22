@@ -11,9 +11,14 @@ else
     gpu_status="${power}W ${temperature}°C"
 fi
 
+declare -A output
+
+# Full text
+output[full_text]="GPU ${gpu_status}"
+
 # Output
-cat << EOF
-{
-    "full_text": "GPU ${gpu_status}"
-}
-EOF
+echo "{"
+for k in "${!output[@]}"; do
+    echo "\"$k\": \"${output[$k]}\""
+done
+echo "}"
