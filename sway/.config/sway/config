@@ -334,16 +334,18 @@ input '1:1:AT_Translated_Set_2_keyboard' {
 ################
 #    OUTPUT    #
 ################
-# monitor workspaces
-workspace 11 output HDMI-1
-workspace 16 output DP-1
+# DP-7: usb-c
+# DP-8: thunderbolt
+workspace 11 output HDMI-A-2
+workspace 15 output DP-7
+workspace 18 output DP-8
 
 # all
 output * {
     bg ~/.desktop_backgrounds/tyranitar.png fill
-    max_render_time off
-    allow_tearing yes
     adaptive_sync on
+    allow_tearing yes
+    max_render_time off
 }
 
 
