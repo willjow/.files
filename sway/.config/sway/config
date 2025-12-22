@@ -352,7 +352,7 @@ output * {
 ########################
 #    LAUNCH DAEMONS    #
 ########################
-exec wl-gammarelay
+exec wl-gammarelay-rs run
 exec easyeffects --hide-window --service-mode
 exec swayidle -w \
   before-sleep 'sh $HOME/.config/swayidle/before-sleep.sh' \
