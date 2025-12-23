@@ -167,6 +167,16 @@ bindsym $mod+$alt+7 workspace 17
 bindsym $mod+$alt+8 workspace 18
 bindsym $mod+$alt+9 workspace 19
 bindsym $mod+$alt+0 workspace 20
+bindsym $mod+Control+1 workspace 21
+bindsym $mod+Control+2 workspace 22
+bindsym $mod+Control+3 workspace 23
+bindsym $mod+Control+4 workspace 24
+bindsym $mod+Control+5 workspace 25
+bindsym $mod+Control+6 workspace 26
+bindsym $mod+Control+7 workspace 27
+bindsym $mod+Control+8 workspace 28
+bindsym $mod+Control+9 workspace 29
+bindsym $mod+Control+0 workspace 30
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -189,6 +199,16 @@ bindsym $mod+Shift+$alt+7 move container to workspace 17
 bindsym $mod+Shift+$alt+8 move container to workspace 18
 bindsym $mod+Shift+$alt+9 move container to workspace 19
 bindsym $mod+Shift+$alt+0 move container to workspace 20
+bindsym $mod+Shift+Control+1 move container to workspace 21
+bindsym $mod+Shift+Control+2 move container to workspace 22
+bindsym $mod+Shift+Control+3 move container to workspace 23
+bindsym $mod+Shift+Control+4 move container to workspace 24
+bindsym $mod+Shift+Control+5 move container to workspace 25
+bindsym $mod+Shift+Control+6 move container to workspace 26
+bindsym $mod+Shift+Control+7 move container to workspace 27
+bindsym $mod+Shift+Control+8 move container to workspace 28
+bindsym $mod+Shift+Control+9 move container to workspace 29
+bindsym $mod+Shift+Control+0 move container to workspace 30
 
 # move workspace to left and right monitors
 bindsym $mod+Shift+bracketleft move workspace to output left
