@@ -354,11 +354,12 @@ input '1:1:AT_Translated_Set_2_keyboard' {
 ################
 #    OUTPUT    #
 ################
+# HDMI-A-2: hdmi
 # DP-7: usb-c
 # DP-8: thunderbolt
 workspace 11 output HDMI-A-2
-workspace 15 output DP-7
-workspace 18 output DP-8
+workspace 21 output DP-7
+workspace 26 output DP-8
 
 # all
 output * {
