@@ -310,13 +310,12 @@ settings:
   tabs.show_switching_delay:
     global: 1000
   url.default_page:
-    global: https://www.google.com
+    global: https://start.duckduckgo.com/
   url.searchengines:
     global:
-      DEFAULT: https://www.google.com/search?q={}
+      DEFAULT: https://duckduckgo.com/?q={}
   url.start_pages:
-    global:
-    - https://www.google.com
+    global: https://start.duckduckgo.com
   zoom.default:
     global: 100%
   zoom.levels:
