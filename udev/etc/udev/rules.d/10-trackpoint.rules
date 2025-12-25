@@ -6,4 +6,4 @@
 # `libinput debug-events` shows 100Hz updates with the trackpoint. However,
 # setting the rate to 10 gives a noticeably choppy movement, so it must be
 # doing something...
-ACTION=="add", KERNEL=="serio2", SUBSYSTEM=="serio", DRIVERS=="psmouse", ATTR{rate}="200", ATTR{sensitivity}="255", ATTR{speed}="70"
+ACTION=="bind", KERNEL=="serio2", SUBSYSTEM=="serio", DRIVERS=="psmouse", ATTR{rate}="200", ATTR{sensitivity}="255", ATTR{speed}="70"
