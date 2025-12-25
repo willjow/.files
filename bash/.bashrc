@@ -15,6 +15,7 @@ LS_COLORS=$LS_COLORS:'di=0;35:'; export LS_COLORS
 #efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux acpi_osi" --loader /vmlinuz-linux --unicode 'root=/dev/sda2 rw initrd=/intel-ucode.img initrd=/initramfs-linux.img acpi_osi=Linux'
 
 shopt -s extglob
+shopt -s globstar
 set -o vi
 set -o ignoreeof
 
