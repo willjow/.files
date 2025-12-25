@@ -81,10 +81,7 @@ bindsym $mod+Shift+t exec urxvtd -q -f -o
 bindsym $mod+t exec urxvtc
 bindsym $mod+m exec urxvtc -e cmus
 bindsym $mod+w exec qutebrowser --backend webengine
-bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+$alt+w exec urxvtc -e elinks
-bindsym $mod+g exec dolphin-emu
-bindsym $mod+b exec thunar
 
 # start unclutter
 exec --no-startup-id unclutter --no-timeout --hide-on-key-press --jitter 15 --start-hidden --fork
@@ -177,9 +174,7 @@ bindsym $mod+z border toggle
 
 # switch to workspace
 workspace_auto_back_and_forth no
-bindsym $mod+Control+h workspace prev_on_output
-bindsym $mod+Control+l workspace next_on_output
-bindsym $mod+Control+q workspace back_and_forth
+bindsym $mod+grave workspace back_and_forth
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
