@@ -287,12 +287,14 @@ bindsym XF86MonBrightnessDown exec brightnessctl --exponent=3 set 3%-
 # Start swaybar to display a workspace bar (plus the system information
 # i3blocks finds out, if available)
 bar {
+        gaps 0
+        height 18
+        position top
+        separator_symbol "|"
         status_command i3blocks
         tray_output none
-        position top
-        height 18
-        gaps 0
-        separator_symbol "|"
+        workspace_buttons yes
+        workspace_min_width 0
         colors {
             background #000000
             statusline #dedede
