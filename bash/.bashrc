@@ -12,6 +12,7 @@ PS1="\[\033[38;5;68m\][\u@\h\[$(tput sgr0)\] \[\033[38;5;244m\]\W\[\033[38;5;68m
 LS_COLORS=$LS_COLORS:'di=0;35:'; export LS_COLORS
 
 shopt -s extglob
+shopt -s globstar
 set -o vi
 set -o ignoreeof
 
