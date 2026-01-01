@@ -11,6 +11,9 @@ let g:lspServers += [
     \           'enable': v:true,
     \         },
     \       },
+    \       'check': {
+    \         'command': 'clippy'
+    \       },
     \       'procMacro': {
     \         'enable': v:true,
     \       },
