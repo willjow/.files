@@ -5,23 +5,24 @@
 #
 # @param {String} interface: The network interface to check
 
-interface="${BLOCK_INSTANCE:-"eth0"}"
+interface_pattern="${1:-enp*}"
 net_path=/sys/class/net
-interface_path=$(echo ${net_path}/${interface})
+interface_path=$(echo ${net_path}/${interface_pattern})
 # Expand wildcard interfaces
 interface=${interface_path#${net_path}/}
 
 state="$(cat ${interface_path}/operstate)"
 
 if [[ ${state} != "up" ]]; then
-    exit 0
+    echo "{}"
+    exit 1
 fi
 
 declare -A output
 
-ipaddr=$(ip addr show wlan0 | awk 'match($0, "inet (.+)/", groups) {print groups[1]}')
+ipaddr=$(ip addr show ${interface} | awk 'match($0, "inet (.+)/", groups) {print groups[1]}')
 
-if [[ ${BLOCK_INSTANCE} == "wlan*" ]]; then
+if [[ ${interface_pattern} == "wlan*" ]]; then
     quality=$(grep ${interface} /proc/net/wireless | awk '{print int($3 * 100 / 70)}')
     ssid="$(iw ${interface} link | grep SSID | cut -d ' ' -f 2)"
     IFS=' ' read -r down up <<< $(\
@@ -30,33 +31,38 @@ if [[ ${BLOCK_INSTANCE} == "wlan*" ]]; then
         | cut -d " " -f 3 \
         | paste -sd " " \
     )
-    speed=$(printf "%d↓ %d↑" "${down}" "${up}")
+    speed=$(printf "%.0f↓ %.0f↑" "${down}" "${up}")
     text="${quality}% ${speed} Mb/s (${ssid})"
-elif [[ ${BLOCK_INSTANCE} == "enp*" ]]; then
+    label="W:"
+elif [[ ${interface_pattern} == "enp*" ]]; then
     quality=100
     speed=$(cat ${interface_path}/speed)
     text="${speed} Mb/s"
+    label="E:"
 else
-    exit 0
+    echo "{}"
+    exit 1
 fi
 
 # Full text
-output[full_text]="${text}"
+output[text]="${label} ${text}"
 
-# Color
+# State
 if [[ -z "${ipaddr}" ]]; then
-    output[color]="#FF0000"
+    output[state]="Warning"
 elif [[ ${quality} -ge 80 ]]; then
-    output[color]="#00FF00"
+    output[state]="Good"
 elif [[ ${quality} -ge 40 ]]; then
-    :
+    output[state]="Idle"
 else
-    output[color]="#FFFF00"
+    output[state]="Info"
 fi
 
 # Output
+keys=("${!output[@]}")
 echo "{"
-for k in "${!output[@]}"; do
-    echo "\"$k\": \"${output[$k]}\""
+for k in "${keys[@]:0:${#keys[@]}-1}"; do
+    echo "\"$k\": \"${output[$k]}\","
 done
+echo "\"${keys[-1]}\": \"${output[${keys[-1]}]}\""
 echo "}"

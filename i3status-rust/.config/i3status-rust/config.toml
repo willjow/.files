@@ -1,0 +1,192 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "native"
+
+[theme.overrides]
+idle_fg     = ""         # default
+good_fg     = "#00ff00"  # green
+info_fg     = "#ffff00"  # yellow
+warning_fg  = "#ff0000"  # red
+critical_bg = "#ff0000"
+critical_fg = "#ffffff"  # white on red
+
+separator_fg = "#777777"
+start_separator = ""
+separator = " | "
+end_separator = ""
+
+
+# DualShock 3 controller battery
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/ds3_battery.sh"
+interval = 300
+
+format = "$text.pango-str()"
+hide_when_empty = true
+json = true
+
+
+# Ethernet
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/network.sh 'enp*'"
+interval = 60
+
+format = "$text.pango-str()"
+hide_when_empty = true
+json = true
+
+
+# WiFi
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/network.sh 'wlan*'"
+interval = 60
+
+format = "$text.pango-str()"
+hide_when_empty = true
+json = true
+
+
+# Memory
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/memory.sh mem"
+interval = 60
+
+format = "$text.pango-str()"
+json = true
+
+
+# GPU
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/gpu.sh"
+# NOTE: the interval must be greater than the time it takes for the gpu to
+# suspend after running `nvidia-smi`
+interval = 60
+
+format = "$text.pango-str()"
+json = true
+
+
+# CPU
+# -----------------------------------------------------------------------------
+# CPU Power
+[[block]]
+block = "custom"
+# NOTE: the interval needs to be passed to the command in order to calculate
+# average power
+command = "~/.bar_blocks/cpu_power.sh 12"
+interval = 12
+
+format = "$text.pango-str() "
+json = true
+merge_with_next = true
+
+# CPU Temperature
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/cpu_temp.sh thinkpad-isa-0000"
+interval = 12
+
+format = "$text.pango-str() "
+json = true
+merge_with_next = true
+
+
+# CPU frequency
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/cpu_freq.sh"
+interval = 12
+
+format = "$text.pango-str()"
+json = true
+
+
+# Display color temperature
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/color_temp.sh"
+interval = "once"
+
+format = "$text.pango-str()"
+json = true
+signal = 30
+
+[[block.click]]
+button = "right"
+cmd = "BLOCK_BUTTON=right ~/.bar_blocks/color_temp.sh"
+update = true
+
+[[block.click]]
+button = "wheel_up"
+cmd = "BLOCK_BUTTON=wheel_up ~/.bar_blocks/color_temp.sh"
+update = true
+
+[[block.click]]
+button = "wheel_down"
+cmd = "BLOCK_BUTTON=wheel_down ~/.bar_blocks/color_temp.sh"
+update = true
+
+
+# Volume
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/volume.sh"
+interval = "once"
+
+format = "$text.pango-str()"
+json = true
+signal = 10
+
+
+# Battery
+# -----------------------------------------------------------------------------
+# Battery level
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/bat_level.sh 53 69"
+interval = 60
+
+format = "$text.pango-str() "
+json = true
+merge_with_next = true
+
+[block.theme_overrides]
+info_fg     = "#4aa5ff"  # blue
+good_fg     = "#00ff00"  # green
+warning_fg  = "#ffff00"  # yellow
+
+
+# Battery power
+[[block]]
+block = "custom"
+command = "~/.bar_blocks/bat_power.sh"
+interval = 60
+
+format = "$text.pango-str()"
+json = true
+
+[block.theme_overrides]
+good_fg = "#ff00ff"  # (charging) magenta
+
+
+# Time
+# -----------------------------------------------------------------------------
+[[block]]
+block = "custom"
+command = "date '+%a, %b %d %I:%M:%S %p'"
+interval = 1
+
+format = "$text.pango-str()"

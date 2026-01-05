@@ -7,16 +7,18 @@ label=$([ "${muted}" ] && echo "MUTE" || echo "VOL")
 declare -A output
 
 # Full text
-output[full_text]="${label} ${percent}%"
+output[text]="${label} ${percent}%"
 
-# Color
+# State
 if [ -n "${muted}" ]; then
-    output[color]="#FFFF00"
+    output[state]="Info"
 fi
 
 # Output
+keys=("${!output[@]}")
 echo "{"
-for k in "${!output[@]}"; do
-    echo "\"$k\": \"${output[$k]}\""
+for k in "${keys[@]:0:${#keys[@]}-1}"; do
+    echo "\"$k\": \"${output[$k]}\","
 done
+echo "\"${keys[-1]}\": \"${output[${keys[-1]}]}\""
 echo "}"

@@ -21,25 +21,31 @@ update_temp()
 }
 
 case $BLOCK_BUTTON in
-  3) set_temp 6500 && refresh ;; # right click
-  4) update_temp 200 && refresh ;; # scroll up
-  5) update_temp -200 && refresh ;; # scroll down
+    right)
+        set_temp 6500 && refresh ;;
+    wheel_up)
+        update_temp 200 && refresh ;;
+    wheel_down)
+        update_temp -200 && refresh ;;
 esac
 
 temp=$(get_temp)
 
 if [ -z "${temp}" ]; then
-    exit 0;
+    echo "{}"
+    exit 1
 fi
 
 declare -A output
 
 # Full text
-output[full_text]="CT ${temp}K"
+output[text]="CT ${temp}K"
 
 # Output
+keys=("${!output[@]}")
 echo "{"
-for k in "${!output[@]}"; do
-    echo "\"$k\": \"${output[$k]}\""
+for k in "${keys[@]:0:${#keys[@]}-1}"; do
+    echo "\"$k\": \"${output[$k]}\","
 done
+echo "\"${keys[-1]}\": \"${output[${keys[-1]}]}\""
 echo "}"

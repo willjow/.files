@@ -14,11 +14,13 @@ fi
 declare -A output
 
 # Full text
-output[full_text]="GPU ${gpu_status}"
+output[text]="GPU ${gpu_status}"
 
 # Output
+keys=("${!output[@]}")
 echo "{"
-for k in "${!output[@]}"; do
-    echo "\"$k\": \"${output[$k]}\""
+for k in "${keys[@]:0:${#keys[@]}-1}"; do
+    echo "\"$k\": \"${output[$k]}\","
 done
+echo "\"${keys[-1]}\": \"${output[${keys[-1]}]}\""
 echo "}"
