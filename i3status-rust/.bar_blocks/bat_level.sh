@@ -28,7 +28,7 @@ if [ "${charge_status}" = "Discharging" ]; then
         output[state]="Warning"
     elif [ ${percent} -ge ${charge_start_thresh} ]; then
         output[state]="Good"
-    elif [ ${percent} -ge 40 ]; then
+    elif [ ${percent} -ge 35 ]; then
         output[state]="Idle"
     elif [ ${percent} -ge 20 ]; then
         output[state]="Warning"
