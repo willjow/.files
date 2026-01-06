@@ -13,7 +13,7 @@ critical_fg = "#ffffff"  # white on red
 
 separator_fg = "#777777"
 start_separator = ""
-separator = " | "
+separator = "\u31d1"  # use fullwidth CJK character for spacing
 end_separator = ""
 
 
@@ -79,7 +79,7 @@ json = true
 
 # CPU
 # -----------------------------------------------------------------------------
-# CPU Power
+# CPU power
 [[block]]
 block = "custom"
 # NOTE: the interval needs to be passed to the command in order to calculate
@@ -91,7 +91,7 @@ format = "$text.pango-str() "
 json = true
 merge_with_next = true
 
-# CPU Temperature
+# CPU temperature
 [[block]]
 block = "custom"
 command = "~/.bar_blocks/cpu_temp.sh thinkpad-isa-0000"
