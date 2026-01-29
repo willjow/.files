@@ -34,11 +34,12 @@
         trace: (fg: "magenta", bg: "black"),
     ),
     progress_bar: (
-        symbols: ["█", "█", "█", " ", "█"],
-        track_style: None,
+        // symbols: ["█", "█", "█", " ", "█"],
+        symbols: ["╞", "═", "▰═", "═", "═╡"],
+        track_style: (fg: "dark_gray"),
         elapsed_style: (fg: "blue"),
         thumb_style: (fg: "blue"),
-        use_track_when_empty: true,
+        use_track_when_empty: false,
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
@@ -119,26 +120,30 @@
                 pane: Pane(TabContent),
             ),
             (
+                size: "2",
+                pane: Component("current_track"),
+            ),
+            (
+                size: "1",
+                pane: Split(
+                    direction: Horizontal,
+                    panes: [
+                        (
+                            size: "100%",
+                            borders: "NONE",
+                            border_symbols: Rounded,
+                            pane: Component("progress_bar"),
+                        ),
+                    ]
+                ),
+            ),
+            (
                 size: "1",
                 pane: Split(
                     direction: Horizontal,
                     panes: [
                         (size: "50%", pane: Component("play_status")),
                         (size: "50%", pane: Component("queue_totals")),
-                    ]
-                ),
-            ),
-            (
-                size: "3",
-                pane: Split(
-                    direction: Horizontal,
-                    panes: [
-                        (
-                            size: "100%",
-                            borders: "ALL",
-                            border_symbols: Rounded,
-                            pane: Component("progress_bar"),
-                        ),
                     ]
                 ),
             ),
@@ -163,7 +168,7 @@
         "volume": Split(
             direction: Horizontal,
             panes: [
-                (size: "1", pane: Pane(Property(content: [(kind: Text(""))]))),
+                (size: "1", pane: Pane(Empty())),
                 (size: "100%", pane: Pane(Volume(kind: Slider(symbols: (filled: "─", thumb: "●", track: "─"))))),
                 (size: "3", pane: Pane(Property(content: [(kind: Property(Status(Volume)), style: (fg: "blue"))], align: Right))),
                 (size: "2", pane: Pane(Property(content: [(kind: Text("%"), style: (fg: "blue"))]))),
@@ -290,10 +295,6 @@
         "progress_bar": Split(
             direction: Horizontal,
             panes: [
-                (
-                    size: "1",
-                    pane: Pane(Empty())
-                ),
                 (
                     size: "100%",
                     pane: Pane(ProgressBar)
