@@ -267,7 +267,7 @@ bindsym $mod+d exec --no-startup-id BEMENU_SCALE=1 \
 
 # program binds
 bindsym $mod+t exec foot
-bindsym $mod+m exec foot cmus
+bindsym $mod+m exec foot rmpc
 bindsym $mod+w exec qutebrowser
 
 # volume controls
