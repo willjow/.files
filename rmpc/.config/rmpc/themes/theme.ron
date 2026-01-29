@@ -194,9 +194,9 @@
             ],
             align: Left,
         )),
-        "artist_and_album": Pane(Property(
+        "albumartist_and_album": Pane(Property(
             content: [
-                (kind: Property(Song(Artist)), style: (fg: "yellow", modifiers: "Bold"),
+                (kind: Property(Song(Other("albumartist"))), style: (fg: "yellow", modifiers: "Bold"),
                     default: (kind: Text("Unknown"), style: (fg: "yellow", modifiers: "Bold"))),
                 (kind: Text(" - ")),
                 (kind: Property(Song(Album)), default: (kind: Text("Unknown Album"))),
@@ -284,7 +284,7 @@
             direction: Vertical,
             panes: [
                 (size: "1", pane: Component("title")),
-                (size: "1", pane: Component("artist_and_album")),
+                (size: "1", pane: Component("albumartist_and_album")),
             ]
         ),
         "queue_totals": Pane(Property(
