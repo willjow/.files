@@ -32,6 +32,7 @@
         horizontal_align: Center,
     ),
     keybinds: (
+        clear: true,
         global: {
             "q":          Quit,
             "?":          ShowHelp,
@@ -149,21 +150,33 @@
                 direction: Horizontal,
                 panes: [
                     (
-                        size: "35%",
+                        size: "31%",
                         pane: Split(
                             direction: Vertical,
                             panes: [
                                 (
                                     size: "100%",
-                                    borders: "ALL",
+                                    borders: "LEFT | RIGHT | TOP",
                                     border_symbols: Rounded,
                                     pane: Pane(AlbumArt)
+                                ),
+                                (
+                                    size: "1",
+                                    borders: "LEFT | RIGHT",
+                                    border_symbols: Rounded,
+                                    pane: Pane(Empty())
+                                ),
+                                (
+                                    size: "3",
+                                    borders: "LEFT | RIGHT | BOTTOM",
+                                    border_symbols: Rounded,
+                                    pane: Component("current_track")
                                 ),
                             ],
                         ),
                     ),
                     (
-                        size: "65%",
+                        size: "69%",
                         pane: Split(
                             direction: Vertical,
                             panes: [

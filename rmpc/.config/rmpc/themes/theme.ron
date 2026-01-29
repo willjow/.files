@@ -104,40 +104,29 @@
         direction: Vertical,
         panes: [
             (
-                size: "4",
+                size: "1",
                 pane: Split(
                     direction: Horizontal,
                     panes: [
-                        (
-                            size: "35",
-                            borders: "LEFT | TOP | BOTTOM",
-                            border_symbols: Inherited(parent: Rounded, bottom_left: "├"),
-                            pane: Component("header_left")
-                        ),
-                        (
-                            size: "100%",
-                            borders: "ALL",
-                            border_symbols: Inherited(parent: Rounded, top_left: "┬", top_right: "┬", bottom_left: "┴", bottom_right: "┴"),
-                            pane: Component("header_center")
-                        ),
-                        (
-                            size: "7",
-                            borders: "RIGHT | TOP | BOTTOM",
-                            border_symbols: Inherited(parent: Rounded, bottom_right: "┤"),
-                            pane: Component("header_right")
-                        ),
-                    ]
-                )
+                        (size: "10", pane: Component("volume")),
+                        (size: "100%", pane: Pane(Tabs)),
+                        (size: "10", pane: Component("states")),
+                    ],
+                ),
             ),
             (
-                pane: Pane(Tabs),
-                borders: "RIGHT | LEFT | BOTTOM",
-                border_symbols: Rounded,
-                size: "2",
-            ),
-            (
-                pane: Pane(TabContent),
                 size: "100%",
+                pane: Pane(TabContent),
+            ),
+            (
+                size: "1",
+                pane: Split(
+                    direction: Horizontal,
+                    panes: [
+                        (size: "50%", pane: Component("play_status")),
+                        (size: "50%", pane: Component("queue_totals")),
+                    ]
+                ),
             ),
             (
                 size: "3",
@@ -145,17 +134,9 @@
                     direction: Horizontal,
                     panes: [
                         (
-                            size: "12",
-                            borders: "ALL",
-                            border_symbols: Inherited(parent: Rounded, top_right: "┬", bottom_right: "┴"),
-                            pane: Component("input_mode")
-                        ),
-                        (
                             size: "100%",
-                            borders: "TOP | BOTTOM | RIGHT",
+                            borders: "ALL",
                             border_symbols: Rounded,
-                            border_title: [(kind: Text(" ")), (kind: Property(Status(QueueLength()))), (kind: Text(" songs / ")), (kind: Property(Status(QueueTimeTotal()))), (kind: Text(" total time "))],
-                            border_title_alignment: Right,
                             pane: Component("progress_bar"),
                         ),
                     ]
@@ -164,12 +145,14 @@
         ],
     ),
     components: {
-        "state": Pane(Property(
+        "track_play_state": Pane(Property(
             content: [
-                (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
-                (kind: Property(Status(StateV2( ))), style: (fg: "yellow", modifiers: "Bold")),
-                (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold")),
-            ], align: Left,
+                (kind: Property(Status(StateV2(
+                    playing_label: ">>",
+                    paused_label: "||",
+                    stopped_label: "..",
+                    ))), style: (fg: "yellow", modifiers: "Bold")),
+            ], align: Center,
         )),
         "title": Pane(Property(
             content: [
@@ -229,7 +212,11 @@
                 ),
                 (
                     size: "100%",
-                    pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "blue"), align: Left)]))
+                    pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "blue"), align: Right)]))
+                ),
+                (
+                    size: "1",
+                    pane: Pane(Empty())
                 ),
                 (
                     size: "6",
@@ -253,7 +240,7 @@
                             oneshot_label: "c",
                             on_style: (fg: "yellow", modifiers: "Bold"),
                             off_style: (fg: "blue", modifiers: "Dim"),
-                            oneshot_style: (fg: "red", modifiers: "Dim"),
+                            oneshot_style: (fg: "red", modifiers: "Bold"),
                         )))),
                         (kind: Property(Status(SingleV2(
                             on_label: "v",
@@ -268,6 +255,10 @@
                         align: Right
                     ))
                 ),
+                (
+                    size: "1",
+                    pane: Pane(Empty())
+                ),
             ]
         ),
         "input_mode": Pane(Property(
@@ -278,27 +269,24 @@
                 ])))
             ], align: Center
         )),
-        "header_left": Split(
-            direction: Vertical,
+        "play_status": Split(
+            direction: Horizontal,
             panes: [
-                (size: "1", pane: Component("state")),
-                (size: "1", pane: Component("elapsed_and_bitrate")),
+                (size: "4", pane: Component("track_play_state")),
+                (size: "100%", pane: Component("elapsed_and_bitrate")),
             ]
         ),
-        "header_center": Split(
+        "current_track": Split(
             direction: Vertical,
             panes: [
                 (size: "1", pane: Component("title")),
                 (size: "1", pane: Component("artist_and_album")),
             ]
         ),
-        "header_right": Split(
-            direction: Vertical,
-            panes: [
-                (size: "1", pane: Component("volume")),
-                (size: "1", pane: Component("states")),
-            ]
-        ),
+        "queue_totals": Pane(Property(
+            content: [(kind: Text(" ")), (kind: Property(Status(QueueLength()))), (kind: Text(" songs / ")), (kind: Property(Status(QueueTimeTotal()))), (kind: Text(" total time "))],
+            align: Right,
+        )),
         "progress_bar": Split(
             direction: Horizontal,
             panes: [
