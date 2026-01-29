@@ -48,7 +48,7 @@ alias mpv-powersave="mpv --profile=powersave"
 
 # Python venv
 alias venv-streamrip='source ~/.venv/streamrip/bin/activate'
-alias venv-yt-dlp='source ~/.venv/yt-dlp-pip/bin/activate'
+alias venv-yt-dlp='source ~/.venv/yt-dlp/bin/activate'
 
 # Temporary aliases
 
