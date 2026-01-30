@@ -13,7 +13,9 @@ critical_fg = "#ffffff"  # white on red
 
 separator_fg = "#777777"
 start_separator = ""
-separator = "\u31d1"  # use fullwidth CJK character for spacing
+# use fullwidth CJK character for separator spacing
+# symbol: ㇑
+separator = "\u31d1"
 end_separator = ""
 
 
