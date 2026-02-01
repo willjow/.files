@@ -153,10 +153,13 @@
         "track_play_state": Pane(Property(
             content: [
                 (kind: Property(Status(StateV2(
-                    playing_label: ">>",
-                    paused_label: "||",
-                    stopped_label: "..",
-                    ))), style: (fg: "yellow", modifiers: "Bold")),
+                    playing_label: " \u{25B6}",
+                    paused_label: " \u{23F8}",
+                    stopped_label: " \u{23F9}",
+                    playing_style: (fg: "green"),
+                    paused_style: (fg: "white"),
+                    stopped_style: (fg: "red"),
+                    )))),
             ], align: Center,
         )),
         "title": Pane(Property(
