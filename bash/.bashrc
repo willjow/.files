@@ -37,7 +37,7 @@ alias fpac='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 
 alias fbsym='find . -type l -! -exec test -e {} \; -print'
 alias updmirrorlist="sudo reflector --verbose -c 'United States' -l 200 -p http -f 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias rsyncfat='rsync --modify-window=1'
-alias yt-dlp-pip-install='pip install -U --pre "yt-dlp[default,curl-cffi]"'
+alias yt-dlp-pip-install='uv pip install -U --pre "yt-dlp[default,curl-cffi]"'
 alias yt-dlp-ba='yt-dlp -f "ba" -x --embed-metadata --parse-metadata "playlist_index:%(track_number)s" -o "%(playlist_index)02d. %(title)s.%(ext)s" --embed-thumbnail'
 alias yt-dlp-ba-split='yt-dlp -f "ba" -x --embed-metadata --split-chapters -o "chapter:%(section_number)02d. %(section_title)s.%(ext)s"'
 alias yt-dlp-1080avc='yt-dlp -f "(bv*[height<=?1080][vcodec~='\''^(avc|h264)'\'']+ba)"'
