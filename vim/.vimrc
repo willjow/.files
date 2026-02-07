@@ -129,26 +129,26 @@ hi ExtraWhitespace ctermbg=9 ctermfg=15 cterm=None
 " Also, Title was originally set only for the default tabline which is no
 " longer in use anyway
 "
-" hi Title ctermfg=16 ctermbg=68 cterm=None
-hi TabLineFill ctermfg=16 ctermbg=0 cterm=None
-hi TabLine ctermfg=188 ctermbg=238 cterm=None
-hi TabLineSel ctermfg=16 ctermbg=68 cterm=None
-
-hi StatusLine ctermbg=68 ctermfg=16 cterm=None
-hi StatusLineTerm ctermbg=68 ctermfg=16 cterm=None
-hi StatusLineNC ctermbg=234 ctermfg=188 cterm=None
-hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
-
-hi VertSplit ctermbg=238 ctermfg=68 cterm=None
-
+" hi Title ctermbg=68 ctermfg=16 cterm=None
+hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
+hi Conceal ctermbg=0 ctermfg=11 cterm=None
 hi CursorLine ctermbg=None ctermfg=None cterm=None
 hi CursorLineNr ctermbg=None ctermfg=11 cterm=None
-
-hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
-
-hi Conceal ctermfg=11 ctermbg=0 cterm=None
-
-hi Visual ctermfg=0 ctermbg=10 cterm=None
+hi IncSearch ctermbg=4 ctermfg=15 cterm=bold
+hi Search ctermbg=4 ctermfg=0 cterm=underline
+hi SpellBad ctermbg=9 ctermfg=0 term=reverse
+hi SpellCap ctermbg=12 ctermfg=0 term=reverse
+hi SpellLocal ctermbg=14 ctermfg=0 term=underline
+hi SpellRare ctermbg=13 ctermfg=0 term=reverse
+hi StatusLine ctermbg=68 ctermfg=16 cterm=None
+hi StatusLineNC ctermbg=234 ctermfg=188 cterm=None
+hi StatusLineTerm ctermbg=68 ctermfg=16 cterm=None
+hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
+hi TabLine ctermbg=238 ctermfg=188 cterm=None
+hi TabLineFill ctermbg=0 ctermfg=16 cterm=None
+hi TabLineSel ctermbg=68 ctermfg=16 cterm=None
+hi VertSplit ctermbg=238 ctermfg=68 cterm=None
+hi Visual ctermbg=10 ctermfg=0 cterm=None
 
 " Trailing Whitespace highlighting
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
