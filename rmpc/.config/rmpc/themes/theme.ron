@@ -109,7 +109,7 @@
                 pane: Split(
                     direction: Horizontal,
                     panes: [
-                        (size: "10", pane: Component("volume")),
+                        (size: "11", pane: Component("volume")),
                         (size: "100%", pane: Pane(Tabs)),
                         (size: "10", pane: Component("states")),
                     ],
