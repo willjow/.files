@@ -134,12 +134,24 @@ hi ColorColumn ctermbg=124 ctermfg=188 cterm=None
 hi Conceal ctermbg=0 ctermfg=11 cterm=None
 hi CursorLine ctermbg=None ctermfg=None cterm=None
 hi CursorLineNr ctermbg=None ctermfg=11 cterm=None
+hi VertSplit ctermbg=238 ctermfg=68 cterm=None
+hi Visual ctermbg=10 ctermfg=0 cterm=None
+
+hi DiffAdd ctermbg=4 ctermfg=0
+hi DiffChange ctermbg=13 ctermfg=0
+hi DiffDelete ctermbg=14 ctermfg=0
+hi DiffText ctermbg=9 ctermfg=0 cterm=bold
+hi link DiffTextAdd DiffText
+
+hi CurSearch ctermbg=4 ctermfg=15 cterm=bold
 hi IncSearch ctermbg=4 ctermfg=15 cterm=bold
 hi Search ctermbg=4 ctermfg=0 cterm=underline
+
 hi SpellBad ctermbg=9 ctermfg=0 term=reverse
 hi SpellCap ctermbg=12 ctermfg=0 term=reverse
 hi SpellLocal ctermbg=14 ctermfg=0 term=underline
 hi SpellRare ctermbg=13 ctermfg=0 term=reverse
+
 hi StatusLine ctermbg=68 ctermfg=16 cterm=None
 hi StatusLineNC ctermbg=234 ctermfg=188 cterm=None
 hi StatusLineTerm ctermbg=68 ctermfg=16 cterm=None
@@ -147,8 +159,6 @@ hi StatusLineTermNC ctermbg=234 ctermfg=188 cterm=None
 hi TabLine ctermbg=238 ctermfg=188 cterm=None
 hi TabLineFill ctermbg=0 ctermfg=16 cterm=None
 hi TabLineSel ctermbg=68 ctermfg=16 cterm=None
-hi VertSplit ctermbg=238 ctermfg=68 cterm=None
-hi Visual ctermbg=10 ctermfg=0 cterm=None
 
 " Trailing Whitespace highlighting
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
