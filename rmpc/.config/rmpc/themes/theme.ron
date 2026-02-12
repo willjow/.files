@@ -166,7 +166,7 @@
             content: [
                 (kind: Property(Song(Title)), style: (modifiers: "Bold"),
                     default: (kind: Text("No Song"), style: (modifiers: "Bold"))),
-            ], align: Center, scroll_speed: 1
+            ], align: Center, scroll_speed: 4
         )),
         "volume": Split(
             direction: Horizontal,
@@ -210,7 +210,7 @@
                     (kind: Property(Song(Other("date")))),
                     (kind: Text(")")),
                 ])),
-            ], align: Center, scroll_speed: 1
+            ], align: Center, scroll_speed: 4
         )),
         "states": Split(
             direction: Horizontal,
