@@ -21,20 +21,8 @@ source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
 # Aliases
-alias startw="$(cat <<- EOF
-    WLR_DRM_DEVICES=/dev/dri/by-name/intel \
-    MESA_VK_DEVICE_SELECT=8086:9a60! \
-    sway
-EOF
-)"
-
-alias startw-nvidia="$(cat <<- EOF
-    WLR_DRM_DEVICES=/dev/dri/by-name/intel:/dev/dri/by-name/nvidia \
-    MESA_VK_DEVICE_SELECT=8086:9a60! \
-    sway --unsupported-gpu
-EOF
-)"
-
+alias startw='. ~/.config/sway/sway-intel.sh'
+alias startw-nvidia='. ~/.config/sway/sway-nvidia.sh'
 alias bootwindows='sudo efibootmgr -n 0001 && reboot'
 alias ls='ls --color=auto'
 alias vim='vim --servername vim'
