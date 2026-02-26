@@ -268,8 +268,6 @@ autocmd! TabLeave * let g:ptab_backup = g:ptab | let g:ptab = tabpagenr()
 autocmd! TabClosed * let g:ptab = g:ptab_backup
 nnoremap gT :exe 'tabn ' . g:ptab<CR>
 nnoremap <C-n> :tabnew.<CR>
-nnoremap gf :tablast<CR>
-nnoremap gF :tabfirst<CR>
 nnoremap gl :tabm +<CR>
 nnoremap gh :tabm -<CR>
 nnoremap gm :tabm<Space>
@@ -445,17 +443,21 @@ let g:lspOpts = {
     \ }
 autocmd User LspSetup call LspOptionsSet(g:lspOpts)
 
-nnoremap <leader>pc :call popup_clear()<CR>
 nnoremap <leader>ca :LspCodeAction<CR>
 nnoremap <leader>dc :LspDiag current<CR>
 nnoremap <leader>ds :LspDiag show<CR>
 nnoremap <leader>ff :LspFormat<CR>
 vnoremap <leader>ff :LspFormat<CR>
-nnoremap <leader>gf :LspGotoDefinition<CR>
-nnoremap <leader>gc :LspGotoDeclaration<CR>
-nnoremap <leader>gi :LspGotoImpl<CR>
-nnoremap <leader>gt :LspGotoTypeDef<CR>
+nnoremap <leader>gcb :LspGotoDeclaration<CR>
+nnoremap <leader>gct :tab LspGotoDeclaration<CR>
+nnoremap <leader>gfb :LspGotoDefinition<CR>
+nnoremap <leader>gft :tab LspGotoDefinition<CR>
+nnoremap <leader>gib :LspGotoImpl<CR>
+nnoremap <leader>git :tab LspGotoImpl<CR>
+nnoremap <leader>gtb :LspGotoTypeDef<CR>
+nnoremap <leader>gtt :tab LspGotoTypeDef<CR>
 nnoremap <leader>hv :LspHover<CR>
+nnoremap <leader>pc :call popup_clear()<CR>
 nnoremap <leader>rf :LspShowReferences<CR>
 
 " Toggle Diagnostic Highlight
