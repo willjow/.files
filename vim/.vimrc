@@ -255,9 +255,6 @@ endfunction
 
 vnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
-" Buffers
-nnoremap gB :b #<CR>
-
 " Tabs
 " Switch to last-active tab
 if !exists('g:ptab')
@@ -368,6 +365,10 @@ call plug#end()
 
 " fzf
 " ---
+let g:fzf_vim = {}
+" open lists as location lists
+let g:fzf_vim.listproc = { list -> fzf#vim#listproc#location(list) }
+
 function! CD(...)
   call fzf#run(fzf#wrap({
     \'source': 'command fd --type d --hidden --follow --exclude ''.git'' . '.(a:0 == 0 ? getcwd() : a:1),
@@ -403,9 +404,10 @@ nnoremap <C-k> :Files!<CR>
 " full-word
 nnoremap <C-j> :RG!<CR>
 
-" open lists as location lists
-let g:fzf_vim = {}
-let g:fzf_vim.listproc = { list -> fzf#vim#listproc#location(list) }
+" misc commands
+nnoremap <leader>/ :BLines<CR>
+nnoremap <leader>b :Buffer<CR>
+nnoremap <leader>w :Windows<CR>
 
 
 " lsp
