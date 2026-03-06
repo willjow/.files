@@ -96,6 +96,10 @@ find_containing() {
     find ./ -name "$1" -exec grep -l "$2" {} +
 }
 
+flac2mp3() {
+    find . -type f -name "*.flac" | parallel --plus ffmpeg -i "{}" -ab 320k -map_metadata 0 -id3v2_version 3 "{%.flac}.mp3"
+}
+
 mergepdf() {
     outputfile="$1"
     shift
