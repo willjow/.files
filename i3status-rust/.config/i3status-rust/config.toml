@@ -158,7 +158,7 @@ signal = 10
 # Battery level
 [[block]]
 block = "custom"
-command = "~/.bar_blocks/bat_level.sh 53 69"
+command = "~/.bar_blocks/bat_level.sh 53 64"
 interval = 60
 
 format = "$text.pango-str() "
