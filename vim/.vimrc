@@ -123,8 +123,6 @@ hi User2 ctermbg=238 ctermfg=188 cterm=None
 hi User3 ctermbg=234 ctermfg=188 cterm=None
 hi User4 ctermbg=124 ctermfg=188 cterm=None
 
-hi ExtraWhitespace ctermbg=9 ctermfg=15 cterm=None
-
 " Messes with html titles and I can't be bothered to manually reassign those
 " Also, Title was originally set only for the default tabline which is no
 " longer in use anyway
@@ -161,6 +159,7 @@ hi TabLineFill ctermbg=0 ctermfg=16 cterm=None
 hi TabLineSel ctermbg=68 ctermfg=16 cterm=None
 
 " Trailing Whitespace highlighting
+hi ExtraWhitespace ctermbg=9 ctermfg=15 cterm=None
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
