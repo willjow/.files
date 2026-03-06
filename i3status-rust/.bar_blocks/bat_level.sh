@@ -24,7 +24,7 @@ declare -A output
 if [ "${charge_status}" = "Discharging" ]; then
     output[text]="BATT ${percent}% ${voltage_avg}V"
 
-    if [ ${percent} -ge ${charge_stop_thresh} ]; then
+    if [ ${percent} -gt ${charge_stop_thresh} ]; then
         output[state]="Warning"
     elif [ ${percent} -ge ${charge_start_thresh} ]; then
         output[state]="Good"
@@ -38,7 +38,7 @@ if [ "${charge_status}" = "Discharging" ]; then
 elif [ "${charge_status}" = "Charging" ]; then
     output[text]="CHRG ${percent}% ${voltage_avg}V"
 
-    if [ ${percent} -ge ${charge_stop_thresh} ]; then
+    if [ ${percent} -gt ${charge_stop_thresh} ]; then
         output[state]="Warning"
     elif [ ${percent} -ge ${charge_start_thresh} ]; then
         output[state]="Info"
@@ -46,7 +46,16 @@ elif [ "${charge_status}" = "Charging" ]; then
         output[state]="Good"
     fi
 else
+    # Plugged in; not charging
     output[text]="HOLD ${percent}% ${voltage_avg}V"
+
+    if [ ${percent} -gt ${charge_stop_thresh} ]; then
+        output[state]="Info"
+    elif [ ${percent} -ge ${charge_start_thresh} ]; then
+        output[state]="Idle"
+    else
+        output[state]="Warning"
+    fi
 fi
 
 # Output

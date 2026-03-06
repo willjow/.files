@@ -166,8 +166,8 @@ json = true
 merge_with_next = true
 
 [block.theme_overrides]
-info_fg     = "#4aa5ff"  # blue
 good_fg     = "#00ff00"  # green
+info_fg     = "#4aa5ff"  # blue
 warning_fg  = "#ffff00"  # yellow
 
 
