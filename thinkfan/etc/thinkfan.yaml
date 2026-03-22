@@ -119,14 +119,18 @@ levels:
 
   - speed: 150
     lower_limit: [60, 60]
-    upper_limit: [70, 70]
+    upper_limit: [75, 75]
 
   - speed: 200
     lower_limit: [65, 65]
-    upper_limit: [75, 75]
+    upper_limit: [80, 80]
+
+  - speed: 240
+    lower_limit: [75, 75]
+    upper_limit: [85, 85]
 
   - speed: 255
-    lower_limit: [70, 70]
+    lower_limit: [80, 80]
 
 ##############################################################################
 
