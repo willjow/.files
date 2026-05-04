@@ -64,7 +64,7 @@ amixer -q -c 1 set Speaker mute
 easyeffects --gapplication-service &
 
 # restore color profile
-sh $HOME/.toggle_redshift.sh restore
+bash $HOME/.toggle_redshift.sh restore
 
 # background
 sh $HOME/.fehbg

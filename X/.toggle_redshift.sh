@@ -20,7 +20,7 @@ fi
 # Set redshift level
 i=$(($(< $INDICATOR_FILE) + 1))
 
-if (($i >= ${#CCT[@]})); then
+if [[ -n "$1" && "$1" = "restore" ]] || (($i >= ${#CCT[@]})); then
     reset_temp
     . $DEFAULT_COLOR
     echo '-1' > $INDICATOR_FILE
