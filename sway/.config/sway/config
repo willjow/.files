@@ -381,5 +381,7 @@ output * {
 exec wl-gammarelay-rs run
 exec easyeffects --hide-window --service-mode
 exec swayidle -w \
-  before-sleep 'sh $HOME/.config/swayidle/before-sleep.sh' \
-  after-resume 'sh $HOME/.config/swayidle/after-resume.sh'
+    before-sleep 'sh $HOME/.config/swayidle/before-sleep.sh' \
+    after-resume 'sh $HOME/.config/swayidle/after-resume.sh' \
+    timeout 3600 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"'
