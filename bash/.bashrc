@@ -39,9 +39,6 @@ alias yt-dlp-1080avc='yt-dlp --embed-metadata --embed-subs --write-auto-subs --w
 alias yt-dlp-ba='yt-dlp -f "ba" -x --embed-metadata --parse-metadata "playlist_index:%(track_number)s" -o "%(playlist_index)02d. %(title)s.%(ext)s" --embed-thumbnail'
 alias yt-dlp-ba-split='yt-dlp -f "ba" -x --embed-metadata --split-chapters -o "chapter:%(section_number)02d. %(section_title)s.%(ext)s"'
 alias yt-dlp-metadata-subs='yt-dlp --embed-metadata --embed-subs --write-auto-subs --write-subs'
-alias bannedcamp='python $HOME/school/compsci/misc/bandcamp_not_safe/dl_album.py'
-alias muxivfarm='python $HOME/school/compsci/misc/muxiv_farmer/dl_album.py'
-alias riptistory='python $HOME/school/compsci/misc/rip_tistory/dl_album.py'
 alias mpv-powersave="mpv --profile=powersave"
 
 # Python venv
