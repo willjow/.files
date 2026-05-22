@@ -2,7 +2,7 @@
 
 refresh()
 {
-    pkill -RTMIN+30 i3blocks
+    pkill -x -RTMIN+30 i3blocks
 }
 
 get_temp()
