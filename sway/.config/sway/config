@@ -274,10 +274,18 @@ bindsym $mod+w exec qutebrowser
 # volume controls
 # use pactl to adjust volume in PulseAudio.
 set $refresh_blocks pkill -x -RTMIN+10 i3status-rs
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 2%+ && $refresh_blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 2%- && $refresh_blocks
-bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle && $refresh_blocks
-bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id \
+    wpctl set-volume @DEFAULT_SINK@ 2%+ && $refresh_blocks
+
+bindsym XF86AudioLowerVolume exec --no-startup-id \
+    wpctl set-volume @DEFAULT_SINK@ 2%- && $refresh_blocks
+
+bindsym XF86AudioMute exec --no-startup-id \
+    wpctl set-mute @DEFAULT_SINK@ toggle && $refresh_blocks
+
+bindsym XF86AudioMicMute exec --no-startup-id \
+    wpctl set-mute @DEFAULT_SOURCE@ toggle
 
 # brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl --exponent=3 set 3%+
