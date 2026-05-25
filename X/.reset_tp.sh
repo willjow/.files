@@ -11,7 +11,7 @@ tposet() { xinput set-prop "${trackpoint}" "$@"; }
 tpaset() { xinput set-prop "${touchpad}" "$@"; }
 
 # trackpoint
-tposet "Coordinate Transformation Matrix" 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1
+tposet "Coordinate Transformation Matrix" 1.0, 0, 0, 0, 1.0, 0, 0, 0, 1
 tposet "libinput Accel Speed" 0  # in [-1, 1]
 tposet "libinput Accel Profile Enabled" 0, 1, 0  # adaptive, flat, custom
 tposet "libinput Scrolling Pixel Distance" 10  # 10 seems to be the min
