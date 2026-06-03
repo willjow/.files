@@ -40,6 +40,7 @@ alias yt-dlp-ba='yt-dlp -f "ba" -x --embed-metadata --parse-metadata "playlist_i
 alias yt-dlp-ba-split='yt-dlp -f "ba" -x --embed-metadata --split-chapters -o "chapter:%(section_number)02d. %(section_title)s.%(ext)s"'
 alias yt-dlp-metadata-subs='yt-dlp --embed-metadata --embed-subs --write-auto-subs --write-subs'
 alias mpv-powersave="mpv --profile=powersave"
+alias slurp-grim="slurp | grim -g -"
 
 # Python venv
 alias venv-streamrip='source ~/.venv/streamrip/bin/activate'
