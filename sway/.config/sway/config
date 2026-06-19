@@ -270,6 +270,7 @@ bindsym $mod+d exec --no-startup-id BEMENU_SCALE=1 \
 bindsym $mod+t exec foot
 bindsym $mod+m exec foot rmpc
 bindsym $mod+w exec qutebrowser
+bindsym $mod+Shift+w exec firefox
 
 # volume controls
 # use pactl to adjust volume in PulseAudio.
