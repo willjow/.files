@@ -869,6 +869,8 @@ config.bind(";o", "hint links fill :open -t {hint-url}")
 config.bind(";p", "hint all run :open -p {hint-url}")
 config.unbind("<Ctrl+Shift+t>")
 config.unbind("<Ctrl+Shift+w>")
+config.bind("<Ctrl+d>", "cmd-run-with-count 13 scroll down")
+config.bind("<Ctrl+u>", "cmd-run-with-count 13 scroll up")
 config.bind("<Ctrl+q>", "stop")
 config.unbind("<Ctrl+w>")
 config.bind(
