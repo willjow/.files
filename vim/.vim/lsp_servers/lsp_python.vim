@@ -2,7 +2,7 @@ let g:lspServers += [
     \   {
     \     'name': 'basedpyright',
     \     'filetype': ['python'],
-    \     'path': 'basedpyright-langserver',
+    \     'path': expand('~/.local/bin/basedpyright-langserver'),
     \     'args': ['--stdio'],
     \     'features': {
     \       'codeAction': v:false,
