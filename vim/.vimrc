@@ -503,13 +503,11 @@ nnoremap <leader>ur :call UltiSnips#RefreshSnippets()<CR>
 " vimtex
 " ------
 " autocmd FileType tex setlocal spell spelllang=en_us
-let g:tex_flavor = 'latex'
-let g:vimtex_view_use_temp_files = 1
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_matchparen_enabled = 1
-let g:matchup_override_vimtex = 1
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_offscreen = {}
+let g:matchup_override_vimtex = 1
+let g:tex_flavor = 'latex'
+let g:vimtex_matchparen_enabled = 1
 let g:vimtex_syntax_conceal = {
     \   'accents': 1,
     \   'ligatures': 1,
@@ -525,3 +523,5 @@ let g:vimtex_syntax_conceal = {
     \   'sections': 0,
     \   'styles': 1,
     \ }
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_use_temp_files = 1
