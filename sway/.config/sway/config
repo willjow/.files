@@ -384,8 +384,11 @@ workspace 26 output DP-8
 # all
 output * {
     bg ~/.desktop_backgrounds/tyranitar.png fill
+    # See:
+    # * https://blurbusters.com/gsync/gsync101-input-lag-tests-and-settings/15/#faq-2
+    # * https://blurbusters.com/gsync/gsync101-input-lag-tests-and-settings/15/#faq-1
     adaptive_sync on
-    allow_tearing yes
+    allow_tearing no
     max_render_time off
 }
 
